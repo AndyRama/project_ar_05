@@ -35,7 +35,7 @@ export const Hero = () => {
             <p className="mt-6 max-w-2xl text-base leading-relaxed
                           text-muted-foreground sm:text-lg">
               En 30 minutes, on identifie exactement quels process de votre business
-              peuvent être automatisés avec l'I.A. — et combien ça vous ferait gagner.
+              peuvent être automatisés avec l'I.A — et combien ça vous ferait gagner.
             </p>
 
             {/* CTAs */}
