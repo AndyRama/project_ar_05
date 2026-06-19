@@ -7,6 +7,7 @@ import { StoryCardGrid } from "@/features/landing/story-card-grid";
 import { SectionDivider } from "@/features/landing/section-divider";
 import { Testimonials } from "@/features/landing/testimonials";
 import { Offers } from "@/features/landing/offers";
+import { About } from "@/features/landing/about";
 import { Footer } from "@/features/layout/footer";
 import { ScrollingGallery } from "@/features/landing/scrolling-galery";
 import { CtaBanner } from "@/features/landing/cta-banner";
@@ -34,7 +35,7 @@ export default function HomePage() {
 
       {/* <CardGrid/> */}
 
-      {/* <Profile/> */}
+      <About/>
 
       <Testimonials />       
 

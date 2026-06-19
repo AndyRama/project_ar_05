@@ -1,19 +1,19 @@
 import { Typography } from "@/components/nowts/typography";
-import { ShieldCheck, Bot, Zap, Code2, CheckCircle } from "lucide-react";
+import { Trophy, Dumbbell, Salad, CheckCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const VALUES = [
-  { icon: Bot, label: "Expert Claude & LLM" },
-  { icon: ShieldCheck,  label: "100% conforme RGPD" },
-  { icon: Code2,        label: "Développeur Full Stack" },
-  { icon: Zap,          label: "Résultats concrets" },
+  { icon: Dumbbell,  label: "Coach sportif expert" },
+  { icon: Trophy,    label: "+350 transformations réussies" },
+  { icon: Salad,     label: "Nutrition personnalisée" },
+  { icon: CheckCircle, label: "Résultats concrets & durables" },
 ];
 
 const COMMITMENTS = [
-  "Je vous accompagne et vous forme à l'intégration de l'I.A",
-  "J'intègre l'I.A. directement dans vos process métier.",
-  "Je déploie un écosystème souverain, hébergé et sécurisé",
+  "Je t'accompagne avec un programme 100% personnalisé, adapté à tes objectifs.",
+  "Je t'intègre un plan nutrition sur mesure : sèche, prise de masse ou rééquilibrage.",
+  "Je suis disponible 7j/7 via WhatsApp pour un suivi continu et motivant.",
 ];
 
 export const About = () => {
@@ -37,15 +37,15 @@ export const About = () => {
             className="mt-4 text-3xl font-semibold tracking-tight
                        text-balance sm:text-4xl"
           >
-            Développeur Full Stack & expert I.A <br />
-            au service de votre business
+            Coach sportif & expert en transformation physique <br />
+            au service de tes objectifs
           </Typography>
 
           <Typography
             variant="large"
             className="text-muted-foreground mt-4 text-lg text-pretty"
           >
-            Du code, automatisation et intelligence artificielle — pour des résultats concrets, pas des promesses.
+            Entraînement rigoureux, nutrition équilibrée et suivi personnalisé — pour un mode de vie sain et durable, pas des promesses en l'air.
           </Typography>
         </div>
 
@@ -59,8 +59,8 @@ export const About = () => {
             <div className="relative">
               <div className="overflow-hidden rounded-xl">
                 <Image
-                  src="/images/andy-ramaroson.jpeg"
-                  alt="Andy Ramaroson"
+                  src="/images/jeremy.jpg"
+                  alt="Jeremy Prat"
                   width={600}
                   height={500}
                   className="h-[420px] w-full object-cover object-top"
@@ -69,16 +69,16 @@ export const About = () => {
               </div>
               {/* Caption */}
               <div className="absolute bottom-0 left-0 right-0
-                              rounded-b-xl  bg-black/60 px-4 py-3
+                              rounded-b-xl bg-black/60 px-4 py-3
                               backdrop-blur-sm">
                 <p className="text-sm font-semibold text-white">
-                  Andy Ramaroson
+                  Jeremy Prat
                 </p>
                 <p className="text-xs text-gray-300">
-                  Fondateur, Mon agent Ai
+                  Fondateur, Unlcoaching
                 </p>
                 <p className="text-xs text-gray-300">
-                  Développeur Full Stack & Intégrateur I.A.
+                  Coach sportif & expert en transformation physique
                 </p>
               </div>
             </div>
@@ -88,16 +88,16 @@ export const About = () => {
 
               {/* Texte intro */}
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Avant de créer{" "}
+                Ma passion pour le fitness et la santé globale m'a amené à créer{" "}
                 <strong className="font-semibold text-foreground">
-                  Mon agent Ai
+                  Unlcoaching
                 </strong>
-                , j'ai passé des années à développer des applications web avec {" "} 
-                <Link href="https://www.project-ar-01.vercel.app" target="_blank" className=""><strong className="font-semibold text-orange-500">Lemurian Agency</strong></Link>{" "} et à
-                explorer l'écosystème I.A. de l'intérieur. Aujourd'hui, je mets
-                cette double expertise au service d'un seul objectif:{" "} <br/>
+                , une plateforme dédiée aux transformations physiques réelles. Spécialisé dans la perte de poids, la prise de muscle et la préparation aux compétitions, j'accompagne chaque client avec une méthode structurée et humaine. Aujourd'hui, plus de{" "}
+                <strong className="font-semibold text-orange-500">350 transformations réussies</strong>{" "}
+                plus tard, mon objectif reste le même :{" "}
+                <br />
                 <strong className="font-semibold text-foreground">
-                  vous donner les clées d'un eco système autonome qui convertit et des agents I.A. qui travaillent pour vous.
+                  t'aider à libérer ton plein potentiel, durablement.
                 </strong>
               </p>
 
@@ -145,12 +145,12 @@ export const About = () => {
 
               {/* CTA */}
               <Link
-                href="/about"
+                href="/prestations"
                 className="inline-flex items-center gap-1.5 text-sm
                            font-semibold text-orange-500 transition-colors
                            hover:text-orange-400"
               >
-                Découvrir mon histoire complète →
+                Découvrir mes programmes →
               </Link>
 
             </div>
