@@ -1,9 +1,8 @@
 "use client";
 
 import { Typography } from "@/components/nowts/typography";
-import { Check, ChevronLeft, ChevronRight } from "lucide-react";
+import { Check } from "lucide-react";
 import Link from "next/link";
-import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type Offer = {
@@ -86,25 +85,6 @@ const OFFERS: Offer[] = [
 ];
 
 export const Offers = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const scroll = (dir: "left" | "right") => {
-    if (!scrollRef.current) return;
-    scrollRef.current.scrollBy({
-      left: dir === "left" ? -320 : 320,
-      behavior: "smooth",
-    });
-  };
-
-  const onScroll = () => {
-    if (!scrollRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    setCanScrollLeft(scrollLeft > 0);
-    setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 4);
-  };
-
   return (
     <section className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -119,33 +99,33 @@ export const Offers = () => {
                        dark:border-orange-800/60 dark:bg-orange-950/60
                        dark:text-orange-300"
           >
-            Artisans & BTP
+            Pack Musculation / Perte de poids
           </span>
 
           <Typography
             variant="h2"
             className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl"
           >
-            Choisissez votre niveau d'intégration I.A.
+            Choisis le programme adapté à tes objectifs
           </Typography>
 
           <Typography
             variant="large"
             className="text-muted-foreground mt-4 text-lg text-balance"
           >
-            De la formation solo à l'écosystème I.A. d'entreprise — souverain,
-            conforme RGPD et taillé pour votre métier.
+            Coaching sportif personnalisé, suivi nutritionnel et accompagnement
+            sur mesure — pour des résultats durables, à ton rythme.
           </Typography>
         </div>
 
         {/* ── Pain points ── */}
         <div className="mt-8 flex flex-wrap justify-center gap-2">
           {[
-            "devis non relancés",
-            "appels manqués sur chantier",
-            "agenda mal géré",
-            "zéro visibilité en ligne",
-            "factures impayées",
+            "manque de motivation",
+            "alimentation déséquilibrée",
+            "objectifs jamais atteints",
+            "pas de suivi personnalisé",
+            "manque de temps",
           ].map((pain) => (
             <span
               key={pain}
@@ -156,43 +136,8 @@ export const Offers = () => {
           ))}
         </div>
 
-        {/* ── Flèches ── */}
-        <div className="mt-6 flex justify-end gap-2">
-          <button
-            onClick={() => scroll("left")}
-            disabled={!canScrollLeft}
-            aria-label="Précédent"
-            className={cn(
-              "flex size-8 items-center justify-center rounded-full",
-              "border border-border bg-card transition-all",
-              "hover:border-orange-500/50 hover:text-orange-500",
-              "disabled:cursor-not-allowed disabled:opacity-30"
-            )}
-          >
-            <ChevronLeft size={16} />
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            disabled={!canScrollRight}
-            aria-label="Suivant"
-            className={cn(
-              "flex size-8 items-center justify-center rounded-full",
-              "border border-border bg-card transition-all",
-              "hover:border-orange-500/50 hover:text-orange-500",
-              "disabled:cursor-not-allowed disabled:opacity-30"
-            )}
-          >
-            <ChevronRight size={16} />
-          </button>
-        </div>
-
-        {/* ── Carousel ── */}
-        <div
-          ref={scrollRef}
-          onScroll={onScroll}
-          className="mt-4 flex gap-4 pb-4
-                     [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
+        {/* ── Cartes (grille fixe, 3 offres) ── */}
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {OFFERS.map((offer) => (
             <OfferCard key={offer.id} {...offer} />
           ))}
@@ -221,7 +166,7 @@ const OfferCard = ({
   return (
     <div
       className={cn(
-        "relative flex w-[280px] shrink-0 flex-col rounded-2xl",
+        "relative flex w-full flex-col rounded-2xl",
         "overflow-visible p-4 transition-all",
         "hover:-translate-y-1 hover:shadow-md hover:shadow-black/5",
         "dark:hover:shadow-black/20",
