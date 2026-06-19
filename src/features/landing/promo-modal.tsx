@@ -6,7 +6,7 @@ type PromoModalProps = {
   onClose: () => void;
 }
 
-const PromoModal = ({ isOpen, onClose }: PromoModalProps) => {
+export const PromoModal = ({ isOpen, onClose }: PromoModalProps) => {
   const [copied, setCopied] = React.useState(false);
   const promoCode = "UNLBOOSTER";
 
@@ -91,5 +91,3 @@ const PromoModal = ({ isOpen, onClose }: PromoModalProps) => {
     </>
   );
 };
-
-export default PromoModal;
