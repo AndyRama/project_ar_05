@@ -29,7 +29,7 @@ export const Hero = () => {
               {/* Titre */}
               <h1 className="text-4xl font-bold tracking-tight text-balance
                              text-foreground sm:text-5xl lg:text-6xl lg:leading-tight">
-                Jeremy Prat{" "}
+                Jeremy Prat {" "}
                 <span className="text-orange-500">
                   Coaching Personnel
                 </span>
