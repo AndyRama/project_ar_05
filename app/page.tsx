@@ -16,7 +16,7 @@ import { ScrollingGallery } from "@/features/landing/scrolling-galery";
 import { PromoModal } from "@/features/landing/promo-modal";
 import { FAQSection } from "@/features/landing/faq-accordion";
 import { Typography } from "@/components/nowts/typography";
-import RecentPosts from "@/features/landing/RecentPosts";
+import RecentPosts from "@/features/landing/recent-posts";
 
 
 export default function HomePage() {
@@ -114,7 +114,6 @@ export default function HomePage() {
       <SectionDivider />
       
       {/* <Ebook/> */}
-
 
       <FAQSection 
         faq={[
