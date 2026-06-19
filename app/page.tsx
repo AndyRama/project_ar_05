@@ -16,6 +16,7 @@ import { ScrollingGallery } from "@/features/landing/scrolling-galery";
 import { PromoModal } from "@/features/landing/promo-modal";
 import { FAQSection } from "@/features/landing/faq-accordion";
 import { Typography } from "@/components/nowts/typography";
+import RecentPosts from "@/features/landing/RecentPosts";
 
 
 export default function HomePage() {
@@ -38,6 +39,8 @@ export default function HomePage() {
       <ScrollingGallery />
 
       <Offers/>
+
+      <SectionDivider />
 
       <CardGridImage />
 
@@ -76,15 +79,42 @@ export default function HomePage() {
         onClose={() => setIsModalOpen(false)} 
       />
 
-      <SectionDivider />    
+      <SectionDivider />
 
-      {/* <CtaBanner /> */}
+      {/* Blog Content */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <div className="flex flex-col items-center gap-2">
+          <Typography
+            variant="p"
+            className="max-w-xl font-bold text-orange-500"
+          >
+            Recentes
+          </Typography>
+          <Typography variant="h2" className="max-w-xl">
+            Blog
+          </Typography>
+        </div>
+      </motion.div>
 
-      {/* <RecentBlog/> */}
-
+      <motion.div
+        className="mt-28"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <RecentPosts />
+      </motion.div>
+ 
+      <SectionDivider />
+      
       {/* <Ebook/> */}
 
-      <SectionDivider />
 
       <FAQSection 
         faq={[
