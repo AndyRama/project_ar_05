@@ -25,6 +25,7 @@ export const UserPlanDialog = () => {
         <div className="mt-8 flex w-full justify-center gap-4 max-md:flex-col lg:mt-12 lg:gap-8 xl:gap-12">
           {AUTH_PLANS.map((card, i) => (
             // <PricingCard key={i} plan={card} />
+            <div key={i} />
           ))}
         </div>
       </DialogContent>
