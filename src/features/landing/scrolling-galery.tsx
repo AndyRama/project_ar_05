@@ -87,7 +87,7 @@ const GradientBackground = () => (
 
 // ── Main ──────────────────────────────────────────────────────────
 
-export default function ScrollingGallery() {
+export function ScrollingGallery() {
   const col1 = buildColumn(0);
   const col2 = buildColumn(1);
   const col3 = buildColumn(2);
