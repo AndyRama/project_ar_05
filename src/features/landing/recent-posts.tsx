@@ -116,7 +116,7 @@ export const RecentPosts = () => {
             <Link
               href="/posts"
               className={cn(
-                buttonVariants({ size: "md", variant: "default" }),
+                buttonVariants({ size: "sm", variant: "default" }),
                 "text-base font-bold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg bg-orange-600 hover:bg-orange-700",
               )}
             >
