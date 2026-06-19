@@ -29,7 +29,7 @@ export const About = () => {
                            text-orange-700 uppercase
                            dark:border-orange-800/60 dark:bg-orange-950/60
                            dark:text-orange-300">
-            À propos
+            Coach sportif
           </span>
 
           <Typography
@@ -37,7 +37,7 @@ export const About = () => {
             className="mt-4 text-3xl font-semibold tracking-tight
                        text-balance sm:text-4xl"
           >
-            Coach sportif & expert en transformation physique <br />
+             Expert en transformation physique <br />
             au service de tes objectifs
           </Typography>
 
@@ -45,7 +45,7 @@ export const About = () => {
             variant="large"
             className="text-muted-foreground mt-4 text-lg text-pretty"
           >
-            Entraînement rigoureux, nutrition équilibrée et suivi personnalisé — pour un mode de vie sain et durable, pas des promesses en l'air.
+            Entraînement rigoureux, nutrition équilibrée et suivi personnalisé — pour un mode de vie sain et <br/> durable, pas des promesses en l'air.
           </Typography>
         </div>
 
@@ -63,7 +63,7 @@ export const About = () => {
                   alt="Jeremy Prat"
                   width={600}
                   height={500}
-                  className="h-[420px] w-full object-cover object-top"
+                  className="h-auto w-full object-cover object-top"
                   priority
                 />
               </div>
