@@ -4,7 +4,7 @@ import {
   LayoutHeader,
   LayoutTitle,
 } from "@/features/page/layout";
-import { Pricing } from "@/features/plans/pricing-section-V1";
+// import { Pricing } from "@/features/plans/pricing-section-V1";
 import { combineWithParentMetadata } from "@/lib/metadata";
 import { getUserActiveSubscription } from "@/lib/user/get-user-subscription";
 import { UserBilling } from "./user-billing";
@@ -28,7 +28,7 @@ export default async function OrgBillingPage() {
             </LayoutDescription>
           </LayoutHeader>
         </Layout>
-        <Pricing />
+        {/* <Pricing /> */}
       </>
     );
   }
