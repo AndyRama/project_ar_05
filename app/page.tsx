@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { LandingHeader } from "@/features/landing/landing-header";
 import { Hero } from "@/features/landing/hero";
 import { ForWhoSection } from "@/features/landing/for-who-section";
