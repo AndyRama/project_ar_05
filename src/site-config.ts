@@ -2,7 +2,7 @@ export const SiteConfig = {
   title: "Unlcoaching",
   description: "",
   prodUrl: "https://project-ar-05.vercel.app/",
-  appId: "AgentAi",
+  appId: "Unlcoaching",
   domain: "demo.nowts.app",
   appIcon: "/images/icon.png",
   company: {

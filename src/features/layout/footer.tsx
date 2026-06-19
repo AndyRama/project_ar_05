@@ -48,8 +48,8 @@ const NAV_COLUMNS = [
 
 const CONTACT = [
   { icon: Mail, label: "Email", value: "lemurian734@gmail.com" },
-  { icon: Phone, label: "Téléphone", value: "06 30 83 28 75" },
-  { icon: MapPin, label: "Adresse", value: "Bordeaux, Gironde" },
+  { icon: Phone, label: "Instagram", value: "https://www.instagram.com/unlcoaching.school/" },
+  { icon: MapPin, label: "Facebook", value: "https://www.facebook.com/Unlcoaching" },
 ] as const;
 
 export function Footer() {
