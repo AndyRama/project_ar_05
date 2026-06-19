@@ -18,7 +18,7 @@ import { PromoModal } from "@/features/landing/promo-modal";
 import { FAQSection } from "@/features/landing/faq-accordion";
 import { Typography } from "@/components/nowts/typography";
 import RecentPosts from "@/features/landing/recent-posts";
-import { PricingEbook } from "@/features/prestations/ebook/pricing-section-ebook";
+import { PricingEbook } from "@/features/prestations/pricing-section-ebook";
 
 
 export default function HomePage() {
