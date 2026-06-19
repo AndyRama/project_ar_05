@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ScrollTopButton } from "./footer-scroll-top";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Instagram, Facebook, MapPin, ArrowUpRight } from "lucide-react";
 import { SiteConfig } from "@/site-config";
 
 const NAV_COLUMNS = [
@@ -47,9 +47,9 @@ const NAV_COLUMNS = [
 ] as const;
 
 const CONTACT = [
-  { icon: Mail, label: "Email", value: "lemurian734@gmail.com" },
-  { icon: Phone, label: "Instagram", value: "https://www.instagram.com/unlcoaching.school/" },
-  { icon: MapPin, label: "Facebook", value: "https://www.facebook.com/Unlcoaching" },
+  { icon: Mail, label: "Email", value: "lemurian734@gmail.com", href: "mailto:lemurian734@gmail.com" },
+  { icon: Instagram, label: "Instagram", value: "@unlcoaching.school", href: "https://www.instagram.com/unlcoaching.school/" },
+  { icon: Facebook, label: "Facebook", value: "Unlcoaching", href: "https://www.facebook.com/Unlcoaching" },
 ] as const;
 
 export function Footer() {
@@ -73,22 +73,27 @@ export function Footer() {
             </Link>
 
             <p className="text-muted-foreground max-w-xs text-sm leading-relaxed">
-              J'intègre et déploie un écosystème d'agents I.A. directement dans
-              vos process métier — pour des résultats concrets et mesurables.
+              Coaching sportif sur mesure pour perdre du poids, retrouver la forme et
+              gagner en confiance — un accompagnement humain, des résultats concrets.
             </p>
 
             {/* Contact */}
             <ul className="flex flex-col gap-3">
-              {CONTACT.map(({ icon: Icon, label, value }) => (
+              {CONTACT.map(({ icon: Icon, label, value, href }) => (
                 <li key={label} className="flex items-center gap-3">
                   <div className="border-border bg-muted/30 flex size-8 shrink-0 items-center justify-center rounded-full border">
                     <Icon size={13} className="text-orange-500" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-muted-foreground text-xs">
-                      {label}
-                    </span>
-                    <span className="text-foreground text-sm">{value}</span>
+                    <span className="text-muted-foreground text-xs">{label}</span>
+                    <Link
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-foreground hover:text-orange-500 text-sm transition-colors"
+                    >
+                      {value}
+                    </Link>
                   </div>
                 </li>
               ))}
