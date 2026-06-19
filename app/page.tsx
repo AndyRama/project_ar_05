@@ -3,7 +3,7 @@ import { LandingHeader } from "@/features/landing/landing-header";
 import { Hero } from "@/features/landing/hero";
 import { ForWhoSection } from "@/features/landing/for-who-section";
 import { TransformationCard } from "@/features/landing/transformation-card";
-import {StoryCardGrid from} "@/features/landing/story-card-grid"
+import { StoryCardGrid } from "@/features/landing/story-card-grid";
 import { SectionDivider } from "@/features/landing/section-divider";
 import { Testimonials } from "@/features/landing/testimonials";
 import { Footer } from "@/features/layout/footer";
