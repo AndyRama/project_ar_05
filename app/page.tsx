@@ -1,3 +1,4 @@
+"use client";
 
 import { LandingHeader } from "@/features/landing/landing-header";
 import { Hero } from "@/features/landing/hero";
