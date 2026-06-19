@@ -8,7 +8,7 @@ import { SectionDivider } from "@/features/landing/section-divider";
 import { Testimonials } from "@/features/landing/testimonials";
 import { Offers } from "@/features/landing/offers";
 import { About } from "@/features/landing/about";
-import { CardGrid } from "@/features/landing/card-grid";
+import { CardGridImage  } from "@/features/landing/card-grid";
 import { Footer } from "@/features/layout/footer";
 import { ScrollingGallery } from "@/features/landing/scrolling-galery";
 import { PromoModal } from "@/features/landing/promo-modal";
@@ -34,7 +34,7 @@ export default function HomePage() {
 
       <Offers/>
 
-      <CardGrid/>
+      <CardGridImage />
 
       <About/>
 
