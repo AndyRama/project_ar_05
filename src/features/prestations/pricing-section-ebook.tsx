@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Typography } from "@/components/nowts/typography";
 import { SectionLayout } from "../../landing/SectionLayout";
-import { PricingCard, type PricingCardProps } from "../pricing-card-ebook";
+import { PricingCard, type PricingCardProps } from "./pricing-card-ebook";
 
 export type PricingProps = {
   cards: PricingCardProps[];
