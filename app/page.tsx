@@ -8,7 +8,6 @@ import { SectionDivider } from "@/features/landing/section-divider";
 import { Testimonials } from "@/features/landing/testimonials";
 import { Footer } from "@/features/layout/footer";
 import { ScrollingGallery } from "@/features/landing/scrolling-galery";
-// import { AuditFormAIAct } from "@/features/landing/audit-ia-act/audit-form";
 import { CtaBanner } from "@/features/landing/cta-banner";
 import { FAQSection } from "@/features/landing/faq-accordion";
 
@@ -30,55 +29,48 @@ export default function HomePage() {
 
       <ScrollingGallery />
 
+      {/* <AbonnementCard/> */}
+
+      {/* <CardGrid/> */}
+
+      {/* <Profile/> */}
+
       <Testimonials />       
 
-      {/* <AuditFormAIAct /> */}
-
       <CtaBanner />
+
+      {/* <RecentBlog/> */}
+
+      {/* <Ebook/> */}
 
       <SectionDivider />
 
       <FAQSection 
         faq={[
           {
-            question: "Combien de temps avant de voir les premiers résultats ?",
+            question: "Qu'est-ce que unlcoaching.com ?",
             answer:
-              "Pour un agent I.A. ou une automatisation simple, les premiers résultats sont visibles dès les 2 à 4 premières semaines. Pour un écosystème complet (hébergement, RAG, intégrations métier), comptez 4 à 8 semaines de déploiement. On vous donne un calendrier précis dès l'audit — pas d'approximation.",
+              "Unlcoaching est une plateforme dédiée au coaching sportif et au développement personnel. Elle aide les utilisateurs à atteindre leurs objectifs de santé et de bien-être grâce à des programmes de coaching personnalisés et des articles de blog informatifs.",
           },
           {
-            question: "Est-ce que mes données sont en sécurité ?",
+            question: "Quels services propose unlcoaching.com ?",
             answer:
-              "Oui. Toutes nos solutions sont conçues conformément au RGPD dès la conception : hébergement souverain sur votre domaine, données qui ne transitent pas chez des tiers, droits d'accès documentés. Vous restez propriétaire à 100% de vos données et pouvez nous retirer les accès à tout moment.",
+              "Nous proposons une gamme de services, y compris des séances de coaching individuel, des programmes de remise en forme, et un blog regorgeant de conseils sur la nutrition, l'entraînement et le développement personnel.",
           },
           {
-            question: "Je ne suis pas technique — est-ce que je peux quand même utiliser vos solutions ?",
+            question: "Comment puis-je m'inscrire à un programme de coaching ?",
             answer:
-              "C'est exactement pour ça qu'on inclut la formation. On ne vous livre pas un outil et on disparaît. Vos équipes sont accompagnées pour prendre en main, piloter et faire évoluer l'écosystème en autonomie. Si vous bloquez, on est disponibles.",
+              "Vous pouvez vous inscrire à un programme en visitant notre page d'accueil et en sélectionnant l'option 'S'inscrire'. Vous serez guidé à travers un processus simple pour choisir le programme qui correspond le mieux à vos besoins.",
           },
           {
-            question: "Quelle est la différence entre le plan Solo, Team et Enterprise ?",
+            question: "Quels sont les avantages du coaching avec unlcoaching.com ?",
             answer:
-              "Solo est pensé pour les indépendants qui veulent intégrer Claude dans leur quotidien via une formation complète. Team déploie un écosystème I.A. complet avec agents, automatisations et hébergement souverain pour une équipe. Enterprise ajoute une infrastructure plus puissante avec des LLM de dernière génération. On vous aide à choisir lors de l'audit gratuit.",
+              "Le coaching avec unlcoaching.com vous permet de bénéficier de l'expertise d'un coach professionnel Jérémy Prat, d'un programme personnalisé adapté à vos objectifs, et d'un suivi continu pour garantir vos progrès.",
           },
           {
-            question: "Y a-t-il un engagement de durée ?",
+            question: "Quels sont les prix des services offerts par unlcoaching.com ?",
             answer:
-              "Non. Nos offres mensuelles sont résiliables à tout moment avec 30 jours de préavis. On préfère garder nos clients parce que les résultats sont là, pas parce qu'un contrat les y oblige.",
-          },
-          {
-            question: "Est-ce que vous pouvez intégrer l'I.A. à mes outils existants ?",
-            answer:
-              "Oui, c'est même notre approche par défaut. On connecte les agents I.A. à vos outils actuels : CRM, agenda, messagerie, logiciel métier. On ne vous demande pas de tout changer — on s'adapte à votre environnement.",
-          },
-          {
-            question: "Comment se passe le suivi après le déploiement ?",
-            answer:
-              "Chaque mois, vous recevez un rapport avec l'évolution de vos indicateurs : tâches automatisées, temps gagné, performance des agents. Un point mensuel de 30 minutes est inclus pour ajuster et optimiser. Vous avez aussi un accès direct à Andy par email , WhatsApp ou Slack.",
-          },
-          {
-            question: "Vous garantissez des résultats ?",
-            answer:
-              "On garantit une amélioration mesurable dans les 30 premiers jours — ou on ajuste jusqu'à ce que ce soit le cas. Toute agence qui vous promet un résultat précis sans connaître votre contexte vous survend. Ce qu'on promet : des actions concrètes, un suivi rigoureux et une totale transparence sur l'impact.",
+              "Nous offrons plusieurs plans tarifaires adaptés à différents besoins, allant des sessions de coaching individuelles aux programmes complets sur plusieurs mois. Pour plus de détails, veuillez consulter notre page dédiée aux tarifs.",
           },
         ]}
       />

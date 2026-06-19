@@ -27,13 +27,13 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
             src={SiteConfig.appIcon}
-            alt="mon agent ai app logo"
+            alt="unlcoaching app logo"
             width={24}
             height={24}
             className="rounded-sm"
           />
           <span className="text-base font-bold text-foreground">
-            Mon agent ai
+            Unlcoaching
           </span>
         </Link>
 
@@ -56,7 +56,7 @@ export function Header() {
         {/* ── Actions droite ── */}
         <div className="hidden items-center gap-3 lg:flex">
           <AuthButtonClient />
-          <Link
+          {/* <Link
             href="/#audit-form"
             className="rounded-md bg-orange-500 px-4 py-2 text-sm
                        font-semibold text-white transition-all
@@ -64,7 +64,7 @@ export function Header() {
                        hover:shadow-orange-500/30 active:scale-95"
           >
             Prendre RDV
-          </Link>
+          </Link> */}
           <ThemeToggle />
         </div>
 
@@ -88,13 +88,13 @@ export function Header() {
                 <Link href="/" className="flex items-center gap-2">
                   <Image
                     src={SiteConfig.appIcon}
-                    alt="Mon agent Ai app logo"
+                    alt="Unlcoaching app logo"
                     width={24}
                     height={24}
                     className="rounded-sm"
                     />
                   <span className="text-base font-bold text-foreground">
-                    Mon agent Ai
+                    Unlcoaching
                   </span>
                 </Link>
                 <ThemeToggle />
@@ -120,14 +120,14 @@ export function Header() {
 
               <div className="flex flex-col gap-2">
                 <AuthButtonClient />
-                <Link
+                {/* <Link
                   href="/#audit-form"
                   className="block w-full rounded-md bg-orange-500 py-3
                              text-center text-sm font-semibold text-white
                              transition-colors hover:bg-orange-400"
                 >
                   Prendre RDV
-                </Link>
+                </Link> */}
               </div>
             </SheetContent>
           </Sheet>

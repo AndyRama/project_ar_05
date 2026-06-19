@@ -6,30 +6,32 @@ import { SiteConfig } from "@/site-config";
 
 const NAV_COLUMNS = [
   {
-    title: "Navigation",
+    title: "Site Map",
     links: [
-      { label: "Solutions", href: "/solutions" },
-      { label: "Réalisations", href: "/realisations" },
+      { label: "Accueil", href: "/" },
       { label: "Blog", href: "/posts" },
-      { label: "Contact", href: "/contact" },
-      { label: "À propos", href: "/about" },
     ],
   },
   {
     title: "Services",
     links: [
-      { label: "Audit", href: "/audit" },
-      { label: "Essentiel", href: "/essentiel" },
-      { label: "Entreprise", href: "/entreprise" },
-      { label: "Premium", href: "/premium" },
+      { label: "Prestations", href: "/prestations" },
+      { label: "Team", href: "/team" },
+      { label: "Avant-après", href: "/avant-apres" },
+    ],
+  },
+  {
+    title: "Ressources",
+    links: [
+      { label: "E-books", href: "/prestations" },
+      { label: "Packs", href: "/team" },
     ],
   },
   {
     title: "Informations",
     links: [
       { label: "Espace client", href: "/signin" },
-      { label: "Plan du site", href: "/#" },
-      { label: "Création site", href: "/site-web"},
+      { label: "Contact", href: "/contact" },
       {
         label: "Performance",
         href: "https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fmon-agent-ia-seven.vercel.app%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&utm_source=lh-chrome-ext#",
@@ -39,18 +41,6 @@ const NAV_COLUMNS = [
         label: "Co² Carbon ",
         href: "https://www.websitecarbon.com/website/mon-agent-ia-seven-vercel-app/",
         target: "_blank",
-      },
-    ],
-  },
-  {
-    title: "Models I.A",
-    links: [
-      { label: "Claude", target: "_blank", href: "/claude" },
-      { label: "LLm local", target: "_blank", href: "/llm" },
-      {
-        label: "Hébergement",
-        target: "_blank",
-        href: "https://www.hostinger.com/fr?REFERRALCODE=XUCIAAGENFE3",
       },
     ],
   },
@@ -78,7 +68,7 @@ export function Footer() {
                 height={24}
               />
               <span className="text-foreground text-lg font-bold">
-                Mon agent AI
+                Unlcoaching
               </span>
             </Link>
 
