@@ -13,6 +13,7 @@ import { Footer } from "@/features/layout/footer";
 import { ScrollingGallery } from "@/features/landing/scrolling-galery";
 import { PromoModal } from "@/features/landing/promo-modal";
 import { FAQSection } from "@/features/landing/faq-accordion";
+import { Typography } from "@/components/nowts/typography";
 
 
 export default function HomePage() {
