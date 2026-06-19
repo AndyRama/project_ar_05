@@ -13,12 +13,11 @@ import { AuthButtonClient } from "@/features/auth/auth-button-client";
 
 
 const NAV_LINKS = [
-  // { label: "Créations",      href: "/site-web" },
-  { label: "Solutions",    href: "/solutions" },
-  { label: "Réalisations", href: "/realisations" },
+  { label: "Accueil",    href: "/" },
   { label: "Blog",         href: "/posts" },
-  { label: "Contact",      href: "/contact" },
-  { label: "À propos",      href: "/about" },
+  { label: "Prestations",      href: "/prestations" },
+  { label: "Team",      href: "/team" },
+  { label: "Avant/Après",      href: "/avant-apres" },
 ] as const;
 
 const clamp = (n: number, min: number, max: number) =>
@@ -100,7 +99,7 @@ export function LandingHeader() {
             className="origin-left text-lg font-bold tracking-tight
                        text-foreground"
           >
-            Mon agent ai
+            Unlcoaching
           </motion.p>
         </div>
 
@@ -142,14 +141,14 @@ export function LandingHeader() {
           className="hidden items-center gap-3 lg:flex"
         >
           <AuthButtonClient />
-          <Link
+          {/* <Link
             href="#audit-form"
             className="rounded-md bg-orange-500 border border-border px-4 py-2
             text-sm font-medium text-white transition-all
             hover:border-foreground/40 hover:text-foreground"
           >
             Prendre RDV
-          </Link>
+          </Link> */}
           <ThemeToggle />
         </motion.div>
 
@@ -209,14 +208,14 @@ export function LandingHeader() {
               {/* CTAs */}
               <div className="flex flex-col gap-2">
                 <AuthButtonClient />
-                <Link
+                {/* <Link
                   href="#audit-form"
                   className="block w-full rounded-md bg-orange-500 py-3
                              text-center text-sm font-semibold text-white
                              transition-colors hover:bg-orange-400"
                 >
                   Prendre RDV
-                </Link>
+                </Link> */}
               </div>
             </SheetContent>
           </Sheet>
