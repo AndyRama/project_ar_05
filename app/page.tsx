@@ -26,13 +26,13 @@ export default function HomePage() {
 
       <TransformationCard />
 
-      {/* <Offers /> */}
+      <StoryCardGrid />
 
-      <About />
+      {/* <About /> */}
 
       <Testimonials />       
 
-      <AuditFormAIAct />
+      {/* <AuditFormAIAct /> */}
 
       <CtaBanner />
 
