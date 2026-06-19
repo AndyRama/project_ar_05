@@ -12,101 +12,76 @@ type Offer = {
   title: string;
   price: string;
   priceUnit: string;
-  description: string;
+  priceDetail?: string;       // ex: "(3 × 160€ = 480€)"
+  description?: string;
   features: string[];
   strongFeatures?: string[];
-  roi: { value: string; label: string };
+  roi?: { value: string; label: string };
   cta: string;
   href: string;
+  footerNote?: string;        // ex: "Engagement 3 mois"
   featured?: boolean;
 };
 
 const OFFERS: Offer[] = [
   {
-    id: "audit",
-    title: "Audit gratuit",
-    price: "Gratuit",
-    priceUnit: "",
-    description:
-      "30 min pour cartographier vos process et identifier exactement où l'I.A. peut vous faire gagner du temps et de l'argent.",
-    strongFeatures: [
-      "Analyse complète de vos process métier",
-      "Feuille de route I.A. personnalisée",
-    ],
+    id: "starter",
+    title: "STARTER - 3 MOIS",
+    price: "160€",
+    priceUnit: "/ Mois",
+    priceDetail: "(3 × 160€ = 480€)",
     features: [
-      "Identification des tâches automatisables",
-      "Estimation des gains de temps et d'argent",
-      "Recommandations outils et ordre de déploiement",
+      "Pack adapté aux débutants comme confirmés.",
+      "Programme personnalisé (perte de poids, musculation ou préparation physique).",
+      "Accompagnement sur les troubles du comportement alimentaire (TCA).",
+      "Plan alimentaire adapté à tes objectifs (sèche, prise de masse, rééquilibrage).",
+      "Bilan mensuel photo + mensurations avec suivi approfondi.",
+      "Communication WhatsApp & Email avec visio ou call chaque mois.",
     ],
-    roi: { value: "30 min", label: "pour avoir un plan d'action concret" },
-    cta: "Réserver mon audit",
-    href: "/#audit-form",
-  },
-  {
-    id: "essentiel",
-    badge: "Propulsé par Claude",
-    title: "Essentiel",
-    price: "79€",
-    priceUnit: "/mois HT",
-    description:
-      "On installe et configure Claude pour vous, et on vous forme à l'utiliser au quotidien dans votre activité.",
-    strongFeatures: [
-      "Configuration Claude sur mesure pour votre métier",
-      "Formation complète à votre rythme",
-    ],
-    features: [
-      "Routines I.A. pour votre quotidien",
-      "Accompagnement pas à pas",
-      "Support WhatsApp inclus",
-    ],
-    roi: { value: "5h - 10h", label: "récupérées dès la première semaine" },
-    cta: "Démarrer",
-    href: "/essentiel",
-  },
-  {
-    id: "entreprise",
-    badge: "Sur-mesure",
-    title: "Entreprise",
-    price: "à partir de 208€",
-    priceUnit: "/mois HT",
-    description:
-      "LLM hébergé sur votre infrastructure. Zéro dépendance externe, zéro donnée qui sort de votre périmètre.",
-    strongFeatures: [
-      "LLM open source hébergé chez vous",
-      "Intégrations API avancées — ERP, SIRH, BI",
-    ],
-    features: [
-      "Conformité RGPD documentée et auditée",
-      "SLA garanti avec reporting mensuel",
-      "Interlocuteur dédié — support prioritaire",
-    ],
-    roi: { value: "+2 500€", label: "économisés vs embauche secrétariat" },
-    cta: "Nous contacter",
-    href: "/entreprise",
+    cta: "Je démarre le programme",
+    href: "/starter",
+    footerNote: "Engagement 3 mois",
   },
   {
     id: "premium",
-    badge: "Recommandé",
-    title: "Premium",
-    price: "Sur devis",
-    priceUnit: "",
-    description:
-      "Un écosystème I.A. complet, dédié à votre entreprise. Infrastructure dédiée, agents illimités, souveraineté totale.",
-    strongFeatures: [
-      "Tout le pack Entrerpise",
-      "Infrastructure dédiée — vos données isolées",
-      "Agents I.A. illimités multi-départements",
-      "Accompagnement mensuel dédié (60 min)",
-    ],
+    badge: "Populaire",
+    title: "PREMIUM - 6 MOIS",
+    price: "180€",
+    priceUnit: "/ Mois",
+    priceDetail: "(6 × 180€ = 1 080€)",
     features: [
-      "LLM dernière génération (Claude Opus, GPT-4o…)",
-      "Hébergement souverain EU — conformité RGPD",
-      "Support prioritaire WhatsApp/Slack",
+      "Pack adapté aux débutants comme confirmés.",
+      "Programme personnalisé (perte de poids, musculation ou préparation physique).",
+      "Accompagnement sur les troubles du comportement alimentaire (TCA).",
+      "Plan alimentaire adapté à tes objectifs (sèche, prise de masse, rééquilibrage).",
+      "Bilan mensuel photo + mensurations avec suivi approfondi.",
+      "Communication WhatsApp & Email avec visio ou call chaque mois.",
+      "Accès prioritaire et suivi renforcé.",
     ],
-    roi: { value: "+3 500€", label: "économisés vs équipe admin dédiée" },
-    cta: "Demander un audit",
+    cta: "Je démarre le programme",
     href: "/premium",
+    footerNote: "Engagement 6 mois",
     featured: true,
+  },
+  {
+    id: "competition-vip",
+    title: "COMPETITION VIP - 12 MOIS",
+    price: "150€",
+    priceUnit: "/ Mois",
+    priceDetail: "(12 × 150€ = 1 800€)",
+    features: [
+      "Pack le plus complet pour une transformation durable.",
+      "Programme personnalisé évolutif sur 12 mois.",
+      "Accompagnement sur les troubles du comportement alimentaire (TCA).",
+      "Plan alimentaire adapté avec ajustements réguliers.",
+      "Bilan mensuel photo + mensurations avec suivi approfondi.",
+      "Communication WhatsApp & Email illimitée avec visio ou call chaque mois.",
+      "Coaching VIP avec ajustements prioritaires.",
+      "Meilleur rapport qualité/prix sur l'année.",
+    ],
+    cta: "Je m'engage sur 12 mois",
+    href: "/competition-vip",
+    footerNote: "Meilleur tarif - 150€/mois",
   },
 ];
 
@@ -233,12 +208,14 @@ const OfferCard = ({
   title,
   price,
   priceUnit,
+  priceDetail,
   description,
   features,
   strongFeatures = [],
   roi,
   cta,
   href,
+  footerNote,
   featured,
 }: Offer) => {
   return (
@@ -275,45 +252,43 @@ const OfferCard = ({
       {/* Prix */}
       <div className="mt-2">
         <span className="text-2xl font-bold text-foreground">{price}</span>
-        {priceUnit && (
-          <p className="mt-0.5 text-xs text-muted-foreground">{priceUnit}</p>
+        <span className="ml-1 text-sm text-orange-500">{priceUnit}</span>
+        {priceDetail && (
+          <p className="mt-0.5 text-xs text-muted-foreground">{priceDetail}</p>
         )}
       </div>
 
-      {/* Description */}
-      <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-        {description}
-      </p>
+      {description && (
+        <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+          {description}
+        </p>
+      )}
 
       <hr className="my-3 border-border" />
 
       {/* Features */}
       <ul className="flex flex-col gap-2">
         {strongFeatures.map((f) => (
-          <li
-            key={f}
-            className="flex items-start gap-2 text-xs font-medium text-foreground"
-          >
+          <li key={f} className="flex items-start gap-2 text-xs font-medium text-foreground">
             <Check size={13} className="mt-0.5 shrink-0 text-blue-500" />
             {f}
           </li>
         ))}
         {features.map((f) => (
-          <li
-            key={f}
-            className="flex items-start gap-2 text-xs text-muted-foreground"
-          >
+          <li key={f} className="flex items-start gap-2 text-xs text-muted-foreground">
             <Check size={13} className="mt-0.5 shrink-0 text-orange-500" />
             {f}
           </li>
         ))}
       </ul>
 
-      {/* ROI */}
-      <div className="mt-4 rounded-xl bg-muted px-3 py-2.5">
-        <p className="text-lg font-semibold text-foreground">{roi.value}</p>
-        <p className="text-xs text-muted-foreground">{roi.label}</p>
-      </div>
+      {/* ROI (optionnel) */}
+      {roi && (
+        <div className="mt-4 rounded-xl bg-muted px-3 py-2.5">
+          <p className="text-lg font-semibold text-foreground">{roi.value}</p>
+          <p className="text-xs text-muted-foreground">{roi.label}</p>
+        </div>
+      )}
 
       {/* CTA */}
       <div className="mt-auto pt-4">
@@ -329,6 +304,11 @@ const OfferCard = ({
         >
           {cta} →
         </Link>
+        {footerNote && (
+          <p className="mt-2 text-center text-xs text-muted-foreground">
+            {footerNote}
+          </p>
+        )}
       </div>
     </div>
   );
