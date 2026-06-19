@@ -38,7 +38,7 @@ const OFFERS: Offer[] = [
       "Communication WhatsApp & Email avec visio ou call chaque mois.",
     ],
     cta: "Je démarre le programme",
-    href: "/starter",
+    href: "https://buy.stripe.com/14AeVfgHKce796i8ft9AA06",
     footerNote: "Engagement 3 mois",
   },
   {
@@ -58,7 +58,7 @@ const OFFERS: Offer[] = [
       "Accès prioritaire et suivi renforcé.",
     ],
     cta: "Je démarre le programme",
-    href: "/premium",
+    href: "https://buy.stripe.com/dRm14p0IMdib0zM53h9AA07",
     footerNote: "Engagement 6 mois",
     featured: true,
   },
@@ -79,7 +79,7 @@ const OFFERS: Offer[] = [
       "Meilleur rapport qualité/prix sur l'année.",
     ],
     cta: "Je m'engage sur 12 mois",
-    href: "/competition-vip",
+    href: "https://buy.stripe.com/6oU00l1MQdib0zMbrF9AA08",
     footerNote: "Meilleur tarif - 150€/mois",
   },
 ];
