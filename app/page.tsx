@@ -18,6 +18,7 @@ import { PromoModal } from "@/features/landing/promo-modal";
 import { FAQSection } from "@/features/landing/faq-accordion";
 import { Typography } from "@/components/nowts/typography";
 import RecentPosts from "@/features/landing/recent-posts";
+import { PricingEbook } from "@/features/prestations/ebook/pricing-section-ebook";
 
 
 export default function HomePage() {
@@ -114,7 +115,64 @@ export default function HomePage() {
  
       <SectionDivider />
       
-      {/* <Ebook/> */}
+      {/* Pricing Ebook */}
+      <PricingEbook
+        cards={[
+          {
+            isPopular: false,
+            type: "monthly",
+            id: "premium",
+            title: "Ebook 1",
+            subtitle: "Savoir gérer les TCA",
+            price: "Free",
+            barredPrice: 0,
+            currency: "€",
+            features: [
+              "Téléchargez votre guide complet pour adopter une alimentation saine et performante, spécialement conçu pour vous accompagnez en musculation",
+            ],
+            cta: "Télécharger",
+            ctaSubtitle: "",
+            priceId: "",
+            link: "/pdf/E-bookFree.pdf",
+          },
+          {
+            isPopular: true,
+            type: "monthly",
+            id: "premium",
+            title: "Ebook 2",
+            subtitle: "Nutrition complète",
+            price: "Free",
+            barredPrice: 0,
+            currency: "€",
+            features: [
+              "Nourris ton corps comme tu entraînes ton mental — avec intention, constance et ambition."
+            ],
+            cta: "Télécharger",
+            ctaSubtitle: "",
+            priceId: "",
+            link: "/pdf/Guide_Nutrition_Complet.pdf",
+          },
+          {
+            isPopular: false,
+            type: "monthly",
+            id: "premium",
+            title: "Ebook 3",
+            subtitle: "Esprit & mental",
+            price: "Free",
+            barredPrice: 0,
+            currency: "€",
+            features: [
+              "Découvrez des techniques et conseils pour renforcer votre mental et optimiser vos performances, essentiels pour atteindre vos objectifs.",
+            ],
+            cta: "Télécharger",
+            ctaSubtitle: "",
+            priceId: "",
+            link: "#",
+          },
+        ]}
+      />
+
+      <SectionDivider />
 
       <FAQSection 
         faq={[

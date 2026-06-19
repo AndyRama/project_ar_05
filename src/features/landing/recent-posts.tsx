@@ -40,7 +40,7 @@ export const RecentPostCard = ({ post }: { post: Post }) => {
           <span className="inline-block text-white">
             <span className="relative inline-block">
               <span className="text-white">
-                {formatDate(date, 'dd MMMM yy')}
+                {new Date(date).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: '2-digit' })}
               </span>
               <span className="mx-3">•</span>
               <span className="text-white">{author}</span>
