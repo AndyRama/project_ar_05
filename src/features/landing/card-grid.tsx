@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Layout } from "@/features/page/layout";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Typography } from "@/components/ui/typography";
+import { Typography } from "@/components/nowts/typography";
 import type { ComponentPropsWithoutRef } from "react";
 
 
