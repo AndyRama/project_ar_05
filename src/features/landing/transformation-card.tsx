@@ -20,7 +20,7 @@ const IMAGES = [
 
 // ── Main ─────────────────────────────────────────────────────────
 
-export default function TransformationCard() {
+export function TransformationCard() {
   return (
     <section className="relative isolate overflow-hidden py-24 sm:py-32">
       <GradientBackground />
