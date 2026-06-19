@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Heart, Star, Users, BarChart2, Clock, Zap, Instagram } from "lucide-react";
 import { SectionDivider } from "@/features/landing/section-divider";
-import { ReviewSmall } from "./review/ReviewSmall";
+import { ReviewSmall } from "@/features/landing/review/ReviewSmall";
 
 // ── Main ─────────────────────────────────────────────────────────
 
