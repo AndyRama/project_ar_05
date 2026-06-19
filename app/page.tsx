@@ -11,7 +11,7 @@ import { About } from "@/features/landing/about";
 import { CardGrid } from "@/features/landing/card-grid";
 import { Footer } from "@/features/layout/footer";
 import { ScrollingGallery } from "@/features/landing/scrolling-galery";
-import { CtaBanner } from "@/features/landing/cta-banner";
+import { PromoModal } from "@/features/landing/promo-modal";
 import { FAQSection } from "@/features/landing/faq-accordion";
 
 
@@ -38,9 +38,42 @@ export default function HomePage() {
 
       <About/>
 
-      <Testimonials />       
+      <Testimonials />   
 
-      <CtaBanner />
+            {/* Final CTA Section */}
+      <section className="bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-16">
+        <div className="mx-auto max-w-5xl text-center">
+          <Typography variant="h2" className="mb-6 text-white">
+            Prêt à Transformer Votre Corps ?
+          </Typography>
+          <Typography variant="large" className="mb-8 text-orange-100">
+            Rejoignez plus de 350 personnes qui ont déjà transformé leur vie
+            avec mes programmes
+          </Typography>
+          <div className="mb-8 inline-block rounded-xl bg-white/10 p-6 backdrop-blur-sm">
+            <p className="font-semibold text-white">
+              ⏰ Offre limitée : -50€ sur les programmes premium et compétition ! 
+            </p>
+            <p className="text-orange-100">Ne manquez pas cette opportunité !</p>
+          </div>
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="rounded-[10px] bg-white px-12 py-4 text-xl font-bold text-orange-700 transition-all hover:scale-105 hover:bg-gray-100"
+          >
+            Commencer ma transformation maintenant
+          </button>
+        </div>
+      </section>
+
+      {/* Modal */}
+      <PromoModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+
+      <SectionDivider />    
+
+      {/* <CtaBanner /> */}
 
       {/* <RecentBlog/> */}
 
