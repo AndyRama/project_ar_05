@@ -85,7 +85,7 @@ export function LandingHeader() {
         >
           <Image
             src={SiteConfig.appIcon}
-            alt="mon agent ia app logo"
+            alt="unlcoaching app logo"
             width={24}
             height={24}
           />

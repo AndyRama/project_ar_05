@@ -12,7 +12,7 @@ export const FloatingLegalFooter = () => {
       <Typography variant="muted" className="italic">
         &copy; {new Date().getFullYear()}{" "}
         <Link href="/" className="text-orange-500">
-          Mon agent AI{" "}
+          Unlcoaching{" "}
         </Link>
         Tous droits réservés.
         <br className="md:hidden" /> Crée avec{" "}
@@ -31,13 +31,13 @@ export const FloatingLegalFooter = () => {
         >
           Cvg
         </Link>
-        <Link
+        {/* <Link
           className="text-xs text-muted-foreground hover:text-foreground
                      transition-colors hover:underline"
           href="/legal/privacy"
         >
           Confidentialité
-        </Link>
+        </Link> */}
         <Link
           className="text-xs text-muted-foreground hover:text-foreground
                      transition-colors hover:underline"

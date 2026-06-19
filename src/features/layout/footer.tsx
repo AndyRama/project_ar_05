@@ -34,12 +34,12 @@ const NAV_COLUMNS = [
       { label: "Contact", href: "/contact" },
       {
         label: "Performance",
-        href: "https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fmon-agent-ia-seven.vercel.app%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&utm_source=lh-chrome-ext#",
+        href: "https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fproject-ar-05.vercel.app%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&utm_source=lh-chrome-ext",
         target: "_blank",
       },
       {
         label: "Co² Carbon ",
-        href: "https://www.websitecarbon.com/website/mon-agent-ia-seven-vercel-app/",
+        href: "https://www.websitecarbon.com/website/project-ar-05.vercel.app/",
         target: "_blank",
       },
     ],
