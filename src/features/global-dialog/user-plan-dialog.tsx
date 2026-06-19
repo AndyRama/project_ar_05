@@ -6,7 +6,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { AUTH_PLANS } from "@/lib/auth/stripe/auth-plans";
-import { PricingCard } from "../plans/pricing-card-V1";
+// import { PricingCard } from "../plans/pricing-card-V1";
 import { closeGlobalDialog } from "./global-dialog.store";
 
 export const UserPlanDialog = () => {
@@ -24,7 +24,7 @@ export const UserPlanDialog = () => {
         </DialogHeader>
         <div className="mt-8 flex w-full justify-center gap-4 max-md:flex-col lg:mt-12 lg:gap-8 xl:gap-12">
           {AUTH_PLANS.map((card, i) => (
-            <PricingCard key={i} plan={card} />
+            // <PricingCard key={i} plan={card} />
           ))}
         </div>
       </DialogContent>
