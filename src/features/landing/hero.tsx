@@ -1,6 +1,10 @@
 import Link from "next/link";
-import { BarChart2, Clock, Zap, User } from "lucide-react";
+import Image from "next/image";
+import { Heart, Star, Users, BarChart2, Clock, Zap, Instagram } from "lucide-react";
 import { SectionDivider } from "@/features/landing/section-divider";
+import { ReviewSmall } from "./review/ReviewSmall";
+
+// ── Main ─────────────────────────────────────────────────────────
 
 export const Hero = () => {
   return (
@@ -8,73 +12,110 @@ export const Hero = () => {
       <GradientBackground />
 
       <div className="relative py-24 sm:py-32 lg:pb-20">
-        <div className="mx-auto max-w-8xl px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-col items-center gap-16 lg:flex-row lg:items-center lg:gap-20">
 
-            {/* Badge */}
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full
-                            border border-orange-200 bg-orange-50 px-4 py-1.5
-                            text-xs font-semibold tracking-widest
-                            text-orange-700 uppercase
-                            dark:border-orange-800/60 dark:bg-orange-950/60
-                            dark:text-orange-300">
-              Appel gratuit
-            </div>
+            {/* ── Left: text content ── */}
+            <div className="flex flex-1 flex-col items-center text-center lg:items-start lg:text-left">
 
-            {/* Titre */}
-            <h1 className="text-4xl font-bold tracking-tight text-balance
-                           text-foreground sm:text-5xl lg:text-6xl
-                           lg:leading-tight">
-              Vous cherchez à intégrer de l'I.A <br/> {" "}
-              <span className="text-orange-500">
-                Mais vous ne savez pas par où commencer ?
-              </span>
-            </h1>
+              {/* Badge */}
+              <div className="mb-8 inline-flex items-center gap-2 rounded-full
+                              border border-orange-200 bg-orange-50 px-4 py-1.5
+                              text-xs font-semibold tracking-widest text-orange-700 uppercase
+                              dark:border-orange-800/60 dark:bg-orange-950/60 dark:text-orange-300">
+                Coach Personnel Certifié
+              </div>
 
-            {/* Sous-titre */}
-            <p className="mt-6 max-w-2xl text-base leading-relaxed
-                          text-muted-foreground sm:text-lg">
-              En 30 minutes, on identifie exactement quels process de votre business
-              peuvent être automatisés avec l'I.A — et combien ça vous ferait gagner.
-            </p>
-
-            {/* CTAs */}
-            <div className="mt-10 flex flex-wrap items-center
-                            justify-center gap-4">
-              <Link
-                href="#audit-form"
-                className="rounded-md bg-orange-500 px-8 py-3.5 text-sm
-                           font-semibold text-white transition-all
-                           hover:bg-orange-400 hover:shadow-lg
-                           hover:shadow-orange-500/30 active:scale-95"
-              >
-                Prendre rendez-vous →
-              </Link>
-              <Link
-                href="/realisations"
-                className="rounded-md border border-border px-8 py-3.5
-                           text-sm font-semibold text-foreground
-                           transition-all hover:bg-muted"
-              >
-                Voir mes réalisations
-              </Link>
-            </div>
-
-            {/* Badges inline */}
-            <div className="mt-8 flex flex-wrap items-center
-                            justify-center gap-6 text-sm
-                            text-muted-foreground">
-              {BADGES.map(({ icon: Icon, label }) => (
-                <span key={label} className="flex items-center gap-1.5">
-                  <Icon size={14} className="text-muted-foreground/60" />
-                  {label}
+              {/* Titre */}
+              <h1 className="text-4xl font-bold tracking-tight text-balance
+                             text-foreground sm:text-5xl lg:text-6xl lg:leading-tight">
+                Jeremy Prat{" "}
+                <span className="text-orange-500">
+                  Coaching Personnel
                 </span>
-              ))}
+              </h1>
+
+              {/* Sous-titre */}
+              <p className="mt-6 max-w-xl text-base leading-relaxed
+                            text-muted-foreground sm:text-lg">
+                Allier entraînement rigoureux et nutrition équilibrée
+                pour un mode de vie sain et durable.
+              </p>
+
+              {/* CTAs */}
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+                <Link
+                  href="/#begin"
+                  className="rounded-md bg-orange-500 px-8 py-3.5 text-sm
+                             font-semibold text-white transition-all
+                             hover:bg-orange-400 hover:shadow-lg
+                             hover:shadow-orange-500/30 active:scale-95"
+                >
+                  Voir le Programme →
+                </Link>
+                <Link
+                  href="/team"
+                  target="_blank"
+                  className="inline-flex items-center gap-2 rounded-md border border-border
+                             px-8 py-3.5 text-sm font-semibold text-foreground
+                             transition-all hover:bg-muted"
+                >
+                  <Heart size={15} className="text-orange-500" />
+                  Rejoindre la team
+                </Link>
+              </div>
+
+              {/* Badges inline */}
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-6
+                              text-sm text-muted-foreground lg:justify-start">
+                {BADGES.map(({ icon: Icon, label }) => (
+                  <span key={label} className="flex items-center gap-1.5">
+                    <Icon size={14} className="text-muted-foreground/60" />
+                    {label}
+                  </span>
+                ))}
+              </div>
+
+              {/* Reviews */}
+              <div className="mt-8">
+                <ReviewSmall
+                  stars={5}
+                  avatars={[
+                    "https://i.pravatar.cc/300?u=1",
+                    "https://i.pravatar.cc/300?u=2",
+                    "https://i.pravatar.cc/300?u=3",
+                    "https://i.pravatar.cc/300?u=4",
+                    "https://i.pravatar.cc/300?u=5",
+                  ]}
+                >
+                  3 500+ followers sur Instagram
+                </ReviewSmall>
+              </div>
             </div>
+
+            {/* ── Right: photo ── */}
+            <div className="flex w-full shrink-0 justify-center lg:w-auto lg:justify-end">
+              <div className="relative">
+                {/* Halo derrière la photo */}
+                <div className="absolute inset-0 -z-10 scale-110 rounded-2xl
+                                bg-gradient-to-tr from-orange-300/30 to-purple-300/20 blur-2xl" />
+                <Image
+                  src="/images/jeremy.jpg"
+                  width={420}
+                  height={560}
+                  className="h-auto w-full max-w-[260px] rounded-2xl object-cover
+                             shadow-2xl ring-1 ring-orange-200/40
+                             sm:max-w-[320px] lg:max-w-[380px] xl:max-w-[420px]"
+                  alt="Jeremy Prat – Coach Personnel"
+                  priority
+                />
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-      
+
       <SectionDivider />
 
       {/* ── Stats bar ── */}
@@ -84,11 +125,7 @@ export const Hero = () => {
             {STATS.map(({ icon: Icon, value }) => (
               <div key={value} className="flex items-center gap-3">
                 <Icon size={18} className="shrink-0 text-muted-foreground/60" />
-                <div className="flex flex-col">
-                  <span className="text-sm font-semibold text-foreground">
-                    {value}
-                  </span>
-                </div>
+                <span className="text-sm font-semibold text-foreground">{value}</span>
               </div>
             ))}
           </div>
@@ -99,7 +136,7 @@ export const Hero = () => {
   );
 };
 
-// ── Data ────────────────────────────────────────────────────────
+// ── Data ─────────────────────────────────────────────────────────
 
 function CircleIcon({ size, className }: { size?: number; className?: string }) {
   return (
@@ -111,15 +148,15 @@ function CircleIcon({ size, className }: { size?: number; className?: string }) 
 
 const BADGES = [
   { icon: CircleIcon, label: "Sans engagement" },
-  { icon: Clock,      label: "Appel de 30 min" },
+  { icon: Star,       label: "5 étoiles clients" },
   { icon: Zap,        label: "Résultats rapides" },
 ] as const;
 
 const STATS = [
-  { icon: BarChart2, value: "+20 audits I.A. réalisés", label: "" },
-  { icon: Clock,     value: "Réponse < 24h",            label: "" },
-  { icon: Zap,       value: "Automatisation rapide",    label: "" },
-  { icon: User,     value: "Orienté Zero Employé",     label: "" },
+  { icon: BarChart2,  value: "+350 transformations réussies" },
+  { icon: Star,       value: "Avis 5 étoiles" },
+  { icon: Instagram,  value: "3 500+ followers" },
+  { icon: Users,      value: "Coaching personnalisé" },
 ] as const;
 
 // ── Background ───────────────────────────────────────────────────
@@ -128,8 +165,7 @@ const GradientBackground = () => (
   <>
     <div
       aria-hidden="true"
-      className="absolute inset-x-0 -top-40 -z-10 transform-gpu
-                 overflow-hidden blur-3xl sm:-top-80"
+      className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
     >
       <div
         style={{
@@ -139,15 +175,13 @@ const GradientBackground = () => (
         className="relative left-[calc(50%-11rem)] aspect-[1155/678]
                    w-[36.125rem] -translate-x-1/2 rotate-[30deg]
                    bg-gradient-to-tr from-orange-300/20 to-[#9089fc]/20
-                   opacity-30 sm:left-[calc(50%-30rem)]
-                   sm:w-[72.1875rem]"
+                   opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
       />
     </div>
     <div
       aria-hidden="true"
       className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10
-                 transform-gpu overflow-hidden blur-3xl
-                 sm:top-[calc(100%-30rem)]"
+                 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
     >
       <div
         style={{
@@ -157,8 +191,7 @@ const GradientBackground = () => (
         className="relative left-[calc(50%+3rem)] aspect-[1155/678]
                    w-[36.125rem] -translate-x-1/2
                    bg-gradient-to-tr from-orange-400/10 to-[#9089fc]/20
-                   opacity-20 sm:left-[calc(50%+36rem)]
-                   sm:w-[72.1875rem]"
+                   opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
       />
     </div>
   </>
