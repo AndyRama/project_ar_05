@@ -17,6 +17,8 @@ import { Typography } from "@/components/nowts/typography";
 
 
 export default function HomePage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="bg-background text-foreground relative flex h-fit flex-col">
       <div className="mt-16"></div>
@@ -41,7 +43,7 @@ export default function HomePage() {
 
       <Testimonials />   
 
-            {/* Final CTA Section */}
+      {/* Final CTA Section */}
       <section className="bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-16">
         <div className="mx-auto max-w-5xl text-center">
           <Typography variant="h2" className="mb-6 text-white">
