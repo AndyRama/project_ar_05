@@ -2,8 +2,9 @@
 import { LandingHeader } from "@/features/landing/landing-header";
 import { Hero } from "@/features/landing/hero";
 import { ForWhoSection } from "@/features/landing/for-who-section";
-import { Results } from "@/features/landing/results";
-import { Offers } from "@/features/landing/offers";
+import { TransformationCard } from "@/features/landing/transformation-card";
+// import { Results } from "@/features/landing/results";
+// import { Offers } from "@/features/landing/offers";
 import { SectionDivider } from "@/features/landing/section-divider";
 import { Testimonials } from "@/features/landing/testimonials";
 import { Footer } from "@/features/layout/footer";
@@ -24,9 +25,9 @@ export default function HomePage() {
 
       <ForWhoSection />
 
-      <Results />
+      <TransformationCard />
 
-      <Offers />
+      {/* <Offers /> */}
 
       <About />
 
