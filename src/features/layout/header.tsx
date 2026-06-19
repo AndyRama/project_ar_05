@@ -7,12 +7,12 @@ import { SiteConfig } from "@/site-config";
 import { ThemeToggle } from "../theme/theme-toggle";
 
 const NAV_LINKS = [
-  // { label: "Créations",      href: "/site-web" },
-  { label: "Solutions",     href: "/solutions" },
-  { label: "Réalisations",  href: "/realisations" },
-  { label: "Blog",          href: "/posts" },
+  { label: "Accueil",    href: "/" },
+  { label: "Blog",         href: "/posts" },
+  { label: "Prestations",      href: "/prestations" },
+  { label: "Team",      href: "/team" },
+  { label: "Avant/Après",      href: "/avant-apres" },
   { label: "Contact",       href: "/contact" },
-  { label: "À propos",      href: "/about" },
 ] as const;
 
 export function Header() {

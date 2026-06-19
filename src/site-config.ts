@@ -1,12 +1,12 @@
 export const SiteConfig = {
-  title: "Mon agent ai",
+  title: "Unlcoaching",
   description: "Aide les entrerpises intégrer l'I.A dans leur process",
-  prodUrl: "https://mon-agent-ia-seven.vercel.app/",
+  prodUrl: "https://project-ar-05.vercel.app/",
   appId: "AgentAi",
   domain: "demo.nowts.app",
   appIcon: "/images/icon.png",
   company: {
-    name: "Mon agent ai",
+    name: "Unlcoaching",
     address: "60 rue François 1er, 75000 Paris", // Remove if not needed
   },
   brand: {

@@ -1,7 +1,7 @@
 
 import { LandingHeader } from "@/features/landing/landing-header";
 import { Hero } from "@/features/landing/hero";
-import { HowItWorks } from "@/features/landing/how-it-works";
+import { ForWhoSection } from "@/features/landing/for-who-section";
 import { Results } from "@/features/landing/results";
 import { Offers } from "@/features/landing/offers";
 import { SectionDivider } from "@/features/landing/section-divider";
@@ -22,7 +22,7 @@ export default function HomePage() {
 
       <Hero />
 
-      <HowItWorks />
+      <ForWhoSection />
 
       <Results />
 
