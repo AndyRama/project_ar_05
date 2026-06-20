@@ -55,72 +55,7 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* Final CTA Section */}
-      <section className="bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-16">
-        <div className="mx-auto max-w-5xl text-center">
-          <Typography variant="h2" className="mb-6 text-white">
-            Prêt à Transformer Votre Corps ?
-          </Typography>
-          <Typography variant="large" className="mb-8 text-orange-100">
-            Rejoignez plus de 350 personnes qui ont déjà transformé leur vie
-            avec mes programmes
-          </Typography>
-          <div className="mb-8 inline-block rounded-xl bg-white/10 p-6 backdrop-blur-sm">
-            <p className="font-semibold text-white">
-              ⏰ Offre limitée : -50€ sur les programmes premium et compétition ! 
-            </p>
-            <p className="text-orange-100">Ne manquez pas cette opportunité !</p>
-          </div>
-          <button 
-            onClick={() => setIsModalOpen(true)}
-            className="rounded-[10px] bg-white px-12 py-4 text-xl font-bold text-orange-700 transition-all hover:scale-105 hover:bg-gray-100"
-          >
-            Commencer ma transformation maintenant
-          </button>
-        </div>
-      </section>
-
-      {/* Modal */}
-      <PromoModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
-
-      <SectionDivider />
-
-      {/* Blog Content */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
-        <div className="flex flex-col items-center gap-2">
-          <Typography
-            variant="p"
-            className="max-w-xl font-bold text-orange-500"
-          >
-            Recentes
-          </Typography>
-          <Typography variant="h2" className="max-w-xl">
-            Blog
-          </Typography>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="mt-28"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
-        <RecentPosts />
-      </motion.div>
- 
-      <SectionDivider />
-      
-      {/* Pricing Ebook */}
+       {/* Pricing Ebook */}
       <PricingEbook
         cards={[
           {
@@ -177,6 +112,71 @@ export default function HomePage() {
         ]}
       />
 
+     <SectionDivider />
+
+      {/* Final CTA Section */}
+      <section className="bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-16">
+        <div className="mx-auto max-w-5xl text-center">
+          <Typography variant="h2" className="mb-6 text-white">
+            Prêt à Transformer Votre Corps ?
+          </Typography>
+          <Typography variant="large" className="mb-8 text-orange-100">
+            Rejoignez plus de 350 personnes qui ont déjà transformé leur vie
+            avec mes programmes
+          </Typography>
+          <div className="mb-8 inline-block rounded-xl bg-white/10 p-6 backdrop-blur-sm">
+            <p className="font-semibold text-white">
+              ⏰ Offre limitée : -50€ sur les programmes prémium et compétition ! 
+            </p>
+            <p className="text-orange-100">Ne manquez pas cette opportunité !</p>
+          </div>
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="rounded-[10px] bg-white px-12 py-4 text-xl font-bold text-orange-700 transition-all hover:scale-105 hover:bg-gray-100"
+          >
+            Commencer ma transformation maintenant
+          </button>
+        </div>
+      </section>
+
+      {/* Modal */}
+      <PromoModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+
+      <SectionDivider />
+
+      {/* Blog Content */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <div className="flex flex-col items-center gap-2">
+          <Typography
+            variant="p"
+            className="max-w-xl font-bold text-orange-500"
+          >
+            Recentes
+          </Typography>
+          <Typography variant="h2" className="max-w-xl">
+            Blog
+          </Typography>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="mt-28"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <RecentPosts />
+      </motion.div>
+      
       <SectionDivider />
 
       <FAQSection 

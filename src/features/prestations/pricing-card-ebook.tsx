@@ -27,7 +27,7 @@ export const PricingCard = (props: PricingCardProps) => {
   return (
     <Card
       className={cn(
-        "mt-10 w-[330px] flex-1 rounded-md border border-border bg-card p-6 ring-1 ring-border sm:p-8",
+        "mt-10 w-[330px] flex-1 rounded-md border border-border bg-card p-4 ring-1 ring-border sm:p-6",
         {
           "relative shadow-2xl": props.isPopular,
           "mx-0": !props.isPopular,
