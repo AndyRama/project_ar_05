@@ -47,7 +47,7 @@ const NAV_COLUMNS = [
 ] as const;
 
 const CONTACT = [
-  { icon: Mail, label: "Email", value: "lemurian734@gmail.com", href: "mailto:lemurian734@gmail.com" },
+  // { icon: Mail, label: "Email", value: "lemurian734@gmail.com", href: "mailto:lemurian734@gmail.com" },
   { icon: Instagram, label: "Instagram", value: "@unlcoaching.school", href: "https://www.instagram.com/unlcoaching.school/" },
   { icon: Facebook, label: "Facebook", value: "Unlcoaching", href: "https://www.facebook.com/Unlcoaching" },
 ] as const;
