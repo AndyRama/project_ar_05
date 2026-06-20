@@ -76,7 +76,7 @@ const CARDS = [
 
 export const CardGrid = () => {
   return (
-    <Layout size="lg">
+    <Layout size="xl">
       <div className="mx-auto -mt-32 mb-2 justify-center rounded-r-md md:flex md:px-4">
         <div
           className="mx-auto mt-10 grid
