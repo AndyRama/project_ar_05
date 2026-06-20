@@ -166,7 +166,7 @@ const OfferCard = ({
   return (
     <div
       className={cn(
-        "relative flex w-full flex-col rounded-2xl",
+        "relative flex w-full flex-col rounded-md",
         "overflow-visible p-4 transition-all",
         "hover:-translate-y-1 hover:shadow-md hover:shadow-black/5",
         "dark:hover:shadow-black/20",
@@ -198,9 +198,9 @@ const OfferCard = ({
       <div className="mt-2">
         <span className="text-2xl font-bold text-foreground">{price}</span>
         <span className="ml-1 text-sm text-orange-500">{priceUnit}</span>
-        {priceDetail && (
+        {/* {priceDetail && (
           <p className="mt-0.5 text-xs text-muted-foreground">{priceDetail}</p>
-        )}
+        )} */}
       </div>
 
       {description && (
