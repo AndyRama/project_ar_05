@@ -27,7 +27,7 @@ export const PricingCard = (props: PricingCardProps) => {
   return (
     <Card
       className={cn(
-        "bg-[#2F2E2E] border-[0.5px] flex-1 p-6 ring-1 ring-gray-900/10 sm:p-8 mt-10 w-[330px] rounded-md",
+        "mt-10 w-[330px] flex-1 rounded-md border border-border bg-card p-6 ring-1 ring-border sm:p-8",
         {
           "relative shadow-2xl": props.isPopular,
           "mx-0": !props.isPopular,
@@ -46,10 +46,10 @@ export const PricingCard = (props: PricingCardProps) => {
         <Typography variant="h2" className="text-orange-500">
           {props.title}
         </Typography>
-        <Typography variant="p" className="text-xl text-white">
+        <Typography variant="p" className="text-xl text-foreground">
           {props.subtitle}
         </Typography>
-        <Separator className="bg-white" />
+        <Separator className="bg-border" />
         <div className="flex items-end justify-center gap-2">
           <p className="text-2xl text-orange-500 md:text-3xl">
             {props.price}
@@ -58,9 +58,9 @@ export const PricingCard = (props: PricingCardProps) => {
         </div>
         <ul className="flex w-full flex-col gap-3 lg:gap-4">
           {props.features.map((feature, i) => (
-            <li key={i} className="flex items-center gap-2 text-white">
+            <li key={i} className="flex items-center gap-2 text-foreground">
               {/* <Check className="text-orange-500" size={20} /> */}
-              <Typography variant="muted" className="flex-1 text-white">
+              <Typography variant="muted" className="flex-1 text-muted-foreground">
                 {feature}
               </Typography>
             </li>
@@ -76,7 +76,7 @@ export const PricingCard = (props: PricingCardProps) => {
         </Button>
       </Link>
       <CardFooter className="flex flex-col items-stretch gap-2">
-        <Typography variant="muted" className="text-white">
+        <Typography variant="muted" className="text-muted-foreground">
           {props.ctaSubtitle}
         </Typography>
       </CardFooter>
