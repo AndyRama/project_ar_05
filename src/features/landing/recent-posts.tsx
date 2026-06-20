@@ -105,7 +105,7 @@ export const RecentPosts = () => {
   return (
     <Layout>
       <div className="mx-auto -mt-32 mb-2 justify-center rounded-r-md md:flex md:px-4">
-        <div className="relative mx-auto mt-10 w-full">
+        <div className="relative mx-auto mt-10 w-full" variant="lg">
           <div className="grid w-full grid-cols-1 gap-6 text-gray-500 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {posts.map((post, index) => (
               <RecentPostCard key={index} post={post} />

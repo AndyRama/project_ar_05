@@ -77,10 +77,10 @@ const CARDS = [
 export const CardGrid = () => {
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto -mt-32 mb-2 justify-center rounded-r-md md:flex md:px-4">
+      <div className="mx-auto -mt-32 mb-2 justify-center rounded-r-md md:flex md:px-4">
         <div
           className="mx-auto mt-10 grid
-           w-full grid-cols-1 gap-4 text-gray-500 md:grid-cols-2 md:gap-6
+           max-w-7xl grid-cols-1 gap-4 text-gray-500 md:grid-cols-2 md:gap-6
            lg:w-10/12 lg:grid-cols-4"
         >
           {CARDS.map((card, index) => (
