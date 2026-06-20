@@ -1,6 +1,6 @@
 import { Typography } from "@/components/nowts/typography";
 import { Card } from "@/components/ui/card";
-import { LogoSvg } from "@/components/svg/logo-subcribe";
+import { LogoSvg } from "@/components/svg/logo-subscribe";
 import { SectionLayout } from "../landing/section-layout";
 import { EmailForm } from "./email-form";
 
