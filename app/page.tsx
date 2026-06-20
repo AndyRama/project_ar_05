@@ -20,6 +20,7 @@ import { FAQSection } from "@/features/landing/faq-accordion";
 import { Typography } from "@/components/nowts/typography";
 import RecentPosts from "@/features/landing/recent-posts";
 import { PricingEbook } from "@/features/prestations/pricing-section-ebook";
+import { EmailFormSection } from "@/features/email/email-form-section";
 
 
 export default function HomePage() {
@@ -208,6 +209,7 @@ export default function HomePage() {
           },
         ]}
       />
+      <EmailFormSection />
       <SectionDivider />
       <Footer />
     </div>
