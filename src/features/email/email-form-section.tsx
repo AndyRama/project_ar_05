@@ -6,7 +6,7 @@ import { EmailForm } from "./email-form";
 
 export const EmailFormSection = () => {
   return (
-    <SectionLayout>
+    <SectionLayout size="lg">
       <Card
         className="relative isolate flex flex-col items-center overflow-hidden
                    bg-cover bg-center py-24 text-center shadow-2xl lg:rounded-3xl"
@@ -45,7 +45,7 @@ export const EmailFormSection = () => {
           />
         </div>
 
-        {/* Radial gradient décoratif */}
+        Radial gradient décoratif
         <svg
           viewBox="0 0 1024 1024"
           aria-hidden="true"
