@@ -120,7 +120,7 @@ export const Hero = () => {
 
       {/* ── Stats bar ── */}
       <div className="border-t border-border bg-muted/30">
-        <div className="mx-auto max-w-4xl px-6 py-6 lg:px-8">
+        <div className="mx-auto max-w-4xl lg:max-w-6xl px-6 py-6 lg:px-8">
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
             {STATS.map(({ icon: Icon, value }) => (
               <div key={value} className="flex items-center gap-3">

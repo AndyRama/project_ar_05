@@ -8,7 +8,6 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Typography } from "@/components/nowts/typography";
 import type { ComponentPropsWithoutRef } from "react";
 
-
 export type CardImageProps = {
   title: string;
   years: string;
@@ -18,7 +17,6 @@ export type CardImageProps = {
 
 export const CardImage = ({ title, years, image, index }: CardImageProps) => {
   const delay = index * 0.05;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -33,7 +31,7 @@ export const CardImage = ({ title, years, image, index }: CardImageProps) => {
       viewport={{ once: true }}
       className="group relative"
     >
-      <Card className="border-none bg-transparent ">
+      <Card className="border-none bg-transparent">
         <CardHeader className="p-0">
           <Image
             src={image}
@@ -50,44 +48,44 @@ export const CardImage = ({ title, years, image, index }: CardImageProps) => {
         </CardContent>
       </Card>
     </motion.div>
-  )
-}
+  );
+};
 
-export const CardGridImage = () => {
-  const cards = [
-    {
-      title: '#Arcachon #Team #Vélo #Event',
-      years: '#2023',
-      image: '/images/groupArcachon.jpg',
-    },
-    {
-      title: '#Compétition #FR #Fitness',
-      years: '#2024',
-      image: '/images/fitnessFrance.jpg',
-    },
-    {
-      title: '#Training #Remise #en #forme',
-      years: '#2023',
-      image: '/images/reducation.jpg',
-    },
-    {
-      title: '#Concours #Prépa #Jeremy Prat',
-      years: '#2024',
-      image: '/images/coaching.jpg',
-    },
-  ];
+const CARDS = [
+  {
+    title: '#Arcachon #Team #Vélo #Event',
+    years: '#2023',
+    image: '/images/groupArcachon.jpg',
+  },
+  {
+    title: '#Compétition #FR #Fitness',
+    years: '#2024',
+    image: '/images/fitnessFrance.jpg',
+  },
+  {
+    title: '#Training #Remise #en #forme',
+    years: '#2023',
+    image: '/images/reducation.jpg',
+  },
+  {
+    title: '#Concours #Prépa #Jeremy Prat',
+    years: '#2024',
+    image: '/images/coaching.jpg',
+  },
+];
 
+export const CardGrid = () => {
   return (
     <Layout>
       <div className="container max-w-7xl mx-auto -mt-32 mb-2 justify-center rounded-r-md md:flex md:px-4">
         <div
           className="mx-auto mt-10 grid
-           w-full grid-cols-1 gap-4 text-gray-500 md:grid-cols-2 md:gap-6 
+           w-full grid-cols-1 gap-4 text-gray-500 md:grid-cols-2 md:gap-6
            lg:w-10/12 lg:grid-cols-4"
         >
-          {cards.slice(0, 4).map((card, index) => (
+          {CARDS.map((card, index) => (
             <CardImage
-              key={index}
+              key={card.title}
               index={index}
               title={card.title}
               years={card.years}
@@ -97,7 +95,7 @@ export const CardGridImage = () => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default CardGridImage;
+export default CardGrid;
