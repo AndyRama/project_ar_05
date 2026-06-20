@@ -15,6 +15,7 @@ import { CardGrid  } from "@/features/landing/card-grid";
 import { Footer } from "@/features/layout/footer";
 import { ScrollingGallery } from "@/features/landing/scrolling-galery";
 import { PromoModal } from "@/features/landing/promo-modal";
+import { PromoBanner } from "@/features/landing/promo-banner";
 import { FAQSection } from "@/features/landing/faq-accordion";
 import { Typography } from "@/components/nowts/typography";
 import RecentPosts from "@/features/landing/recent-posts";
@@ -27,6 +28,8 @@ export default function HomePage() {
   return (
     <div className="bg-background text-foreground relative flex h-fit flex-col">
       <div className="mt-16"></div>
+
+      <PromoBanner onOpenModal={() => setIsModalOpen(true)} />
 
       <LandingHeader />
 
@@ -49,8 +52,6 @@ export default function HomePage() {
       <SectionDivider />
 
       <CardGrid />
-
-      <SectionDivider />
 
       <SectionDivider />
 
@@ -108,7 +109,7 @@ export default function HomePage() {
       </motion.div>
 
       <motion.div
-        className="mt-28"
+        className="mt-28 max-w-7xl"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}

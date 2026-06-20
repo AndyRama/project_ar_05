@@ -17,7 +17,7 @@ export const PromoBanner = ({ onOpenModal }: PromoBannerProps) => {
       <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 sm:gap-3">
         <span className="hidden sm:inline">🎉</span>
         <span>
-          Offre limitée : <span className="font-bold">-50€</span> avec le code{" "}
+          Offre limitée: <span className="font-bold">-50€</span>  sur les programmes Premium et Compétition avec le code{" "}
           <span className="rounded bg-white/20 px-2 py-0.5 font-bold tracking-wider">
             UNLBOOSTER
           </span>
