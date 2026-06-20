@@ -8,8 +8,8 @@ export const EmailFormSection = () => {
   return (
     <SectionLayout size="lg">
       <Card
-        className="relative isolate flex flex-col items-center overflow-hidden
-                   bg-cover bg-center py-24 text-center shadow-2xl lg:rounded-3xl"
+        className="w-full relative isolate flex flex-col items-center overflow-hidden
+                   bg-cover bg-center py-24 text-center shadow-2xl"
         style={{ backgroundImage: `url('/images/salle-de-sport.jpg')` }}
       >
         {/* Overlay pour la lisibilité du texte sur l'image */}
@@ -45,8 +45,8 @@ export const EmailFormSection = () => {
           />
         </div>
 
-        Radial gradient décoratif
-        <svg
+        {/* Radial gradient décoratif */}
+        {/* <svg
           viewBox="0 0 1024 1024"
           aria-hidden="true"
           className="absolute top-1/2 left-1/2 -z-10 size-256 -translate-x-1/2 mask-[radial-gradient(closest-side,white,transparent)]"
@@ -64,7 +64,7 @@ export const EmailFormSection = () => {
               <stop offset={1} stopColor="#F59E0B" />
             </radialGradient>
           </defs>
-        </svg>
+        </svg> */}
       </Card>
     </SectionLayout>
   );

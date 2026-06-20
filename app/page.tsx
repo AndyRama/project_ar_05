@@ -180,6 +180,11 @@ export default function HomePage() {
       
       <SectionDivider />
 
+      <EmailFormSection />
+      
+      <SectionDivider />
+
+
       <FAQSection 
         faq={[
           {
@@ -209,7 +214,7 @@ export default function HomePage() {
           },
         ]}
       />
-      <EmailFormSection />
+
       <SectionDivider />
       <Footer />
     </div>
