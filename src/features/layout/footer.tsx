@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ScrollTopButton } from "./footer-scroll-top";
-import { Mail, Instagram, Facebook, MapPin, ArrowUpRight } from "lucide-react";
+import { Dumbbell, Instagram, Facebook, ArrowUpRight } from "lucide-react";
 import { SiteConfig } from "@/site-config";
 
 type FooterNavLink = {
@@ -58,7 +58,6 @@ const NAV_COLUMNS: FooterNavColumn[] = [
 ];
 
 const CONTACT = [
-  // { icon: Mail, label: "Email", value: "lemurian734@gmail.com", href: "mailto:lemurian734@gmail.com" },
   { icon: Instagram, label: "Instagram", value: "@unlcoaching.school", href: "https://www.instagram.com/unlcoaching.school/" },
   { icon: Facebook, label: "Facebook", value: "Unlcoaching", href: "https://www.facebook.com/Unlcoaching" },
 ] as const;
