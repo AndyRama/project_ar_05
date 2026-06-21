@@ -57,8 +57,8 @@ export default function ContactPage() {
             >
               Vous souhaitez perdre du poids, prendre du muscle, vous remettre
               en forme ou préparer une compétition ? J'analyse votre profil et
-              vos objectifs pour vous proposer un programme d'entraînement et
-              de nutrition réellement adapté à votre rythme de vie. Parlons-en
+              vos objectifs pour vous proposer un programme d'entraînement et de
+              nutrition réellement adapté à votre rythme de vie. Parlons-en
               ensemble.
             </Typography>
             <dl className="text-muted-foreground mt-10 flex flex-col gap-4 text-base/7">
@@ -85,7 +85,7 @@ export default function ContactPage() {
                   />
                 </dt>
                 <dd>
-                  
+                  <a
                     href={`mailto:${env.NEXT_PUBLIC_EMAIL_CONTACT}`}
                     className="hover:text-foreground transition-colors"
                   >
@@ -104,7 +104,7 @@ export default function ContactPage() {
                 <dd>
                   Réponse sous 24h ouvrées
                   <br />
-                  Suivi 7j/7 via WhatsApp une fois le programme démarré
+                  Suivi via WhatsApp une fois le programme démarré
                 </dd>
               </div>
             </dl>
@@ -129,13 +129,19 @@ export default function ContactPage() {
             });
 
             if (!result.success) {
-              await serverToast("Données invalides, veuillez vérifier le formulaire.", "error");
+              await serverToast(
+                "Données invalides, veuillez vérifier le formulaire.",
+                "error",
+              );
               return;
             }
 
             await contactSupportAction(result.data);
 
-            await serverToast("Votre message a bien été envoyé. Nous reviendrons vers vous rapidement.", "success");
+            await serverToast(
+              "Votre message a bien été envoyé. Nous reviendrons vers vous rapidement.",
+              "success",
+            );
           }}
           className="flex w-full items-center justify-start px-6 pt-24 pb-24 sm:pt-32 lg:px-12 lg:pt-24"
         >
