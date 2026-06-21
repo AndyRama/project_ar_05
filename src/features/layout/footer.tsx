@@ -4,7 +4,18 @@ import { ScrollTopButton } from "./footer-scroll-top";
 import { Mail, Instagram, Facebook, MapPin, ArrowUpRight } from "lucide-react";
 import { SiteConfig } from "@/site-config";
 
-const NAV_COLUMNS = [
+type FooterNavLink = {
+  label: string;
+  href: string;
+  target?: "_blank";
+};
+
+type FooterNavColumn = {
+  title: string;
+  links: FooterNavLink[];
+};
+
+const NAV_COLUMNS: FooterNavColumn[] = [
   {
     title: "Site Map",
     links: [
@@ -44,7 +55,7 @@ const NAV_COLUMNS = [
       // },
     ],
   },
-] as const;
+];
 
 const CONTACT = [
   // { icon: Mail, label: "Email", value: "lemurian734@gmail.com", href: "mailto:lemurian734@gmail.com" },
@@ -112,9 +123,8 @@ export function Footer() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      target={"target" in link ? link.target : undefined}
-                      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-                      rel={"target" in link && link.target === "_blank" ? "noopener noreferrer" : undefined}
+                      target={link.target}
+                      rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
                       className="text-muted-foreground hover:text-foreground text-sm transition-colors"
                     >
                       {link.label}
