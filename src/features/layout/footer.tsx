@@ -36,6 +36,11 @@ const NAV_COLUMNS: FooterNavColumn[] = [
     links: [
       { label: "E-books", href: "/prestations" },
       { label: "Packs", href: "/team" },
+      {
+        label: "Performance",
+        href: "https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fproject-ar-05.vercel.app%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&utm_source=lh-chrome-ext",
+        target: "_blank",
+      },
     ],
   },
   {
@@ -43,16 +48,11 @@ const NAV_COLUMNS: FooterNavColumn[] = [
     links: [
       { label: "Espace client", href: "/signin" },
       { label: "Contact", href: "/contact" },
-      // {
-      //   label: "Performance",
-      //   href: "https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fproject-ar-05.vercel.app%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&utm_source=lh-chrome-ext",
-      //   target: "_blank",
-      // },
-      // {
-      //   label: "Co² Carbon ",
-      //   href: "https://www.websitecarbon.com/website/project-ar-05.vercel.app/",
-      //   target: "_blank",
-      // },
+      {
+        label: "Co² Carbon ",
+        href: "https://www.websitecarbon.com/website/project-ar-05.vercel.app/",
+        target: "_blank",
+      },
     ],
   },
 ];
@@ -136,26 +136,26 @@ export function Footer() {
           </div>
         </div>
 
-        {/* ── Bannière Zone d'intervention ── */}
-        <div className="mt-12 hidden">
+        {/* ── Bannière Call To Action ── */}
+        <div className="mt-12">
           <Link
-            href="/zone-intervention"
+            href="/prestations"
             className="flex items-center justify-between rounded-xl border border-orange-500/20 bg-orange-500/5 px-6 py-4 transition-all hover:border-orange-500/40 hover:bg-orange-500/10"
           >
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <MapPin size={14} className="text-orange-500" />
+                <Dumbbell size={14} className="text-orange-500" />
                 <span className="text-xs font-bold tracking-widest text-orange-500 uppercase">
-                  Zone d'intervention
+                  Coaching personnalisé
                 </span>
               </div>
               <div className="h-4 w-px bg-orange-500/30" />
               <div>
                 <p className="text-foreground text-sm font-semibold">
-                  Nouvelle-Aquitaine
+                  Prêt à passer à l'action ?
                 </p>
                 <p className="text-muted-foreground text-xs">
-                  Bordeaux, Mérignac, Pessac, Talence et toute la région
+                  Choisis ton programme et commence dès aujourd'hui ta transformation
                 </p>
               </div>
             </div>

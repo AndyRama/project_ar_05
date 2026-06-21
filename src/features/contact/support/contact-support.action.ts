@@ -15,5 +15,5 @@ export const contactSupportAction = action
       html: `<p>${message}</p>`,
       replyTo: email,
     });
-    return { message: "Your message has been sent to support." };
+    return { message: "Votre message a été envoyé au support." };
   });

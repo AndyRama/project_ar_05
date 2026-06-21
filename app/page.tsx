@@ -192,9 +192,6 @@ export default function HomePage() {
 
       <EmailFormSection />
       
-      <SectionDivider />
-
-
       <FAQSection 
         faq={[
           {
