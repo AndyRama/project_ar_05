@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import React from 'react'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
+import React from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Layout } from "@/features/page/layout";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Typography } from "@/components/nowts/typography";

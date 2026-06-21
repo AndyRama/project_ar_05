@@ -52,7 +52,9 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      <CardGrid />
+      <div className="w-full max-w-full">
+        <CardGrid />
+      </div>
 
       <SectionDivider />
 
@@ -125,7 +127,7 @@ export default function HomePage() {
             Rejoignez plus de 350 personnes qui ont déjà transformé leur vie
             avec mes programmes
           </Typography>
-          <div className="mb-8 inline-block rounded-xl bg-white/10 p-6 backdrop-blur-sm">
+          <div className="mb-8 inline-block rounded-md bg-white/10 p-6 backdrop-blur-sm">
             <p className="font-semibold text-white">
               ⏰ Offre limitée : -50€ sur les programmes prémium et compétition ! 
             </p>
@@ -169,7 +171,7 @@ export default function HomePage() {
       </motion.div>
 
       <motion.div
-        className="mt-28"
+        className="mt-28 w-full max-w-full">
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
