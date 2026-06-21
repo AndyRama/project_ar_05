@@ -59,7 +59,7 @@ export const About = () => {
             <div className="relative">
               <div className="overflow-hidden rounded-xl">
                 <Image
-                  src="/images/jeremy.jpg"
+                  src="/images/jeremy2.jpg"
                   alt="Jeremy Prat"
                   width={600}
                   height={500}

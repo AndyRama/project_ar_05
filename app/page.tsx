@@ -36,15 +36,15 @@ export default function HomePage() {
 
       <Hero />
 
+      <About/>
+
       <ForWhoSection />
+
+      <ScrollingGallery />
 
       <TransformationCard />
 
       <StoryCardGrid />
-
-      <About/>
-
-      <ScrollingGallery />
 
       <Offers/>
 
