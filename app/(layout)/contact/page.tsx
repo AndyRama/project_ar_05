@@ -9,26 +9,27 @@ import { ContactSupportSchema } from "@/features/contact/support/contact-support
 import { env } from "@/lib/env";
 import { serverToast } from "@/lib/server-toast";
 import { SiteConfig } from "@/site-config";
-import { Building2, Mail, MessageSquare } from "lucide-react";
+import { Mail, MapPin, MessageSquare } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: `Contact | ${SiteConfig.title} - Automatisation & Agents IA`,
+  title: `Contact | ${SiteConfig.title} - Coaching Sportif & Transformation Physique`,
   description:
-    "Contactez Lemurian pour automatiser votre activité avec des agents IA, générer plus de leads et gagner du temps. Réponse sous 24h.",
+    "Contactez Jeremy Prat, coach sportif certifié, pour un accompagnement personnalisé : perte de poids, prise de muscle, remise en forme ou préparation compétition. Réponse sous 24h.",
   keywords: [
-    "contact agent IA",
-    "automatisation entreprise",
-    "génération de leads IA",
-    "agent IA entreprise",
-    "IA artisans",
-    "automatisation TPE PME",
-    "Bordeaux IA",
+    "contact coach sportif",
+    "coaching personnalisé",
+    "perte de poids Bordeaux",
+    "prise de muscle",
+    "remise en forme",
+    "préparation compétition",
+    "coach sportif Nouvelle-Aquitaine",
+    "Unlcoaching",
   ],
   openGraph: {
-    title: `Contact ${SiteConfig.title} - Agents IA & Automatisation`,
+    title: `Contact ${SiteConfig.title} - Coach Sportif Jeremy Prat`,
     description:
-      "Besoin d’automatiser votre business ou générer plus de clients ? Contactez Lemurian pour mettre en place des agents IA adaptés à votre activité.",
+      "Envie de te transformer ? Contacte Jeremy Prat pour un programme de coaching sportif et nutritionnel sur mesure, adapté à tes objectifs.",
     url: `${SiteConfig.prodUrl}/contact`,
     type: "website",
   },
@@ -48,26 +49,32 @@ export default function ContactPage() {
               variant="h1"
               className="text-foreground text-4xl font-semibold tracking-tight text-pretty sm:text-5xl"
             >
-              Parlons de votre projet
+              Parlons de votre transformation
             </Typography>
             <Typography
               variant="p"
               className="text-muted-foreground mt-6 text-lg/8"
             >
-              Vous souhaitez automatiser votre activité, générer plus de clients ou intégrer un agent IA dans votre entreprise ?
-              J'analyse votre situation pour vous proposer des solutions concrètes, rentables et adaptées à vos objectifs.
-              Prenez contact avec moi pour échanger sur votre projet.
+              Vous souhaitez perdre du poids, prendre du muscle, vous remettre
+              en forme ou préparer une compétition ? J'analyse votre profil et
+              vos objectifs pour vous proposer un programme d'entraînement et
+              de nutrition réellement adapté à votre rythme de vie. Parlons-en
+              ensemble.
             </Typography>
             <dl className="text-muted-foreground mt-10 flex flex-col gap-4 text-base/7">
               <div className="flex gap-x-4">
                 <dt className="flex-none">
-                  <span className="sr-only">Adresse</span>
-                  <Building2
+                  <span className="sr-only">Zone d'intervention</span>
+                  <MapPin
                     aria-hidden="true"
                     className="text-muted-foreground h-6 w-6"
                   />
                 </dt>
-                <dd>{SiteConfig.company.address}</dd>
+                <dd>
+                  Nouvelle-Aquitaine
+                  <br />
+                  Bordeaux, Mérignac, Pessac, Talence et toute la région
+                </dd>
               </div>
               <div className="flex gap-x-4">
                 <dt className="flex-none">
@@ -78,8 +85,8 @@ export default function ContactPage() {
                   />
                 </dt>
                 <dd>
-                  <a
-                    href="mailto:melvyn@nowts.com"
+                  
+                    href={`mailto:${env.NEXT_PUBLIC_EMAIL_CONTACT}`}
                     className="hover:text-foreground transition-colors"
                   >
                     {env.NEXT_PUBLIC_EMAIL_CONTACT}
@@ -97,7 +104,7 @@ export default function ContactPage() {
                 <dd>
                   Réponse sous 24h ouvrées
                   <br />
-                  Lundi – Vendredi, 9h – 18h
+                  Suivi 7j/7 via WhatsApp une fois le programme démarré
                 </dd>
               </div>
             </dl>
@@ -197,6 +204,7 @@ export default function ContactPage() {
                     id="subject"
                     name="subject"
                     type="text"
+                    placeholder="Ex : Programme perte de poids, prise de muscle..."
                     className="block w-full"
                   />
                 </div>
@@ -213,6 +221,7 @@ export default function ContactPage() {
                     id="message"
                     name="message"
                     rows={4}
+                    placeholder="Parlez-moi de votre objectif, votre niveau actuel et vos disponibilités..."
                     className="block w-full"
                     defaultValue={""}
                   />

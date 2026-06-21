@@ -6,7 +6,7 @@ import { EmailForm } from "./email-form";
 
 export const EmailFormSection = () => {
   return (
-    <SectionLayout size="lg">
+    <SectionLayout size="xl">
       <Card
         className="w-full relative isolate flex flex-col items-center overflow-hidden
                    bg-cover bg-center py-24 text-center shadow-2xl"

@@ -32,16 +32,16 @@ const NAV_COLUMNS = [
     links: [
       { label: "Espace client", href: "/signin" },
       { label: "Contact", href: "/contact" },
-      {
-        label: "Performance",
-        href: "https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fproject-ar-05.vercel.app%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&utm_source=lh-chrome-ext",
-        target: "_blank",
-      },
-      {
-        label: "Co² Carbon ",
-        href: "https://www.websitecarbon.com/website/project-ar-05.vercel.app/",
-        target: "_blank",
-      },
+      // {
+      //   label: "Performance",
+      //   href: "https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fproject-ar-05.vercel.app%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&utm_source=lh-chrome-ext",
+      //   target: "_blank",
+      // },
+      // {
+      //   label: "Co² Carbon ",
+      //   href: "https://www.websitecarbon.com/website/project-ar-05.vercel.app/",
+      //   target: "_blank",
+      // },
     ],
   },
 ] as const;
@@ -113,6 +113,7 @@ export function Footer() {
                       key={link.href}
                       href={link.href}
                       target={"target" in link ? link.target : undefined}
+                      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
                       rel={"target" in link && link.target === "_blank" ? "noopener noreferrer" : undefined}
                       className="text-muted-foreground hover:text-foreground text-sm transition-colors"
                     >
@@ -126,7 +127,7 @@ export function Footer() {
         </div>
 
         {/* ── Bannière Zone d'intervention ── */}
-        <div className="mt-12">
+        <div className="mt-12 hidden">
           <Link
             href="/zone-intervention"
             className="flex items-center justify-between rounded-xl border border-orange-500/20 bg-orange-500/5 px-6 py-4 transition-all hover:border-orange-500/40 hover:bg-orange-500/10"
