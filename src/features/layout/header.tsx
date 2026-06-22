@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { label: "Team",      href: "/team" },
   { label: "Avant/Après",      href: "/avant-apres" },
   { label: "Contact",       href: "/contact" },
+  { label: "Á Propos",       href: "/about" },
 ] as const;
 
 export function Header() {

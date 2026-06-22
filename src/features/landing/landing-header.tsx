@@ -19,6 +19,7 @@ const NAV_LINKS = [
   { label: "Team",      href: "/team" },
   { label: "Avant/Après",      href: "/avant-apres" },
   { label: "Contact",       href: "/contact" },
+  { label: "Á Propos",       href: "/about" },
 ] as const;
 
 const clamp = (n: number, min: number, max: number) =>
