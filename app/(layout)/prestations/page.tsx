@@ -8,13 +8,12 @@ import { FAQSection } from "@/features/landing/faq-accordion";
 import { EmailFormSection } from "@/features/email/email-form-section";
 import { PricingEbook } from "@/features/prestations/pricing-section-ebook";
 
-export default function Prestation() {
+export default function Prestations() {
   return (
-    <div className="bg-background text-foreground flex max-h-screen flex-col">
+    <div className="bg-background text-foreground flex min-h-screen flex-col">
       <div className="mt-16" />
 
       <SubHero title="Prestations" />
-
 
       <Offers />
 
