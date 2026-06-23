@@ -4,7 +4,7 @@ export const CtaBanner = () => {
   return (
     <section className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="rounded-2xl border border-border bg-card px-8
+        <div className="rounded-md border border-border bg-card px-8
                         py-12 text-center sm:px-16">
 
           {/* Badge */}
