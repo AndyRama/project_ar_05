@@ -66,7 +66,7 @@ export const Hero = () => {
               </div>
 
               {/* Badges inline */}
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-6
+              <div className="mt-8 hidden md:flex flex-wrap items-center justify-center gap-6
                               text-sm text-muted-foreground lg:justify-start">
                 {BADGES.map(({ icon: Icon, label }) => (
                   <span key={label} className="flex items-center gap-1.5">
@@ -77,7 +77,7 @@ export const Hero = () => {
               </div>
 
               {/* Reviews */}
-              <div className="mt-8">
+              <div className="mt-8 hidden md:content">
                 <ReviewSmall
                   stars={5}
                   avatars={[
@@ -97,14 +97,14 @@ export const Hero = () => {
             <div className="flex w-full shrink-0 justify-center lg:w-auto lg:justify-end">
               <div className="relative">
                 {/* Halo derrière la photo */}
-                <div className="absolute inset-0 -z-10 scale-110 rounded-2xl
-                                bg-gradient-to-tr from-orange-300/30 to-purple-300/20 blur-2xl" />
+                <div className="absolute inset-0 -z-10 scale-110 rounded-md
+                                bg-gradient-to-tr from-orange-300/30 to-purple-300/20 blur-md" />
                 <Image
                   src="/images/jeremy.jpg"
                   width={420}
                   height={560}
-                  className="h-auto w-full max-w-[260px] rounded-2xl object-cover
-                             shadow-2xl ring-1 ring-orange-200/40
+                  className="h-auto w-full max-w-[260px] rounded-md object-cover
+                             shadow-md ring-1 ring-orange-200/40
                              sm:max-w-[320px] lg:max-w-[380px] xl:max-w-[420px]"
                   alt="Jeremy Prat – Coach Personnel"
                   priority
@@ -119,7 +119,7 @@ export const Hero = () => {
       <SectionDivider />
 
       {/* ── Stats bar ── */}
-      <div className="border-t border-border bg-muted/30">
+      <div className="hidden md:content border-t border-border bg-muted/30">
         <div className="mx-auto max-w-4xl lg:max-w-6xl px-6 py-6 lg:px-8">
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
             {STATS.map(({ icon: Icon, value }) => (
