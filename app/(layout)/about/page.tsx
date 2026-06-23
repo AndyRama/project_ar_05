@@ -36,7 +36,7 @@ export default function AboutPage() {
 
       {/* Hero Section */}
       <SectionLayout variant="transparent">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-3xl text-center">
           <Typography
             variant="p"
             className="text-primary text-base/7 font-semibold"
@@ -56,7 +56,7 @@ export default function AboutPage() {
           >
             Coach sportif personnel passionné, Jérémy Prat accompagne chaque
             client vers un mode de vie sain et durable — avec méthode,
-            exigence et disponibilité 7j/7.
+            exigence et disponibilité.
           </Typography>
         </div>
       </SectionLayout>
@@ -158,7 +158,7 @@ export default function AboutPage() {
                   Disponibilité
                 </dt>
                 <dd className="text-foreground order-first text-6xl font-semibold tracking-tight">
-                  7j<span className="text-4xl">/7</span>
+                  5j<span className="text-4xl">/7</span>
                 </dd>
               </div>
               <div className="flex flex-col gap-y-2">

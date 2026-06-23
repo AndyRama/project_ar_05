@@ -76,7 +76,7 @@ export default function ContactPage() {
                   Bordeaux, Mérignac, Pessac, Talence et toute la région
                 </dd>
               </div>
-              <div className="flex gap-x-4">
+              {/* <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Email</span>
                   <Mail
@@ -92,7 +92,7 @@ export default function ContactPage() {
                     {env.NEXT_PUBLIC_EMAIL_CONTACT}
                   </a>
                 </dd>
-              </div>
+              </div> */}
               <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Délai de réponse</span>
@@ -102,8 +102,6 @@ export default function ContactPage() {
                   />
                 </dt>
                 <dd>
-                  Réponse sous 24h ouvrées
-                  <br />
                   Suivi via WhatsApp une fois le programme démarré
                 </dd>
               </div>
