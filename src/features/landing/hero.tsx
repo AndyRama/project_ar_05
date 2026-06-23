@@ -118,6 +118,13 @@ export const Hero = () => {
 
       <SectionDivider />
 
+      {/* Image - main - bg-cover */}
+      <div
+        className="mt-0 h-auto min-h-screen bg-cover bg-fixed bg-center md:min-h-screen lg:bg-center"
+        style={{ backgroundImage: `url('/images/salle-de-sport.jpg')` }}
+      >
+      </div>
+
       {/* ── Stats bar ── */}
       <div className="hidden md:content border-t border-border bg-muted/30">
         <div className="mx-auto max-w-4xl lg:max-w-6xl px-6 py-6 lg:px-8">
