@@ -78,8 +78,8 @@ const COLUMNS = [
 // ── Main ──────────────────────────────────────────────────────────
 
 export const StoryCardGrid: React.FC<StoryCardGridProps> = ({
-  badge = "",
-  title = "",
+  badge = "Example de résultats",
+  title = "Avant/",
   highlight = "Après",
   description = "Des transformations réelles, obtenues avec un programme sur mesure et un suivi rigoureux.",
 }) => {

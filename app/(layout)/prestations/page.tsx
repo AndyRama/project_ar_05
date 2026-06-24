@@ -14,7 +14,7 @@ export default function Prestations() {
     <div className="bg-background text-foreground flex min-h-screen flex-col">
       {/* <div className="mt-16" /> */}
 
-      <SubHero title="Prestations" />
+      <SubHero title="Prestations" eyebrow="Toutes mes" />
 
       <Offers />
 
@@ -59,8 +59,6 @@ export default function Prestations() {
       <SectionDivider />
 
       <EmailFormSection />
-
-            <SectionDivider />
       
       <PricingEbook
         cards={[
