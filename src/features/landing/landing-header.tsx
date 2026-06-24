@@ -7,9 +7,9 @@ import { motion, useMotionValue, useScroll, useTransform } from "motion/react";
 import { useEffect } from "react";
 import { Menu } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
-import { ThemeToggle } from "../theme/theme-toggle";
 import { SiteConfig } from "@/site-config";
 import { AuthButtonClient } from "@/features/auth/auth-button-client";
+// import { ThemeToggle } from "../theme/theme-toggle";
 
 
 const NAV_LINKS = [
@@ -19,7 +19,6 @@ const NAV_LINKS = [
   { label: "Team",      href: "/team" },
   { label: "Avant/Après",      href: "/avant-apres" },
   { label: "Contact",       href: "/contact" },
-  { label: "Á Propos",       href: "/about" },
 ] as const;
 
 const clamp = (n: number, min: number, max: number) =>
@@ -151,7 +150,7 @@ export function LandingHeader() {
           >
             Prendre RDV
           </Link> */}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </motion.div>
 
         {/* ── Mobile — Sheet shadcn ── */}
@@ -177,15 +176,15 @@ export function LandingHeader() {
               >
                 <Image
                   src={SiteConfig.appIcon}
-                  alt="lemurian app logo"
+                  alt="Unlcoaching app logo"
                   width={24}
                   height={24}
                   className="rounded-sm"
                 />
                 <span className="text-base font-bold text-foreground">
-                  Lemurian Agency
+                  Unlcoaching 
                 </span>
-                <ThemeToggle />
+                {/* <ThemeToggle /> */}
               </div>
 
               <hr className="border-white/10" />

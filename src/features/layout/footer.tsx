@@ -19,8 +19,8 @@ const NAV_COLUMNS: FooterNavColumn[] = [
   {
     title: "Site Map",
     links: [
-      { label: "Accueil", href: "/" },
-      { label: "Blog", href: "/posts" },
+      { label: "Accueil",        href: "/" },
+      { label: "Blog",           href: "/posts" },
     ],
   },
   {
@@ -34,20 +34,21 @@ const NAV_COLUMNS: FooterNavColumn[] = [
   {
     title: "Ressources",
     links: [
-      { label: "E-books", href: "/prestations" },
-      { label: "Packs", href: "/team" },
-      {
-        label: "Performance",
-        href: "https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fproject-ar-05.vercel.app%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&utm_source=lh-chrome-ext",
-        target: "_blank",
-      },
+      { label: "Espace client", href: "/signin" },
+      { label: "Á Propos",       href: "/about" },
+      { label: "Contact", href: "/contact" },
+      // { label: "E-books", href: "/prestations" },
+      // { label: "Packs", href: "/team" },
     ],
   },
   {
     title: "Informations",
     links: [
-      { label: "Espace client", href: "/signin" },
-      { label: "Contact", href: "/contact" },
+      {
+        label: "Performance",
+        href: "https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fproject-ar-05.vercel.app%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&utm_source=lh-chrome-ext",
+        target: "_blank",
+      },
       {
         label: "Co² Carbon ",
         href: "https://www.websitecarbon.com/website/project-ar-05.vercel.app/",
@@ -138,7 +139,7 @@ export function Footer() {
         {/* ── Bannière Call To Action ── */}
         <div className="mt-12">
           <Link
-            href="/prestations"
+            href="/#begin"
             className="flex items-center justify-between rounded-xl border border-orange-500/20 bg-orange-500/5 px-6 py-4 transition-all hover:border-orange-500/40 hover:bg-orange-500/10"
           >
             <div className="flex items-center gap-4">

@@ -4,7 +4,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { AuthButtonClient } from "@/features/auth/auth-button-client";
 import { SiteConfig } from "@/site-config";
-import { ThemeToggle } from "../theme/theme-toggle";
+// import { ThemeToggle } from "../theme/theme-toggle";
 
 const NAV_LINKS = [
   { label: "Accueil",    href: "/" },
@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { label: "Team",      href: "/team" },
   { label: "Avant/Après",      href: "/avant-apres" },
   { label: "Contact",       href: "/contact" },
-  { label: "Á Propos",       href: "/about" },
+  // { label: "Á Propos",       href: "/about" },
 ] as const;
 
 export function Header() {
@@ -66,7 +66,7 @@ export function Header() {
           >
             Prendre RDV
           </Link> */}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </div>
 
         {/* ── Mobile — Sheet ── */}
@@ -98,7 +98,7 @@ export function Header() {
                     Unlcoaching
                   </span>
                 </Link>
-                <ThemeToggle />
+                {/* <ThemeToggle /> */}
               </div>
 
               <hr className="border-border" />
