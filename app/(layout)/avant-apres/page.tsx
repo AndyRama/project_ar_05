@@ -1,92 +1,19 @@
-"use client";
-
-import { useState } from "react";
-import { SectionDivider } from "@/features/landing/section-divider";
-import { SubHero } from "@/features/landing/sub-hero";
-import { Testimonials } from "@/features/landing/testimonials";
-import { EmailFormSection } from "@/features/email/email-form-section";
-import StoryCardGrid from "@/features/landing/story-card-grid";
-import { SiteConfig } from "@/site-config";
 import type { Metadata } from "next";
-import { PromoModal } from "@/features/landing/promo-modal";
-import { Typography } from "@/components/nowts/typography";
+import { SiteConfig } from "@/site-config";
+import { BeforeAfterClient } from "./before-after-client";
 
 export const metadata: Metadata = {
   title: `Avant/Apres | ${SiteConfig.title}`,
-  description:
-    "Découvrez Jérémy Prat, coach sportif personnel et fondateur d'Unlcoaching. 10 ans d'expérience, +350 transformations réussies, programmes personnalisés perte de poids, musculation et remise en forme.",
-  keywords: [
-    "coach sportif personnel",
-    "Jérémy Prat",
-    "Unlcoaching",
-    "transformation physique",
-    "perte de poids",
-    "prise de masse",
-    "coaching en ligne",
-  ],
+  description: "Découvrez Jérémy Prat, coach sportif personnel et fondateur d'Unlcoaching. 10 ans d'expérience, +350 transformations réussies, programmes personnalisés perte de poids, musculation et remise en forme.",
+  keywords: ["coach sportif personnel", "Jérémy Prat", "Unlcoaching", "transformation physique", "perte de poids", "prise de masse", "coaching en ligne"],
   openGraph: {
     title: `Avant/Apres | ${SiteConfig.title}`,
-    description:
-      "Découvrez Jérémy Prat, coach sportif personnel et fondateur d'Unlcoaching. 10 ans d'expérience, +350 transformations réussies.",
+    description: "Découvrez Jérémy Prat, coach sportif personnel et fondateur d'Unlcoaching. 10 ans d'expérience, +350 transformations réussies.",
     url: `${SiteConfig.prodUrl}/about`,
     type: "website",
   },
 };
 
-export default function BeforAfter() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  return (
-    <div className="bg-background text-foreground flex min-h-screen flex-col">
-      <SubHero title="+350 Transformations réussies" eyebrow="Avant/Après"/>
-
-      <StoryCardGrid
-         badge=" "
-         title=" "
-         highlight=" "
-         description=" "
-      />
-
-      {/* <Message communauté/> */}
-
-      {/* <SubHero2/> */}
-
-      <Testimonials />
-
-      {/* Final CTA Section */}
-      <section className="bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-16">
-        <div className="mx-auto max-w-5xl text-center">
-          <Typography variant="h2" className="mb-6 text-white">
-            Prêt à Transformer Votre Corps ?
-          </Typography>
-          <Typography variant="large" className="mb-8 text-orange-100">
-            Rejoignez plus de 350 personnes qui ont déjà transformé leur vie
-            avec mes programmes
-          </Typography>
-          <div className="mb-8 inline-block rounded-md bg-white/10 p-6 backdrop-blur-sm">
-            <p className="font-semibold text-white">
-              ⏰ Offre limitée : -50€ sur les programmes prémium et compétition ! 
-            </p>
-            <p className="text-orange-100">Ne manquez pas cette opportunité !</p>
-          </div>
-          <button 
-            onClick={() => setIsModalOpen(true)}
-            className="rounded-[10px] bg-white px-12 py-4 text-xl font-bold text-orange-700 transition-all hover:scale-105 hover:bg-gray-100"
-          >
-            Commencer ma transformation maintenant
-          </button>
-        </div>
-      </section>
-
-      {/* Modal */}
-      <PromoModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
-      
-      <SectionDivider />
-
-      <EmailFormSection />
-    </div>
-  );
+export default function BeforeAfterPage() {
+  return <BeforeAfterClient />;
 }
