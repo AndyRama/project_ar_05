@@ -76,7 +76,7 @@ export const Hero = () => {
                   </div>
 
                   {/* Reviews */}
-                  <div className="md:content mt-8 hidden">
+                  <div className="mt-8">
                     <ReviewSmall
                       stars={5}
                       avatars={[

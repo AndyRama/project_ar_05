@@ -13,7 +13,7 @@ const VALUES = [
 const COMMITMENTS = [
   "Je t'accompagne avec un programme 100% personnalisé, adapté à tes objectifs.",
   "Je t'intègre un plan nutrition sur mesure : sèche, prise de masse ou rééquilibrage.",
-  "Je suis disponible 7j/7 via WhatsApp pour un suivi continu et motivant.",
+  "Je suis disponible 5j/7 via WhatsApp pour un suivi continu et motivant.",
 ];
 
 export const About = () => {
@@ -37,7 +37,7 @@ export const About = () => {
             className="mt-4 text-3xl font-semibold tracking-tight
                        text-balance sm:text-4xl"
           >
-             Expert en transformation physique <br />
+            Expert en transformation physique <br />
             au service de tes objectifs
           </Typography>
 
@@ -45,24 +45,24 @@ export const About = () => {
             variant="large"
             className="text-muted-foreground mt-4 text-lg text-pretty"
           >
-            Entraînement rigoureux, nutrition équilibrée et suivi personnalisé — pour un mode de vie sain et <br/> durable, pas des promesses en l'air.
+            Entraînement rigoureux, nutrition équilibrée et suivi personnalisé — pour un mode de vie <br/> sain et durable, pas des promesses en l'air.
           </Typography>
         </div>
 
         {/* ── Carte principale ── */}
-        <div className="mx-auto mt-16 max-w-5xl rounded-2xl border
+        <div className="mx-auto mt-16 max-w-5xl rounded-md border
                         border-border bg-card p-6 sm:p-10">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2
                           lg:items-start">
 
             {/* ── Colonne gauche — photo ── */}
             <div className="relative">
-              <div className="overflow-hidden rounded-xl">
+              <div className="overflow-hidden rounded-md">
                 <Image
                   src="/images/jeremy2.jpg"
                   alt="Jeremy Prat"
                   width={600}
-                  height={500}
+                  height={700}
                   className="h-auto w-full object-cover object-top"
                   priority
                 />
