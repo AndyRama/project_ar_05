@@ -16,9 +16,11 @@ export default function Prestations() {
 
       <SubHero title="Prestations" />
 
-      <Engagement />
-
       <Offers />
+
+      <SectionDivider />
+
+      <Engagement />
 
       <SectionDivider />
       

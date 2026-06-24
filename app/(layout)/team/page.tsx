@@ -11,7 +11,7 @@ import StoryCardGrid from "@/features/landing/story-card-grid";
 export default function Team() {
   return (
     <div className="bg-background text-foreground flex min-h-screen flex-col">
-      <div className="mt-16" />
+      {/* <div className="mt-16" /> */}
 
       <SubHero title="Le Coeur de la team" />
 
