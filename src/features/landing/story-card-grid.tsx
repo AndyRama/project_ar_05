@@ -93,7 +93,7 @@ export const StoryCardGrid: React.FC<StoryCardGridProps> = ({
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
       {/* Header — rendu seulement si au moins une prop existe */}
-      {(badge || title || highlight || description) && (
+      {(badge ?? title ?? highlight ?? description) && (
         <div className="mb-16 flex flex-col items-center text-center">
           {badge && (
             <div className="mb-6 inline-flex items-center gap-2 rounded-full
@@ -104,7 +104,7 @@ export const StoryCardGrid: React.FC<StoryCardGridProps> = ({
             </div>
           )}
 
-          {(title || highlight) && (
+          {(title ?? highlight) && (
             <h2 className="text-4xl font-bold tracking-tight text-balance
                           text-foreground sm:text-5xl">
               {title}{title && highlight ? " " : ""}
