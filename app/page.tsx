@@ -48,7 +48,7 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      <StoryCardGrid />
+      <StoryCardGrid badge="Example de résultats" highlight="Avant/" title="Après" description="Des transformations réelles, obtenues avec un programme sur mesure et un suivi rigoureux." />
 
       <SectionDivider />
 

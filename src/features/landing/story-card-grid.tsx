@@ -78,11 +78,12 @@ const COLUMNS = [
 // ── Main ──────────────────────────────────────────────────────────
 
 export const StoryCardGrid: React.FC<StoryCardGridProps> = ({
-  badge = "Example de résultats",
-  title = "Avant/",
-  highlight = "Après",
-  description = "Des transformations réelles, obtenues avec un programme sur mesure et un suivi rigoureux.",
+  badge,
+  title,
+  highlight,
+  description,
 }) => {
+  
   const [showAll, setShowAll] = useState(false);
 
   return (
@@ -91,25 +92,31 @@ export const StoryCardGrid: React.FC<StoryCardGridProps> = ({
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-        {/* Header */}
-        <div className="mb-16 flex flex-col items-center text-center">
+      {/* Header */}
+      <div className="mb-16 flex flex-col items-center text-center">
+        {badge && (
           <div className="mb-6 inline-flex items-center gap-2 rounded-full
                           border border-orange-200 bg-orange-50 px-4 py-1.5
                           text-xs font-semibold tracking-widest text-orange-700 uppercase
                           dark:border-orange-800/60 dark:bg-orange-950/60 dark:text-orange-300">
             {badge}
           </div>
+        )}
 
+        {(title || highlight) && (
           <h2 className="text-4xl font-bold tracking-tight text-balance
-                         text-foreground sm:text-5xl">
-            {title}{" "}
-            <span className="text-orange-500">{highlight}</span>
+                        text-foreground sm:text-5xl">
+            {title}{title && highlight ? " " : ""}
+            {highlight && <span className="text-orange-500">{highlight}</span>}
           </h2>
+        )}
 
+        {description && (
           <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             {description}
           </p>
-        </div>
+        )}
+      </div>
 
         {/* Masonry columns */}
         <div className="flex gap-4 md:gap-6">

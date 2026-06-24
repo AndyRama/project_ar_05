@@ -120,7 +120,7 @@ const ProfileCard = ({
   cta: string;
   link: string;
 }) => (
-  <div className="group flex flex-col rounded-2xl border border-border
+  <div className="group flex flex-col rounded-md border border-border
                   bg-background p-8 shadow-sm
                   transition-all duration-300
                   hover:border-orange-300 hover:shadow-lg hover:shadow-orange-500/10">
@@ -176,7 +176,7 @@ const NOT_FOR = [
 ] as const;
 
 const ForWhoNotFor = () => (
-  <div className="mt-16 rounded-2xl border border-border bg-muted/30 p-8">
+  <div className="mt-16 rounded-md border border-border bg-muted/30 p-8">
     <h3 className="mb-5 text-xl font-bold tracking-tight text-foreground">
       ⚠️ Ce coaching <span className="text-red-500">N'EST PAS</span> pour toi si :
     </h3>

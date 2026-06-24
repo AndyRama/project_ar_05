@@ -88,7 +88,7 @@ export function TransformationCard() {
               {IMAGES.map(({ src, alt }) => (
                 <div
                   key={src}
-                  className="relative aspect-square overflow-hidden rounded-2xl
+                  className="relative aspect-square overflow-hidden rounded-md
                              ring-1 ring-border shadow-sm"
                 >
                   <Image

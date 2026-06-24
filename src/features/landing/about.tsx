@@ -107,7 +107,7 @@ export const About = () => {
                   <div
                     key={label}
                     data-testid="about-value"
-                    className="flex items-center gap-2.5 rounded-xl
+                    className="flex items-center gap-2.5 rounded-md
                                border border-border bg-muted/30 px-4 py-3"
                   >
                     <Icon size={15} className="shrink-0 text-orange-500" />
@@ -119,7 +119,7 @@ export const About = () => {
               </div>
 
               {/* Engagement */}
-              <div className="rounded-xl border border-orange-500/30
+              <div className="rounded-md border border-orange-500/30
                               bg-orange-500/5 px-5 py-4">
                 <p className="mb-3 text-xs font-bold tracking-widest
                                text-orange-500 uppercase">
@@ -145,7 +145,7 @@ export const About = () => {
 
               {/* CTA */}
               <Link
-                href="/prestations"
+                href="/prestations/#begin"
                 className="inline-flex items-center gap-1.5 text-sm
                            font-semibold text-orange-500 transition-colors
                            hover:text-orange-400"

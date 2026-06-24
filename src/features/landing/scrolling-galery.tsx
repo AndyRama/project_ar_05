@@ -140,7 +140,7 @@ export function ScrollingGallery() {
                   {images.map((img) => (
                     <div
                       key={img.uniqueId}
-                      className="group relative overflow-hidden rounded-2xl
+                      className="group relative overflow-hidden rounded-md
                                  ring-1 ring-border shadow-sm"
                     >
                       <Image
