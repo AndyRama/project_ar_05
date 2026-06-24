@@ -1,5 +1,3 @@
-"use client";
-
 import { SectionDivider } from "@/features/landing/section-divider";
 import { SubHero } from "@/features/landing/sub-hero";
 import { Testimonials } from "@/features/landing/testimonials";
