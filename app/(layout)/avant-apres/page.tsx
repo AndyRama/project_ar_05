@@ -33,9 +33,14 @@ export default function BeforAfter() {
     <div className="bg-background text-foreground flex min-h-screen flex-col">
       {/* <div className="mt-16" /> */}
 
-      <SubHero title="Ávant - Ápres" />
+      <SubHero title="Ávant - Ápres"/>
 
-      <StoryCardGrid />
+      <StoryCardGrid
+         badge=""
+         title=""
+         highlight=""
+         description=""
+      />
 
       {/* <Message communauté/> */}
 

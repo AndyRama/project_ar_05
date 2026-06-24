@@ -14,6 +14,13 @@ export type StoryCardProps = {
   tailwindClass?: string;
 } & ComponentPropsWithoutRef<"div">;
 
+export type StoryCardGridProps = {
+  badge?: string;
+  title?: string;
+  highlight?: string;
+  description?: string;
+};
+
 // ── StoryCard ─────────────────────────────────────────────────────
 
 export const StoryCard: React.FC<StoryCardProps> = ({
@@ -70,7 +77,12 @@ const COLUMNS = [
 
 // ── Main ──────────────────────────────────────────────────────────
 
-export const StoryCardGrid: React.FC = () => {
+export const StoryCardGrid: React.FC<StoryCardGridProps> = ({
+  badge = "",
+  title = "",
+  highlight = "Après",
+  description = "Des transformations réelles, obtenues avec un programme sur mesure et un suivi rigoureux.",
+}) => {
   const [showAll, setShowAll] = useState(false);
 
   return (
@@ -85,17 +97,17 @@ export const StoryCardGrid: React.FC = () => {
                           border border-orange-200 bg-orange-50 px-4 py-1.5
                           text-xs font-semibold tracking-widest text-orange-700 uppercase
                           dark:border-orange-800/60 dark:bg-orange-950/60 dark:text-orange-300">
-            Exemples de résultats
+            {badge}
           </div>
 
           <h2 className="text-4xl font-bold tracking-tight text-balance
                          text-foreground sm:text-5xl">
-            Avant /{" "}
-            <span className="text-orange-500">Après</span>
+            {title}{" "}
+            <span className="text-orange-500">{highlight}</span>
           </h2>
 
           <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Des transformations réelles, obtenues avec un programme sur mesure et un suivi rigoureux.
+            {description}
           </p>
         </div>
 
