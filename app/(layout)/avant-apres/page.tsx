@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SiteConfig } from "@/site-config";
-import { BeforeAfterClient } from "./before-after-client";
+import  BeforeAfterClient  from "./before-after-client";
 
 export const metadata: Metadata = {
   title: `Avant/Apres | ${SiteConfig.title}`,
