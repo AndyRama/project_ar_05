@@ -1,67 +1,43 @@
-import GridBackground from "@/components/nowts/grid-background";
 import { Typography } from "@/components/nowts/typography";
 import { SectionLayout } from "@/features/landing/section-layout";
-import { SiteConfig } from "@/site-config";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: `À propos | ${SiteConfig.title}`,
-  description:
-    "Découvrez Jérémy Prat, coach sportif personnel et fondateur d'Unlcoaching. 10 ans d'expérience, +350 transformations réussies, programmes personnalisés perte de poids, musculation et remise en forme.",
-  keywords: [
-    "coach sportif personnel",
-    "Jérémy Prat",
-    "Unlcoaching",
-    "transformation physique",
-    "perte de poids",
-    "prise de masse",
-    "coaching en ligne",
-  ],
-  openGraph: {
-    title: `À propos | ${SiteConfig.title}`,
-    description:
-      "Découvrez Jérémy Prat, coach sportif personnel et fondateur d'Unlcoaching. 10 ans d'expérience, +350 transformations réussies.",
-    url: `${SiteConfig.prodUrl}/about`,
-    type: "website",
+const APPROACH_ITEMS = [
+  {
+    icon: "🎯",
+    title: "100 % personnalisé",
+    desc: "Chaque programme est construit autour de tes objectifs, ton niveau et ton mode de vie. Aucun PDF générique, aucune solution copier-coller.",
   },
-};
+  {
+    icon: "🥗",
+    title: "Nutrition intégrée",
+    desc: "Plan alimentaire adapté — sèche, prise de masse ou rééquilibrage — avec accompagnement sur les troubles du comportement alimentaire (TCA).",
+  },
+  {
+    icon: "📊",
+    title: "Suivi mensuel rigoureux",
+    desc: "Bilan mensuel photo + mensurations pour mesurer chaque progression. Tu vois concrètement où tu en es et où tu vas.",
+  },
+  {
+    icon: "💬",
+    title: "Communication 24h/24",
+    desc: "WhatsApp & email disponibles à toute heure. Un doute sur une séance, une question nutrition à 22h — je suis là.",
+  },
+  {
+    icon: "🏆",
+    title: "Préparation compétition",
+    desc: "Préparation physique et mentale aux concours fitness et compétitions. Expérience éprouvée en préparation scène.",
+  },
+  {
+    icon: "🧠",
+    title: "Mental & habitudes de vie",
+    desc: "La transformation passe aussi par la tête. J'intègre gestion du stress, sommeil et mental dans chaque accompagnement.",
+  },
+] as const;
 
-export default function AboutPage() {
+export const Engagement = () => {
   return (
-    <div className="relative">
-      <GridBackground
-        color="color-mix(in srgb, var(--muted) 50%, transparent)"
-        size={20}
-      />
-
-      {/* Hero Section */}
-      <SectionLayout variant="transparent">
-        <div className="mx-auto max-w-3xl text-center">
-          <Typography
-            variant="p"
-            className="text-primary text-base/7 font-semibold"
-          >
-            À propos
-          </Typography>
-          <Typography
-            variant="h1"
-            className="text-foreground mt-2 text-5xl font-semibold tracking-tight sm:text-7xl"
-          >
-            Allier entraînement rigoureux et nutrition équilibrée, c'est un
-            métier
-          </Typography>
-          <Typography
-            variant="p"
-            className="text-muted-foreground mt-8 text-lg font-medium text-pretty sm:text-xl/8"
-          >
-            Coach sportif personnel passionné, Jérémy Prat accompagne chaque
-            client vers un mode de vie sain et durable — avec méthode,
-            exigence et disponibilité.
-          </Typography>
-        </div>
-      </SectionLayout>
-
-      {/* Main Content */}
+    <>
+      {/* Mon engagement / Photos / Chiffres clés */}
       <SectionLayout size="lg" variant="transparent">
         <section className="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
           <div className="lg:pr-8">
@@ -184,38 +160,7 @@ export default function AboutPage() {
             Mon approche
           </Typography>
           <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                icon: "🎯",
-                title: "100 % personnalisé",
-                desc: "Chaque programme est construit autour de tes objectifs, ton niveau et ton mode de vie. Aucun PDF générique, aucune solution copier-coller.",
-              },
-              {
-                icon: "🥗",
-                title: "Nutrition intégrée",
-                desc: "Plan alimentaire adapté — sèche, prise de masse ou rééquilibrage — avec accompagnement sur les troubles du comportement alimentaire (TCA).",
-              },
-              {
-                icon: "📊",
-                title: "Suivi mensuel rigoureux",
-                desc: "Bilan mensuel photo + mensurations pour mesurer chaque progression. Tu vois concrètement où tu en es et où tu vas.",
-              },
-              {
-                icon: "💬",
-                title: "Communication 24h/24",
-                desc: "WhatsApp & email disponibles à toute heure. Un doute sur une séance, une question nutrition à 22h — je suis là.",
-              },
-              {
-                icon: "🏆",
-                title: "Préparation compétition",
-                desc: "Préparation physique et mentale aux concours fitness et compétitions. Expérience éprouvée en préparation scène.",
-              },
-              {
-                icon: "🧠",
-                title: "Mental & habitudes de vie",
-                desc: "La transformation passe aussi par la tête. J'intègre gestion du stress, sommeil et mental dans chaque accompagnement.",
-              },
-            ].map((item) => (
+            {APPROACH_ITEMS.map((item) => (
               <div key={item.title} className="border-border border rounded-xl p-6">
                 <div className="text-3xl mb-4">{item.icon}</div>
                 <Typography
@@ -235,6 +180,6 @@ export default function AboutPage() {
           </div>
         </div>
       </SectionLayout>
-    </div>
+    </>
   );
-}
+};

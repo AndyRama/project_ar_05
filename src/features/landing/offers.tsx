@@ -198,9 +198,9 @@ const OfferCard = ({
       <div className="mt-2">
         <span className="text-2xl font-bold text-foreground">{price}</span>
         <span className="ml-1 text-sm text-orange-500">{priceUnit}</span>
-        {/* {priceDetail && (
+        {priceDetail && (
           <p className="mt-0.5 text-xs text-muted-foreground">{priceDetail}</p>
-        )} */}
+        )}
       </div>
 
       {description && (

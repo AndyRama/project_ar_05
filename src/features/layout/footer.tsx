@@ -21,39 +21,23 @@ const NAV_COLUMNS: FooterNavColumn[] = [
     links: [
       { label: "Accueil",        href: "/" },
       { label: "Blog",           href: "/posts" },
+      { label: "Team", href: "/team" },
     ],
   },
   {
     title: "Services",
     links: [
       { label: "Prestations", href: "/prestations" },
-      { label: "Team", href: "/team" },
       { label: "Avant-après", href: "/avant-apres" },
-    ],
-  },
-  {
-    title: "Ressources",
-    links: [
-      { label: "Espace client", href: "/signin" },
-      { label: "Á Propos",       href: "/about" },
       { label: "Contact", href: "/contact" },
-      // { label: "E-books", href: "/prestations" },
-      // { label: "Packs", href: "/team" },
     ],
   },
   {
     title: "Informations",
     links: [
-      {
-        label: "Performance",
-        href: "https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fproject-ar-05.vercel.app%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&utm_source=lh-chrome-ext",
-        target: "_blank",
-      },
-      {
-        label: "Co² Carbon ",
-        href: "https://www.websitecarbon.com/website/project-ar-05.vercel.app/",
-        target: "_blank",
-      },
+      { label: "Espace client", href: "/signin" },
+      { label: "E-books", href: "/prestations" },
+      { label: "Packs", href: "/prestations/#begin" },
     ],
   },
 ];
@@ -74,7 +58,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2">
               <Image
                 src={SiteConfig.appIcon}
-                alt="lemurian app logo"
+                alt="unlcoaching app logo"
                 width={24}
                 height={24}
               />
@@ -112,7 +96,7 @@ export function Footer() {
           </div>
 
           {/* ── Colonnes droite — nav 4 colonnes ── */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-5">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {NAV_COLUMNS.map(({ title, links }) => (
               <div key={title} className="flex flex-col gap-4">
                 <h4 className="text-foreground border-l-2 border-orange-500 pl-3 text-sm font-semibold">
@@ -140,7 +124,7 @@ export function Footer() {
         <div className="mt-12">
           <Link
             href="/#begin"
-            className="flex items-center justify-between rounded-xl border border-orange-500/20 bg-orange-500/5 px-6 py-4 transition-all hover:border-orange-500/40 hover:bg-orange-500/10"
+            className="flex items-center justify-between rounded-md border border-orange-500/20 bg-orange-500/5 px-6 py-4 transition-all hover:border-orange-500/40 hover:bg-orange-500/10"
           >
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
