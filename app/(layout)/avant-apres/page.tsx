@@ -9,6 +9,7 @@ import StoryCardGrid from "@/features/landing/story-card-grid";
 import { SiteConfig } from "@/site-config";
 import type { Metadata } from "next";
 import { PromoModal } from "@/features/landing/promo-modal";
+import { Typography } from "@/components/nowts/typography";
 
 export const metadata: Metadata = {
   title: `Avant/Apres | ${SiteConfig.title}`,
