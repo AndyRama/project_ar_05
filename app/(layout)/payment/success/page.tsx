@@ -13,7 +13,7 @@ export default function SuccessPaymentPage() {
       <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
 
         {/* Gauche — texte */}
-        <div className="bg-muted/10 relative flex items-center justify-end px-6 py-24 backdrop-blur-sm sm:py-32 lg:px-12">
+        <div className="bg-muted/10 relative flex items-center justify-end px-4 backdrop-blur-sm lg:px-6">
           <div className="relative z-10 mx-auto w-full max-w-xl lg:mx-0 lg:max-w-lg">
             <Typography
               variant="h1"
@@ -63,7 +63,7 @@ export default function SuccessPaymentPage() {
         </div>
 
         {/* Droite — AuditForm */}
-        <div className="flex w-full items-center justify-start px-6 py-24 lg:px-12">
+        <div className="flex w-full items-center justify-start px-4 lg:px-6">
           <div className="w-full max-w-xl">
             <AuditForm />
           </div>
