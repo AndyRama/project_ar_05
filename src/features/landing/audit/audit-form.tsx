@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { User } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
@@ -14,11 +16,11 @@ import {
   Step3Schema,
 } from "./audit-form.schema";
 
-const STEPS = [
-  { number: 1, label: "Coordonnées" },
-  { number: 2, label: "Votre activité" },
-  { number: 3, label: "Votre projet" },
-] as const;
+// const STEPS = [
+//   { number: 1, label: "Coordonnées" },
+//   { number: 2, label: "Votre activité" },
+//   { number: 3, label: "Votre projet" },
+// ] as const;
 
 const BUDGETS = [
   "Moins de 500€",
@@ -66,7 +68,7 @@ export const AuditForm = () => {
     return (
       <section id="audit-form" className="relative py-24 sm:py-32">
         <div className="mx-auto max-w-xl px-6 text-center lg:px-8">
-          <div className="rounded-2xl border border-border bg-card p-10">
+          <div className="rounded-md border border-border bg-card p-10">
             <div className="mb-4 flex justify-center">
               <div className="flex size-14 items-center justify-center rounded-full bg-orange-500/10">
                 <span className="text-2xl">🎯</span>
@@ -74,8 +76,21 @@ export const AuditForm = () => {
             </div>
             <h3 className="text-xl font-semibold text-foreground">Demande reçue !</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Je vous recontacte rapidement pour appel découverte et un plan alimentaire personnalisé .
+              Je vous recontacte rapidement pour appel découverte et un plan alimentaire personnalisé.
             </p>
+
+            <div className="mt-8 flex flex-col gap-3">
+              <p className="text-sm font-semibold text-foreground">
+                Dernière étape — créez votre compte pour accéder à votre espace membre
+              </p>
+              <Link
+                href="/auth/signin" 
+                className="w-full rounded-md bg-orange-500 py-3 text-sm font-semibold text-white transition-all hover:bg-orange-400 active:scale-95 inline-flex items-center justify-center gap-2"
+              >
+                <User className="h-4 w-4" />
+                Créer mon compte
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import GridBackground from "@/components/nowts/grid-background";
 import { Typography } from "@/components/nowts/typography";
 import { CheckCircle, Dumbbell, Mail } from "lucide-react";
-import { AuditForm } from "@/features/landing/audit/audit-form"; // ← adaptez le chemin
+import { AuditForm } from "@/features/landing/audit/audit-form"; 
 
 export default function SuccessPaymentPage() {
   return (
@@ -13,18 +13,18 @@ export default function SuccessPaymentPage() {
       <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
 
         {/* Gauche — texte */}
-        <div className="bg-muted/10 relative flex items-center justify-end px-4 backdrop-blur-sm lg:px-6">
+        <div className="bg-muted/10 relative flex items-center justify-end px-4 backdrop-blur-sm mt-20 md:mt-0 lg:px-6">
           <div className="relative z-10 mx-auto w-full max-w-xl lg:mx-0 lg:max-w-lg">
             <Typography
               variant="h1"
-              className="text-foreground text-4xl font-semibold tracking-tight text-pretty sm:text-5xl"
+              className="text-foreground text-3xl font-semibold tracking-tight text-pretty sm:text-4xl"
             >
               🎉 Merci pour votre achat !
             </Typography>
             <Typography variant="p" className="text-muted-foreground mt-6 text-lg/8">
-              Nous sommes ravis de vous accueillir dans notre programme exclusif
+              Je suis ravis de vous accueillir dans mon programme exclusif
               de coaching personnel et nutrition. Remplissez ce formulaire pour
-              démarrer votre transformation.
+              démarrer votre transformation puis crées un compte sur l'application.
             </Typography>
 
             <dl className="text-muted-foreground mt-10 flex flex-col gap-6 text-base/7">
