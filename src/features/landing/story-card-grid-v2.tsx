@@ -130,7 +130,7 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
   highlight,
   description,
 }) => {
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(true);
   const [activeCategory, setActiveCategory] = useState<TransformationCategory>("Tous");
 
   // Flatten toutes les images selon showAll

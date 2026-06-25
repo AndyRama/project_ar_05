@@ -84,7 +84,7 @@ export const StoryCardGrid: React.FC<StoryCardGridProps> = ({
   description,
 }) => {
   
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(true);
 
   return (
     <section className="relative isolate overflow-hidden py-24 sm:py-32">

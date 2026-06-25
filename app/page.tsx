@@ -6,7 +6,6 @@ import { LandingHeader } from "@/features/landing/landing-header";
 import { Hero } from "@/features/landing/hero";
 import { ForWhoSection } from "@/features/landing/for-who-section";
 import { TransformationCard } from "@/features/landing/transformation-card";
-import { StoryCardGrid } from "@/features/landing/story-card-grid";
 import { SectionDivider } from "@/features/landing/section-divider";
 import { Testimonials } from "@/features/landing/testimonials";
 import { Offers } from "@/features/landing/offers";
@@ -15,12 +14,13 @@ import { CardGrid  } from "@/features/landing/card-grid";
 import { Footer } from "@/features/layout/footer";
 import { ScrollingGallery } from "@/features/landing/scrolling-galery";
 import { PromoModal } from "@/features/landing/promo-modal";
-// import { PromoBanner } from "@/features/landing/promo-banner";
 import { FAQSection } from "@/features/landing/faq-accordion";
 import { Typography } from "@/components/nowts/typography";
 import RecentPosts from "@/features/landing/recent-posts";
 import { PricingEbook } from "@/features/prestations/pricing-section-ebook";
 import { EmailFormSection } from "@/features/email/email-form-section";
+// import { PromoBanner } from "@/features/landing/promo-banner";
+// import { StoryCardGrid } from "@/features/landing/story-card-grid";
 
 
 export default function HomePage() {
@@ -48,7 +48,7 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      <StoryCardGrid badge="Example de résultats" highlight="Avant/" title="Après" description="Des transformations réelles, obtenues avec un programme sur mesure et un suivi rigoureux." />
+      {/* <StoryCardGrid badge="Example de résultats" highlight="Avant/" title="Après" description="Des transformations réelles, obtenues avec un programme sur mesure et un suivi rigoureux." /> */}
 
       <SectionDivider />
 
