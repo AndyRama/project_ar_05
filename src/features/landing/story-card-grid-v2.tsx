@@ -59,7 +59,7 @@ export const StoryCardV2: React.FC<StoryCardV2Props> = ({
 
   return (
     <div
-      className="group relative overflow-hidden rounded-2xl ring-1 ring-border shadow-sm cursor-pointer"
+      className="group relative overflow-hidden rounded-md ring-1 ring-border shadow-sm cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -71,13 +71,10 @@ export const StoryCardV2: React.FC<StoryCardV2Props> = ({
         className={`${tailwindClass ?? ""} w-full object-cover object-center
                     transition-all duration-500 group-hover:scale-105`}
       />
-      {/* Label Avant/Après */}
-      <div className="absolute bottom-3 left-3 flex gap-2">
-        <span className={`rounded-full px-2 py-0.5 text-xs font-semibold transition-all ${!hovered ? "bg-white text-black" : "bg-white/30 text-white/60"}`}>
-          Avant
-        </span>
-        <span className={`rounded-full px-2 py-0.5 text-xs font-semibold transition-all ${hovered ? "bg-orange-500 text-white" : "bg-orange-500/30 text-white/60"}`}>
-          Après
+      {/* Overlay AVANT / APRÈS au hover */}
+      <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${hovered ? "bg-black/20" : "bg-black/0"}`}>
+        <span className={`text-white font-bold tracking-widest uppercase text-sm transition-all duration-300 ${hovered ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
+          AVANT / APRÈS
         </span>
       </div>
     </div>
@@ -158,7 +155,7 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Header */}
-        {(badge || title || highlight || description) && (
+        {(badge ?? title ?? highlight ?? description) && (
           <div className="mb-16 flex flex-col items-center text-center">
             {badge && (
               <div className="mb-6 inline-flex items-center gap-2 rounded-full
@@ -168,7 +165,7 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
                 {badge}
               </div>
             )}
-            {(title || highlight) && (
+            {(title ?? highlight) && (
               <h2 className="text-4xl font-bold tracking-tight text-balance text-foreground sm:text-5xl">
                 {title}{title && highlight ? " " : ""}
                 {highlight && <span className="text-orange-500">{highlight}</span>}
@@ -181,6 +178,25 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
             )}
           </div>
         )}
+
+        {/* Stats + étoiles */}
+        <div className="mb-10 grid grid-cols-3 gap-4 rounded-md border border-border bg-card/50 px-6 py-8 text-center backdrop-blur-sm">
+          <div>
+            <p className="text-2xl font-bold text-orange-500">+350</p>
+            <p className="mt-1 text-xs text-muted-foreground">Transformations réussies</p>
+          </div>
+          <div>
+            <div className="flex items-center justify-center gap-1">
+              <p className="text-2xl font-bold text-orange-500">5</p>
+              <span className="text-xl">⭐</span>
+            </div>
+            <p className="mt-1 text-xs text-muted-foreground">Satisfaction client</p>
+          </div>
+          <div>
+            <p className="text-2xl font-bold text-orange-500">10 ans</p>
+            <p className="mt-1 text-xs text-muted-foreground">D&apos;expérience</p>
+          </div>
+        </div>
 
         {/* Filtres */}
         <div className="mb-10 flex flex-wrap justify-center gap-2">
@@ -232,8 +248,8 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
                       height={card.height}
                       tailwindClass={card.tailwindClass}
                     />
-                    {(card.duration || card.weightLoss) && (
-                      <div className="absolute inset-x-3 bottom-10 z-10 rounded-lg bg-black/80 p-2.5 text-sm text-white backdrop-blur-sm">
+                    {(card.duration ?? card.weightLoss) && (
+                      <div className="absolute inset-x-3 bottom-10 z-10 rounded-md bg-black/80 p-2.5 text-sm text-white backdrop-blur-sm">
                         <div className="flex items-center justify-between">
                           {card.duration && <span>⏱️ {card.duration}</span>}
                           {card.weightLoss && (
