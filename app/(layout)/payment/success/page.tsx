@@ -1,75 +1,75 @@
-import { buttonVariants } from "@/components/ui/button";
-import {
-  Layout,
-  LayoutContent,
-  LayoutDescription,
-  LayoutHeader,
-  LayoutTitle,
-} from "@/features/page/layout";
-import Link from "next/link";
-import { SectionLayout } from "@/features/landing/section-layout";
+import GridBackground from "@/components/nowts/grid-background";
+import { Typography } from "@/components/nowts/typography";
+import { CheckCircle, Dumbbell, Mail } from "lucide-react";
+import { AuditForm } from "@/features/landing/audit/audit-form"; // ← adaptez le chemin
 
 export default function SuccessPaymentPage() {
   return (
-    <SectionLayout
-      size="lg"
-      variant="default"
-      className="mx-auto mt-[-22px] max-w-7xl p-6"
-    >
-      <Layout>
-        <LayoutHeader>
-          <LayoutTitle>🎉 Merci pour votre achat !</LayoutTitle>
-          <LayoutDescription>
-            Nous sommes ravis de vous accueillir dans notre programme exclusif
-            de coaching personnel et nutrition. Votre abonnement vous ouvre
-            les portes d'un accompagnement sur mesure pour transformer votre
-            bien-être. Voici ce qui vous attend :
-          </LayoutDescription>
-        </LayoutHeader>
+    <div className="bg-background relative isolate min-h-screen">
+      <GridBackground
+        size={20}
+        color="color-mix(in srgb, var(--border) 30%, transparent)"
+      />
+      <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
 
-        <LayoutContent>
-          <LayoutTitle>💪 Programme</LayoutTitle>
-          <LayoutDescription>
-            ✅ Consultation Personnalisée : Lors de votre première séance en
-            visioconférence, nous établirons ensemble un bilan complet pour
-            comprendre vos objectifs, votre mode de vie et vos attentes.
-          </LayoutDescription>
-          <LayoutDescription>
-            ✅ Programme Sur Mesure : En fonction de vos besoins spécifiques –
-            qu'il s'agisse de perdre du poids, de gagner en énergie ou de
-            renforcer votre vitalité – nous élaborerons un plan de coaching et
-            de nutrition adapté, simple et efficace.
-          </LayoutDescription>
-          <LayoutDescription>
-            ✅ Suivi et Accompagnement Réguliers : Vous bénéficierez d'un
-            suivi personnalisé, avec des ajustements réguliers pour garantir
-            votre progression et répondre à vos questions à chaque étape.
-          </LayoutDescription>
-
-          <div className="mt-6 flex flex-wrap gap-4">
-            <Link href="/" className={buttonVariants({ size: "default" })}>
-              Créer un compte
-            </Link>
-            <Link
-              href="/account/formulaire"
-              className={buttonVariants({ size: "default", variant: "outline" })}
+        {/* Gauche — texte */}
+        <div className="bg-muted/10 relative flex items-center justify-end px-6 py-24 backdrop-blur-sm sm:py-32 lg:px-12">
+          <div className="relative z-10 mx-auto w-full max-w-xl lg:mx-0 lg:max-w-lg">
+            <Typography
+              variant="h1"
+              className="text-foreground text-4xl font-semibold tracking-tight text-pretty sm:text-5xl"
             >
-              Formulaire
-            </Link>
-          </div>
-        </LayoutContent>
+              🎉 Merci pour votre achat !
+            </Typography>
+            <Typography variant="p" className="text-muted-foreground mt-6 text-lg/8">
+              Nous sommes ravis de vous accueillir dans notre programme exclusif
+              de coaching personnel et nutrition. Remplissez ce formulaire pour
+              démarrer votre transformation.
+            </Typography>
 
-        <LayoutDescription>
-          Votre transformation commence dès maintenant ! Un email de
-          confirmation vous a été envoyé avec toutes les instructions pour
-          accéder à votre espace membre et réserver votre première séance.
-        </LayoutDescription>
-        <LayoutDescription>
-          🚀 Prêt(e) à entamer ce nouveau chapitre vers une vie plus saine et
-          épanouissante ? Encore merci et à très bientôt pour démarrer votre
-          parcours vers le bien-être !
-        </LayoutDescription>
-      </Layout>
-    </SectionLayout>
+            <dl className="text-muted-foreground mt-10 flex flex-col gap-6 text-base/7">
+              <div className="flex gap-x-4">
+                <dt className="flex-none">
+                  <CheckCircle className="text-orange-500 h-6 w-6 mt-0.5" />
+                </dt>
+                <dd>
+                  <span className="text-foreground font-semibold">Consultation Personnalisée</span>
+                  <br />
+                  Bilan complet en visioconférence pour comprendre vos objectifs et votre mode de vie.
+                </dd>
+              </div>
+              <div className="flex gap-x-4">
+                <dt className="flex-none">
+                  <Dumbbell className="text-orange-500 h-6 w-6 mt-0.5" />
+                </dt>
+                <dd>
+                  <span className="text-foreground font-semibold">Programme Sur Mesure</span>
+                  <br />
+                  Plan de coaching et de nutrition adapté à vos besoins spécifiques.
+                </dd>
+              </div>
+              <div className="flex gap-x-4">
+                <dt className="flex-none">
+                  <Mail className="text-orange-500 h-6 w-6 mt-0.5" />
+                </dt>
+                <dd>
+                  <span className="text-foreground font-semibold">Suivi Régulier</span>
+                  <br />
+                  Ajustements réguliers et suivi WhatsApp à chaque étape de votre progression.
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        {/* Droite — AuditForm */}
+        <div className="flex w-full items-center justify-start px-6 py-24 lg:px-12">
+          <div className="w-full max-w-xl">
+            <AuditForm />
+          </div>
+        </div>
+
+      </div>
+    </div>
   );
 }
