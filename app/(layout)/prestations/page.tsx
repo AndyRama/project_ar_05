@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { SectionDivider } from "@/features/landing/section-divider";
 import { SubHero } from "@/features/landing/sub-hero";
 import { Offers } from "@/features/landing/offers";
@@ -8,11 +9,17 @@ import { FAQSection } from "@/features/landing/faq-accordion";
 import { EmailFormSection } from "@/features/email/email-form-section";
 import { PricingEbook } from "@/features/prestations/pricing-section-ebook";
 import { Engagement } from "@/features/prestations/engagement";
+import { PromoBanner } from "@/features/landing/promo-banner";
+import { PromoModal } from "@/features/landing/promo-modal";
 
 export default function Prestations() {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="bg-background text-foreground flex min-h-screen flex-col">
-      {/* <div className="mt-16" /> */}
+     
+      <PromoBanner onOpenModal={() => setIsModalOpen(true)} />
 
       <SubHero title="Prestations" eyebrow="Toutes mes" />
 
@@ -58,6 +65,14 @@ export default function Prestations() {
 
       <SectionDivider />
 
+      {/* Modal */}
+      <PromoModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+
+      <SectionDivider />
+
       <EmailFormSection />
       
       <PricingEbook
@@ -94,10 +109,10 @@ export default function Prestations() {
             cta: "Télécharger",
             ctaSubtitle: "",
             priceId: "",
-            link: "/pdf/Guide_Nutrition_Complet.pdf",
+            link: "#",
           },
           {
-            isPopular: false,
+            isPopular: true,
             type: "monthly",
             id: "premium",
             title: "Ebook 3",
