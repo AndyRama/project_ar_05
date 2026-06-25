@@ -28,7 +28,7 @@ export const PromoModal = ({ isOpen, onClose }: PromoModalProps) => {
       
       {/* Modal */}
       <div className="fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 px-4">
-        <div className="relative rounded-2xl bg-white p-8 shadow-2xl">
+        <div className="relative rounded-md bg-white p-8 shadow-2xl">
           {/* Close button */}
           <button
             onClick={onClose}
@@ -51,11 +51,11 @@ export const PromoModal = ({ isOpen, onClose }: PromoModalProps) => {
             </h2>
             
             <p className="mb-6 text-gray-600">
-              Économisez <span className="font-bold text-orange-600">50€</span> sur tous les offres premium et compétition.
+              Économisez <span className="font-bold text-orange-600">50€</span> sur les offres premium et compétition.
             </p>
 
             {/* Promo Code Box */}
-            <div className="mb-6 rounded-lg border-2 border-dashed border-orange-300 bg-orange-50 p-4">
+            <div className="mb-6 rounded-md border-2 border-dashed border-orange-300 bg-orange-50 p-4">
               <p className="mb-2 text-sm font-medium text-gray-700">Code promo :</p>
               <div className="flex items-center justify-center gap-3">
                 <span className="text-2xl font-bold tracking-wider text-orange-600">
@@ -71,7 +71,7 @@ export const PromoModal = ({ isOpen, onClose }: PromoModalProps) => {
             </div>
 
             {/* Timer */}
-            <div className="mb-6 rounded-lg bg-red-50 p-3">
+            <div className="mb-6 rounded-md bg-red-50 p-3">
               <p className="text-sm font-semibold text-red-600">
                 ⏰ Plus que quelques jours pour en profiter !
               </p>
@@ -80,7 +80,7 @@ export const PromoModal = ({ isOpen, onClose }: PromoModalProps) => {
             {/* CTA Button */}
             <Link href="/#begin" onClick={onClose}>
               <button
-                className="w-full rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 px-8 py-3 font-bold text-white transition-all hover:scale-105"
+                className="w-full rounded-md bg-gradient-to-r from-orange-500 to-orange-600 px-8 py-3 font-bold text-white transition-all hover:scale-105"
               >
                 Commencer ma transformation
               </button>

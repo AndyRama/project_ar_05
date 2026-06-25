@@ -63,7 +63,7 @@ export default function Prestations() {
         ]}
       />
 
-      <SectionDivider />
+      {/* <SectionDivider /> */}
 
       {/* Modal */}
       <PromoModal 
