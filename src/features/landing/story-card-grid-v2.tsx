@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Typography } from "@/components/ui/typography";
+import { Typography } from "@/components/nowts/typography";
 import { FileQuestion } from "lucide-react";
 
 // ── Types ─────────────────────────────────────────────────────────
