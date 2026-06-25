@@ -16,12 +16,6 @@ import {
   Step3Schema,
 } from "./audit-form.schema";
 
-// const STEPS = [
-//   { number: 1, label: "Coordonnées" },
-//   { number: 2, label: "Votre activité" },
-//   { number: 3, label: "Votre projet" },
-// ] as const;
-
 const BUDGETS = [
   "Moins de 500€",
   "500€ – 1 000€",
@@ -76,12 +70,12 @@ export const AuditForm = () => {
             </div>
             <h3 className="text-xl font-semibold text-foreground">Demande reçue !</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Je vous recontacte rapidement pour appel découverte et un plan alimentaire personnalisé.
+              Je vous recontacte rapidement pour votre appel de découverte et un plan alimentaire personnalisé.
             </p>
 
             <div className="mt-8 flex flex-col gap-3">
               <p className="text-sm font-semibold text-foreground">
-                Dernière étape — créez votre compte pour accéder à votre espace membre via votre email est un lien magique.
+                Dernière étape — créez votre compte pour accéder à votre espace membre.
               </p>
               <Link
                 href="/auth/signin" 
@@ -90,6 +84,11 @@ export const AuditForm = () => {
                 <User className="h-4 w-4" />
                   Créer mon compte
               </Link>
+              <span className="text-xs text-muted-foreground flex items-center justify-center gap-3">
+                <span className="h-px flex-1 bg-border" />
+                  Connexion via lien magique par email ou Google
+                <span className="h-px flex-1 bg-border" />
+              </span>
             </div>
           </div>
         </div>

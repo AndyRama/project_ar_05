@@ -17,7 +17,7 @@ export default function SuccessPaymentPage() {
           <div className="relative z-10 mx-auto w-full max-w-xl lg:mx-0 lg:max-w-lg">
             <Typography
               variant="h1"
-              className="text-foreground text-3xl font-semibold tracking-tight text-pretty sm:text-4xl"
+              className="text-foreground text-4xl font-semibold tracking-tight text-pretty sm:text-3xl"
             >
               🎉 Merci pour votre achat !
             </Typography>
