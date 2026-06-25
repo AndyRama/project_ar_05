@@ -29,15 +29,13 @@ const NAV_COLUMNS: FooterNavColumn[] = [
     links: [
       { label: "Prestations", href: "/prestations" },
       { label: "Avant-après", href: "/avant-apres" },
-      { label: "Contact",     href: "/contact" },
     ],
   },
   {
     title: "Informations",
     links: [
-      { label: "Espace client", href: "/signin" },
-      { label: "E-books", href: "/prestations" },
-      { label: "Packs", href: "/prestations/#begin" },
+      { label: "Espace client", href: "" },
+      { label: "Contact",     href: "/contact" },
     ],
   },
 ];

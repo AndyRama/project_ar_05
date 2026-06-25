@@ -27,8 +27,8 @@ export default function CancelPaymentPage() {
         </LayoutDescription>
       </LayoutHeader>
       <LayoutContent className="flex items-center gap-2">
-        <Link href="/" className={buttonVariants({ variant: "invert" })}>
-          Accueil
+        <Link href="/#begin" className={buttonVariants({ variant: "invert" })}>
+          Réessayer
         </Link>
         <ContactSupportDialog />
       </LayoutContent>

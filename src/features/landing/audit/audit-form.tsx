@@ -81,14 +81,14 @@ export const AuditForm = () => {
 
             <div className="mt-8 flex flex-col gap-3">
               <p className="text-sm font-semibold text-foreground">
-                Dernière étape — créez votre compte pour accéder à votre espace membre
+                Dernière étape — créez votre compte pour accéder à votre espace membre via votre email est un lien magique.
               </p>
               <Link
                 href="/auth/signin" 
                 className="w-full rounded-md bg-orange-500 py-3 text-sm font-semibold text-white transition-all hover:bg-orange-400 active:scale-95 inline-flex items-center justify-center gap-2"
               >
                 <User className="h-4 w-4" />
-                Créer mon compte
+                  Créer mon compte
               </Link>
             </div>
           </div>
