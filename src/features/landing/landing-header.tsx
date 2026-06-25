@@ -18,7 +18,7 @@ const NAV_LINKS = [
   { label: "Prestations",      href: "/prestations" },
   { label: "Team",      href: "/team" },
   { label: "Avant/Après",      href: "/avant-apres" },
-  { label: "Contact",       href: "/contact" },
+  // { label: "Contact",       href: "/contact" },
 ] as const;
 
 const clamp = (n: number, min: number, max: number) =>

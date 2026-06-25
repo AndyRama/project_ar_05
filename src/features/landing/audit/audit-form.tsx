@@ -5,19 +5,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { submitAuditFormAction } from "./audit-form.action";
+import type {
+  AuditFormData} from "./audit-form.schema";
 import {
-  AuditFormData,
   AuditFormSchema,
   Step1Schema,
   Step2Schema,
   Step3Schema,
 } from "./audit-form.schema";
 
-// const STEPS = [
-//   { number: 1, label: "Coordonnées" },
-//   { number: 2, label: "Votre activité" },
-//   { number: 3, label: "Votre projet" },
-// ] as const;
+const STEPS = [
+  { number: 1, label: "Coordonnées" },
+  { number: 2, label: "Votre activité" },
+  { number: 3, label: "Votre projet" },
+] as const;
 
 const BUDGETS = [
   "Moins de 500€",
@@ -73,7 +74,7 @@ export const AuditForm = () => {
             </div>
             <h3 className="text-xl font-semibold text-foreground">Demande reçue !</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              On vous recontacte sous 24h pour fixer votre rendez-vous pour appel découverte.
+              Je vous recontacte rapidement pour appel découverte et un plan alimentaire personnalisé .
             </p>
           </div>
         </div>
@@ -91,10 +92,10 @@ export const AuditForm = () => {
             Commencer maintenant
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground text-balance sm:text-4xl">
-            Réservez votre appel
+            Information Personnel
           </h2>
           <p className="mt-4 text-base text-muted-foreground text-balance">
-            Remplissez ce formulaire en 5 minutes pour prendre rendez-vous et élaborer votre projet.
+            Remplissez ce formulaire en 5 minutes pour que je puisse élaborer programme alimentaire.
           </p>
         </div>
 
@@ -213,7 +214,7 @@ export const AuditForm = () => {
 
 const inputCn = (hasError: boolean) =>
   cn(
-    "w-full rounded-xl border bg-background px-4 py-3",
+    "w-full rounded-md border bg-background px-4 py-3",
     "text-sm text-foreground placeholder:text-muted-foreground/50",
     "outline-none transition-all",
     "focus:border-orange-500/50 focus:ring-2 focus:ring-orange-500/10",

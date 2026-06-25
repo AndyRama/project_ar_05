@@ -19,9 +19,9 @@ const NAV_COLUMNS: FooterNavColumn[] = [
   {
     title: "Site Map",
     links: [
-      { label: "Accueil",        href: "/" },
-      { label: "Blog",           href: "/posts" },
-      { label: "Team", href: "/team" },
+      { label: "Accueil", href: "/" },
+      { label: "Blog",    href: "/posts" },
+      { label: "Team",    href: "/team" },
     ],
   },
   {
@@ -29,7 +29,7 @@ const NAV_COLUMNS: FooterNavColumn[] = [
     links: [
       { label: "Prestations", href: "/prestations" },
       { label: "Avant-après", href: "/avant-apres" },
-      { label: "Contact", href: "/contact" },
+      { label: "Contact",     href: "/contact" },
     ],
   },
   {
@@ -95,8 +95,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* ── Colonnes droite — nav 4 colonnes ── */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+          {/* ── Colonnes droite — nav 3 colonnes ── */}
+          <div className="grid grid-cols-3 gap-8 sm:grid-cols-4">
             {NAV_COLUMNS.map(({ title, links }) => (
               <div key={title} className="flex flex-col gap-4">
                 <h4 className="text-foreground border-l-2 border-orange-500 pl-3 text-sm font-semibold">
