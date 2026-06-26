@@ -77,13 +77,23 @@ export function Callout({ type = "info", icon, children }: CalloutProps) {
       <div
         style={{
           flex: 1,
-          color: v.text,
+          color: '#000000',
           fontSize: "0.93rem",
           lineHeight: "1.65",
         }}
+        // @ts-ignore
+        className="callout-content"
       >
         {children}
       </div>
+      <style>{`
+        .callout-content,
+        .callout-content p,
+        .callout-content strong,
+        .callout-content span {
+          color: #000000 !important;
+        }
+      `}</style>
     </aside>
   );
 }
