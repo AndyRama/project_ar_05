@@ -13,13 +13,13 @@ export default function Team() {
     <div className="bg-background text-foreground flex min-h-screen flex-col">
       {/* <div className="mt-16" /> */}
 
-      <SubHero title="Le Coeur de la team" eyebrow="Nos valeurs"/>
+      <SubHero title="Le Coeur de la team" eyebrow="Nos valeurs" />
 
       <StoryCardGrid
-        badge=" "
-        title=" "
-        highlight=" "
-        description=" "
+        badge="Example de résultats"
+        title="Avant /"
+        highlight="Après"
+        description="Des transformations réelles, obtenues avec un programme sur mesure et un suivi rigoureux."
       />
 
       {/* <MessageGroup/> */}
