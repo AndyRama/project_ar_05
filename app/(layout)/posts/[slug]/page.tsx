@@ -59,7 +59,7 @@ export default async function RoutePage(props: PostParams) {
   const postTags = post.attributes.keywords;
 
   return (
-    <Layout>
+    <Layout size="xl" >
       <LayoutContent className="max-w-7xl mx-auto py-6">
       {/* 1. Bouton Retour */}
         <Link className={buttonVariants({ variant: "link" })} href="/posts">
@@ -86,7 +86,7 @@ export default async function RoutePage(props: PostParams) {
               <div key={tag} className="flex items-center">
                 <Link
                   href={{ pathname: `/posts`, query: { tag: tag } }}
-                  className="px-3 py-1 rounded-full border border-orange-500/50 text-xs font-medium hover:bg-orange-500/10 transition-colors"
+                  className="px-3 py-1 rounded-md border border-orange-500/50 text-xs font-medium hover:bg-orange-500/10 transition-colors"
                 >
                   {tag}
                 </Link>

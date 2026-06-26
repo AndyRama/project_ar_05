@@ -189,6 +189,7 @@ export default async function RoutePage(props: PageParams) {
             {recentPosts.length > 0 && (
               <LayoutContent className="max-w-7xl mx-auto">
                 <RecentPosts posts={recentPosts} />
+                <SectionDivider />
               </LayoutContent>
             )}
           </>
