@@ -75,7 +75,7 @@ export default async function RoutePage(props: PostParams) {
           {/* 3. Infos (Date & Auteur) */}
           <div className="mt-6 text-sm text-muted-foreground">
             {formatDate(new Date(post.attributes.date))} · Crée par {" "}
-            <Link href={SiteConfig.team.website} className="text-green-500 hover:underline">
+            <Link href={SiteConfig.team.website} className="text-orange-500 hover:underline">
               {SiteConfig.team.name}
             </Link>
           </div>
@@ -86,7 +86,7 @@ export default async function RoutePage(props: PostParams) {
               <div key={tag} className="flex items-center">
                 <Link
                   href={{ pathname: `/posts`, query: { tag: tag } }}
-                  className="px-3 py-1 rounded-full border border-green-500/50 text-xs font-medium hover:bg-green-500/10 transition-colors"
+                  className="px-3 py-1 rounded-full border border-orange-500/50 text-xs font-medium hover:bg-orange-500/10 transition-colors"
                 >
                   {tag}
                 </Link>
@@ -113,7 +113,7 @@ export default async function RoutePage(props: PostParams) {
         <div className="max-w-4xl mx-auto">
           <ServerMdx
             className="prose prose-invert prose-strong:text-black max-w-none
-            text-black prose-th:text-green-500 prose-th:bg-white/5 prose-th:p-4
+            text-black prose-th:text-orange-500 prose-th:bg-white/5 prose-th:p-4
             prose-td:p-4 prose-td:text-black prose-h2:text-black prose-h3:text-black"            
             source={post.content}
           />

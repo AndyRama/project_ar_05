@@ -36,13 +36,13 @@ export function CTABlock({
         borderRadius: '12px',
         overflow: 'hidden',
         fontFamily: "'DM Sans', 'Segoe UI', sans-serif",
-        boxShadow: '0 4px 24px rgba(27,94,32,0.18)',
+        boxShadow: '0 4px 24px rgba(234,88,12,0.18)',
       }}
     >
-      {/* Corps vert foncé */}
+      {/* Corps orange */}
       <div
         style={{
-          background: 'linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%)',
+          background: 'linear-gradient(135deg, #c2410c 0%, #ea580c 100%)',
           padding: '36px 40px 28px',
           color: '#ffffff',
         }}
@@ -64,7 +64,7 @@ export function CTABlock({
             style={{
               margin: '0 0 14px',
               fontSize: '0.9rem',
-              color: '#A5D6A7',
+              color: '#fed7aa',
               fontStyle: 'italic',
             }}
           >
@@ -77,7 +77,7 @@ export function CTABlock({
             style={{
               margin: '0 0 24px',
               fontSize: '0.95rem',
-              color: '#C8E6C9',
+              color: '#ffedd5',
               lineHeight: 1.65,
               maxWidth: '600px',
             }}
@@ -110,7 +110,7 @@ export function CTABlock({
                 <div
                   style={{
                     fontSize: '0.78rem',
-                    color: '#A5D6A7',
+                    color: '#fed7aa',
                     marginTop: '4px',
                     textTransform: 'uppercase',
                     letterSpacing: '0.06em',
@@ -131,7 +131,7 @@ export function CTABlock({
               padding: '13px 28px',
               borderRadius: '8px',
               background: '#ffffff',
-              color: '#1B5E20',
+              color: '#c2410c',
               fontWeight: 700,
               fontSize: '0.95rem',
               textDecoration: 'none',
@@ -146,7 +146,7 @@ export function CTABlock({
       {/* Barre contact */}
       <div
         style={{
-          background: '#163D19',
+          background: '#7c2d12',
           padding: '16px 40px',
           display: 'flex',
           flexWrap: 'wrap',
@@ -179,7 +179,7 @@ export function CTABlock({
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              color: '#A5D6A7',
+              color: '#fed7aa',
               textDecoration: 'none',
               fontSize: '0.9rem',
             }}
@@ -192,12 +192,12 @@ export function CTABlock({
         <span
           style={{
             marginLeft: 'auto',
-            color: '#4CAF50',
+            color: '#fb923c',
             fontSize: '0.82rem',
             fontWeight: 500,
           }}
         >
-          segment-c.com
+          Unlcoaching.com
         </span>
       </div>
     </section>

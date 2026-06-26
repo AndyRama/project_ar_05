@@ -1,13 +1,10 @@
 import React from "react";
-
 type CalloutType = "info" | "success" | "warning" | "error";
-
 type CalloutProps = {
   type?: CalloutType;
   icon?: string;
   children: React.ReactNode;
 };
-
 const VARIANTS: Record<
   CalloutType,
   {
@@ -18,16 +15,16 @@ const VARIANTS: Record<
   }
 > = {
   info: {
-    border: "#43A047",
-    bg: "#E8F5E9",
-    iconBg: "#C8E6C9",
-    text: "#1B5E20",
+    border: "#f97316",
+    bg: "#fff7ed",
+    iconBg: "#fed7aa",
+    text: "#7c2d12",
   },
   success: {
-    border: "#2E7D32",
-    bg: "#F1F8E9",
-    iconBg: "#DCEDC8",
-    text: "#1B5E20",
+    border: "#ea580c",
+    bg: "#ffedd5",
+    iconBg: "#fdba74",
+    text: "#9a3412",
   },
   warning: {
     border: "#F9A825",
@@ -42,10 +39,8 @@ const VARIANTS: Record<
     text: "#BF360C",
   },
 };
-
 export function Callout({ type = "info", icon, children }: CalloutProps) {
   const v = VARIANTS[type];
-
   return (
     <aside
       style={{
@@ -79,7 +74,6 @@ export function Callout({ type = "info", icon, children }: CalloutProps) {
           {icon}
         </span>
       )}
-
       <div
         style={{
           flex: 1,
