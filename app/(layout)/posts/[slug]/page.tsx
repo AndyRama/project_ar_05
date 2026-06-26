@@ -110,11 +110,20 @@ export default async function RoutePage(props: PostParams) {
         <Separator className="my-12 opacity-20" />
 
         {/* 6. Contenu Article */}
-        <div className="max-w-4xl mx-auto">
-          <ServerMdx
-            className="prose prose-invert prose-strong:text-black max-w-none
-            text-black prose-th:text-orange-500 prose-th:bg-white/5 prose-th:p-4
-            prose-td:p-4 prose-td:text-black prose-h2:text-black prose-h3:text-black"            
+        <div className="max-w-5xl mx-auto">
+         <ServerMdx
+            className="prose prose-invert max-w-none
+              prose-headings:text-white
+              prose-h2:text-white prose-h2:font-bold prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+              prose-h3:text-white/90
+              prose-p:text-white/80
+              prose-strong:text-white
+              prose-li:text-white/80
+              prose-blockquote:border-orange-500 prose-blockquote:text-white/70
+              prose-th:text-orange-400 prose-th:bg-white/5 prose-th:p-4
+              prose-td:p-4 prose-td:text-white/80
+              prose-a:text-orange-400 prose-a:no-underline hover:prose-a:underline
+              prose-code:text-orange-300"
             source={post.content}
           />
         </div>
