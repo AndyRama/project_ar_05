@@ -34,8 +34,8 @@ export const About = () => {
 
           <Typography
             variant="h2"
-            className="mt-4 text-4xl font-semibold tracking-tight
-                       text-balance sm:text-3xl"
+            className="mt-4 text-2xl font-semibold tracking-tight
+                       text-balance md:text-4xl lg:text-5xl"
           >
             Expert en transformation physique <br />
             au service de tes objectifs
@@ -51,9 +51,9 @@ export const About = () => {
 
         {/* ── Carte principale ── */}
         <div className="mx-auto mt-16 max-w-5xl rounded-md border
-                        border-border bg-card p-6 sm:p-10">
+                        border-border bg-card p-6 sm:p-4">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2
-                          lg:items-start">
+                          lg:items-center">
 
             {/* ── Colonne gauche — photo ── */}
             <div className="relative">

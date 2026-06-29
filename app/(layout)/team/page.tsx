@@ -34,6 +34,10 @@ export default function Team() {
 
       <Testimonials />
 
+      <SubHero title="" imageUrl="/images/groupArcachon.jpg'" />
+
+      <SectionDivider />
+
       {/* Final CTA Section */}
       <section className="bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-16">
         <div className="mx-auto max-w-5xl text-center">

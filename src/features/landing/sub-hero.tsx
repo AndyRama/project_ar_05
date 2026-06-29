@@ -3,13 +3,14 @@ import { Typography } from "@/components/nowts/typography";
 type SubHeroProps = {
   title: string;
   eyebrow?: string;
+  imageUrl?: string;
 };
 
-export const SubHero = ({ title, eyebrow = "Toutes mes" }: SubHeroProps) => {
+export const SubHero = ({ title, eyebrow = "Toutes mes", imageUrl = '/images/salle-de-sport.jpg' }: SubHeroProps) => {
   return (
     <div
       className="relative isolate flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-cover bg-center text-center"
-      style={{ backgroundImage: "url('/images/salle-de-sport.jpg')" }}
+      style={{ backgroundImage: `url('${imageUrl}')` }}
     >
       <div className="absolute inset-0 -z-10 bg-black/70" />
 

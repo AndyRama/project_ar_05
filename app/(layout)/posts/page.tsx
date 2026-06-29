@@ -17,6 +17,7 @@ import { formatDate } from "@/lib/format/date";
 import { calculateReadingTime } from "@/features/posts/calculate-reading-time";
 import { RecentPosts } from "@/features/posts/recent-posts";
 import { SectionDivider } from "@/features/landing/section-divider";
+import { EmailFormSection } from "@/features/email/email-form-section";
 
 export const metadata: Metadata = {
   title: `Blog de ${SiteConfig.title}`,
@@ -192,6 +193,8 @@ export default async function RoutePage(props: PageParams) {
                 <SectionDivider />
               </LayoutContent>
             )}
+
+            <EmailFormSection />
           </>
         )}
       </Layout>
