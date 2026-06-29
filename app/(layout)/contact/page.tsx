@@ -43,7 +43,7 @@ export default function ContactPage() {
         color="color-mix(in srgb, var(--border) 30%, transparent)"
       />
       <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
-        <div className="bg-muted/10 relative flex items-center justify-end px-6 py-24 backdrop-blur-sm sm:py-32 lg:px-12">
+        <div className="bg-muted/10 relative flex items-center justify-end px-4 py-24 backdrop-blur-sm sm:py-32 lg:px-6">
           <div className="relative z-10 mx-auto w-full max-w-xl lg:mx-0 lg:max-w-lg">
             <Typography
               variant="h1"

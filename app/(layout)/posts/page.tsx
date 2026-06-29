@@ -194,10 +194,11 @@ export default async function RoutePage(props: PageParams) {
               </LayoutContent>
             )}
 
-            <EmailFormSection />
           </>
         )}
       </Layout>
+      
+      <EmailFormSection />
     </>
   );
 }

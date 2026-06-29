@@ -34,7 +34,7 @@ export default function Team() {
 
       <Testimonials />
 
-      <SubHero title="" imageUrl="/images/groupArcachon.jpg'" />
+      <SubHero title="" imageUrl="/images/groupArcachon.jpg" />
 
       <SectionDivider />
 

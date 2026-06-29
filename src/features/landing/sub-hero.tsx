@@ -6,7 +6,7 @@ type SubHeroProps = {
   imageUrl?: string;
 };
 
-export const SubHero = ({ title, eyebrow = "Toutes mes", imageUrl = '/images/salle-de-sport.jpg' }: SubHeroProps) => {
+export const SubHero = ({ title, eyebrow = "", imageUrl = '/images/salle-de-sport.jpg' }: SubHeroProps) => {
   return (
     <div
       className="relative isolate flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-cover bg-center text-center"

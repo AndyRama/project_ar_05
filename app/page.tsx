@@ -155,10 +155,10 @@ export default function HomePage() {
 
       {/* <SectionDivider /> */}
 
-      <div className="w-full max-w-full">
+      {/* <div className="w-full max-w-full">
         <CardGrid />
       </div>
-      
+       */}
       {/* Pricing Ebook */}
       <PricingEbook
         cards={[
