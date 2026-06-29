@@ -40,8 +40,6 @@ export default function HomePage() {
 
       <ForWhoSection />
 
-      <ScrollingGallery />
-
       <SectionDivider />
 
       <TransformationCard />
@@ -52,11 +50,7 @@ export default function HomePage() {
 
       <Testimonials />   
 
-      <SectionDivider />
-
-      <div className="w-full max-w-full">
-        <CardGrid />
-      </div>
+      <ScrollingGallery />
 
       <SectionDivider />
 
@@ -158,6 +152,12 @@ export default function HomePage() {
       />
 
       <EmailFormSection />
+
+      {/* <SectionDivider /> */}
+
+      <div className="w-full max-w-full">
+        <CardGrid />
+      </div>
       
       {/* Pricing Ebook */}
       <PricingEbook
@@ -194,7 +194,7 @@ export default function HomePage() {
             cta: "Télécharger",
             ctaSubtitle: "",
             priceId: "",
-            link: "/pdf/Guide_Nutrition_Complet.pdf",
+            link: "#",
           },
           {
             isPopular: false,
