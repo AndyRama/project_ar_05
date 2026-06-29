@@ -151,14 +151,14 @@ export default function HomePage() {
         ]}
       />
 
-      <EmailFormSection />
 
       {/* <SectionDivider /> */}
 
-      {/* <div className="w-full max-w-full">
-        <CardGrid />
+      <div className="w-full max-w-full">
+        <EmailFormSection />
+        {/* <CardGrid /> */}
       </div>
-       */}
+      
       {/* Pricing Ebook */}
       <PricingEbook
         cards={[

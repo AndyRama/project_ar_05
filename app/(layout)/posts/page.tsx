@@ -198,7 +198,9 @@ export default async function RoutePage(props: PageParams) {
         )}
       </Layout>
       
-      <EmailFormSection />
+    <div className="w-full max-w-full">
+        <EmailFormSection />
+      </div>
     </>
   );
 }
