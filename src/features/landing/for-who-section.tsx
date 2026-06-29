@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { ChevronRight, XCircle } from "lucide-react";
+import { ChevronRight, XCircle, Flame, Dumbbell, Zap, Target } from "lucide-react";
 
 // ── Main ─────────────────────────────────────────────────────────
 
@@ -48,7 +48,7 @@ const ForWhoHeader = () => (
 
 const PROFILES = [
   {
-    emoji: "🔥",
+    icon: Flame,
     title: "Tu veux PERDRE DU POIDS",
     benefits: [
       "Fini les régimes restrictifs qui te font reprendre 2× plus",
@@ -60,7 +60,7 @@ const PROFILES = [
     link: "/#begin",
   },
   {
-    emoji: "💪",
+    icon: Dumbbell,
     title: "Tu veux PRENDRE DU MUSCLE",
     benefits: [
       "Construire un physique solide et athlétique",
@@ -72,7 +72,7 @@ const PROFILES = [
     link: "/#begin",
   },
   {
-    emoji: "⚡",
+    icon: Zap,
     title: "Tu veux te REMETTRE EN FORME",
     benefits: [
       "Retrouver ton énergie et ta mobilité",
@@ -84,7 +84,7 @@ const PROFILES = [
     link: "/#begin",
   },
   {
-    emoji: "🎯",
+    icon: Target,
     title: "Tu as un OBJECTIF PRÉCIS",
     benefits: [
       "Mariage, vacances, shooting photo, compétition",
@@ -106,14 +106,14 @@ const ForWhoGrid = () => (
 );
 
 const ProfileCard = ({
-  emoji,
+  icon: Icon,
   title,
   benefits,
   program,
   cta,
   link,
 }: {
-  emoji: string;
+  icon: React.ElementType;
   title: string;
   benefits: readonly string[];
   program: string;
@@ -124,11 +124,14 @@ const ProfileCard = ({
                   bg-background p-8 shadow-sm
                   transition-all duration-300
                   hover:border-orange-300 hover:shadow-lg hover:shadow-orange-500/10">
-    {/* Emoji */}
-    <div className="mb-4 text-4xl">{emoji}</div>
 
-    {/* Title */}
-    <h3 className="mb-5 text-xl font-bold tracking-tight text-foreground">
+    {/* Title with icon */}
+    <h3 className="mb-5 flex items-center gap-3 text-xl font-bold tracking-tight text-foreground">
+      <span className="inline-flex items-center justify-center rounded-lg
+                       bg-orange-100 p-2
+                       dark:bg-orange-950/60">
+        <Icon size={20} className="text-orange-500" />
+      </span>
       {title}
     </h3>
 

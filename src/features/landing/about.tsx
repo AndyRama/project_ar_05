@@ -35,7 +35,7 @@ export const About = () => {
           <Typography
             variant="h2"
             className="mt-4 text-3xl font-semibold tracking-tight
-                       text-balance sm:text-4xl"
+                       text-balance sm:text-2xl"
           >
             Expert en transformation physique <br />
             au service de tes objectifs

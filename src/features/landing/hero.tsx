@@ -101,7 +101,7 @@ export const Hero = () => {
                       src="/images/jeremy.jpg"
                       width={420}
                       height={560}
-                      className="h-auto w-full max-w-[260px] rounded-md object-cover shadow-md ring-1 ring-orange-200/40 sm:max-w-[320px] lg:max-w-[380px] xl:max-w-[420px]"
+                      className="h-auto w-full max-w-[320px] rounded-md object-cover shadow-md ring-1 ring-orange-200/40 sm:max-w-[320px] lg:max-w-[380px] xl:max-w-[420px]"
                       alt="Jeremy Prat – Coach Personnel"
                       priority
                     />
