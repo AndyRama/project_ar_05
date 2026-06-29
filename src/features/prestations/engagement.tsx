@@ -1,34 +1,35 @@
 import { Typography } from "@/components/nowts/typography";
 import { SectionLayout } from "@/features/landing/section-layout";
+import { Target, Salad, BarChart3, MessageCircle, Trophy, Brain } from "lucide-react";
 
 const APPROACH_ITEMS = [
   {
-    icon: "🎯",
+    icon: Target,
     title: "100 % personnalisé",
     desc: "Chaque programme est construit autour de tes objectifs, ton niveau et ton mode de vie. Aucun PDF générique, aucune solution copier-coller.",
   },
   {
-    icon: "🥗",
+    icon: Salad,
     title: "Nutrition intégrée",
     desc: "Plan alimentaire adapté — sèche, prise de masse ou rééquilibrage — avec accompagnement sur les troubles du comportement alimentaire (TCA).",
   },
   {
-    icon: "📊",
+    icon: BarChart3,
     title: "Suivi mensuel rigoureux",
     desc: "Bilan mensuel photo + mensurations pour mesurer chaque progression. Tu vois concrètement où tu en es et où tu vas.",
   },
   {
-    icon: "💬",
+    icon: MessageCircle,
     title: "Communication 24h/24",
     desc: "WhatsApp & email disponibles à toute heure. Un doute sur une séance, une question nutrition à 22h — je suis là.",
   },
   {
-    icon: "🏆",
+    icon: Trophy,
     title: "Préparation compétition",
     desc: "Préparation physique et mentale aux concours fitness et compétitions. Expérience éprouvée en préparation scène.",
   },
   {
-    icon: "🧠",
+    icon: Brain,
     title: "Mental & habitudes de vie",
     desc: "La transformation passe aussi par la tête. J'intègre gestion du stress, sommeil et mental dans chaque accompagnement.",
   },
@@ -162,7 +163,7 @@ export const Engagement = () => {
           <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {APPROACH_ITEMS.map((item) => (
               <div key={item.title} className="border-border border rounded-xl p-6">
-                <div className="text-3xl mb-4">{item.icon}</div>
+                <item.icon className="size-7 text-orange-500 mb-4" strokeWidth={1.5} />
                 <Typography
                   variant="h3"
                   className="text-foreground text-base font-semibold"
