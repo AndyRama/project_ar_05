@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { SectionDivider } from "@/features/landing/section-divider";
 import { SubHero } from "@/features/landing/sub-hero";
 import { Testimonials } from "@/features/landing/testimonials";
@@ -11,6 +12,8 @@ import { Typography } from "@/components/nowts/typography";
 // import { EmailFormSection } from "@/features/landing/sub-hero2";
 
 export default function Team() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="bg-background text-foreground flex min-h-screen flex-col">
       {/* <div className="mt-16" /> */}
