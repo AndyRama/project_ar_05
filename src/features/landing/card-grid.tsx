@@ -42,7 +42,7 @@ export const CardImage = ({ title, years, image, index }: CardImageProps) => {
           />
         </CardHeader>
         <CardContent>
-          <Typography className="mt-5 text-left text-lg font-bold uppercase tracking-[1px] text-orange-500">
+          <Typography className="mt-5 sm:mt-0 text-left text-lg sm text-md font-bold uppercase tracking-[1px] text-orange-500">
             {title} {years}
           </Typography>
         </CardContent>

@@ -20,7 +20,7 @@ const NAV_COLUMNS: FooterNavColumn[] = [
     title: "Site Map",
     links: [
       { label: "Accueil", href: "/" },
-      { label: "Blog",    href: "/posts" },
+      { label: "Blog",    href: "/posts/#" },
       { label: "Team",    href: "/team" },
     ],
   },
@@ -34,7 +34,7 @@ const NAV_COLUMNS: FooterNavColumn[] = [
   {
     title: "Informations",
     links: [
-      { label: "Espace client", href: "" },
+      { label: "Compte", href: "" },
       { label: "Contact",     href: "/contact" },
     ],
   },
@@ -122,7 +122,7 @@ export function Footer() {
         <div className="mt-12">
           <Link
             href="/#begin"
-            className="flex items-center justify-between rounded-md border border-orange-500/20 bg-orange-500/5 px-6 py-4 transition-all hover:border-orange-500/40 hover:bg-orange-500/10"
+            className="flex items-center justify-between rounded-md border border-orange-500/20 bg-orange-500/5 px-6 sm:px-0 py-4 transition-all hover:border-orange-500/40 hover:bg-orange-500/10"
           >
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
