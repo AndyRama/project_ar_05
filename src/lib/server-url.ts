@@ -12,7 +12,7 @@ export const getServerUrl = () => {
 
   // If we are in production, we return the production URL.
   if (process.env.NEXT_PUBLIC_APP_URL) {
-    return `https://${process.env.NEXT_PUBLIC_APP_URL}`;
+    return process.env.NEXT_PUBLIC_APP_URL;
   }
 
   // If we are in "stage" environment, we return the staging URL.
