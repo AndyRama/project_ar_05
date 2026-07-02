@@ -38,8 +38,6 @@ export const auth = betterAuth({
   baseURL: getServerUrl(),
     trustedOrigins: [
     "http://f8cs888kokw84o4w0wc48044.148.230.125.176.sslip.io",
-    "https://unlcoaching.com",
-    "https://www.unlcoaching.com",
   ],
   databaseHooks: {
     user: {
