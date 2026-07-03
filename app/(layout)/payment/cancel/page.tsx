@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export default function CancelPaymentPage() {
   return (
-    <Layout className="flex min-h-screen flex-col items-center justify-center px-4 py-16">
+    <Layout className="flex min-h-[70vh]  flex-col items-center justify-center px-4 py-16">
       <LayoutHeader className="items-center text-center">
         <Badge
           variant="outline"
