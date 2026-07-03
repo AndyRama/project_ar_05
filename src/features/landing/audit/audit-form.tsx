@@ -18,6 +18,7 @@ import { submitAuditFormAction } from "./audit-form.action";
 export const AuditForm = () => {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const form = useForm<AuditFormData>({
     resolver: zodResolver(AuditFormSchema),
@@ -54,8 +55,13 @@ export const AuditForm = () => {
   };
 
   const onSubmit = async (data: AuditFormData) => {
-    await submitAuditFormAction(data);
-    setSubmitted(true);
+    setError(null);
+    try {
+      await submitAuditFormAction(data);
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Une erreur est survenue.");
+    }
   };
 
   if (submitted) {
@@ -227,6 +233,13 @@ export const AuditForm = () => {
                 <input {...register("waist")} type="number" step="0.1" placeholder="Ex: 72" className={inputCn(!!errors.waist)} />
               </Field>
             </div>
+
+            {error && (
+              <p data-testid="submit-error" className="text-sm text-red-400">
+                {error}
+              </p>
+            )}
+
             <div className="flex gap-3">
               <BackBtn onClick={() => setStep(2)} />
               <button
