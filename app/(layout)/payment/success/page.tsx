@@ -14,12 +14,12 @@ export default function SuccessPaymentPage() {
 
         {/* Gauche — texte */}
         <div className="bg-muted/10 relative flex items-center justify-end px-4 backdrop-blur-sm mt-20 md:mt-0 lg:px-8">
-          <div className="relative z-10 mx-auto w-full max-w-xl lg:mx-0 lg:max-w-lg">
+          <div className="relative z-10 mx-auto w-full max-w-xl lg:mx-0 lg:max-w-md">
             <Typography
               variant="h1"
               className="text-foreground text-4xl font-semibold tracking-tight text-pretty sm:text-3xl"
             >
-              🎉 Merci pour votre achat !
+              🎉 Merci pour votre achat
             </Typography>
             <Typography variant="p" className="text-muted-foreground mt-6 text-lg/8">
               Je suis ravis de vous accueillir dans mon programme exclusif
@@ -64,7 +64,7 @@ export default function SuccessPaymentPage() {
 
         {/* Droite — AuditForm */}
         <div className="flex w-full items-center justify-start px-4 lg:px-8">
-          <div className="w-full max-w-xl">
+          <div className="w-full max-w-md mx-auto">
             <AuditForm />
           </div>
         </div>
