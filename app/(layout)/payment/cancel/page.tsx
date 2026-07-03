@@ -12,11 +12,11 @@ import Link from "next/link";
 
 export default function CancelPaymentPage() {
   return (
-    <Layout className="min-h-screen">
+    <Layout className="flex min-h-screen flex-col items-center justify-center px-4 py-16">
       <LayoutHeader className="items-center text-center">
         <Badge
           variant="outline"
-          className="border-orange-200 bg-orange-50 text-orange-700 dark:border-orange-800/60 dark:bg-orange-950/60 dark:text-orange-300"
+          className="mb-4 border-orange-200 bg-orange-50 text-orange-700 dark:border-orange-800/60 dark:bg-orange-950/60 dark:text-orange-300"
         >
           Échec du paiement
         </Badge>
@@ -31,7 +31,7 @@ export default function CancelPaymentPage() {
           Nous sommes là pour vous aider à résoudre cela en toute fluidité.
         </LayoutDescription>
       </LayoutHeader>
-      <LayoutContent className="flex items-center justify-center gap-2">
+      <LayoutContent className="flex items-center justify-center gap-2 pt-4">
         <Link
           href="/#begin"
           className={buttonVariants({ variant: "invert" })}
