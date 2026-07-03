@@ -38,9 +38,9 @@ export const AuditForm = () => {
       sleepHours: "",
       leftArm: "",
       rightArm: "",
-      glutes: "",
       leftThigh: "",
       rightThigh: "",
+      glutes: "",
       shoulders: "",
       chest: "",
       waist: "",
@@ -246,14 +246,14 @@ export const AuditForm = () => {
               <Field label="Bras droit (cm)" required error={errors.rightArm?.message}>
                 <input {...register("rightArm")} type="number" step="0.1" placeholder="Ex: 33" className={inputCn(!!errors.rightArm)} />
               </Field>
-              <Field label="Fessiers (cm)" required error={errors.glutes?.message}>
-                <input {...register("glutes")} type="number" step="0.1" placeholder="Ex: 95" className={inputCn(!!errors.glutes)} />
-              </Field>
               <Field label="Jambe gauche (cm)" required error={errors.leftThigh?.message}>
                 <input {...register("leftThigh")} type="number" step="0.1" placeholder="Ex: 55" className={inputCn(!!errors.leftThigh)} />
               </Field>
               <Field label="Jambe droite (cm)" required error={errors.rightThigh?.message}>
                 <input {...register("rightThigh")} type="number" step="0.1" placeholder="Ex: 55.5" className={inputCn(!!errors.rightThigh)} />
+              </Field>
+              <Field label="Fessiers (cm)" required error={errors.glutes?.message}>
+                <input {...register("glutes")} type="number" step="0.1" placeholder="Ex: 95" className={inputCn(!!errors.glutes)} />
               </Field>
               <Field label="Épaules (cm)" required error={errors.shoulders?.message}>
                 <input {...register("shoulders")} type="number" step="0.1" placeholder="Ex: 110" className={inputCn(!!errors.shoulders)} />

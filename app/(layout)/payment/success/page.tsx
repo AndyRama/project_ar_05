@@ -2,6 +2,7 @@ import GridBackground from "@/components/nowts/grid-background";
 import { Typography } from "@/components/nowts/typography";
 import { CheckCircle, Dumbbell, Mail } from "lucide-react";
 import { AuditForm } from "@/features/landing/audit/audit-form"; 
+import { SectionDivider } from "@/features/landing/section-divider";
 
 export default function SuccessPaymentPage() {
   return (
@@ -19,7 +20,7 @@ export default function SuccessPaymentPage() {
               variant="h1"
               className="text-foreground text-4xl font-semibold tracking-tight text-pretty sm:text-3xl"
             >
-              🎉 Merci pour votre achat
+              🎉 Merci pour votre achat ! 
             </Typography>
             <Typography variant="p" className="text-muted-foreground mt-6 text-lg/8">
               Je suis ravis de vous accueillir dans mon programme exclusif
@@ -70,6 +71,7 @@ export default function SuccessPaymentPage() {
         </div>
 
       </div>
+      <SectionDivider/>
     </div>
   );
 }

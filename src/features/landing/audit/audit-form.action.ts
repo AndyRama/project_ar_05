@@ -29,9 +29,9 @@ export async function submitAuditFormAction(
     sleepHours,
     leftArm,
     rightArm,
-    glutes,
     leftThigh,
     rightThigh,
+    glutes,
     shoulders,
     chest,
     waist,
@@ -67,9 +67,9 @@ export async function submitAuditFormAction(
         **Mensurations (cm)**
         - Bras gauche : ${leftArm}
         - Bras droit : ${rightArm}
-        - Fessiers : ${glutes}
         - Jambe gauche : ${leftThigh}
         - Jambe droite : ${rightThigh}
+        - Fessiers : ${glutes}
         - Épaules : ${shoulders}
         - Poitrine : ${chest}
         - Taille : ${waist}

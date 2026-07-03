@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export default function CancelPaymentPage() {
   return (
-    <Layout>
+    <Layout className="min-h-screen">
       <LayoutHeader className="items-center text-center">
         <Badge
           variant="outline"
