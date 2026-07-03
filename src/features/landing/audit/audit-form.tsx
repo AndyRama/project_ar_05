@@ -12,6 +12,7 @@ import {
   Step1Schema,
   Step2Schema,
   Step3Schema,
+  PLANS,
 } from "./audit-form.schema";
 import { submitAuditFormAction } from "./audit-form.action";
 
@@ -24,6 +25,7 @@ export const AuditForm = () => {
     resolver: zodResolver(AuditFormSchema),
     mode: "onTouched",
     defaultValues: {
+      plan: undefined,
       firstname: "",
       lastname: "",
       phone: "",
@@ -45,7 +47,9 @@ export const AuditForm = () => {
     },
   });
 
-  const { register, trigger, handleSubmit, formState: { errors, isSubmitting } } = form;
+  const { register, trigger, handleSubmit, watch, setValue, formState: { errors, isSubmitting } } = form;
+
+  const selectedPlan = watch("plan");
 
   const goNext = async () => {
     const schema = step === 1 ? Step1Schema : step === 2 ? Step2Schema : Step3Schema;
@@ -151,6 +155,34 @@ export const AuditForm = () => {
         {/* Étape 1 — Coordonnées */}
         {step === 1 && (
           <div data-testid="step-1" className="flex flex-col gap-5">
+            <Field label="Plan choisi" required error={errors.plan?.message}>
+              <div className="flex flex-col gap-2">
+                {PLANS.map((plan) => (
+                  <button
+                    key={plan.value}
+                    type="button"
+                    data-testid={`plan-${plan.value}`}
+                    onClick={() => setValue("plan", plan.value, { shouldValidate: true })}
+                    className={cn(
+                      "flex items-center justify-between rounded-md border px-4 py-3 text-left transition-all",
+                      selectedPlan === plan.value
+                        ? "border-orange-500 bg-orange-50 dark:bg-orange-950/40"
+                        : "border-border bg-background hover:border-orange-300"
+                    )}
+                  >
+                    <span className="text-sm font-semibold text-foreground">{plan.label}</span>
+                    <span
+                      className={cn(
+                        "text-sm font-bold",
+                        selectedPlan === plan.value ? "text-orange-600" : "text-muted-foreground"
+                      )}
+                    >
+                      {plan.price}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </Field>
             <div className="grid grid-cols-2 gap-4">
               <Field label="Prénom" required error={errors.firstname?.message}>
                 <input {...register("firstname")} placeholder="Votre prénom" className={inputCn(!!errors.firstname)} />

@@ -3,7 +3,7 @@
 import type { z } from "zod";
 import { sendEmail } from "@/lib/mail/send-email";
 import MarkdownEmail from "@email/markdown.email";
-import { AuditFormSchema } from "./audit-form.schema";
+import { AuditFormSchema, PLANS } from "./audit-form.schema";
 import { logger } from "@/lib/logger";
 
 export async function submitAuditFormAction(
@@ -16,6 +16,7 @@ export async function submitAuditFormAction(
   }
 
   const {
+    plan,
     firstname,
     lastname,
     phone,
@@ -36,14 +37,19 @@ export async function submitAuditFormAction(
     waist,
   } = parsed.data;
 
+  const planLabel = PLANS.find((p) => p.value === plan)?.label ?? plan;
+
   try {
     await sendEmail({
       to: "unlcoachingpersonel@gmail.com",
-      subject: `Nouvelle demande de coaching — ${firstname} ${lastname}`,
+      subject: `Nouvelle demande de coaching — ${firstname} ${lastname} (${planLabel})`,
       html: MarkdownEmail({
-        preview: `Nouvelle demande de coaching de ${firstname} ${lastname}`,
+        preview: `Nouvelle demande de coaching de ${firstname} ${lastname} — ${planLabel}`,
         markdown: `
         Nouvelle demande de coaching reçue via le formulaire.
+
+        **Plan choisi**
+        - ${planLabel}
 
         **Coordonnées**
         - Nom : ${firstname} ${lastname}

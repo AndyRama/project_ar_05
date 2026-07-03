@@ -1,6 +1,15 @@
 import { z } from "zod";
 
+export const PLANS = [
+  { value: "starter", label: "Starter — 3 mois", price: "160€/mois" },
+  { value: "premium", label: "Premium — 6 mois", price: "180€/mois" },
+  { value: "competition-vip", label: "Competition VIP — 12 mois", price: "150€/mois" },
+] as const;
+
 export const Step1Schema = z.object({
+  plan: z.enum(["starter", "premium", "competition-vip"], {
+    error: "Veuillez sélectionner un plan",
+  }),
   firstname: z.string().min(2, "Prénom requis"),
   lastname:  z.string().min(2, "Nom requis"),
   phone:     z.string().min(10, "Téléphone invalide"),
