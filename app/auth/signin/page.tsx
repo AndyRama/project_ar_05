@@ -11,6 +11,8 @@ import { getUser } from "@/lib/auth/auth-user";
 import { SiteConfig } from "@/site-config";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+import Link from "next/link";
+import { Home } from "lucide-react";
 import { SignInProviders } from "./sign-in-providers";
 
 export const metadata: Metadata = {
@@ -21,15 +23,19 @@ export const metadata: Metadata = {
 
 export default async function AuthSignInPage() {
   const user = await getUser();
-
   if (user) {
     redirect("/account");
   }
-
   const providers = Object.keys(SocialProviders ?? {});
-
   return (
-    <Card className="mx-auto h-auto w-full max-w-md lg:max-w-lg lg:p-6">
+    <Card className="relative mx-auto h-auto w-full max-w-md lg:max-w-lg lg:p-6">
+      <Link
+        href="/"
+        aria-label="Retour à l'accueil"
+        className="absolute right-4 top-4 flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+      >
+        <Home className="size-5" />
+      </Link>
       <CardHeader className="flex flex-col items-center justify-center gap-2">
         <div className="mx-auto mt-4 flex flex-row items-center gap-2">
           <Avatar className="size-8 rounded-md">
@@ -40,7 +46,6 @@ export default async function AuthSignInPage() {
           </Avatar>
           <Typography variant="large">{SiteConfig.title}</Typography>
         </div>
-
         <CardDescription className="text-center">
           Veuillez vous connecter à votre compte pour continuer.
         </CardDescription>

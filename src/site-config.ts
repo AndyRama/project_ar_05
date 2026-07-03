@@ -16,7 +16,7 @@ export const SiteConfig = {
     image: "",
     website: "",
     twitter: "",
-    name: "Andy Ramaroson",
+    name: "Jérémie Part",
   },
   features: {
     /**
