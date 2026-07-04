@@ -1,14 +1,19 @@
 import type { NavigationGroup } from "@/features/navigation/navigation.type";
-import { MessageSquare, Users, Settings, TextSelect, SlidersHorizontal, BookOpen } from "lucide-react";
+import { Home, MessageSquare, Users, Settings, TextSelect, SlidersHorizontal, BookOpen } from "lucide-react";
 
 const ADMIN_PATH = `/admin`;
 
 const ADMIN_LINKS: NavigationGroup[] = [
   {
-    title: "Tableau de bord",
+    title: "TMenu Principal",
     links: [
       {
         href: ADMIN_PATH,
+        Icon: Home,
+        label: "Tableau de bord",
+      },
+      {
+        href: `${ADMIN_PATH}/alimentaire`,
         Icon: TextSelect,
         label: "Plan alimentaire",
       },
@@ -38,14 +43,14 @@ const ADMIN_LINKS: NavigationGroup[] = [
     title: "Application",
     links: [
       {
-        href: `/account`,
-        Icon: SlidersHorizontal,
-        label: "Paramètres",
-      },
-      {
         href: `${ADMIN_PATH}/services`,
         Icon: Settings,
         label: "Gestion des services",
+      },
+      {
+        href: `/account`,
+        Icon: SlidersHorizontal,
+        label: "Gestion de ton compte",
       },
     ],
   },

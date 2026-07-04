@@ -21,7 +21,7 @@ const SERVICES = [
 
 export default async function ServicesPage() {
   return (
-    <Layout>
+    <Layout size="lg">
       <LayoutHeader>
         <LayoutTitle>Gestion des services</LayoutTitle>
       </LayoutHeader>
@@ -36,7 +36,7 @@ export default async function ServicesPage() {
                   variant="default"
                   size="sm"
                   asChild
-                  className="mt-2 w-fit rounded-[10px] hover:border hover:border-orange-600 hover:text-orange-600"
+                  className="mt-2 w-fit rounded-md hover:border hover:border-orange-600 hover:text-orange-600"
                 >
                   <Link href={service.link} target="_blank" rel="noopener noreferrer">
                     Ouvrir {service.title}
