@@ -249,7 +249,7 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
                       tailwindClass={card.tailwindClass}
                     />
                     {(card.duration ?? card.weightLoss) && (
-                      <div className="absolute inset-x-3 bottom-10 z-10 rounded-md bg-black/80 p-2.5 text-sm text-white backdrop-blur-sm">
+                      <div className="absolute inset-x-3 bottom-10 z-10 rounded-md bg-black/80 p-2.5 text-sm text-white backdrop-blur-sm pb-4">
                         <div className="flex items-center justify-between">
                           {card.duration && <span>⏱️ {card.duration}</span>}
                           {card.weightLoss && (

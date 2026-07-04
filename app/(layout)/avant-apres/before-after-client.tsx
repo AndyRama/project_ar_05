@@ -13,8 +13,8 @@ export default function BeforeAfterClient() {
       <SubHero title="+350 Transformations réussies" eyebrow="Avant/Après" />
 
       <StoryCardGridV2 />
-
-      <Testimonials />
+      
+      <TransformationCard />
 
       <section className="bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-16">
         <div className="mx-auto max-w-5xl text-center">
@@ -34,9 +34,9 @@ export default function BeforeAfterClient() {
       </section>
 
       <SectionDivider />
-      
-      <TransformationCard />
 
+      <Testimonials /> 
+      
       <EmailFormSection />
 
     </div>
