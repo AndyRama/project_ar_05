@@ -8,7 +8,7 @@ import {
 import { getRequiredAdmin } from "@/lib/auth/auth-user";
 import { ReceiptEuro, TrendingUp, FilePen, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SubscribersChart } from "./sub-scribers-chart";
+import { SubscribersChart } from "./_components/sub-scribers-chart";
 
 // ── Data ──────────────────────────────────────────────────────────
 
