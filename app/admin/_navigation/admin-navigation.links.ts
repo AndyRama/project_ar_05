@@ -5,42 +5,42 @@ const ADMIN_PATH = `/admin`;
 
 const ADMIN_LINKS: NavigationGroup[] = [
   {
-    title: "Admin",
+    title: "Tableau de bord",
     links: [
       {
         href: ADMIN_PATH,
         Icon: Home,
-        label: "Tableau de bord",
+        label: "Plan alimentaire",
       },
       {
         href: `${ADMIN_PATH}/users`,
         Icon: Users,
         label: "Utilisateurs",
       },
+    ],
+  },
+  {
+    title: "Marketing",
+    links: [
+      {
+        href: `${ADMIN_PATH}/users`,
+        Icon: Users,
+        label: "Publication",
+      },
       {
         href: `${ADMIN_PATH}/feedback`,
         Icon: MessageSquare,
-        label: "Plan alimentaire",
+        label: "Feedback",
       },
     ],
   },
   {
-    title: "test",
+    title: "Application",
     links: [
-      {
-        href: ADMIN_PATH,
-        Icon: Home,
-        label: "Planning publication",
-      },
       {
         href: `${ADMIN_PATH}/users`,
         Icon: Users,
-        label: "Gestion services",
-      },
-      {
-        href: `${ADMIN_PATH}/feedback`,
-        Icon: MessageSquare,
-        label: "Parametre",
+        label: "Gestion des services",
       },
     ],
   },

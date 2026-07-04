@@ -13,8 +13,8 @@ export default async function AdminPage() {
   return (
     <Layout size="lg">
       <LayoutHeader>
-        <LayoutTitle>Admin Dashboard</LayoutTitle>
-        <LayoutDescription>Manage users and organizations</LayoutDescription>
+        <LayoutTitle>Tableau de bord</LayoutTitle>
+        <LayoutDescription>Gestion des utilisateurs</LayoutDescription>
       </LayoutHeader>
 
       <LayoutContent></LayoutContent>
