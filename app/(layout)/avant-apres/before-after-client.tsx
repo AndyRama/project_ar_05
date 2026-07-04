@@ -4,6 +4,7 @@ import { SectionDivider } from "@/features/landing/section-divider";
 import { SubHero } from "@/features/landing/sub-hero";
 import { Testimonials } from "@/features/landing/testimonials";
 import { EmailFormSection } from "@/features/email/email-form-section";
+import { TransformationCard } from "@/features/landing/transformation-card";
 import StoryCardGridV2 from "@/features/landing/story-card-grid-v2";
 
 export default function BeforeAfterClient() {
@@ -12,6 +13,8 @@ export default function BeforeAfterClient() {
       <SubHero title="+350 Transformations réussies" eyebrow="Avant/Après" />
 
       <StoryCardGridV2 />
+
+      <Testimonials />
 
       <section className="bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-16">
         <div className="mx-auto max-w-5xl text-center">
@@ -30,11 +33,12 @@ export default function BeforeAfterClient() {
         </div>
       </section>
 
-      <Testimonials />
-
       <SectionDivider />
+      
+      <TransformationCard />
 
       <EmailFormSection />
+
     </div>
   );
 }
