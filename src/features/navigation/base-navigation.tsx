@@ -1,5 +1,5 @@
 import { Typography } from "@/components/nowts/typography";
-import { LogoSvg } from "@/components/svg/logo-svg";
+import { LogoSvg } from "@/components/svg/logo-subscribe";
 import {
   Sidebar,
   SidebarContent,

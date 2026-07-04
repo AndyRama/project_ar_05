@@ -7,7 +7,7 @@ export function BaseLayout(props: PropsWithChildren) {
     <div className="relative flex min-h-full flex-col">
       <Header />
       <div className="min-h-full flex-1">{props.children}</div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
