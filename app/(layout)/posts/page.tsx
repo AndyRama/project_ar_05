@@ -18,6 +18,7 @@ import { calculateReadingTime } from "@/features/posts/calculate-reading-time";
 import { RecentPosts } from "@/features/posts/recent-posts";
 import { SectionDivider } from "@/features/landing/section-divider";
 import { EmailFormSection } from "@/features/email/email-form-section";
+import { SubHero } from "@/features/landing/sub-hero";
 
 export const metadata: Metadata = {
   title: `Blog de ${SiteConfig.title}`,
@@ -43,6 +44,9 @@ export default async function RoutePage(props: PageParams) {
     <>
       <div className="mt-16"></div>
       <Layout className="max-w-7xl mx-auto px-4 lg:px-6">
+
+        <SubHero title="Le Coeur de la team" eyebrow="Nos valeurs" />
+
         <LayoutHeader>
           <LayoutTitle> Articles tendances</LayoutTitle>
         </LayoutHeader>
