@@ -5,7 +5,7 @@ const ADMIN_PATH = `/admin`;
 
 const ADMIN_LINKS: NavigationGroup[] = [
   {
-    title: "TMenu Principal",
+    title: "Menu Principal",
     links: [
       {
         href: ADMIN_PATH,
