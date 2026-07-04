@@ -20,7 +20,7 @@ const NAV_COLUMNS: FooterNavColumn[] = [
     title: "Site Map",
     links: [
       { label: "Accueil", href: "/" },
-      { label: "Blog",    href: "/posts/#" },
+      { label: "Blog",    href: "/posts" },
       { label: "Team",    href: "/team" },
     ],
   },

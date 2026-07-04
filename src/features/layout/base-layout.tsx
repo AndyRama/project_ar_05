@@ -1,4 +1,4 @@
-import { Footer } from "@/features/layout/footer";
+// import { Footer } from "@/features/layout/footer";
 import { Header } from "@/features/layout/header";
 import type { PropsWithChildren } from "react";
 
