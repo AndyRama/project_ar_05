@@ -20,7 +20,6 @@ type FaqAccordionProps = {
 };
 
 export const FAQSection = ({ faq }: FaqAccordionProps) => {
-  // const defaultOpenItems = faq.map((_, i) => `item-${i}`);
 
   return (
     <section className="py-24 sm:py-32">
@@ -54,7 +53,7 @@ export const FAQSection = ({ faq }: FaqAccordionProps) => {
 
           {/* ── Colonne droite : accordion ── */}
           <div className="flex-1">
-            <Accordion type="multiple" defaultValue={["item-0"]}>
+            <Accordion type="single" collapsible>
               {faq.map((item, i) => (
                 <AccordionItem
                   key={i}
@@ -71,7 +70,7 @@ export const FAQSection = ({ faq }: FaqAccordionProps) => {
               ))}
             </Accordion>
           </div>
-
+          
         </div>
       </div>
     </section>
