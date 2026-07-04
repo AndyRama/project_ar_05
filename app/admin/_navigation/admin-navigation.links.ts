@@ -1,5 +1,5 @@
 import type { NavigationGroup } from "@/features/navigation/navigation.type";
-import { Home, MessageSquare, Users } from "lucide-react";
+import { MessageSquare, Users, Settings, TextSelect, SlidersHorizontal, BookOpen } from "lucide-react";
 
 const ADMIN_PATH = `/admin`;
 
@@ -9,7 +9,7 @@ const ADMIN_LINKS: NavigationGroup[] = [
     links: [
       {
         href: ADMIN_PATH,
-        Icon: Home,
+        Icon: TextSelect,
         label: "Plan alimentaire",
       },
       {
@@ -24,7 +24,7 @@ const ADMIN_LINKS: NavigationGroup[] = [
     links: [
       {
         href: `${ADMIN_PATH}/users`,
-        Icon: Users,
+        Icon: BookOpen,
         label: "Publication",
       },
       {
@@ -38,8 +38,13 @@ const ADMIN_LINKS: NavigationGroup[] = [
     title: "Application",
     links: [
       {
-        href: `${ADMIN_PATH}/users`,
-        Icon: Users,
+        href: `/account`,
+        Icon: SlidersHorizontal,
+        label: "Paramètres",
+      },
+      {
+        href: `${ADMIN_PATH}/services`,
+        Icon: Settings,
         label: "Gestion des services",
       },
     ],
