@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 export default async function RoutePage(props: PageParams) {
   const tags = await getPostsTags();
   const posts = await getPosts();
-  
+
   // Séparer les articles : 8 featured (1 grand + 7 petits) + le reste dans recent
   const featuredPosts = posts.slice(0, 6);
   const recentPosts = posts.slice(6);
@@ -46,7 +46,7 @@ export default async function RoutePage(props: PageParams) {
         <LayoutHeader>
           <LayoutTitle> Articles tendances</LayoutTitle>
         </LayoutHeader>
-        
+
         {/* Tags */}
         <LayoutContent className="flex flex-wrap gap-2 mb-8">
           {tags.map((tag) => (
@@ -81,11 +81,11 @@ export default async function RoutePage(props: PageParams) {
             {featuredPosts.length > 0 && (
               <LayoutContent className="mb-16">
                 <div className="space-y-8 max-w-7xl mx-auto">
-                              
+
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
                     {/* Grand article à gauche */}
                     {featuredPosts[0] && (
-                      <Link 
+                      <Link
                         href={`/posts/${featuredPosts[0].slug}`}
                         className="group block"
                       >
@@ -98,7 +98,7 @@ export default async function RoutePage(props: PageParams) {
                               }}
                             />
                           </div>
-                          
+
                           <div className="flex items-center gap-2">
                             {featuredPosts[0].attributes.keywords[0] && (
                               <Badge variant="secondary" className="capitalize">
@@ -106,18 +106,18 @@ export default async function RoutePage(props: PageParams) {
                               </Badge>
                             )}
                           </div>
-                          
-                          <Typography 
-                            variant="h3" 
+
+                          <Typography
+                            variant="h3"
                             className="line-clamp-2 text-2xl font-bold group-hover:text-primary transition-colors"
                           >
                             {featuredPosts[0].attributes.title}
                           </Typography>
-                          
+
                           <Typography className="line-clamp-3 text-base text-muted-foreground">
                             {featuredPosts[0].attributes.description}
                           </Typography>
-                          
+
                           <div className="flex items-center gap-4 text-sm text-muted-foreground">
                             <div className="flex items-center gap-2">
                               <Calendar className="h-4 w-4" />
@@ -131,11 +131,11 @@ export default async function RoutePage(props: PageParams) {
                         </article>
                       </Link>
                     )}
-                    
+
                     {/* 7 petites cartes empilées à droite */}
                     <div className="flex flex-col gap-6">
                       {featuredPosts.slice(1, 7).map((post) => (
-                        <Link 
+                        <Link
                           key={post.slug}
                           href={`/posts/${post.slug}`}
                           className="group block"
@@ -150,7 +150,7 @@ export default async function RoutePage(props: PageParams) {
                                 }}
                               />
                             </div>
-                            
+
                             {/* Contenu */}
                             <div className="flex-1 space-y-2">
                               {post.attributes.keywords[0] && (
@@ -158,14 +158,14 @@ export default async function RoutePage(props: PageParams) {
                                   {post.attributes.keywords[0]}
                                 </Badge>
                               )}
-                              
-                              <Typography 
-                                variant="p" 
+
+                              <Typography
+                                variant="p"
                                 className="line-clamp-2 text-lg font-bold group-hover:text-primary transition-colors"
                               >
                                 {post.attributes.title}
                               </Typography>
-                              
+
                               <div className="flex items-center gap-3 text-xs text-muted-foreground">
                                 <div className="flex items-center gap-1">
                                   <Calendar className="h-3 w-3" />
@@ -186,6 +186,10 @@ export default async function RoutePage(props: PageParams) {
               </LayoutContent>
             )}
 
+            <div className="w-full max-w-full">
+              <EmailFormSection />
+            </div>
+
             {/* ARTICLES RÉCENTS - Grille */}
             {recentPosts.length > 0 && (
               <LayoutContent className="max-w-7xl mx-auto">
@@ -193,14 +197,9 @@ export default async function RoutePage(props: PageParams) {
                 <SectionDivider />
               </LayoutContent>
             )}
-
           </>
         )}
       </Layout>
-      
-    <div className="w-full max-w-full">
-        <EmailFormSection />
-      </div>
     </>
   );
 }
