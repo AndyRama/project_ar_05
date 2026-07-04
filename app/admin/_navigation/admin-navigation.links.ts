@@ -28,7 +28,7 @@ const ADMIN_LINKS: NavigationGroup[] = [
     title: "Marketing",
     links: [
       {
-        href: `${ADMIN_PATH}/users`,
+        href: `${ADMIN_PATH}/publication`,
         Icon: BookOpen,
         label: "Publication",
       },

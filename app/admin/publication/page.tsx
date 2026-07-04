@@ -24,14 +24,14 @@ import type { PageParams } from "@/types/next";
 
 const PLANNING = [
   { semaine: "S1",  publie: true, theme: "Résolutions",          titre: "Pourquoi 90% des régimes échouent et comment réussir votre transformation en 2026.",              intention: "Éducationnel" },
-  { semaine: "S2",  publie: true, theme: "Local / Bordeaux",     titre: "Top 5 des meilleurs parcs pour s'entraîner en extérieur à Bordeaux cet hiver.",                   intention: "Local" },
-  { semaine: "S3",  publie: true, theme: "Nutrition / TCA",      titre: "Comprendre les TCA : Comment manger sans culpabiliser tout en perdant du gras.",                   intention: "Expertise" },
-  { semaine: "S4",  publie: true, theme: "Entraînement",         titre: "Débuter en salle de sport : Le guide complet pour ne plus avoir peur du regard des autres.",       intention: "Guide" },
-  { semaine: "S5",  publie: true, theme: "Sommeil",              titre: "Sommeil et Performance : Pourquoi dormir plus vous fera perdre plus de poids.",                    intention: "Santé" },
-  { semaine: "S6",  publie: true, theme: "Success Story",        titre: "Témoignage : Comment Marie a perdu 12kg en 4 mois avec Unlcoaching.",                              intention: "Preuve Sociale" },
-  { semaine: "S7",  publie: true, theme: "Mental",               titre: "Discipline vs Motivation : Le secret pour tenir votre programme sur le long terme.",               intention: "Mental" },
-  { semaine: "S8",  publie: true, theme: "Nutrition",            titre: "Faut-il supprimer les glucides pour perdre du poids ? On démystifie le vrai du faux.",             intention: "Info / Vente" },
-  { semaine: "S9",  publie: true, theme: "Local (Mérignac)",     titre: "Coach sportif à Mérignac : Pourquoi l'accompagnement personnalisé change tout.",                   intention: "Local" },
+  { semaine: "S2",  publie: false, theme: "Local / Bordeaux",     titre: "Top 5 des meilleurs parcs pour s'entraîner en extérieur à Bordeaux cet hiver.",                   intention: "Local" },
+  { semaine: "S3",  publie: false, theme: "Nutrition / TCA",      titre: "Comprendre les TCA : Comment manger sans culpabiliser tout en perdant du gras.",                   intention: "Expertise" },
+  { semaine: "S4",  publie: false, theme: "Entraînement",         titre: "Débuter en salle de sport : Le guide complet pour ne plus avoir peur du regard des autres.",       intention: "Guide" },
+  { semaine: "S5",  publie: false, theme: "Sommeil",              titre: "Sommeil et Performance : Pourquoi dormir plus vous fera perdre plus de poids.",                    intention: "Santé" },
+  { semaine: "S6",  publie: false, theme: "Success Story",        titre: "Témoignage : Comment Marie a perdu 12kg en 4 mois avec Unlcoaching.",                              intention: "Preuve Sociale" },
+  { semaine: "S7",  publie: false, theme: "Mental",               titre: "Discipline vs Motivation : Le secret pour tenir votre programme sur le long terme.",               intention: "Mental" },
+  { semaine: "S8",  publie: false, theme: "Nutrition",            titre: "Faut-il supprimer les glucides pour perdre du poids ? On démystifie le vrai du faux.",             intention: "Info / Vente" },
+  { semaine: "S9",  publie: false, theme: "Local (Mérignac)",     titre: "Coach sportif à Mérignac : Pourquoi l'accompagnement personnalisé change tout.",                   intention: "Local" },
   { semaine: "S10", publie: false, theme: "Spécificité",          titre: "Coaching en ligne vs Coaching présentiel à Bordeaux : Quel format choisir ?",                     intention: "Comparatif" },
   { semaine: "S11", publie: false, theme: "TCA",                  titre: "Hyperphagie et sport : Comment sortir du cycle des crises grâce au coaching.",                     intention: "Expertise" },
   { semaine: "S12", publie: false, theme: "Lifestyle",            titre: "Concilier vie professionnelle à Bordeaux et sport : 3 astuces pour les cadres pressés.",           intention: "Segmenté" },
@@ -93,7 +93,7 @@ export default async function PublicationsAdminPage(
       </LayoutHeader>
 
       <LayoutActions className="flex items-center gap-3">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-orange-50 px-2.5 py-1 text-xs font-medium text-orange-700">
           <CheckCircle2 className="h-3.5 w-3.5" />
           {publishedCount} publiés
         </span>
@@ -104,7 +104,7 @@ export default async function PublicationsAdminPage(
         <div className="ml-2 flex items-center gap-2">
           <div className="h-1.5 w-32 rounded-full bg-muted">
             <div
-              className="h-1.5 rounded-full bg-emerald-500 transition-all"
+              className="h-1.5 rounded-full bg-orange-500 transition-all"
               style={{ width: `${(publishedCount / totalCount) * 100}%` }}
             />
           </div>
@@ -112,6 +112,13 @@ export default async function PublicationsAdminPage(
             {Math.round((publishedCount / totalCount) * 100)}%
           </span>
         </div>
+        <Link
+          href="https://buy.stripe.com/28E28s5MK5Ch8Hx2nQ2VG0b"
+          target="_Blank"
+          className="ml-2 inline-flex items-center gap-2 rounded-[10px] bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-orange-600 hover:scale-105 active:scale-95"
+        >
+          Commander
+        </Link>
       </LayoutActions>
 
       <LayoutContent>
@@ -140,7 +147,7 @@ export default async function PublicationsAdminPage(
                     key={article.semaine}
                     className={
                       article.publie
-                        ? "bg-emerald-50/30 hover:bg-emerald-50/50"
+                        ? "bg-orange-50/30 hover:bg-orange-50/50"
                         : "hover:bg-muted/30"
                     }
                   >
@@ -150,7 +157,7 @@ export default async function PublicationsAdminPage(
 
                     <TableCell>
                       {article.publie ? (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-700">
                           <CheckCircle2 className="h-3 w-3" />
                           Publié
                         </span>
