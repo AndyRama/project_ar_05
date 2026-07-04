@@ -9,7 +9,7 @@ import { Layout, LayoutContent } from "@/features/page/layout";
 import {
   FaUserEdit,
   FaLightbulb,
-  FaRegCalendarCheck,
+  // FaRegCalendarCheck,
   FaHandsHelping,
 } from "react-icons/fa";
 import { BiNote } from "react-icons/bi";
@@ -119,7 +119,7 @@ const features: Feature[] = [
 export const PricingDetailsPlus: React.FC<{ className?: string }> = ({
   className,
 }) => {
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(true);
   const displayed = showAll ? features : features.slice(0, 4);
 
   return (
@@ -133,7 +133,7 @@ export const PricingDetailsPlus: React.FC<{ className?: string }> = ({
       </div>
 
       <Layout>
-        <LayoutContent className="container mx-auto px-4">
+        <LayoutContent className="max-w-6xl mx-auto px-4">
 
           {/* Header */}
           <div className="mb-16 flex flex-col items-center text-center">
@@ -141,7 +141,8 @@ export const PricingDetailsPlus: React.FC<{ className?: string }> = ({
               Notre concept
             </Typography>
             <Typography variant="h2">
-              <span className="text-orange-500">Unl</span>coaching
+              <span className="text-orange-500">Unl</span>
+              coaching
             </Typography>
           </div>
 
