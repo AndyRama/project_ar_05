@@ -27,16 +27,6 @@ const ACCOUNT_LINKS: NavigationGroup[] = [
     ],
   },
   {
-    title: "App",
-    links: [
-      {
-        href: "/app",
-        Icon: LayoutDashboard,
-        label: "Dashboard",
-      },
-    ],
-  },
-  {
     title: "Mention légal",
     links: [
       {
@@ -49,10 +39,15 @@ const ACCOUNT_LINKS: NavigationGroup[] = [
         Icon: LayoutDashboard,
         label: "Terms",
       },
+    ],
+  },
+  {
+    title: "App",
+    links: [
       {
-        href: "/",
-        Icon: Home,
-        label: "Accueil",
+        href: "/app",
+        Icon: LayoutDashboard,
+        label: "Mon Tableau de bord",
       },
     ],
   },
