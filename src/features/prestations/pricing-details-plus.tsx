@@ -120,7 +120,7 @@ export const PricingDetailsPlus: React.FC<{ className?: string }> = ({
   className,
 }) => {
   const [showAll, setShowAll] = useState(true);
-  const displayed = showAll ? features : features.slice(0, 4);
+  const displayed = showAll ? features : features.slice(0, 3);
 
   return (
     <section className={`relative isolate overflow-hidden py-24 sm:py-32 ${className ?? ""}`}>
@@ -132,8 +132,8 @@ export const PricingDetailsPlus: React.FC<{ className?: string }> = ({
         <div className="h-full w-full bg-gradient-to-tr from-orange-500 to-orange-800 opacity-30 md:opacity-50" />
       </div>
 
-      <Layout>
-        <LayoutContent className="max-w-6xl mx-auto px-4">
+      <Layout sizes="lg">
+        <LayoutContent className="mx-auto px-4">
 
           {/* Header */}
           <div className="mb-16 flex flex-col items-center text-center">

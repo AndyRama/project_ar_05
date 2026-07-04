@@ -37,7 +37,15 @@ const APPROACH_ITEMS = [
 
 export const Engagement = () => {
   return (
-    <>
+    <div className="relative isolate overflow-hidden">
+      {/* Ambient glows */}
+      <div aria-hidden="true" className="pointer-events-none absolute left-0 top-1/4 -z-10 h-64 w-56 transform-gpu blur-3xl">
+        <div className="h-full w-full bg-gradient-to-tr from-orange-500 to-orange-800 opacity-30 md:opacity-50" />
+      </div>
+      <div aria-hidden="true" className="pointer-events-none absolute bottom-1/4 right-0 -z-10 h-64 w-56 transform-gpu blur-3xl">
+        <div className="h-full w-full bg-gradient-to-tr from-orange-500 to-orange-800 opacity-30 md:opacity-50" />
+      </div>
+
       {/* Mon engagement / Photos / Chiffres clés */}
       <SectionLayout size="lg" variant="transparent">
         <section className="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
@@ -181,6 +189,6 @@ export const Engagement = () => {
           </div>
         </div>
       </SectionLayout>
-    </>
+    </div>
   );
 };
