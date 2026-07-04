@@ -4,7 +4,9 @@ import { SubHero } from "@/features/landing/sub-hero";
 import { Testimonials } from "@/features/landing/testimonials";
 import { EmailFormSection } from "@/features/email/email-form-section";
 import StoryCardGrid from "@/features/landing/story-card-grid";
+import { PublicMessage } from "@/features/prestations/public-message";
 import { Typography } from "@/components/nowts/typography";
+
 
 export default function Team() {
 
@@ -21,7 +23,7 @@ export default function Team() {
         description="Des transformations réelles, obtenues avec un programme sur mesure et un suivi rigoureux."
       />
 
-      {/* <MessageGroup/> */}
+      <PublicMessage />
 
       <SubHero title="" imageUrl="/images/groupArcachon.jpg" />
 
