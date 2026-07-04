@@ -38,17 +38,17 @@ const features: Feature[] = [
     description2:
       "Ce qui distingue Unlcoaching des méthodes traditionnelles de coaching est [explication de la différence principale]. Pour en savoir plus, consultez notre page dédiée Prestations ou contactez-nous pour une consultation personnalisée.",
   },
-  {
-    icon: FaUserEdit,
-    title: "Proposez-vous des services de coaching individuel ?",
-    description: "Oui, nous proposons des services de coaching personnalisé. Nos options incluent :",
-    bullets: [
-      "• Coaching en ligne avec suivi hebdomadaire",
-      "• Sessions d'entraînement en personne (selon votre localisation)",
-      "• Plans d'entraînement et de nutrition sur mesure",
-    ],
-    description2: "Pour plus de détails ou pour réserver une consultation, veuillez nous contacter via notre page de contact.",
-  },
+  // {
+  //   icon: FaUserEdit,
+  //   title: "Proposez-vous des services de coaching individuel ?",
+  //   description: "Oui, nous proposons des services de coaching personnalisé. Nos options incluent :",
+  //   bullets: [
+  //     "• Coaching en ligne avec suivi hebdomadaire",
+  //     "• Sessions d'entraînement en personne (selon votre localisation)",
+  //     "• Plans d'entraînement et de nutrition sur mesure",
+  //   ],
+  //   description2: "Pour plus de détails ou pour réserver une consultation, veuillez nous contacter via notre page de contact.",
+  // },
   {
     icon: MdOutlineSportsKabaddi,
     title: "Je débute dans le fitness, par où commencer ?",
@@ -65,7 +65,7 @@ const features: Feature[] = [
     description2: "N'hésitez pas à me contacter pour un coaching personnalisé.",
   },
   {
-    icon: FaRegCalendarCheck,
+    icon: FaUserEdit,
     title: "Proposez-vous des coachings individuels ?",
     description: "Oui, je propose des coachings individuels personnalisés. Voici ce que vous devez savoir :",
     bullets: [
@@ -146,7 +146,7 @@ export const PricingDetailsPlus: React.FC<{ className?: string }> = ({
           </div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             {displayed.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -160,14 +160,15 @@ export const PricingDetailsPlus: React.FC<{ className?: string }> = ({
               >
                 <Card className="flex h-full flex-col gap-3 rounded-md border border-border bg-card p-6 ring-1 ring-border transition-all duration-300 hover:ring-orange-500/40">
 
-                  {/* Icon */}
-                  <div className="flex h-11 w-11 items-center justify-center rounded-md bg-orange-500/10">
-                    <feature.icon className="text-2xl text-orange-500" />
+                  {/* Icon + Title */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-orange-500/10">
+                      <feature.icon className="text-2xl text-orange-500" />
+                    </div>
+                    <Typography variant="h3" className="text-orange-500">
+                      {feature.title}
+                    </Typography>
                   </div>
-
-                  <Typography variant="h3" className="text-orange-500">
-                    {feature.title}
-                  </Typography>
 
                   <Separator className="bg-border" />
 
