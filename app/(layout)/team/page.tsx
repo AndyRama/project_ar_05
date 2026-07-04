@@ -6,7 +6,7 @@ import { EmailFormSection } from "@/features/email/email-form-section";
 import StoryCardGrid from "@/features/landing/story-card-grid";
 import { PublicMessage } from "@/features/prestations/public-message";
 import { Typography } from "@/components/nowts/typography";
-
+import { ScrollingGallery } from "@/features/landing/scrolling-galery";
 
 export default function Team() {
 
@@ -47,6 +47,10 @@ export default function Team() {
           </Link>
         </div>
       </section>
+
+      <SectionDivider />
+
+      <ScrollingGallery />
 
       <SectionDivider />
 

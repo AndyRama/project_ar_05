@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Typography } from "@/components/nowts/typography";
+import { SectionDivider} from "@/features/landing/section-divider";
 
 export const PublicMessage = () => (
   <motion.div
@@ -36,5 +37,6 @@ export const PublicMessage = () => (
         <span className="text-orange-500">Coach Sportif</span>
       </strong>
     </div>
+		<SectionDivider/>
   </motion.div>
 );
