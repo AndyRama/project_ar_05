@@ -10,17 +10,17 @@ const ADMIN_LINKS: NavigationGroup[] = [
       {
         href: ADMIN_PATH,
         Icon: Home,
-        label: "Dashboard",
+        label: "Tableau de bord",
       },
       {
         href: `${ADMIN_PATH}/users`,
         Icon: Users,
-        label: "Users",
+        label: "Utilisateurs",
       },
       {
         href: `${ADMIN_PATH}/feedback`,
         Icon: MessageSquare,
-        label: "Feedback",
+        label: "Plan alimentaire",
       },
     ],
   },
@@ -30,17 +30,17 @@ const ADMIN_LINKS: NavigationGroup[] = [
       {
         href: ADMIN_PATH,
         Icon: Home,
-        label: "Dashboard",
+        label: "Planning publication",
       },
       {
         href: `${ADMIN_PATH}/users`,
         Icon: Users,
-        label: "Users",
+        label: "Gestion services",
       },
       {
         href: `${ADMIN_PATH}/feedback`,
         Icon: MessageSquare,
-        label: "Feedback",
+        label: "Parametre",
       },
     ],
   },
