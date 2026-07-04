@@ -132,7 +132,7 @@ export const PricingDetailsPlus: React.FC<{ className?: string }> = ({
         <div className="h-full w-full bg-gradient-to-tr from-orange-500 to-orange-800 opacity-30 md:opacity-50" />
       </div>
 
-      <Layout sizes="lg">
+      <Layout size="lg">
         <LayoutContent className="mx-auto px-4">
 
           {/* Header */}
