@@ -11,6 +11,7 @@ import { PricingEbook } from "@/features/prestations/pricing-section-ebook";
 import { Engagement } from "@/features/prestations/engagement";
 import { PromoBanner } from "@/features/landing/promo-banner";
 import { PromoModal } from "@/features/landing/promo-modal";
+import { PricingDetailsPlus } from "@/features/prestations/pricing-details-plus";
 
 export default function Prestations() {
 
@@ -28,6 +29,8 @@ export default function Prestations() {
       <Engagement />
 
       <SectionDivider />
+
+      <PricingDetailsPlus/>
 
       <Testimonials />
 

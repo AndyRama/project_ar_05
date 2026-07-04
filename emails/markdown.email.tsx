@@ -10,8 +10,8 @@ export default function MarkdownEmail(props: {
   if (!props.disabledSignature) {
     props.markdown += `
 
-Best,\n
-${SiteConfig.team.name} from ${SiteConfig.title}
+Bonne journée,\n
+${SiteConfig.team.name} de ${SiteConfig.title}
     `;
   }
 
