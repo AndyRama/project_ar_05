@@ -19,6 +19,7 @@ import { RecentPosts } from "@/features/posts/recent-posts";
 import { SectionDivider } from "@/features/landing/section-divider";
 import { EmailFormSection } from "@/features/email/email-form-section";
 import { SubHero } from "@/features/landing/sub-hero";
+import { About } from "@/features/landing/about";
 
 export const metadata: Metadata = {
   title: `Blog de ${SiteConfig.title}`,
@@ -43,10 +44,10 @@ export default async function RoutePage(props: PageParams) {
   return (
     <>
       <div className="mt-16"></div>
+
+      <SubHero title="Derniers articles" eyebrow="Mon blog" />
+
       <Layout className="max-w-7xl mx-auto px-4 lg:px-6">
-
-        <SubHero title="Le Coeur de la team" eyebrow="Nos valeurs" />
-
         <LayoutHeader>
           <LayoutTitle> Articles tendances</LayoutTitle>
         </LayoutHeader>
@@ -190,9 +191,6 @@ export default async function RoutePage(props: PageParams) {
               </LayoutContent>
             )}
 
-            <div className="w-full max-w-full">
-              <EmailFormSection />
-            </div>
 
             {/* ARTICLES RÉCENTS - Grille */}
             {recentPosts.length > 0 && (
@@ -204,6 +202,10 @@ export default async function RoutePage(props: PageParams) {
           </>
         )}
       </Layout>
+      <div className="w-full max-w-full">
+        <EmailFormSection />
+      </div>
+      <About/>
     </>
   );
 }
