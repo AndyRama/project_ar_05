@@ -2,6 +2,9 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Typography } from "@/components/nowts/typography";
 import { Layout, LayoutContent } from "@/features/page/layout";
 import {
   FaUserEdit,
@@ -131,17 +134,15 @@ export const PricingDetailsPlus: React.FC<{ className?: string }> = ({
 
       <Layout>
         <LayoutContent className="container mx-auto px-4">
+
           {/* Header */}
           <div className="mb-16 flex flex-col items-center text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full
-                            border border-orange-200 bg-orange-50 px-4 py-1.5
-                            text-xs font-semibold uppercase tracking-widest text-orange-700
-                            dark:border-orange-800/60 dark:bg-orange-950/60 dark:text-orange-300">
+            <Typography variant="small" className="mb-2 font-extrabold uppercase text-orange-500">
               Notre concept
-            </div>
-            <h2 className="text-4xl font-bold tracking-tight text-balance text-foreground sm:text-5xl">
+            </Typography>
+            <Typography variant="h2">
               <span className="text-orange-500">Unl</span>coaching
-            </h2>
+            </Typography>
           </div>
 
           {/* Grid */}
@@ -156,38 +157,42 @@ export const PricingDetailsPlus: React.FC<{ className?: string }> = ({
                   transition: { delay: index * 0.1, duration: 0.5 },
                 }}
                 viewport={{ once: true }}
-                className="group relative overflow-hidden rounded-2xl bg-[#2F2E2E]
-                           p-6 ring-1 ring-white/10 transition-all duration-300
-                           hover:ring-orange-500/40"
               >
-                {/* Icon */}
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-orange-500/15">
-                  <feature.icon className="text-2xl text-orange-500" />
-                </div>
+                <Card className="flex h-full flex-col gap-3 rounded-md border border-border bg-card p-6 ring-1 ring-border transition-all duration-300 hover:ring-orange-500/40">
 
-                <h3 className="mb-3 text-base font-bold text-white">
-                  {feature.title}
-                </h3>
+                  {/* Icon */}
+                  <div className="flex h-11 w-11 items-center justify-center rounded-md bg-orange-500/10">
+                    <feature.icon className="text-2xl text-orange-500" />
+                  </div>
 
-                <p className="mb-3 text-sm leading-relaxed text-white/70">
-                  {feature.description}
-                </p>
+                  <Typography variant="h3" className="text-orange-500">
+                    {feature.title}
+                  </Typography>
 
-                {feature.bullets.length > 0 && (
-                  <ul className="mb-3 flex flex-col gap-1.5">
-                    {feature.bullets.map((bullet, i) => (
-                      <li key={i} className="text-sm leading-relaxed text-white/60">
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                  <Separator className="bg-border" />
 
-                {feature.description2 && (
-                  <p className="text-sm leading-relaxed text-white/50">
-                    {feature.description2}
-                  </p>
-                )}
+                  <Typography variant="p" className="text-foreground">
+                    {feature.description}
+                  </Typography>
+
+                  {feature.bullets.length > 0 && (
+                    <ul className="flex flex-col gap-1.5">
+                      {feature.bullets.map((bullet, i) => (
+                        <li key={i}>
+                          <Typography variant="muted" className="text-muted-foreground">
+                            {bullet}
+                          </Typography>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {feature.description2 && (
+                    <Typography variant="muted" className="text-muted-foreground">
+                      {feature.description2}
+                    </Typography>
+                  )}
+                </Card>
               </motion.div>
             ))}
           </div>
@@ -196,13 +201,14 @@ export const PricingDetailsPlus: React.FC<{ className?: string }> = ({
           <div className="mt-12 flex justify-center">
             <button
               onClick={() => setShowAll((prev) => !prev)}
-              className="rounded-xl border border-white/20 bg-[#2F2E2E] px-8 py-3.5
-                         text-sm font-semibold text-white transition-all
-                         hover:border-orange-500/40 hover:bg-orange-500/10 active:scale-95"
+              className="rounded-[10px] border border-border bg-card px-8 py-3.5
+                         text-sm font-semibold text-foreground transition-all
+                         hover:border-orange-500 hover:bg-orange-500/10 active:scale-95"
             >
               {showAll ? "Voir moins" : "Voir plus"}
             </button>
           </div>
+
         </LayoutContent>
       </Layout>
     </section>
