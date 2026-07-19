@@ -23,3 +23,73 @@ model Feedback {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model AlimentaireProfile {
+  id        String    @id @default(nanoid(11))
+
+  // information fields
+  size      Int
+  age       Int
+  weight    Float
+
+  // New personal information fields
+  profession String?
+  pathology  String?
+
+  // Physical activity fields
+  hoursActivityPerWeek String?
+  stepsPerWeek         String?
+
+  // Body measurements (in cm)
+  leftArm      Float?
+  rightArm     Float?
+  shoulders    Float?
+  chest        Float?
+  waist        Float?
+  glutes       Float?
+  leftThigh    Float?
+  rightThigh   Float?
+
+  // Sleep information
+  sleepHours String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+}
+
+model PendingAuditSubmission {
+  id        String   @id @default(nanoid(11))
+
+  plan      String
+  firstname String
+  lastname  String
+  phone     String
+  email     String
+
+  age        String
+  size       String
+  weight     String
+  profession String
+  pathology  String?
+
+  hoursActivityPerWeek String
+  stepsPerWeek         String
+  sleepHours           String
+
+  leftArm    String
+  rightArm   String
+  leftThigh  String
+  rightThigh String
+  glutes     String
+  shoulders  String
+  chest      String
+  waist      String
+
+  createdAt  DateTime  @default(now())
+  consumedAt DateTime?
+
+  @@index([email])
+}
