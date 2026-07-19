@@ -45,28 +45,28 @@ export function MeasurementChart(props: MeasurementChartProps) {
   const symmetryData = [
     {
       subject: 'Bras',
-      gauche: props.leftArm || 0,
-      droit: props.rightArm || 0,
+      gauche: props.leftArm ?? 0,
+      droit: props.rightArm ?? 0,
       fullMark: 50,
     },
     {
       subject: 'Jambes',
-      gauche: props.leftThigh || 0,
-      droit: props.rightThigh || 0,
+      gauche: props.leftThigh ?? 0,
+      droit: props.rightThigh ?? 0,
       fullMark: 80,
     },
   ];
 
   // Données pour le graphique de barres (mensurations)
   const measurementsData = [
-    { name: 'Épaules', valeur: props.shoulders || 0 },
-    { name: 'Poitrine', valeur: props.chest || 0 },
-    { name: 'Taille', valeur: props.waist || 0 },
-    { name: 'Fessiers', valeur: props.glutes || 0 },
-    { name: 'Bras G', valeur: props.leftArm || 0 },
-    { name: 'Bras D', valeur: props.rightArm || 0 },
-    { name: 'Jambe G', valeur: props.leftThigh || 0 },
-    { name: 'Jambe D', valeur: props.rightThigh || 0 },
+    { name: 'Épaules', valeur: props.shoulders ?? 0 },
+    { name: 'Poitrine', valeur: props.chest ?? 0 },
+    { name: 'Taille', valeur: props.waist ?? 0 },
+    { name: 'Fessiers', valeur: props.glutes ?? 0 },
+    { name: 'Bras G', valeur: props.leftArm ?? 0 },
+    { name: 'Bras D', valeur: props.rightArm ?? 0 },
+    { name: 'Jambe G', valeur: props.leftThigh ?? 0 },
+    { name: 'Jambe D', valeur: props.rightThigh ?? 0 },
   ].filter(item => item.valeur > 0);
 
   // Extraction des données d'activité

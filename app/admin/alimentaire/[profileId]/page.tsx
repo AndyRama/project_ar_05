@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
-import { auth } from "@/lib/auth/helper";
+import { getUser } from "@/lib/auth/auth-user";
 import { redirect, notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -27,9 +27,8 @@ export default async function AlimentaireDetailPage({
   params
 }: AlimentaireDetailPageProps) {
   // Vérification de l'authentification
-  const user = await auth();
-
-  if (!user?.id) {
+  const user = await getUser();
+  if (!user) {
     redirect("/auth/signin");
   }
 
@@ -83,7 +82,7 @@ export default async function AlimentaireDetailPage({
                 <div className="flex flex-col gap-6">
                   <InfoItem label="Nom - Prénoms" value={profile.user?.name || 'N/A'} />
                   <InfoItem label="Âge" value={`${profile.age} ans`} />
-                  <InfoItem label="Profession" value={profile.profession || 'N/A'} />
+                  <InfoItem label="Profession" value={profile.profession ?? 'N/A'} />
                   <InfoItem label="Date d'inscription" value={new Date(profile.createdAt).toLocaleDateString('fr-FR')} />
                 </div>
               </CardContent>
@@ -115,7 +114,7 @@ export default async function AlimentaireDetailPage({
           </div>
 
           {/* Pathologie + Sommeil - MÊME LARGEUR que la ligne au-dessus */}
-          {(profile.pathology || profile.sleepHours) && (
+          {(profile.pathology ?? profile.sleepHours) && (
             <Card className="border-orange-500">
               <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent px-4">
                 <CardTitle className="px-6 text-orange-500">Pathologie & Sommeil</CardTitle>
@@ -171,7 +170,7 @@ export default async function AlimentaireDetailPage({
                   {profile.rightArm && <MeasurementItem label="Bras droit" value={profile.rightArm} />}
                   {profile.shoulders && <MeasurementItem label="Épaules" value={profile.shoulders} />}
                   {profile.chest && <MeasurementItem label="Poitrine" value={profile.chest} />}
-                  {profile.waist && <MeasurementItem label="Taille" value={profile.waist} />}
+                  {profile.waist && <MeasurementItem label="Tour de Taille" value={profile.waist} />}
                   {profile.glutes && <MeasurementItem label="Fessiers" value={profile.glutes} />}
                   {profile.leftThigh && <MeasurementItem label="Jambe gauche" value={profile.leftThigh} />}
                   {profile.rightThigh && <MeasurementItem label="Jambe droite" value={profile.rightThigh} />}
