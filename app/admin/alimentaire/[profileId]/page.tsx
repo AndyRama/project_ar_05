@@ -58,7 +58,7 @@ export default async function AlimentaireDetailPage({
       <Layout>
         <LayoutHeader>
           <div className="flex items-center gap-4">
-            <Link href="admin/alimentaire">
+            <Link href="/admin/alimentaire">
               <Button variant="outline" size="sm" className="gap-2">
                 <ArrowLeft className="size-4" />
                 Retour
@@ -145,8 +145,8 @@ export default async function AlimentaireDetailPage({
             </CardHeader>
             <CardContent className="pt-6">
               <div className="grid gap-6 md:grid-cols-2">
-                <InfoItem label="Heures d'activité / semaine" value={profile.hoursActivityPerWeek || 'N/A'} />
-                <InfoItem label="Pas / semaine" value={profile.stepsPerWeek || 'N/A'} />
+                <InfoItem label="Heures d'activité / semaine" value={profile.hoursActivityPerWeek ?? 'N/A'} />
+                <InfoItem label="Pas / semaine" value={profile.stepsPerWeek ?? 'N/A'} />
               </div>
             </CardContent>
           </Card>
@@ -209,7 +209,7 @@ function InfoItem({ label, value }: { label: string; value: string }) {
 // Composant pour les mesures principales (taille/poids)
 function MeasurementBox({ label, value, unit }: { label: string; value: number; unit: string }) {
   return (
-    <div className="rounded-lg border border-orange-500/20 bg-orange-500/5 p-4">
+    <div className="rounded-md border border-orange-500/20 bg-orange-500/5 p-4">
       <p className="text-sm font-medium text-muted-foreground">{label}</p>
       <p className="mt-2 text-2xl font-bold text-orange-500">
         {value} <span className="text-base font-normal">{unit}</span>
@@ -221,7 +221,7 @@ function MeasurementBox({ label, value, unit }: { label: string; value: number; 
 // Composant pour afficher une mesure détaillée
 function MeasurementItem({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-lg border p-3">
+    <div className="rounded-md border p-3">
       <p className="text-xs font-medium text-muted-foreground">{label}</p>
       <p className="mt-1 text-base font-semibold">
         {value} <span className="text-sm font-normal text-muted-foreground">cm</span>

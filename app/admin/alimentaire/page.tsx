@@ -233,7 +233,7 @@ export default async function AlimentairePlanPage() {
                           {new Date(latest.createdAt).toLocaleDateString("fr-FR")}
                         </TableCell>
                         <TableCell className="text-center">
-                          <Link href={`admin/alimentaire/client/${u.id}`}>
+                          <Link href={`/admin/alimentaire/client/${u.id}`}>
                             <Button
                               variant="outline"
                               size="sm"
