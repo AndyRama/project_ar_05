@@ -216,15 +216,15 @@ export default async function AlimentairePlanPage() {
                     const latest = u.alimentaireProfiles[0];
                     return (
                       <TableRow key={u.id} className="hover:bg-muted/50">
-                        <TableCell className="font-medium" title={u.name || "N/A"}>
-                          {truncateText(u.name || "N/A", 20)}
+                        <TableCell className="font-medium" title={u.name ?? "N/A"}>
+                          {truncateText(u.name ?? "N/A", 20)}
                         </TableCell>
-                        <TableCell title={u.email || "N/A"}>
-                          {truncateText(u.email || "N/A", 25)}
+                        <TableCell title={u.email ?? "N/A"}>
+                          {truncateText(u.email ?? "N/A", 25)}
                         </TableCell>
                         <TableCell>{latest.age} ans</TableCell>
-                        <TableCell title={latest.profession || "N/A"}>
-                          {truncateText(latest.profession || "N/A", 20)}
+                        <TableCell title={latest.profession ?? "N/A"}>
+                          {truncateText(latest.profession ?? "N/A", 20)}
                         </TableCell>
                         <TableCell className="text-center font-semibold text-orange-600">
                           {u.alimentaireProfiles.length}

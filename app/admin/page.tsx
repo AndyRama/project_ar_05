@@ -15,7 +15,7 @@ import { SubscribersChart } from "./_components/sub-scribers-chart";
 const STATS_TOP = [
   {
     label: "Total Ventes en ligne",
-    value: "+ 26",
+    value: "+ 16",
     trend: "+ 12.5% depuis le mois dernier",
     icon: ReceiptEuro,
   },
