@@ -31,6 +31,8 @@ export const AuditForm = () => {
       phone: "",
       email: "",
       age: "",
+      size: "",
+      weight: "",
       profession: "",
       pathology: "",
       hoursActivityPerWeek: "",
@@ -207,6 +209,14 @@ export const AuditForm = () => {
             <div className="grid grid-cols-2 gap-4">
               <Field label="Âge" required error={errors.age?.message}>
                 <input {...register("age")} type="number" placeholder="Ex: 28" className={inputCn(!!errors.age)} />
+              </Field>
+              <Field label="Taille (cm)" required error={errors.size?.message}>
+                <input {...register("size")} type="number" placeholder="Ex: 170" className={inputCn(!!errors.size)} />
+              </Field>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <Field label="Poids (kg)" required error={errors.weight?.message}>
+                <input {...register("weight")} type="number" step="0.1" placeholder="Ex: 68.5" className={inputCn(!!errors.weight)} />
               </Field>
               <Field label="Profession" required error={errors.profession?.message}>
                 <input {...register("profession")} placeholder="Ex: Infirmière" className={inputCn(!!errors.profession)} />

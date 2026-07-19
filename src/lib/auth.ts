@@ -7,6 +7,7 @@ import { sendEmail } from "@/lib/mail/send-email";
 import { SiteConfig } from "@/site-config";
 import MarkdownEmail from "@email/markdown.email";
 import { setupResendCustomer } from "./auth/auth-config-setup";
+import { createInitialAlimentaireProfile } from "./auth/audit-profile-setup";
 import { env } from "./env";
 import { logger } from "./logger";
 import { prisma } from "./prisma";
@@ -44,6 +45,7 @@ export const auth = betterAuth({
       create: {
         after: async (user, _req) => {
           await setupResendCustomer(user);
+          await createInitialAlimentaireProfile(user);
 
           // Création du client Stripe
           try {

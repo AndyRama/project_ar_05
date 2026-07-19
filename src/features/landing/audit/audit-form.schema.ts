@@ -18,6 +18,8 @@ export const Step1Schema = z.object({
 
 export const Step2Schema = z.object({
   age:                  z.string().refine((v) => !isNaN(Number(v)) && Number(v) > 0, "Âge invalide"),
+  size:                 z.string().refine((v) => !isNaN(Number(v)) && Number(v) > 0, "Taille invalide"),
+  weight:               z.string().refine((v) => !isNaN(Number(v)) && Number(v) > 0, "Poids invalide"),
   profession:           z.string().min(1, "Profession requise"),
   pathology:            z.string().optional(),
   hoursActivityPerWeek: z.string().min(1, "Requis"),

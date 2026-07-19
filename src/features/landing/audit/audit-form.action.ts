@@ -5,6 +5,7 @@ import { sendEmail } from "@/lib/mail/send-email";
 import MarkdownEmail from "@email/markdown.email";
 import { AuditFormSchema, PLANS } from "./audit-form.schema";
 import { logger } from "@/lib/logger";
+import { prisma } from "@/lib/prisma";
 
 export async function submitAuditFormAction(
   data: z.infer<typeof AuditFormSchema>
@@ -22,6 +23,8 @@ export async function submitAuditFormAction(
     phone,
     email,
     age,
+    size,
+    weight,
     profession,
     pathology,
     hoursActivityPerWeek,
@@ -38,6 +41,40 @@ export async function submitAuditFormAction(
   } = parsed.data;
 
   const planLabel = PLANS.find((p) => p.value === plan)?.label ?? plan;
+
+  // On sauvegarde la soumission en attente de la création du compte.
+  // Elle sera consommée dans le hook `create.after` de Better-Auth
+  // (voir lib/auth/audit-profile-setup.ts) pour créer le bilan initial.
+  try {
+    await prisma.pendingAuditSubmission.create({
+      data: {
+        plan,
+        firstname,
+        lastname,
+        phone,
+        email,
+        age,
+        size,
+        weight,
+        profession,
+        pathology,
+        hoursActivityPerWeek,
+        stepsPerWeek,
+        sleepHours,
+        leftArm,
+        rightArm,
+        leftThigh,
+        rightThigh,
+        glutes,
+        shoulders,
+        chest,
+        waist,
+      },
+    });
+  } catch (err) {
+    logger.error("Échec de l'enregistrement de la soumission d'audit", { err });
+    // On ne bloque pas l'envoi de l'email pour autant
+  }
 
   try {
     await sendEmail({
@@ -58,6 +95,8 @@ export async function submitAuditFormAction(
 
         **Profil & activité**
         - Âge : ${age}
+        - Taille : ${size} cm
+        - Poids : ${weight} kg
         - Profession : ${profession}
         - Pathologie / maladie : ${pathology ?? "Aucune"}
         - Heures d'activité / semaine : ${hoursActivityPerWeek}
