@@ -111,7 +111,7 @@ export async function submitAuditFormAction(
         - Fessiers : ${glutes}
         - Épaules : ${shoulders}
         - Poitrine : ${chest}
-        - Taille : ${waist}
+        - Tour de taille  : ${waist}
         `,
       }),
       replyTo: email,

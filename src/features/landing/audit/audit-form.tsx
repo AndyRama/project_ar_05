@@ -271,7 +271,7 @@ export const AuditForm = () => {
               <Field label="Poitrine (cm)" required error={errors.chest?.message}>
                 <input {...register("chest")} type="number" step="0.1" placeholder="Ex: 88" className={inputCn(!!errors.chest)} />
               </Field>
-              <Field label="Taille (cm)" required error={errors.waist?.message}>
+              <Field label="Tour de Taille (cm)" required error={errors.waist?.message}>
                 <input {...register("waist")} type="number" step="0.1" placeholder="Ex: 72" className={inputCn(!!errors.waist)} />
               </Field>
             </div>
