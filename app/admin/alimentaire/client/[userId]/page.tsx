@@ -40,11 +40,11 @@ export default async function ClientHistoryPage({ params }: ClientHistoryPagePro
   }
 
   return (
-    <div className="mx-auto max-w-5xl p-4">
+    <div className="mx-auto max-w-7xl p-4">
       <Layout>
         <LayoutHeader>
           <div className="flex items-center gap-4">
-            <Link href="/alimentaire">
+            <Link href="admin/alimentaire">
               <Button variant="outline" size="sm" className="gap-2">
                 <ArrowLeft className="size-4" />
                 Retour
@@ -63,7 +63,7 @@ export default async function ClientHistoryPage({ params }: ClientHistoryPagePro
               const isFirst = idx === client.alimentaireProfiles.length - 1;
               return (
                 <Card key={profile.id} className="border-orange-500/30">
-                  <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent px-4">
+                  <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
                     <div className="flex items-center justify-between">
                       <CardTitle className="flex items-center gap-2 px-2 text-orange-500">
                         <Calendar className="size-4" />
@@ -78,7 +78,7 @@ export default async function ClientHistoryPage({ params }: ClientHistoryPagePro
                           </span>
                         )}
                       </CardTitle>
-                      <Link href={`/alimentaire/${profile.id}`}>
+                      <Link href={`admin/alimentaire/${profile.id}`}>
                         <Button variant="outline" size="sm" className="gap-2 hover:bg-orange-50 hover:text-orange-600">
                           <Eye className="size-4" />
                           Voir le détail
