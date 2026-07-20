@@ -7,8 +7,8 @@ import {
 } from "@/features/page/layout";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import { prisma } from "@/lib/prisma";
-import InformationCards from "./_components/information-cards";
-import { WeightProgressChart } from "./_components/weight-progress-chart";
+import InformationCards from "../_components/information-cards";
+import { WeightProgressChart } from "../_components/weight-progress-chart";
 
 export default async function RoutePage() {
   const user = await getRequiredUser();
