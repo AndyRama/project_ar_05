@@ -21,7 +21,7 @@ export default async function MyBilansPage() {
   });
 
   return (
-    <Layout>
+    <Layout size="xl">
       <LayoutHeader>
         <LayoutTitle>Mes bilans</LayoutTitle>
       </LayoutHeader>
