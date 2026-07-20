@@ -107,7 +107,7 @@ export default async function AlimentairePlanPage() {
 
   return (
     <div className="mx-auto p-4">
-      <Layout>
+      <Layout size="xl">
         <LayoutHeader>
           <LayoutTitle>Plan Alimentaire | Suivi des clients</LayoutTitle>
         </LayoutHeader>
