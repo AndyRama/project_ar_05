@@ -315,7 +315,7 @@ function SymmetryIndicator({
   const isSymmetric = difference <= 1;
 
   return (
-    <div className="flex items-center justify-between rounded-lg border border-orange-500/20 bg-orange-500/5 p-2">
+    <div className="flex items-center justify-between rounded-md border border-orange-500/20 bg-orange-500/5 p-2">
       <span className="text-sm font-medium">{label}</span>
       <div className="flex items-center gap-2">
         <span className="text-xs text-muted-foreground">

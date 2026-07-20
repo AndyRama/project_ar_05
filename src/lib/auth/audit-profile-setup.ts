@@ -17,6 +17,15 @@ export const createInitialAlimentaireProfile = async (user: User) => {
   }
 
   try {
+    // Complète le nom du compte à partir du formulaire d'audit,
+    // si pas renseigné par Google OAuth
+    if (!user.name) {
+      await prisma.user.update({
+        where: { id: user.id },
+        data: { name: `${pending.firstname} ${pending.lastname}`.trim() },
+      });
+    }
+
     await prisma.alimentaireProfile.create({
       data: {
         userId: user.id,
