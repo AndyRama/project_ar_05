@@ -1,8 +1,5 @@
 import {
   Layout,
-  LayoutDescription,
-  LayoutHeader,
-  LayoutTitle,
 } from "@/features/page/layout";
 import { Offers } from "@/features/landing/offers";
 import { combineWithParentMetadata } from "@/lib/metadata";
@@ -21,12 +18,6 @@ export default async function OrgBillingPage() {
     return (
       <>
         <Layout size="xl">
-          <LayoutHeader>
-            <LayoutTitle>Free plan</LayoutTitle>
-            <LayoutDescription>
-              Upgrade to premium to unlock all features.
-            </LayoutDescription>
-          </LayoutHeader>
           <Offers />
         </Layout>
       </>
