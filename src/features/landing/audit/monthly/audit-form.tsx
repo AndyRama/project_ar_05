@@ -8,7 +8,7 @@ import {
   MonthlyAuditSchema,
   type MonthlyAuditData,
 } from "./audit-form.schema";
-import { submitMonthlyAuditAction } from "./audit.action";
+import { submitMonthlyAuditAction } from "./audit-form.action";
 
 type MonthlyAuditFormProps = {
   // Pré-remplissage optionnel avec les valeurs du dernier bilan

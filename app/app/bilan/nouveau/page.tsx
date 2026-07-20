@@ -6,7 +6,7 @@ import {
 } from "@/features/page/layout";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
-import { MonthlyAuditForm } from "@/features/dashboard/monthly-audit/monthly-audit-form";
+import { MonthlyAuditForm } from "@/features/landing/audit/monthly/audit-form";
 
 export default async function NewBilanPage() {
   const user = await getRequiredUser();
