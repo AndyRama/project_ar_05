@@ -17,6 +17,11 @@ export const APP_LINKS: NavigationGroup[] = [
         Icon: User,
         label: "Analytics",
       },
+      {
+        href: `${APP_PATH}/bilan`,
+        Icon: User,
+        label: "Bilan mensuel",
+      },
     ],
   },
 ] satisfies NavigationGroup[];
