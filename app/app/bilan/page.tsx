@@ -21,12 +21,12 @@ export default async function MyBilansPage() {
   });
 
   return (
-    <Layout>
+    <Layout size="xl">
       <LayoutHeader>
         <LayoutTitle>Mes bilans</LayoutTitle>
       </LayoutHeader>
       <LayoutActions>
-        <Link href="/app/bilans/nouveau">
+        <Link href="/app/bilan/nouveau">
           <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
             <Plus className="size-4" />
             Nouveau bilan
