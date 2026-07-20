@@ -11,6 +11,7 @@ import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import Link from "next/link";
 import { Calendar, Plus } from "lucide-react";
+import { ProgressChart } from "./ProgressChart";
 
 export default async function MyBilansPage() {
   const user = await getRequiredUser();
@@ -21,12 +22,12 @@ export default async function MyBilansPage() {
   });
 
   return (
-    <Layout size="xl">
+    <Layout>
       <LayoutHeader>
         <LayoutTitle>Mes bilans</LayoutTitle>
       </LayoutHeader>
       <LayoutActions>
-        <Link href="/app/bilan/nouveau">
+        <Link href="/app/bilans/nouveau">
           <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
             <Plus className="size-4" />
             Nouveau bilan
@@ -34,7 +35,20 @@ export default async function MyBilansPage() {
         </Link>
       </LayoutActions>
 
-      <LayoutContent>
+      <LayoutContent className="space-y-6">
+        {/* Graphique de progression */}
+        {profiles.length > 0 && (
+          <Card className="border-orange-500">
+            <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent px-4">
+              <CardTitle className="px-2 text-orange-500">Ma progression</CardTitle>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <ProgressChart profiles={profiles} />
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Historique détaillé */}
         {profiles.length === 0 ? (
           <div className="rounded-md border border-dashed p-10 text-center text-sm text-muted-foreground">
             Aucun bilan enregistré pour le moment.
