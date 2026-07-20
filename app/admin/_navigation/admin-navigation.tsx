@@ -13,14 +13,14 @@ export async function AdminNavigation({ children }: PropsWithChildren) {
       <AdminSidebar />
       <SidebarInset className="border-accent border">
         <header className="flex h-16 shrink-0 items-center gap-2">
-          <Layout size="lg" className="flex items-center gap-2">
+          <Layout size="XL" className="flex items-center gap-2">
             <SidebarTrigger
               size="lg"
               variant="outline"
               className="size-9 cursor-pointer"
             />
             <div className="flex items-center gap-2">
-              <span className="font-semibold">Admin Panel</span>
+              <span className="font-semibold">Tableau de bord</span>
             </div>
           </Layout>
         </header>

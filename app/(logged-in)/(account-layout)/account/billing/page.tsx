@@ -27,8 +27,8 @@ export default async function OrgBillingPage() {
               Upgrade to premium to unlock all features.
             </LayoutDescription>
           </LayoutHeader>
+          <Offers />
         </Layout>
-        <Offers />
       </>
     );
   }

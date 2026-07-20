@@ -7,16 +7,16 @@ const ADMIN_LINKS: NavigationGroup[] = [
   {
     title: "Menu Principal",
     links: [
-      // {
-      //   href: ADMIN_PATH,
-      //   Icon: Home,
-      //   label: "Tableau de bord",
-      // },
       {
-        href: `${ADMIN_PATH}/alimentaire`,
+        href: ADMIN_PATH,
         Icon: Home,
         label: "Tableau de bord",
       },
+      // {
+      //   href: `${ADMIN_PATH}/alimentaire`,
+      //   Icon: Home,
+      //   label: "Tableau de bord",
+      // },
       {
         href: `${ADMIN_PATH}/users`,
         Icon: Users,
