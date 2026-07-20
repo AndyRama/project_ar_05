@@ -12,11 +12,11 @@ export const APP_LINKS: NavigationGroup[] = [
         Icon: Home,
         label: "Dashboard",
       },
-      // {
-      //   href: `${APP_PATH}/users`,
-      //   Icon: User,
-      //   label: "Analytics",
-      // },
+      {
+        href: `${APP_PATH}/plan-alimentaire`,
+        Icon: User,
+        label: "Plan alimentaire",
+      },
       {
         href: `${APP_PATH}/bilan`,
         Icon: User,

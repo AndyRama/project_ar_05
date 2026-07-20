@@ -26,8 +26,11 @@ model User {
   banReason  String?
   banExpires DateTime?
 
-  //Alimentaire profile
+  // Alimentaire profile
   alimentaireProfiles AlimentaireProfile[]
+
+  // Meal plan PDFs
+  mealPlanDocuments MealPlanDocument[]
 
   @@unique([email])
   @@map("user")

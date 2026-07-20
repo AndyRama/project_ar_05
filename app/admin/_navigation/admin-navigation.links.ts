@@ -12,11 +12,11 @@ const ADMIN_LINKS: NavigationGroup[] = [
         Icon: Home,
         label: "Tableau de bord",
       },
-      // {
-      //   href: `${ADMIN_PATH}/alimentaire`,
-      //   Icon: Home,
-      //   label: "Tableau de bord",
-      // },
+      {
+        href: `${ADMIN_PATH}/alimentaire`,
+        Icon: Home,
+        label: "Plan alimentaire",
+      },
       {
         href: `${ADMIN_PATH}/users`,
         Icon: Users,

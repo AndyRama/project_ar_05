@@ -93,3 +93,16 @@ model PendingAuditSubmission {
 
   @@index([email])
 }
+
+model MealPlanDocument {
+  id        String   @id @default(nanoid(11))
+  fileName  String
+  fileUrl   String
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
