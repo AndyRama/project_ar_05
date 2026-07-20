@@ -49,7 +49,7 @@ export default async function AdminMealPlansPage() {
                     {u.mealPlanDocuments.length}
                   </TableCell>
                   <TableCell className="text-center">
-                    <Link href={`/admin/alimentaire/${u.id}`}>
+                    <Link href={`/admin/alimentaire/pdf/${u.id}`}>
                       <Button variant="outline" size="sm" className="gap-2">
                         <FileText className="size-4" />
                         Gérer
