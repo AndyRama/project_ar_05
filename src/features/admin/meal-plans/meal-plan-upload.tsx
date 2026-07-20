@@ -4,7 +4,7 @@ import { Loader } from "@/components/nowts/loader";
 import { isActionSuccessful } from "@/lib/actions/actions-utils";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { NativeTargetBox } from "@/features/.../native-target-box"; // adapte le chemin réel
+import { NativeTargetBox } from "@/features/images/native-target-box";
 import { uploadMealPlanAction } from "./upload-meal-plan.action";
 
 type MealPlanUploadProps = {
