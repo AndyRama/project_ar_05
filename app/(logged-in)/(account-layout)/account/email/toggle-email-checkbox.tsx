@@ -54,8 +54,7 @@ export const ToggleEmailCheckbox = ({
       <div className="space-y-1 leading-none">
         <Label htmlFor="unsubscribed-checkbox">Unsubscribed</Label>
         <Typography variant="muted">
-          If enabled, you will not receive any marketing or promotional emails
-          from us.
+          Si cette option est activée, vous ne recevrez aucun e-mail marketing ou promotionnel de notre part.
         </Typography>
       </div>
     </div>

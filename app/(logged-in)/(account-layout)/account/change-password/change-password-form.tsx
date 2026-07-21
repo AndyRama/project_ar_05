@@ -80,9 +80,9 @@ export function ChangePasswordForm() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Change Password</CardTitle>
+        <CardTitle>Changer le Password</CardTitle>
         <CardDescription>
-          Update your password to keep your account secure.
+          Actualisé votre mot de passe pour garder votre compte sécuriser.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -92,7 +92,7 @@ export function ChangePasswordForm() {
             name="currentPassword"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Current Password</FormLabel>
+                <FormLabel>Password actuel</FormLabel>
                 <FormControl>
                   <Input type="password" {...field} />
                 </FormControl>
@@ -105,7 +105,7 @@ export function ChangePasswordForm() {
             name="newPassword"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>New Password</FormLabel>
+                <FormLabel>Nouveau Password</FormLabel>
                 <FormControl>
                   <Input type="password" {...field} />
                 </FormControl>
@@ -118,7 +118,7 @@ export function ChangePasswordForm() {
             name="confirmPassword"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Confirm New Password</FormLabel>
+                <FormLabel>Confirmer votre Nouveau Password</FormLabel>
                 <FormControl>
                   <Input type="password" {...field} />
                 </FormControl>
@@ -132,10 +132,10 @@ export function ChangePasswordForm() {
             render={({ field }) => (
               <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
                 <div className="space-y-0.5">
-                  <FormLabel>Sign out from other devices</FormLabel>
+                  <FormLabel>Se déconnecter de tous les autres appareils</FormLabel>
                   <FormDescription>
-                    This will sign you out from all other devices where you're
-                    currently logged in
+                    Cela vous déconnectera de tous les autres appareils sur lesquels vous êtes
+                    actuellement connecté.
                   </FormDescription>
                 </div>
                 <FormControl>
@@ -152,7 +152,7 @@ export function ChangePasswordForm() {
             type="submit"
             className="w-full"
           >
-            Change Password
+            Changer de Password
           </LoadingButton>
         </Form>
       </CardContent>

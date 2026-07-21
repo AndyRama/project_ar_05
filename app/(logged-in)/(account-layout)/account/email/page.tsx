@@ -71,10 +71,9 @@ export default async function MailProfilePage() {
       <div className="flex flex-col gap-4 lg:gap-8">
         <Card>
           <CardHeader>
-            <CardTitle>Mail settings</CardTitle>
+            <CardTitle>Email paramètres</CardTitle>
             <CardDescription>
-              Update your email notifications settings to match your
-              preferences.
+              Mets à jours tes notifications emails avec tes préferences.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -90,9 +89,9 @@ const ErrorComponent = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Resend not found</CardTitle>
+        <CardTitle>Resend non trouvé</CardTitle>
         <CardDescription>
-          We couldn't find your Resend contact. Please contact support.
+          Nous n'avons pas pu trouver votre identifiant Resend. Merci de contacter le support.
         </CardDescription>
       </CardHeader>
       <CardFooter>

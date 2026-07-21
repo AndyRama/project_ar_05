@@ -33,12 +33,11 @@ export function DeleteAccountForm() {
         <div className="flex items-center gap-2">
           <AlertTriangle className="text-destructive size-5" />
           <CardTitle className="text-xl font-semibold">
-            Delete Account
+            Suppression du compte
           </CardTitle>
         </div>
         <CardDescription className="text-muted-foreground text-base">
-          This action will permanently delete your account and all associated
-          data
+          Cette action est Supprimera definitivement ton compte et les toutes les informations associés.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -48,8 +47,7 @@ export function DeleteAccountForm() {
             <div className="space-y-1">
               <p className="leading-none font-medium">Personal Data</p>
               <p className="text-muted-foreground text-sm">
-                All your personal information and settings will be permanently
-                erased
+                Toutes vos informations personnelles et vos paramètres seront définitivement effacés. 
               </p>
             </div>
           </div>
@@ -60,8 +58,7 @@ export function DeleteAccountForm() {
             <div className="space-y-1">
               <p className="leading-none font-medium">Organization Data</p>
               <p className="text-muted-foreground text-sm">
-                If you&apos;re an organization owner, all organization data will
-                be deleted and subscriptions cancelled
+                Si vous êtes propriétaire d&apos;une organisation, toutes les données de l&apos;organisation seront supprimées et les abonnements annulés.
               </p>
             </div>
           </div>
