@@ -28,7 +28,7 @@ export const UpgradeCard = () => {
           href={BILLING_URL}
           className={buttonVariants({ className: "w-full" })}
         >
-          Upgrade
+          Renouveller
         </Link>
       </CardContent>
     </Card>
