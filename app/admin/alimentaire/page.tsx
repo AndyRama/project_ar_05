@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import { getRequiredAdmin } from "@/lib/auth/auth-user";
 import Link from "next/link";
-import { FileText } from "lucide-react";
+import { FileText, Eye } from "lucide-react";
 
 export default async function AdminMealPlansPage() {
   await getRequiredAdmin();
@@ -38,6 +38,7 @@ export default async function AdminMealPlansPage() {
                 <TableHead>Email</TableHead>
                 <TableHead className="text-center">Plans envoyés</TableHead>
                 <TableHead className="text-center">Actions</TableHead>
+                <TableHead className="text-center">Bilan</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -53,6 +54,18 @@ export default async function AdminMealPlansPage() {
                       <Button variant="outline" size="sm" className="gap-2">
                         <FileText className="size-4" />
                         Gérer
+                      </Button>
+                    </Link>
+                  </TableCell>
+                  <TableCell className="text-center">
+                    <Link href={`/admin/alimentaire/client/${u.id}`}>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="gap-2 hover:bg-orange-50 hover:text-orange-600"
+                      >
+                        <Eye className="size-4" />
+                        Historique
                       </Button>
                     </Link>
                   </TableCell>
