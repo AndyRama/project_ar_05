@@ -44,7 +44,7 @@ export default async function ClientHistoryPage({ params }: ClientHistoryPagePro
       <Layout>
         <LayoutHeader>
           <div className="flex items-center gap-4">
-            <Link href="/admin/alimentaire">
+            <Link href="$`/admin/alimentaire`>
               <Button variant="outline" size="sm" className="gap-2">
                 <ArrowLeft className="size-4" />
                 Retour

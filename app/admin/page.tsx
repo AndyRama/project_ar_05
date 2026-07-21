@@ -199,7 +199,7 @@ export default async function AdminPage() {
                 <TableHead className="w-[100px] text-center">Bilans</TableHead>
                 <TableHead className="w-[140px]">Dernier bilan</TableHead>
                 <TableHead className="w-[120px] text-center">Actions</TableHead>
-                <TableHead className="w-[120px] text-center">Plan</TableHead>
+                <TableHead className="w-[90px] text-center">Plan</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
