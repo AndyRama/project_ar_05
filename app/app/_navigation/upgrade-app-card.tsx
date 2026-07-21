@@ -18,9 +18,9 @@ export const UpgradeCard = () => {
   return (
     <Card className="">
       <CardHeader className="">
-        <CardTitle>Upgrade to PRO</CardTitle>
+        <CardTitle>Programmes</CardTitle>
         <CardDescription>
-          Unlock all features and get unlimited access to our app.
+          Renouveller votre programme Premium et Competition avec le code pro UNLBOOSTER
         </CardDescription>
       </CardHeader>
       <CardContent className="">

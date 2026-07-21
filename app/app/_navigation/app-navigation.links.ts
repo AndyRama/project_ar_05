@@ -28,7 +28,7 @@ export const APP_LINKS: NavigationGroup[] = [
     title: "Paramètre",
     links: [
       {
-        href: `${APP_PATH}/account`,
+        href: `/account`,
         Icon: Home,
         label: "Paramètre",
       },
