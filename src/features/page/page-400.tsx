@@ -1,5 +1,5 @@
 import { ContactSupportDialog } from "@/features/contact/support/contact-support-dialog";
-import { LogoSvg } from "@/components/svg/logo-svg";
+import { LogoSvg } from "@/components/svg/logo-subscribe";
 import Link from "next/link";
 import type { PropsWithChildren } from "react";
 import { Typography } from "../../components/nowts/typography";

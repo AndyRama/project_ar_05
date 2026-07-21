@@ -1,5 +1,5 @@
 import { ContactSupportDialog } from "@/features/contact/support/contact-support-dialog";
-import { LogoSvg } from "@/components/svg/logo-svg";
+import { LogoSvg } from "@/components/svg/logo-subscribe";
 import Link from "next/link";
 import { Typography } from "../../components/nowts/typography";
 import { buttonVariants } from "../../components/ui/button";
