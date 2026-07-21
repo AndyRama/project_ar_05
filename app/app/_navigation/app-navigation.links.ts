@@ -13,14 +13,14 @@ export const APP_LINKS: NavigationGroup[] = [
         label: "Dashboard",
       },
       {
-        href: `${APP_PATH}/plan-alimentaire`,
-        Icon: User,
-        label: "Plan alimentaire",
-      },
-      {
         href: `${APP_PATH}/bilan`,
         Icon: User,
         label: "Bilan mensuel",
+      },
+      {
+        href: `${APP_PATH}/plan-alimentaire`,
+        Icon: User,
+        label: "Plan alimentaire PDF",
       },
     ],
   },

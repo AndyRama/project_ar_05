@@ -21,7 +21,7 @@ export default async function MyBilansPage() {
   });
 
   return (
-    <Layout size="xl">
+    <Layout size="lg">
       <LayoutHeader>
         <LayoutTitle>Mes bilans</LayoutTitle>
       </LayoutHeader>
@@ -32,6 +32,14 @@ export default async function MyBilansPage() {
             Nouveau bilan
           </Button>
         </Link>
+        <Link href="/app/plan-alimentaire">
+          <Button variant="invert" className="gap-2 bg-orange-500 hover:bg-orange-400">
+            <Plus className="size-4" />
+            Plan PDF
+          </Button>
+        </Link>
+
+
       </LayoutActions>
 
       <LayoutContent>

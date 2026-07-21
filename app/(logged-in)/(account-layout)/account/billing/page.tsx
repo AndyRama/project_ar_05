@@ -1,6 +1,6 @@
-// import {
-//   Layout,
-// } from "@/features/page/layout";
+import {
+  Layout,
+} from "@/features/page/layout";
 import { Offers } from "@/features/landing/offers";
 import { combineWithParentMetadata } from "@/lib/metadata";
 import { getUserActiveSubscription } from "@/lib/user/get-user-subscription";
@@ -17,9 +17,9 @@ export default async function OrgBillingPage() {
   if (!subscription) {
     return (
       <>
-        {/* <Layout size="xl"> */}
+        <Layout size="lg">
           <Offers />
-        {/* </Layout> */}
+        </Layout>
       </>
     );
   }

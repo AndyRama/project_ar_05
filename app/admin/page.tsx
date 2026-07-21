@@ -95,7 +95,7 @@ export default async function AdminPage() {
   );
 
   return (
-    <Layout size="lg">
+    <Layout size="xl">
       <LayoutHeader>
         <LayoutTitle>Tableau de bord</LayoutTitle>
         <LayoutDescription>Gestion des utilisateurs</LayoutDescription>

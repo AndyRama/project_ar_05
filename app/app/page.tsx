@@ -32,7 +32,7 @@ export default async function RoutePage() {
     }));
 
   return (
-    <Layout size="xl">
+    <Layout size="lg">
       <LayoutHeader>
         <LayoutTitle>Dashboard</LayoutTitle>
       </LayoutHeader>

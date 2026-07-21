@@ -25,7 +25,7 @@ export default async function AdminMealPlansPage() {
   });
 
   return (
-    <Layout size="xl">
+    <Layout size="lg">
       <LayoutHeader>
         <LayoutTitle>Plans alimentaires | Gestion des PDF</LayoutTitle>
       </LayoutHeader>
