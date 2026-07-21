@@ -30,12 +30,12 @@ const ACCOUNT_LINKS: NavigationGroup[] = [
     title: "Mention légal",
     links: [
       {
-        href: "/cvg",
+        href: "/account/cvg",
         Icon: LayoutDashboard,
         label: "Cgv",
       },
       {
-        href: "/terms",
+        href: "/account/terms",
         Icon: LayoutDashboard,
         label: "Terms",
       },
