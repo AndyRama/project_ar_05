@@ -19,7 +19,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { prisma } from "@/lib/prisma";
 import { getRequiredAdmin } from "@/lib/auth/auth-user";
 import Link from "next/link";
-import { Eye, Users, Calendar, TrendingUp, Activity, ExternalLink, Files } from "lucide-react";
+import { Eye, Users, Calendar, TrendingUp, Activity, ExternalLink, File } from "lucide-react";
 import type { Prisma } from "@/generated/prisma";
 
 // Type pour un client avec tous ses bilans
