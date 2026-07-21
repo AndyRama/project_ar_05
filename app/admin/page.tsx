@@ -19,7 +19,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { prisma } from "@/lib/prisma";
 import { getRequiredAdmin } from "@/lib/auth/auth-user";
 import Link from "next/link";
-import { Eye, Users, Calendar, TrendingUp, Activity, ExternalLink } from "lucide-react";
+import { Eye, Users, Calendar, TrendingUp, Activity, ExternalLink, Files } from "lucide-react";
 import type { Prisma } from "@/generated/prisma";
 
 // Type pour un client avec tous ses bilans
@@ -95,7 +95,7 @@ export default async function AdminPage() {
   );
 
   return (
-    <Layout size="xl">
+    <Layout size="lg">
       <LayoutHeader>
         <LayoutTitle>Tableau de bord</LayoutTitle>
         <LayoutDescription>Gestion des utilisateurs</LayoutDescription>
@@ -238,6 +238,18 @@ export default async function AdminPage() {
                           >
                             <Eye className="size-4" />
                             Historique
+                          </Button>
+                        </Link>
+                      </TableCell>
+                      <TableCell className="text-center">
+                        <Link href={`/admin/alimentaire/pdf/${u.id}`}>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="gap-2 hover:bg-orange-50 hover:text-orange-600"
+                          >
+                            <File className="size-4" />
+                             Pdf
                           </Button>
                         </Link>
                       </TableCell>

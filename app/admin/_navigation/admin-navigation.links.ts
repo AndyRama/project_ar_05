@@ -13,7 +13,7 @@ const ADMIN_LINKS: NavigationGroup[] = [
         label: "Tableau de bord",
       },
       {
-        href: `${ADMIN_PATH}/alimentaire`,
+        href: `${ADMIN_PATH}/alimentaire/`,
         Icon: NotebookPen ,
         label: "Plan alimentaire",
       },
