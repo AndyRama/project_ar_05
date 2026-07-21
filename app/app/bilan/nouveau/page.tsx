@@ -8,7 +8,7 @@ import {
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import { MonthlyAuditForm } from "@/features/landing/audit/monthly/audit-form";
-import { Plus, Clipboard  } from "lucide-react";
+import { Plus, Files  } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -60,7 +60,7 @@ export default async function NewBilanPage() {
       <LayoutActions>  
         <Link href="/app/plan-alimentaire">
           <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
-            <Clipboard  className="size-4" />
+            <Files  className="size-4" />
               Plan alimentaire PDF
           </Button>
         </Link>
