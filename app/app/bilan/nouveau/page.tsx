@@ -3,10 +3,12 @@ import {
   LayoutContent,
   LayoutHeader,
   LayoutTitle,
+  LayoutActions,
 } from "@/features/page/layout";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import { MonthlyAuditForm } from "@/features/landing/audit/monthly/audit-form";
+import { Plus, Clipboard  } from "lucide-react";
 
 export default async function NewBilanPage() {
   const user = await getRequiredUser();
@@ -44,6 +46,23 @@ export default async function NewBilanPage() {
       <LayoutHeader>
         <LayoutTitle>Nouveau bilan mensuel</LayoutTitle>
       </LayoutHeader>
+      <LayoutActions>
+        <Link href="/app">
+          <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
+            <Plus className="size-4" />
+             Performance
+          </Button>
+        </Link>
+      </LayoutActions>
+
+      <LayoutActions>  
+        <Link href="/app/plan-alimentaire">
+          <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
+            <Clipboard  className="size-4" />
+              Plan alimentaire PDF
+          </Button>
+        </Link>
+      </LayoutActions>
       <LayoutContent>
         <div className="mx-auto max-w-2xl">
           <MonthlyAuditForm defaultValues={defaultValues} />

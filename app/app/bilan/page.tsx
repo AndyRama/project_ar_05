@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import Link from "next/link";
-import { Calendar, Plus } from "lucide-react";
+import { Calendar, Plus, Clipboard  } from "lucide-react";
 
 export default async function MyBilansPage() {
   const user = await getRequiredUser();
@@ -37,8 +37,8 @@ export default async function MyBilansPage() {
       <LayoutActions>  
         <Link href="/app/plan-alimentaire">
           <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
-            <Plus className="size-4" />
-            Plan PDF
+            <Clipboard  className="size-4" />
+            Plan alimentaire PDF
           </Button>
         </Link>
       </LayoutActions>

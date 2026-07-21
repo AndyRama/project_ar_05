@@ -17,7 +17,7 @@ export default async function OrgBillingPage() {
   if (!subscription) {
     return (
       <>
-        <Layout size="lg">
+        <Layout size="lg" className="py-0">
           <Offers />
         </Layout>
       </>
