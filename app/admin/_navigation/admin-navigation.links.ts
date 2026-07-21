@@ -1,5 +1,5 @@
 import type { NavigationGroup } from "@/features/navigation/navigation.type";
-import { Home, MessageSquare, Users, Settings, SlidersHorizontal, BookOpen } from "lucide-react";
+import { Home, MessageSquare, NotebookPen , Users, Settings, SlidersHorizontal, BookOpen } from "lucide-react";
 
 const ADMIN_PATH = `/admin`;
 
@@ -14,7 +14,7 @@ const ADMIN_LINKS: NavigationGroup[] = [
       },
       {
         href: `${ADMIN_PATH}/alimentaire`,
-        Icon: Home,
+        Icon: NotebookPen ,
         label: "Plan alimentaire",
       },
       {

@@ -9,13 +9,11 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const SERVICES = [
-  // { title: "Hostinger",  description: "Hébergement du site",                        link: "https://hostinger.fr/" },
 	{ title: "Github",     description: "Dépôt du code source de l'application",      link: "https://github.com/" },
   { title: "Gmail",      description: "Adresse: unlcoachingpersonel@gmail.com",     link: "https://mail.google.com/" },
   { title: "Namecheap",  description: "Gestion du nom de domaine",                  link: "https://www.namecheap.com/" },
   { title: "NeonDb",     description: "Base de données de l'application",           link: "https://neon.tech/" },
   { title: "Resend",     description: "Emailing pour l'application",                link: "https://resend.com/" },
-  { title: "Stripe",     description: "Paiement en ligne",                          link: "https://stripe.com/" },
   { title: "Wisewand",   description: "Création d'articles optimisés SEO",          link: "https://wisewand.ai/?fpr=andy78" },
 ];
 

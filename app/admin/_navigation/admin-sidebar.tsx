@@ -34,7 +34,7 @@ export function AdminSidebar() {
           <div className="bg-primary text-primary-foreground flex size-8 items-center justify-center rounded-lg">
             <span className="text-sm font-semibold">A</span>
           </div>
-          <span className="font-semibold">Admin Panel</span>
+          <span className="font-semibold">Unl | Admin Panel</span>
         </div>
       </SidebarHeader>
       <SidebarContent>

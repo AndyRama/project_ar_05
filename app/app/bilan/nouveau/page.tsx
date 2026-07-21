@@ -40,7 +40,7 @@ export default async function NewBilanPage() {
     : undefined;
 
   return (
-    <Layout size="xl">
+    <Layout size="lg">
       <LayoutHeader>
         <LayoutTitle>Nouveau bilan mensuel</LayoutTitle>
       </LayoutHeader>
