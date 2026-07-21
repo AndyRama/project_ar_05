@@ -41,7 +41,7 @@ const BaseSidebar = () => {
       <SidebarHeader>
         <div className="mb-4 flex flex-row items-center gap-2">
           <LogoSvg size={24} />
-          <Typography>{SiteConfig.title}</Typography>
+          {/* <Typography>{SiteConfig.title}</Typography> */}
         </div>
       </SidebarHeader>
       <SidebarContent>
