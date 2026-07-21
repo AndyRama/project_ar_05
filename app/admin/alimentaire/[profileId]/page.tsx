@@ -55,7 +55,7 @@ export default async function AlimentaireDetailPage({
 
   return (
     <div className="mx-auto p-4">
-      <Layout size="xl">
+      <Layout size="lg">
         <LayoutHeader>
           <div className="flex items-center gap-4">
             <Link href="/admin/alimentaire">
