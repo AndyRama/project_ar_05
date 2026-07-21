@@ -52,7 +52,7 @@ export async function NavigationWrapper({
             </SheetTrigger>
             <SheetContent side="left" className="flex flex-col">
               <div className="flex items-center gap-2">
-                <LogoSvg size={32} />
+                <LogoSvg size={24} />
                 {logoChildren}
               </div>
               {navigationChildren}

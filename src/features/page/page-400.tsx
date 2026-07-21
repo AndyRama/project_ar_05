@@ -1,4 +1,5 @@
 import { ContactSupportDialog } from "@/features/contact/support/contact-support-dialog";
+import { LogoSvg } from "@/components/svg/logo-svg";
 import Link from "next/link";
 import type { PropsWithChildren } from "react";
 import { Typography } from "../../components/nowts/typography";
@@ -10,21 +11,27 @@ type Page400Props = PropsWithChildren<{
 
 export function Page400(props: Page400Props) {
   return (
-    <main className="flex flex-col items-center gap-8">
+    <main className="flex h-full flex-col items-center justify-center gap-8">
+      <LogoSvg size={32} />
       <div className="max-w-lg space-y-3 text-center">
-        <Typography variant="code">400</Typography>
-        <Typography variant="h1">{props.title ?? "Bad Request"}</Typography>
+        <Typography variant="code" className="text-orange-500">400</Typography>
+        <Typography variant="h1">{props.title ?? "Requête invalide"}</Typography>
         {props.children ?? (
-          <Typography>
-            It seems we're experiencing some technical difficulties. Not to
-            worry, our team is working on it. In the meantime, try refreshing
-            the page or visiting us a bit later.
+          <Typography className="text-muted-foreground">
+            Il semblerait que nous rencontrions un problème technique. Pas
+            d'inquiétude, notre équipe travaille dessus. En attendant, essayez
+            de rafraîchir la page ou revenez un peu plus tard.
           </Typography>
         )}
       </div>
       <div className="flex items-center gap-4">
-        <Link href="/" className={buttonVariants({ variant: "invert" })}>
-          Go back home
+        <Link
+          href="/"
+          className={buttonVariants({
+            className: "bg-orange-500 text-white hover:bg-orange-400",
+          })}
+        >
+          Retour à l'accueil
         </Link>
         <ContactSupportDialog />
       </div>
