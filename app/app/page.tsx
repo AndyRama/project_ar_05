@@ -6,12 +6,13 @@ import {
   LayoutTitle,
 } from "@/features/page/layout";
 import { getRequiredUser } from "@/lib/auth/auth-user";
-import { Button } from "@/components/ui/button";
-import { Plus, Salad  } from "lucide-react";
+import { SubmitButton } from "@/features/form/submit-button";
 import { prisma } from "@/lib/prisma";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import InformationCards from "./_components/information-cards";
 import { WeightProgressChart } from "./_components/weight-progress-chart";
-import Link from "next/link";
 
 export default async function RoutePage() {
   const user = await getRequiredUser();
@@ -37,20 +38,19 @@ export default async function RoutePage() {
         <LayoutTitle>Dashboard</LayoutTitle>
       </LayoutHeader>
       <LayoutActions>
-        <Link href="/app/bilan/nouveau">
-          <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
-            <Plus className="size-4" />
-            Nouveau bilan
-          </Button>
-        </Link>
-      </LayoutActions>
-      <LayoutActions>
-        <Link href="/app/plan-alimentaire">
-          <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
-            <Salad  className="size-4" />
-            Plan alimentaire 
-          </Button>
-        </Link>
+        <form>
+          <SubmitButton
+            formAction={async () => {
+              "use server";
+              await auth.api.signOut({
+                headers: await headers(),
+              });
+              redirect("/");
+            }}
+          >
+            Sign out
+          </SubmitButton>
+        </form>
       </LayoutActions>
       <LayoutContent className="flex flex-col gap-4 lg:gap-8">
         <InformationCards
