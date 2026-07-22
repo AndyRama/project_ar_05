@@ -1,0 +1,75 @@
+import {
+  Layout,
+  LayoutContent,
+  LayoutHeader,
+  LayoutTitle,
+  LayoutDescription,
+} from "@/features/page/layout";
+import { getRequiredAdmin } from "@/lib/auth/auth-user";
+import { FAKE_PROFILE } from "@/features/admin/demo-fiche/fake-data";
+import { BodyDiagramCard } from "@/features/admin/demo-fiche/body-diagram-card";
+import { PhotosSuiviCard } from "@/features/admin/demo-fiche/photos-suivi-card";
+import { LifestyleCard } from "@/features/admin/demo-fiche/lifestyle-card";
+import { TrainingCard } from "@/features/admin/demo-fiche/training-card";
+import { MonthlyReviewCard } from "@/features/admin/demo-fiche/monthly-review-card";
+import { MonthlyHistoryTable } from "@/features/admin/demo-fiche/monthly-history-table";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export default async function DemoFichePage() {
+  await getRequiredAdmin();
+
+  return (
+    <Layout size="xl">
+      <LayoutHeader>
+        <div className="flex items-center gap-4">
+          <img
+            src="/images/logo-suivie-mensuel.jpg"
+            alt="Team UNL Coaching"
+            className="h-16 w-16 object-contain"
+          />
+          <div>
+            <LayoutTitle>Démo — Fiche de suivi complète</LayoutTitle>
+            <LayoutDescription>
+              Aperçu avec données fictives — aucune donnée n'est enregistrée en base pour l'instant.
+            </LayoutDescription>
+          </div>
+        </div>
+      </LayoutHeader>
+
+      <LayoutContent className="space-y-6">
+        <Card className="border-orange-500/30">
+          <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
+            <CardTitle className="px-2 text-orange-500">Informations personnelles</CardTitle>
+          </CardHeader>
+          <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
+            <Info label="Nom - Prénom" value={`${FAKE_PROFILE.firstname} ${FAKE_PROFILE.lastname}`} />
+            <Info label="Âge" value={`${FAKE_PROFILE.age} ans`} />
+            <Info label="Sexe" value={FAKE_PROFILE.gender === "HOMME" ? "Homme" : "Femme"} />
+            <Info label="Profession" value={FAKE_PROFILE.profession} />
+            <Info label="Téléphone" value={FAKE_PROFILE.phone} />
+            <Info label="Email" value={FAKE_PROFILE.email} />
+            <Info label="Début de suivi" value={FAKE_PROFILE.startDate.toLocaleDateString("fr-FR")} />
+          </CardContent>
+        </Card>
+
+        <BodyDiagramCard />
+        <PhotosSuiviCard />
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          <LifestyleCard />
+          <TrainingCard />
+        </div>
+
+        <MonthlyReviewCard />
+        <MonthlyHistoryTable />
+      </LayoutContent>
+    </Layout>
+  );
+}
+
+const Info = ({ label, value }: { label: string; value: string }) => (
+  <div>
+    <p className="text-xs font-medium text-muted-foreground">{label}</p>
+    <p className="mt-1 text-sm font-semibold">{value}</p>
+  </div>
+);

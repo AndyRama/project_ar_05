@@ -25,7 +25,7 @@ export default async function AdminClientMealPlanPage({ params }: Props) {
   if (!client) notFound();
 
   return (
-    <Layout>
+    <Layout size="lg">
       <LayoutHeader>
         <div className="flex items-center gap-4">
           <Link href="/admin/alimentaire">
