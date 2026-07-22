@@ -57,7 +57,6 @@ export default async function DemoFichePage() {
         </div>
 
         <BodyDiagramCard />
-        <PhotosSuiviCard />
 
         {/* Hygiène de vie / Musculation / Bilan mensuel — 3 colonnes */}
         <div className="grid gap-6 lg:grid-cols-3">
@@ -67,6 +66,7 @@ export default async function DemoFichePage() {
         </div>
 
         <MonthlyHistoryTable />
+        <PhotosSuiviCard />
       </LayoutContent>
     </Layout>
   );
