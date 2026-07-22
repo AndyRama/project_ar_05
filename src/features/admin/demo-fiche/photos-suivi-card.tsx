@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ImageFormItem } from "@/features/.../image-form-item"; // adapte le chemin réel
+import { ImageFormItem } from "@/features/images/image-form-item";
 import { useState } from "react";
 
 type PhotoSlot = "face" | "profil" | "dos";
