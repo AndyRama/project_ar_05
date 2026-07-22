@@ -28,15 +28,15 @@ export const PhotosSuiviCard = () => {
         <p className="mb-4 text-xs text-muted-foreground">
           Démo — upload réel, non rattaché à un client pour l'instant.
         </p>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="flex flex-col gap-4">
           {(Object.keys(LABELS) as PhotoSlot[]).map((slot) => (
-            <div key={slot} className="flex flex-col items-center gap-2">
-              <p className="text-xs font-medium text-muted-foreground">{LABELS[slot]}</p>
+            <div key={slot} className="flex items-center gap-3">
               <ImageFormItem
                 imageUrl={photos[slot]}
                 onChange={(url) => setPhotos((prev) => ({ ...prev, [slot]: url }))}
-                className="aspect-[3/4] h-auto w-full"
+                className="h-16 w-16 shrink-0"
               />
+              <p className="text-sm font-medium text-muted-foreground">{LABELS[slot]}</p>
             </div>
           ))}
         </div>

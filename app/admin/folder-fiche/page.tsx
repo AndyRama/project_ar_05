@@ -21,7 +21,7 @@ export default async function DemoFichePage() {
   return (
     <Layout size="xl">
       <LayoutHeader>
-        <LayoutTitle>Démo — Fiche de suivi complète</LayoutTitle>
+        <LayoutTitle>Démo — Fiche de suivi complète administrateur</LayoutTitle>
         <LayoutDescription>
           Aperçu avec données fictives — aucune donnée n'est enregistrée en base pour l'instant.
         </LayoutDescription>
@@ -56,7 +56,13 @@ export default async function DemoFichePage() {
           </Card>
         </div>
 
-        <BodyDiagramCard />
+        {/* Mensurations (2/3) + Photos de suivi (1/3) */}
+        <div className="grid gap-6 lg:grid-cols-3">
+          <div className="lg:col-span-2">
+            <BodyDiagramCard />
+          </div>
+          <PhotosSuiviCard />
+        </div>
 
         {/* Hygiène de vie / Musculation / Bilan mensuel — 3 colonnes */}
         <div className="grid gap-6 lg:grid-cols-3">
@@ -66,7 +72,6 @@ export default async function DemoFichePage() {
         </div>
 
         <MonthlyHistoryTable />
-        <PhotosSuiviCard />
       </LayoutContent>
     </Layout>
   );
