@@ -2,7 +2,7 @@
 
 import { authAction } from "@/lib/actions/safe-actions";
 import { ActionError } from "@/lib/errors/action-error";
-import { fileAdapter } from "@/lib/files/placeholder-adapter";
+import { fileAdapter } from "@/lib/files/uploadthing-adapter";
 import { getRequiredAdmin } from "@/lib/auth/auth-user";
 import { prisma } from "@/lib/prisma";
 import { z } from "zod";
