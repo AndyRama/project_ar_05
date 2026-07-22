@@ -21,46 +21,51 @@ export default async function DemoFichePage() {
   return (
     <Layout size="xl">
       <LayoutHeader>
-        <div className="flex items-center gap-4">
-          <img
-            src="/images/logo-suivie-mensuel.jpg"
-            alt="Team UNL Coaching"
-            className="h-16 w-16 object-contain"
-          />
-          <div>
-            <LayoutTitle>Démo — Fiche de suivi complète</LayoutTitle>
-            <LayoutDescription>
-              Aperçu avec données fictives — aucune donnée n'est enregistrée en base pour l'instant.
-            </LayoutDescription>
-          </div>
-        </div>
+        <LayoutTitle>Démo — Fiche de suivi complète</LayoutTitle>
+        <LayoutDescription>
+          Aperçu avec données fictives — aucune donnée n'est enregistrée en base pour l'instant.
+        </LayoutDescription>
       </LayoutHeader>
 
       <LayoutContent className="space-y-6">
-        <Card className="border-orange-500/30">
-          <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-            <CardTitle className="px-2 text-orange-500">Informations personnelles</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
-            <Info label="Nom - Prénom" value={`${FAKE_PROFILE.firstname} ${FAKE_PROFILE.lastname}`} />
-            <Info label="Âge" value={`${FAKE_PROFILE.age} ans`} />
-            <Info label="Sexe" value={FAKE_PROFILE.gender === "HOMME" ? "Homme" : "Femme"} />
-            <Info label="Profession" value={FAKE_PROFILE.profession} />
-            <Info label="Téléphone" value={FAKE_PROFILE.phone} />
-            <Info label="Email" value={FAKE_PROFILE.email} />
-            <Info label="Début de suivi" value={FAKE_PROFILE.startDate.toLocaleDateString("fr-FR")} />
-          </CardContent>
-        </Card>
+        {/* Logo (1/4) + Infos personnelles (3/4) */}
+        <div className="grid gap-6 lg:grid-cols-4">
+          <Card className="flex items-center justify-center border-orange-500/30 lg:col-span-1">
+            <CardContent className="flex items-center justify-center p-6">
+              <img
+                src="/images/logo-suivie-mensuel.jpg"
+                alt="Team UNL Coaching"
+                className="w-full max-w-[200px] object-contain"
+              />
+            </CardContent>
+          </Card>
+
+          <Card className="border-orange-500/30 lg:col-span-3">
+            <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
+              <CardTitle className="px-2 text-orange-500">Fiche de renseignements</CardTitle>
+            </CardHeader>
+            <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
+              <Info label="Nom - Prénom" value={`${FAKE_PROFILE.firstname} ${FAKE_PROFILE.lastname}`} />
+              <Info label="Âge" value={`${FAKE_PROFILE.age} ans`} />
+              <Info label="Sexe" value={FAKE_PROFILE.gender === "HOMME" ? "Homme" : "Femme"} />
+              <Info label="Profession" value={FAKE_PROFILE.profession} />
+              <Info label="Téléphone" value={FAKE_PROFILE.phone} />
+              <Info label="Email" value={FAKE_PROFILE.email} />
+              <Info label="Début de suivi" value={FAKE_PROFILE.startDate.toLocaleDateString("fr-FR")} />
+            </CardContent>
+          </Card>
+        </div>
 
         <BodyDiagramCard />
         <PhotosSuiviCard />
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        {/* Hygiène de vie / Musculation / Bilan mensuel — 3 colonnes */}
+        <div className="grid gap-6 lg:grid-cols-3">
           <LifestyleCard />
           <TrainingCard />
+          <MonthlyReviewCard />
         </div>
 
-        <MonthlyReviewCard />
         <MonthlyHistoryTable />
       </LayoutContent>
     </Layout>
