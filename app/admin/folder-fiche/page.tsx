@@ -33,7 +33,7 @@ export default async function DemoFichePage() {
           <Card className="flex items-center justify-center border-orange-500/30 lg:col-span-1">
             <CardContent className="flex items-center justify-center p-6">
               <img
-                src="/images/logo-suivie-mensuel.jpg"
+                src="/images/logo-suivi-mensuel.jpg"
                 alt="Team UNL Coaching"
                 className="w-full max-w-[200px] object-contain"
               />
