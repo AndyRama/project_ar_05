@@ -19,7 +19,7 @@ export default async function DemoFichePage() {
   await getRequiredAdmin();
 
   return (
-    <Layout size="xl">
+    <Layout size="lg">
       <LayoutHeader>
         <LayoutTitle>Démo — Fiche de suivi complète administrateur</LayoutTitle>
         <LayoutDescription>
