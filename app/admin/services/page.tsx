@@ -9,12 +9,12 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const SERVICES = [
-	{ title: "Github",     description: "Dépôt du code source de l'application",      link: "https://github.com/" },
-  { title: "Gmail",      description: "Adresse: unlcoachingpersonel@gmail.com",     link: "https://mail.google.com/" },
-  { title: "Namecheap",  description: "Gestion du nom de domaine",                  link: "https://www.namecheap.com/" },
-  { title: "NeonDb",     description: "Base de données de l'application",           link: "https://neon.tech/" },
-  { title: "Resend",     description: "Emailing pour l'application",                link: "https://resend.com/" },
-  { title: "Wisewand",   description: "Création d'articles optimisés SEO",          link: "https://wisewand.ai/?fpr=andy78" },
+	{ title: "Github",      description: "Dépôt du code source de l'application",      link: "https://github.com/" },
+  { title: "Gmail",       description: "Adresse: unlcoachingpersonel@gmail.com",     link: "https://mail.google.com/" },
+  { title: "Namecheap",   description: "Gestion du nom de domaine",                  link: "https://www.namecheap.com/" },
+  { title: "NeonDb",      description: "Base de données de l'application",           link: "https://neon.tech/" },
+  { title: "Resend",      description: "Emailing pour l'application",                link: "https://resend.com/" },
+  { title: "Uploadthing", description: "stockage image cloud",                       link: "https://uploadthing.com" },
 ];
 
 export default async function ServicesPage() {

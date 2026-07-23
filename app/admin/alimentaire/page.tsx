@@ -69,6 +69,18 @@ export default async function AdminMealPlansPage() {
                       </Button>
                     </Link>
                   </TableCell>
+                  <TableCell className="text-center">
+                    <Link href={`/admin/demo-fiche`}>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="gap-2 hover:bg-orange-50 hover:text-orange-600"
+                      >
+                        <Eye className="size-4" />
+                        demo v2
+                      </Button>
+                    </Link>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
