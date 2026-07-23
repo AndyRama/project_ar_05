@@ -22,11 +22,11 @@ const ADMIN_LINKS: NavigationGroup[] = [
         Icon: Users,
         label: "Utilisateurs",
       },
-      {
-        href: `${ADMIN_PATH}/demo-fiche`,
-        Icon: NotebookPen,
-        label: "demo",
-      },
+      // {
+      //   href: `${ADMIN_PATH}/demo-fiche`,
+      //   Icon: NotebookPen,
+      //   label: "demo",
+      // },
     ],
   },
   {
