@@ -48,7 +48,7 @@ export default async function RoutePage() {
               redirect("/");
             }}
           >
-            Sign out
+            Déconnecter
           </SubmitButton>
         </form>
       </LayoutActions>

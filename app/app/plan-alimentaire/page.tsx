@@ -1,11 +1,10 @@
 import {
-  Layout, LayoutContent, LayoutHeader, LayoutTitle,LayoutActions,
+  Layout, LayoutContent, LayoutHeader, LayoutTitle,
 } from "@/features/page/layout";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import { Button } from "@/components/ui/button";
-import { Download, FileText, Calendar, Plus } from "lucide-react";
-import Link from "next/link";
+import { Download, FileText } from "lucide-react";
 
 export default async function MyMealPlansPage() {
   const user = await getRequiredUser();
@@ -20,14 +19,6 @@ export default async function MyMealPlansPage() {
       <LayoutHeader>
         <LayoutTitle>Mes plans alimentaires</LayoutTitle>
       </LayoutHeader>
-      <LayoutActions>
-        <Link href="/app">
-          <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
-            <Plus className="size-4" />
-             Mes performances
-          </Button>
-        </Link>
-      </LayoutActions>
       <LayoutContent>
         {documents.length === 0 ? (
           <div className="rounded-md border border-dashed p-10 text-center text-sm text-muted-foreground">
