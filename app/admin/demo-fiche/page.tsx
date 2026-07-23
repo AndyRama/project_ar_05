@@ -42,7 +42,7 @@ export default async function DemoFichePage() {
 
           <Card className="border-orange-500/30 lg:col-span-3">
             <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-              <CardTitle className="px-2 text-orange-500">Fiche de renseignements</CardTitle>
+              <CardTitle className="px-2 text-orange-500 mt-10">Fiche de renseignements</CardTitle>
             </CardHeader>
             <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
               <Info label="Nom - Prénom" value={`${FAKE_PROFILE.firstname} ${FAKE_PROFILE.lastname}`} />
