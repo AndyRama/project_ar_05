@@ -38,9 +38,9 @@ export const APP_LINKS: NavigationGroup[] = [
     title: "Demo live",
     links: [
       {
-        href: `/account/demo-fiche`,
+        href: `${APP_PATH}/demo-live`,
         Icon: User,
-        label: "Bilan mensuel",
+        label: "Bilan mensuel v2",
       },
     ],
   },

@@ -4,6 +4,7 @@ import {
   LayoutHeader,
   LayoutTitle,
   LayoutDescription,
+  LayoutActions
 } from "@/features/page/layout";
 import { getRequiredAdmin } from "@/lib/auth/auth-user";
 import { FAKE_PROFILE } from "@/features/admin/demo-fiche/fake-data";
@@ -14,6 +15,9 @@ import { TrainingCard } from "@/features/admin/demo-fiche/training-card";
 import { MonthlyReviewCard } from "@/features/admin/demo-fiche/monthly-review-card";
 import { MonthlyHistoryTable } from "@/features/admin/demo-fiche/monthly-history-table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Plus } from "lucide-react";
 
 export default async function DemoFichePage() {
   await getRequiredAdmin();
@@ -21,11 +25,20 @@ export default async function DemoFichePage() {
   return (
     <Layout size="lg">
       <LayoutHeader>
-        <LayoutTitle>Démo — Fiche de suivi complète</LayoutTitle>
+        <LayoutTitle>Démo — Fiche de suivi complète Partie Client</LayoutTitle>
         <LayoutDescription>
           Aperçu avec données fictives — aucune donnée n'est enregistrée en base pour l'instant.
         </LayoutDescription>
       </LayoutHeader>
+
+       <LayoutActions>
+          <Link href="#">
+            <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
+              <Plus className="size-4" />
+              Nouveau bilan
+            </Button>
+          </Link>
+        </LayoutActions>
 
       <LayoutContent className="space-y-6">
         {/* Logo (1/4) + Infos personnelles (3/4) */}
