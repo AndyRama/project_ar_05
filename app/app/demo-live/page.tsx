@@ -20,7 +20,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 
 export default async function DemoFichePage() {
-  await getRequiredAdmin();
+  await getRequiredUser;
 
   return (
     <Layout size="lg">
