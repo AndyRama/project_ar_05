@@ -19,7 +19,7 @@ const MEASUREMENTS = [
   { n: 11, label: "Mollet droit", value: FAKE_PROFILE.rightCalf },
 ];
 
-// Table détaillée (Muscle/Zone, Valeur, Date, Notes) — comme sur la fiche papier
+// Table détaillée (Zone, Valeur, Date, Notes) — comme sur la fiche papier
 const DETAILED_TABLE = [
   { zone: "Tour d'épaules", value: FAKE_PROFILE.shoulders, note: "" },
   { zone: "Épaule gauche", value: null, note: "" },
@@ -44,43 +44,45 @@ const DETAILED_TABLE = [
 const today = new Date().toLocaleDateString("fr-FR");
 
 export const BodyDiagramCard = () => (
-  <Card className="flex h-full flex-col border-orange-500/30">
+  <Card className="border-orange-500/30">
     <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
       <CardTitle className="px-2 text-orange-500">Mensurations corporelles</CardTitle>
     </CardHeader>
-    <CardContent className="grid gap-6 pt-6 md:grid-cols-2">
-      {/* Colonne gauche : diagramme + tableau détaillé */}
-      <div className="flex flex-col gap-4">
+    <CardContent className="grid gap-6 pt-6 lg:grid-cols-3">
+      {/* Colonne 1 : tableau détaillé */}
+      <div className="overflow-x-auto rounded-md border">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="text-xs">Zone</TableHead>
+              <TableHead className="text-xs">Valeur (cm)</TableHead>
+              <TableHead className="text-xs">Date</TableHead>
+              <TableHead className="text-xs">Notes</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {DETAILED_TABLE.map((row, i) => (
+              <TableRow key={i}>
+                <TableCell className="py-1.5 text-xs font-medium">{row.zone}</TableCell>
+                <TableCell className="py-1.5 text-xs">{row.value ?? "—"}</TableCell>
+                <TableCell className="py-1.5 text-xs text-muted-foreground">{today}</TableCell>
+                <TableCell className="py-1.5 text-xs text-muted-foreground">{row.note || "—"}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+
+      {/* Colonne 2 : diagramme corporel */}
+      <div className="flex items-start justify-center">
         <img
           src="/images/body-diagram.jpg"
           alt="Diagramme des points de mesure"
-          className="mx-auto max-w-xs rounded-md border"
+          className="max-w-xs rounded-md border"
         />
-        <div className="overflow-x-auto rounded-md border">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="text-xs">Zone</TableHead>
-                <TableHead className="text-xs">Valeur (cm)</TableHead>
-                <TableHead className="text-xs">Date</TableHead>
-                <TableHead className="text-xs">Notes</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {DETAILED_TABLE.map((row, i) => (
-                <TableRow key={i}>
-                  <TableCell className="py-1.5 text-xs font-medium">{row.zone}</TableCell>
-                  <TableCell className="py-1.5 text-xs">{row.value ?? "—"}</TableCell>
-                  <TableCell className="py-1.5 text-xs text-muted-foreground">{today}</TableCell>
-                  <TableCell className="py-1.5 text-xs text-muted-foreground">{row.note || "—"}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
       </div>
 
-      {/* Colonne droite : liste numérotée + poids/masse grasse */}
+      {/* Colonne 3 : liste numérotée + poids/masse grasse */}
       <div className="space-y-1">
         <div className="grid grid-cols-2 gap-2 border-b pb-2 text-xs font-semibold text-muted-foreground">
           <span>Zone</span>
