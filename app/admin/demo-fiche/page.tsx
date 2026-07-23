@@ -56,26 +56,27 @@ export default async function DemoFichePage() {
           </Card>
         </div>
 
-        {/* Mensurations (2/3) + Photos de suivi (1/3, 3 cards empilées) */}
+        {/* Mensurations (2/3) + Hygiène/Musculation/Bilan (1/3, 3 cards empilées) */}
         <div className="grid gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2">
             <BodyDiagramCard />
           </div>
           <div className="flex flex-col gap-6">
-            <PhotoCard type="face" />
-            <PhotoCard type="profil" />
-            <PhotoCard type="dos" />
+            <LifestyleCard />
+            <TrainingCard />
+            <MonthlyReviewCard />
           </div>
         </div>
 
-        {/* Hygiène de vie / Musculation / Bilan mensuel — 3 colonnes */}
-        <div className="grid gap-6 lg:grid-cols-3">
-          <LifestyleCard />
-          <TrainingCard />
-          <MonthlyReviewCard />
-        </div>
-
         <MonthlyHistoryTable />
+
+        {/* Photos de suivi — 3 colonnes */}
+        <div className="grid gap-6 lg:grid-cols-3">
+          <PhotoCard type="face" />
+          <PhotoCard type="profil" />
+          <PhotoCard type="dos" />
+        </div>
+        
       </LayoutContent>
     </Layout>
   );
