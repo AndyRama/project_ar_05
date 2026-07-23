@@ -40,8 +40,8 @@ export default async function ClientHistoryPage({ params }: ClientHistoryPagePro
   }
 
   return (
-    <div className="mx-auto max-w-7xl p-4">
-      <Layout>
+    <div className="mx-auto p-4">
+      <Layout size="lg">
         <LayoutHeader>
           <div className="flex items-center gap-4">
             <Link href="/admin/alimentaire">

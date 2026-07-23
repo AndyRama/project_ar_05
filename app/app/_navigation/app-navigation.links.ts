@@ -34,4 +34,14 @@ export const APP_LINKS: NavigationGroup[] = [
       },
     ],
   },
+    {
+    title: "Demo live",
+    links: [
+      {
+        href: `/account/demo-fiche`,
+        Icon: User,
+        label: "Bilan mensuel",
+      },
+    ],
+  },
 ] satisfies NavigationGroup[];

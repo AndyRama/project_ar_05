@@ -77,7 +77,7 @@ export default async function AdminMealPlansPage() {
                         className="gap-2 hover:bg-orange-50 hover:text-orange-600"
                       >
                         <Eye className="size-4" />
-                        demo v2
+                        Bilan
                       </Button>
                     </Link>
                   </TableCell>
