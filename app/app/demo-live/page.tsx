@@ -6,7 +6,7 @@ import {
   LayoutDescription,
   LayoutActions
 } from "@/features/page/layout";
-import { getRequiredAdmin } from "@/lib/auth/auth-user";
+import { getRequiredUser} from "@/lib/auth/auth-user";
 import { FAKE_PROFILE } from "@/features/admin/demo-fiche/fake-data";
 import { BodyDiagramCard } from "@/features/admin/demo-fiche/body-diagram-card";
 import { PhotoCard } from "@/features/admin/demo-fiche/photos-suivi-card";
@@ -20,7 +20,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 
 export default async function DemoFichePage() {
-  await getRequiredUser;
+  getRequiredUser;
 
   return (
     <Layout size="lg">
