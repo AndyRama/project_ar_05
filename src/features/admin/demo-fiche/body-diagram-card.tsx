@@ -44,8 +44,8 @@ const DETAILED_TABLE = [
 const today = new Date().toLocaleDateString("fr-FR");
 
 export const BodyDiagramCard = () => (
-  <Card className="border-orange-500/30">
-    <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
+  <Card className="border-orange-500/30 py-0">
+    <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent mt-10">
       <CardTitle className="px-2 text-orange-500">Mensurations corporelles</CardTitle>
     </CardHeader>
     <CardContent className="grid gap-6 pt-6 lg:grid-cols-3">
