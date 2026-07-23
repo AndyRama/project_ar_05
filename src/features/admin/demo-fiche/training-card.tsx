@@ -5,7 +5,7 @@ import { Stars } from "./stars";
 export const TrainingCard = () => (
   <Card className="border-orange-500/30">
     <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-      <CardTitle className="px-2 text-orange-500 mt-10">Musculation</CardTitle>
+      <CardTitle className="px-2 text-orange-500 ">Musculation</CardTitle>
     </CardHeader>
     <CardContent className="space-y-3 pt-6">
       <div className="grid grid-cols-2 gap-4 text-sm">

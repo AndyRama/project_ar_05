@@ -5,7 +5,7 @@ import { Stars } from "./stars";
 export const MonthlyReviewCard = () => (
   <Card className="border-orange-500/30">
     <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-      <CardTitle className="px-2 text-orange-500 mt-10">Bilan qualitatif du mois</CardTitle>
+      <CardTitle className="px-2 text-orange-500">Bilan qualitatif du mois</CardTitle>
     </CardHeader>
     <CardContent className="space-y-4 pt-6">
       <div className="grid grid-cols-3 gap-4">

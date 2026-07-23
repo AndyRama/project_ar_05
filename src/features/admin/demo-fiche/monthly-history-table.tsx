@@ -5,7 +5,7 @@ import { FAKE_MONTHLY_HISTORY } from "./fake-data";
 export const MonthlyHistoryTable = () => (
   <Card className="border-orange-500/30">
     <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-      <CardTitle className="px-2 text-orange-500 mt-10">Suivi mensuel</CardTitle>
+      <CardTitle className="px-2 text-orange-500">Suivi mensuel</CardTitle>
     </CardHeader>
     <CardContent className="pt-6">
       <Table>

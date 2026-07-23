@@ -4,7 +4,7 @@ import { Stars } from "./stars";
 
 export const LifestyleCard = () => (
   <Card className="border-orange-500/30">
-    <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent py-0">
+    <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
       <CardTitle className="px-2 text-orange-500">Hygiène de vie</CardTitle>
     </CardHeader>
     <CardContent className="space-y-4 pt-6">

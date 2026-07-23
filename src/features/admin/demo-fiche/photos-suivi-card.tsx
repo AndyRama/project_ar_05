@@ -22,7 +22,7 @@ export const PhotoCard = ({ type }: PhotoCardProps) => {
   return (
     <Card className="flex h-full flex-col border-orange-500/30">
       <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-        <CardTitle className="px-2 text-orange-500 mt-10">{LABELS[type]}</CardTitle>
+        <CardTitle className="px-2 text-orange-500">{LABELS[type]}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col pt-6">
         <ImageFormItem
