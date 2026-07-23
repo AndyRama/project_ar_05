@@ -34,7 +34,7 @@ export const APP_LINKS: NavigationGroup[] = [
       },
     ],
   },
-    {
+  {
     title: "Demo live",
     links: [
       {

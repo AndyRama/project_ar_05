@@ -22,11 +22,6 @@ const ADMIN_LINKS: NavigationGroup[] = [
         Icon: Users,
         label: "Utilisateurs",
       },
-      // {
-      //   href: `${ADMIN_PATH}/demo-fiche`,
-      //   Icon: NotebookPen,
-      //   label: "demo",
-      // },
     ],
   },
   {
@@ -56,6 +51,16 @@ const ADMIN_LINKS: NavigationGroup[] = [
         href: `/account`,
         Icon: SlidersHorizontal,
         label: "Paramètre",
+      },
+    ],
+  },
+  {
+    title: "Demo live",
+    links: [
+        {
+        href: `${ADMIN_PATH}/demo-live`,
+        Icon: NotebookPen,
+        label: "demo",
       },
     ],
   },

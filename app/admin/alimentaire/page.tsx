@@ -53,24 +53,12 @@ export default async function AdminMealPlansPage() {
                     <Link href={`/admin/alimentaire/pdf/${u.id}`}>
                       <Button variant="outline" size="sm" className="gap-2">
                         <FileText className="size-4" />
-                        Gérer
+                        Gérer pdf
                       </Button>
                     </Link>
                   </TableCell>
                   <TableCell className="text-center">
                     <Link href={`/admin/alimentaire/client/${u.id}`}>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="gap-2 hover:bg-orange-50 hover:text-orange-600"
-                      >
-                        <Eye className="size-4" />
-                        Historique
-                      </Button>
-                    </Link>
-                  </TableCell>
-                  <TableCell className="text-center">
-                    <Link href={`/admin/demo-fiche`}>
                       <Button
                         variant="outline"
                         size="sm"
