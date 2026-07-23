@@ -8,7 +8,7 @@ import {
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import { MonthlyAuditForm } from "@/features/landing/audit/monthly/audit-form";
-import { Plus, Files  } from "lucide-react";
+import { Files  } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -48,25 +48,25 @@ export default async function NewBilanPage() {
       <LayoutHeader>
         <LayoutTitle>Nouveau bilan mensuel</LayoutTitle>
       </LayoutHeader>
-      <LayoutActions>
+      {/* <LayoutActions>
         <Link href="/app">
           <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
             <Plus className="size-4" />
              Performance
           </Button>
         </Link>
-      </LayoutActions>
+      </LayoutActions> */}
 
       <LayoutActions>  
-        <Link href="/app/plan-alimentaire">
+        <Link href="/app/demo-live">
           <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
             <Files  className="size-4" />
-              Plan alimentaire PDF
+              Plan alimentaire V2
           </Button>
         </Link>
       </LayoutActions>
       <LayoutContent>
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-3xl">
           <MonthlyAuditForm defaultValues={defaultValues} />
         </div>
       </LayoutContent>

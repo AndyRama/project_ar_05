@@ -1,11 +1,11 @@
 import type { NavigationGroup } from "@/features/navigation/navigation.type";
-import { Home, MessageSquare, NotebookPen , Users, Settings, SlidersHorizontal, BookOpen } from "lucide-react";
+import { Home, MessageSquare, NotebookPen , ScreenShare, User, Users, Settings, BookOpen } from "lucide-react";
 
 const ADMIN_PATH = `/admin`;
 
 const ADMIN_LINKS: NavigationGroup[] = [
   {
-    title: "Menu Principal",
+    title: "Menu Principal", 
     links: [
       {
         href: ADMIN_PATH,
@@ -49,7 +49,7 @@ const ADMIN_LINKS: NavigationGroup[] = [
       },
       {
         href: `/account`,
-        Icon: SlidersHorizontal,
+        Icon: Settings,
         label: "Paramètre",
       },
     ],
@@ -59,7 +59,7 @@ const ADMIN_LINKS: NavigationGroup[] = [
     links: [
         {
         href: `${ADMIN_PATH}/demo-live`,
-        Icon: NotebookPen,
+        Icon: ScreenShare,
         label: "demo",
       },
     ],

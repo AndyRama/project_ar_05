@@ -1,5 +1,5 @@
 import type { NavigationGroup } from "@/features/navigation/navigation.type";
-import { Home, User } from "lucide-react";
+import { Home, Settings, Files, NotebookPen, ScreenShare  } from "lucide-react";
 
 const APP_PATH = "/app";
 
@@ -14,13 +14,13 @@ export const APP_LINKS: NavigationGroup[] = [
       },
       {
         href: `${APP_PATH}/bilan`,
-        Icon: User,
+        Icon: Files,
         label: "Bilan mensuel",
       },
       {
         href: `${APP_PATH}/plan-alimentaire`,
-        Icon: User,
-        label: "Plan alimentaire PDF",
+        Icon: NotebookPen,
+        label: "Plan alimentaire",
       },
     ],
   },
@@ -29,7 +29,7 @@ export const APP_LINKS: NavigationGroup[] = [
     links: [
       {
         href: `/account`,
-        Icon: Home,
+        Icon: Settings,
         label: "Paramètre",
       },
     ],
@@ -39,7 +39,7 @@ export const APP_LINKS: NavigationGroup[] = [
     links: [
       {
         href: `${APP_PATH}/demo-live`,
-        Icon: User,
+        Icon: ScreenShare ,
         label: "Bilan mensuel v2",
       },
     ],
