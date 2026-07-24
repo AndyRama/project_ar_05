@@ -46,7 +46,7 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      <Offers/>
+      <Offers className="py-24 sm:py-32"/>
 
       <TransformationCard />
 

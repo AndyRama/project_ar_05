@@ -86,7 +86,7 @@ const OFFERS: Offer[] = [
 
 export const Offers = () => {
   return (
-    <section id="begin" className="relative py-24 sm:py-32">
+    <section id="begin" className="relative">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
 
         {/* ── Header ── */}
