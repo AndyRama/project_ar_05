@@ -59,9 +59,9 @@ export function AdminSidebar() {
             </SidebarGroup>
           </ItemCollapsing>
         ))}
-        <ContactSupportDialog/>
       </SidebarContent>
       <SidebarFooter className="flex flex-col gap-2">
+        <ContactSupportDialog/>
         <SidebarUserButton />
       </SidebarFooter>
       <SidebarRail />
