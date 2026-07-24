@@ -23,7 +23,7 @@ import { usePathname } from "next/navigation";
 import type { PropsWithChildren } from "react";
 import { useEffect, useState } from "react";
 import { getAdminNavigation } from "./admin-navigation.links";
-// import { ContactSupportDialog } from "@/features/contact/support/contact-support-dialog";
+import { ContactSupportDialog } from "@/features/contact/support/contact-support-dialog";
 
 export function AdminSidebar() {
   const links: NavigationGroup[] = getAdminNavigation();
@@ -59,6 +59,7 @@ export function AdminSidebar() {
             </SidebarGroup>
           </ItemCollapsing>
         ))}
+        <ContactSupportDialog/>
       </SidebarContent>
       <SidebarFooter className="flex flex-col gap-2">
         <SidebarUserButton />

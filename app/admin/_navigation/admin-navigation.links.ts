@@ -60,7 +60,7 @@ const ADMIN_LINKS: NavigationGroup[] = [
         {
         href: `${ADMIN_PATH}/demo-live`,
         Icon: ScreenShare,
-        label: "nouveau formulaire",
+        label: "Nouveau formulaire",
       },
     ],
   },

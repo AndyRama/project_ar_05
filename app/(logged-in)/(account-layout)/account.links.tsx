@@ -31,7 +31,7 @@ const ACCOUNT_LINKS: NavigationGroup[] = [
     links: [
       {
         href: "/account/cvg",
-        Icon: NoteBookpen,
+        Icon: NotebookPen,
         label: "Cgv",
       },
       {
