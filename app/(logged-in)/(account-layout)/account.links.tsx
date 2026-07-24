@@ -1,5 +1,5 @@
 import type { NavigationGroup } from "@/features/navigation/navigation.type";
-import { AlertCircle, LayoutDashboard, Mail, User2, NoteBookpen, Files } from "lucide-react";
+import { AlertCircle, LayoutDashboard, Mail, User2, File, Files } from "lucide-react";
 
 export const getAccountNavigation = (): NavigationGroup[] => {
   return ACCOUNT_LINKS;
@@ -31,7 +31,7 @@ const ACCOUNT_LINKS: NavigationGroup[] = [
     links: [
       {
         href: "/account/cvg",
-        Icon: NotebookPen,
+        Icon: File,
         label: "Cgv",
       },
       {
