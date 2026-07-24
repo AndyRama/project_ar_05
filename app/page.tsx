@@ -46,7 +46,9 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      <Offers className="py-24 sm:py-32"/>
+      <div className="py-24 sm:py-32">
+        <Offers/>      
+      </div>
 
       <TransformationCard />
 
