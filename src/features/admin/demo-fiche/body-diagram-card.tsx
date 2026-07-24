@@ -49,7 +49,7 @@ export const BodyDiagramCard = () => (
     </CardHeader>
     <CardContent className="grid gap-6 pt-6 lg:grid-cols-3">
       {/* Colonne 1 : tableau détaillé */}
-      <div className="overflow-x-auto rounded-md border">
+      <div className="min-w-0 w-full overflow-x-auto rounded-md border">
         <Table className="min-w-[500px]">
           <TableHeader>
             <TableRow>
@@ -73,7 +73,7 @@ export const BodyDiagramCard = () => (
       </div>
 
       {/* Colonne 2 : diagramme corporel */}
-      <div className="flex items-start justify-center">
+      <div className="min-w-0 flex items-start justify-center">
         <img
           src="/images/body-diagram.jpg"
           alt="Diagramme des points de mesure"
@@ -82,7 +82,7 @@ export const BodyDiagramCard = () => (
       </div>
 
       {/* Colonne 3 : liste numérotée + poids/masse grasse */}
-      <div className="space-y-1">
+      <div className="min-w-0 space-y-1">
         <div className="grid grid-cols-2 gap-2 border-b pb-2 text-xs font-semibold text-muted-foreground">
           <span>Zone</span>
           <span className="text-right">Valeur</span>

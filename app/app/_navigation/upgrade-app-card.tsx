@@ -20,7 +20,7 @@ export const UpgradeCard = () => {
       <CardHeader className="">
         <CardTitle>Programmes</CardTitle>
         <CardDescription>
-          Renouveller votre programme Premium et Competition avec le code pro UNLBOOSTER
+          Renouveller votre programme avec le code promo UNLBOOSTER
         </CardDescription>
       </CardHeader>
       <CardContent className="">
