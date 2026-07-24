@@ -20,6 +20,7 @@ export default async function AdminMealPlansPage() {
     where: { alimentaireProfiles: { some: {} } },
     include: {
       mealPlanDocuments: { orderBy: { createdAt: "desc" } },
+      alimentaireProfiles: { orderBy: { createdAt: "desc" } },
     },
     orderBy: { name: "asc" },
   });
@@ -36,41 +37,54 @@ export default async function AdminMealPlansPage() {
               <TableRow>
                 <TableHead>Nom</TableHead>
                 <TableHead>Email</TableHead>
+                <TableHead className="text-center">Bilans reçus</TableHead>
+                <TableHead>Dernier bilan</TableHead>
                 <TableHead className="text-center">Plans envoyés</TableHead>
                 <TableHead className="text-center">Actions</TableHead>
-                <TableHead className="text-center">Bilan</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {users.map((u) => (
-                <TableRow key={u.id}>
-                  <TableCell className="font-medium">{u.name ?? "N/A"}</TableCell>
-                  <TableCell>{u.email}</TableCell>
-                  <TableCell className="text-center font-semibold text-orange-600">
-                    {u.mealPlanDocuments.length}
-                  </TableCell>
-                  <TableCell className="text-center">
-                    <Link href={`/admin/alimentaire/pdf/${u.id}`}>
-                      <Button variant="outline" size="sm" className="gap-2">
-                        <FileText className="size-4" />
-                        Gérer pdf
-                      </Button>
-                    </Link>
-                  </TableCell>
-                  <TableCell className="text-center">
-                    <Link href={`/admin/alimentaire/client/${u.id}`}>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="gap-2 hover:bg-orange-50 hover:text-orange-600"
-                      >
-                        <Eye className="size-4" />
-                        Bilan
-                      </Button>
-                    </Link>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {users.map((u) => {
+                const latestProfile = u.alimentaireProfiles[0];
+
+                return (
+                  <TableRow key={u.id}>
+                    <TableCell className="font-medium">{u.name ?? "N/A"}</TableCell>
+                    <TableCell>{u.email}</TableCell>
+                    <TableCell className="text-center font-semibold text-orange-600">
+                      {u.alimentaireProfiles.length}
+                    </TableCell>
+                    <TableCell>
+                      {latestProfile
+                        ? new Date(latestProfile.createdAt).toLocaleDateString("fr-FR")
+                        : "N/A"}
+                    </TableCell>
+                    <TableCell className="text-center font-semibold text-orange-600">
+                      {u.mealPlanDocuments.length}
+                    </TableCell>
+                    <TableCell className="text-center">
+                      <div className="flex justify-center gap-2">
+                        <Link href={`/admin/alimentaire/pdf/${u.id}`}>
+                          <Button variant="outline" size="sm" className="gap-2">
+                            <FileText className="size-4" />
+                            Gérer PDF
+                          </Button>
+                        </Link>
+                        <Link href={`/admin/alimentaire/client/${u.id}`}>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="gap-2 hover:bg-orange-50 hover:text-orange-600"
+                          >
+                            <Eye className="size-4" />
+                            Bilan
+                          </Button>
+                        </Link>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
         </div>
