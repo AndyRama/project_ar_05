@@ -16,6 +16,7 @@ import type { NavigationGroup } from "@/features/navigation/navigation.type";
 import { SidebarUserButton } from "@/features/sidebar/sidebar-user-button";
 import { ChevronDown } from "lucide-react";
 import { getAccountNavigation } from "./account.links";
+import { ContactSupportDialog } from "@/features/contact/support/contact-support-dialog";
 
 export function AccountSidebar() {
   const links: NavigationGroup[] = getAccountNavigation();
@@ -39,6 +40,7 @@ export function AccountSidebar() {
         ))}
       </SidebarContent>
       <SidebarFooter className="flex flex-col gap-2">
+        <ContactSupportDialog/>
         <SidebarUserButton />
       </SidebarFooter>
       <SidebarRail />

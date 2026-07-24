@@ -31,21 +31,14 @@ export const FloatingLegalFooter = () => {
         >
           Cvg
         </Link>
-        {/* <Link
+        <Link
           className="text-xs text-muted-foreground hover:text-foreground
                      transition-colors hover:underline"
           href="/legal/privacy"
         >
-          Confidentialité
-        </Link> */}
-        <Link
-          className="text-xs text-muted-foreground hover:text-foreground
-                     transition-colors hover:underline"
-          href="/legal/mentions"
-        >
           Mentions légales
         </Link>
-        <Link href="/docs" >
+        <Link href="#" >
           <Image
             src={SiteConfig.appIcon}
             width={18}
