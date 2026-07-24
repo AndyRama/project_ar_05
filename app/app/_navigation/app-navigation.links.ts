@@ -1,5 +1,5 @@
 import type { NavigationGroup } from "@/features/navigation/navigation.type";
-import { Home, Settings, Files, NotebookPen, ScreenShare  } from "lucide-react";
+import { LayoutDashboard, Settings, Files, NotebookPen, ScreenShare  } from "lucide-react";
 
 const APP_PATH = "/app";
 
@@ -9,7 +9,7 @@ export const APP_LINKS: NavigationGroup[] = [
     links: [
       {
         href: APP_PATH,
-        Icon: Home,
+        Icon: LayoutDashboard,
         label: "Dashboard",
       },
       {

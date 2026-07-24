@@ -23,6 +23,7 @@ import { usePathname } from "next/navigation";
 import type { PropsWithChildren } from "react";
 import { useEffect, useState } from "react";
 import { getAdminNavigation } from "./admin-navigation.links";
+import { ContactSupportDialog } from "@/features/contact/support/contact-support-dialog";
 
 export function AdminSidebar() {
   const links: NavigationGroup[] = getAdminNavigation();
@@ -34,7 +35,7 @@ export function AdminSidebar() {
           <div className="bg-primary text-primary-foreground flex size-8 items-center justify-center rounded-lg">
             <span className="text-sm font-semibold">A</span>
           </div>
-          <span className="font-semibold">Unl | Admin Panel</span>
+          <span className="font-semibold">Unlcoaching</span>
         </div>
       </SidebarHeader>
       <SidebarContent>
@@ -60,6 +61,7 @@ export function AdminSidebar() {
         ))}
       </SidebarContent>
       <SidebarFooter className="flex flex-col gap-2">
+        <ContactSupportDialog />
         <SidebarUserButton />
       </SidebarFooter>
       <SidebarRail />

@@ -20,7 +20,7 @@ export async function AdminNavigation({ children }: PropsWithChildren) {
               className="size-9 cursor-pointer"
             />
             <div className="flex items-center gap-2">
-              <span className="font-semibold">Tableau de bord admin</span>
+              <span className="font-semibold">Administrateur</span>
             </div>
           </Layout>
         </header>

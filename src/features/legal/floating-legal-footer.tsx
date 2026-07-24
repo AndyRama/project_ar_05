@@ -18,7 +18,7 @@ export const FloatingLegalFooter = () => {
         <br className="md:hidden" /> Crée avec{" "}
         <BiSolidHeart className="mx-1 inline-block text-red-600" />
         par{" "}
-        <Link href="https://www.project-ar-01.vercel.app" className="text-orange-500" target="_blank" rel="noopener noreferrer ">
+        <Link href="https://www.lemurian.agency" className="text-orange-500" target="_blank" rel="noopener noreferrer ">
           Andy Ramaroson
         </Link>
       </Typography>

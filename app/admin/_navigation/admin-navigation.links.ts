@@ -1,5 +1,5 @@
 import type { NavigationGroup } from "@/features/navigation/navigation.type";
-import { Home, MessageSquare, NotebookPen , ScreenShare, User, Users, Settings, BookOpen } from "lucide-react";
+import { LayoutDashboard, MessageSquare, NotebookPen , ScreenShare, Wrench , Users, Settings, BookOpen } from "lucide-react";
 
 const ADMIN_PATH = `/admin`;
 
@@ -9,7 +9,7 @@ const ADMIN_LINKS: NavigationGroup[] = [
     links: [
       {
         href: ADMIN_PATH,
-        Icon: Home,
+        Icon: LayoutDashboard,
         label: "Tableau de bord",
       },
       {
@@ -40,27 +40,27 @@ const ADMIN_LINKS: NavigationGroup[] = [
     ],
   },
   {
-    title: "Application",
+    title: "Paramètres",
     links: [
       {
         href: `${ADMIN_PATH}/services`,
-        Icon: Settings,
+        Icon:  Wrench ,
         label: "Gestion des services",
       },
       {
         href: `/account`,
         Icon: Settings,
-        label: "Paramètre",
+        label: "Compte utilisateur",
       },
     ],
   },
   {
-    title: "Demo live",
+    title: "Démo live",
     links: [
         {
         href: `${ADMIN_PATH}/demo-live`,
         Icon: ScreenShare,
-        label: "demo",
+        label: "nouveau formulaire",
       },
     ],
   },
