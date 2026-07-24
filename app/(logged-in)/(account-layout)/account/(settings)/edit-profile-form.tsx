@@ -141,7 +141,7 @@ export const EditProfileCardForm = ({
                     onClick={() => verifyEmailMutation.mutate()}
                     loading={verifyEmailMutation.isPending}
                   >
-                    Verify email
+                    Verifier email
                   </LoadingButton>
                 )}
               </Label>
@@ -153,17 +153,17 @@ export const EditProfileCardForm = ({
               className={buttonVariants({ size: "sm", variant: "link" })}
               href="/account/change-email"
             >
-              Change email
+              Changer votre email
             </Link>
             <Link
               className={buttonVariants({ size: "sm", variant: "link" })}
               href="/account/change-password"
             >
-              Change password
+              Changer votre mot de passe
             </Link>
             <div className="flex-1"></div>
             <LoadingButton loading={updateProfileMutation.isPending}>
-              Save
+              Sauveguarder
             </LoadingButton>
           </CardFooter>
         </Card>

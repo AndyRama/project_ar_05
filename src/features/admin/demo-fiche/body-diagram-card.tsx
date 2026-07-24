@@ -19,7 +19,6 @@ const MEASUREMENTS = [
   { n: 11, label: "Mollet droit", value: FAKE_PROFILE.rightCalf },
 ];
 
-// Table détaillée (Zone, Valeur, Date, Notes) — comme sur la fiche papier
 const DETAILED_TABLE = [
   { zone: "Tour d'épaules", value: FAKE_PROFILE.shoulders, note: "" },
   { zone: "Épaule gauche", value: null, note: "" },
@@ -51,22 +50,22 @@ export const BodyDiagramCard = () => (
     <CardContent className="grid gap-6 pt-6 lg:grid-cols-3">
       {/* Colonne 1 : tableau détaillé */}
       <div className="overflow-x-auto rounded-md border">
-        <Table>
+        <Table className="min-w-[500px]">
           <TableHeader>
             <TableRow>
-              <TableHead className="text-xs">Zone</TableHead>
-              <TableHead className="text-xs">Valeur (cm)</TableHead>
-              <TableHead className="text-xs">Date</TableHead>
-              <TableHead className="text-xs">Notes</TableHead>
+              <TableHead className="whitespace-nowrap text-xs">Zone</TableHead>
+              <TableHead className="whitespace-nowrap text-xs">Valeur (cm)</TableHead>
+              <TableHead className="whitespace-nowrap text-xs">Date</TableHead>
+              <TableHead className="whitespace-nowrap text-xs">Notes</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {DETAILED_TABLE.map((row, i) => (
               <TableRow key={i}>
-                <TableCell className="py-1.5 text-xs font-medium">{row.zone}</TableCell>
-                <TableCell className="py-1.5 text-xs">{row.value ?? "—"}</TableCell>
-                <TableCell className="py-1.5 text-xs text-muted-foreground">{today}</TableCell>
-                <TableCell className="py-1.5 text-xs text-muted-foreground">{row.note || "—"}</TableCell>
+                <TableCell className="whitespace-nowrap py-1.5 text-xs font-medium">{row.zone}</TableCell>
+                <TableCell className="whitespace-nowrap py-1.5 text-xs">{row.value ?? "—"}</TableCell>
+                <TableCell className="whitespace-nowrap py-1.5 text-xs text-muted-foreground">{today}</TableCell>
+                <TableCell className="whitespace-nowrap py-1.5 text-xs text-muted-foreground">{row.note || "—"}</TableCell>
               </TableRow>
             ))}
           </TableBody>
