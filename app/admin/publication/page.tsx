@@ -23,15 +23,15 @@ import type { PageParams } from "@/types/next";
 // ── Planning 52 semaines Unlcoaching ─────────────────────────────
 
 const PLANNING = [
-  { semaine: "S1",  publie: true, theme: "Résolutions",          titre: "Pourquoi 90% des régimes échouent et comment réussir votre transformation en 2026.",              intention: "Éducationnel" },
-  { semaine: "S2",  publie: true, theme: "Local / Bordeaux",     titre: "Top 5 des meilleurs parcs pour s'entraîner en extérieur à Bordeaux cet hiver.",                   intention: "Local" },
-  { semaine: "S3",  publie: true, theme: "Nutrition / TCA",      titre: "Comprendre les TCA : Comment manger sans culpabiliser tout en perdant du gras.",                   intention: "Expertise" },
-  { semaine: "S4",  publie: true, theme: "Entraînement",         titre: "Débuter en salle de sport : Le guide complet pour ne plus avoir peur du regard des autres.",       intention: "Guide" },
-  { semaine: "S5",  publie: true, theme: "Sommeil",              titre: "Sommeil et Performance : Pourquoi dormir plus vous fera perdre plus de poids.",                    intention: "Santé" },
-  { semaine: "S6",  publie: true, theme: "Success Story",        titre: "Témoignage : Comment Marie a perdu 12kg en 4 mois avec Unlcoaching.",                              intention: "Preuve Sociale" },
-  { semaine: "S7",  publie: true, theme: "Mental",               titre: "Discipline vs Motivation : Le secret pour tenir votre programme sur le long terme.",               intention: "Mental" },
-  { semaine: "S8",  publie: true, theme: "Nutrition",            titre: "Faut-il supprimer les glucides pour perdre du poids ? On démystifie le vrai du faux.",             intention: "Info / Vente" },
-  { semaine: "S9",  publie: true, theme: "Local (Mérignac)",     titre: "Coach sportif à Mérignac : Pourquoi l'accompagnement personnalisé change tout.",                   intention: "Local" },
+  { semaine: "S1",  publie: true, theme: "Compétition",          titre: "Guide des compétitions de bodybuilding et fitness.",                                             intention: "Éducationnel" },
+  { semaine: "S2",  publie: true, theme: "Mental",               titre: "Comment garder un bon mindset dans le sport.",                                                   intention: "Mental" },
+  { semaine: "S3",  publie: true, theme: "Nutrition / TCA",      titre: "Reconnaître faim et satiété : apprenez à écouter votre corps.",                                  intention: "Expertise" },
+  { semaine: "S4",  publie: true, theme: "Nutrition",            titre: "Préparation de repas équilibrés pour une semaine saine.",                                       intention: "Guide" },
+  { semaine: "S5",  publie: true, theme: "Nutrition",            titre: "Comment perdre du poids de manière saine et durable.",                                          intention: "Santé" },
+  { semaine: "S6",  publie: true, theme: "Entraînement",         titre: "La salle de sport quand on débute : le guide complet.",                                         intention: "Guide" },
+  { semaine: "S7",  publie: true, theme: "Sommeil",              titre: "Le sommeil est capital dans la pratique sportive.",                                              intention: "Santé" },
+  { semaine: "S8",  publie: true, theme: "Résolutions",          titre: "Pourquoi les régimes échouent et comment réussir votre transformation en 2026.",                 intention: "Éducationnel" },
+  { semaine: "S9",  publie: true, theme: "Nutrition",            titre: "Guide complet des compléments alimentaires dans le sport.",                                     intention: "Info / Vente" },
   { semaine: "S10", publie: false, theme: "Spécificité",          titre: "Coaching en ligne vs Coaching présentiel à Bordeaux : Quel format choisir ?",                     intention: "Comparatif" },
   { semaine: "S11", publie: false, theme: "TCA",                  titre: "Hyperphagie et sport : Comment sortir du cycle des crises grâce au coaching.",                     intention: "Expertise" },
   { semaine: "S12", publie: false, theme: "Lifestyle",            titre: "Concilier vie professionnelle à Bordeaux et sport : 3 astuces pour les cadres pressés.",           intention: "Segmenté" },
@@ -94,7 +94,7 @@ export default async function PublicationsAdminPage(
 
       <LayoutActions className="flex items-center gap-3">
         <span className="inline-flex items-center gap-1.5 rounded-full bg-orange-50 px-2.5 py-1 text-xs font-medium text-orange-700">
-          <CheckCircle2 className="h-3.5 w-3.5" />
+        <CheckCircle2 className="h-3.5 w-3.5" />
           {publishedCount} publiés
         </span>
         <span className="inline-flex items-center gap-1.5 rounded-full bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground">
