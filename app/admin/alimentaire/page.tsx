@@ -42,8 +42,7 @@ export default async function AdminMealPlansPage() {
                 <TableHead className="text-center">Actions</TableHead>
                 <TableHead className="text-center">Plans envoyés</TableHead>
                 <TableHead className="text-center">Actions</TableHead>
-                <TableHead className="text-center">Version 2</TableHead>
-                <TableHead className="text-center">Actions</TableHead>
+                <TableHead className="text-center">Bilan v2</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -98,7 +97,7 @@ export default async function AdminMealPlansPage() {
                             className="gap-2 hover:bg-orange-50 hover:text-orange-600"
                           >
                           <NotebookText  className="size-4" />
-                            bilan V2
+                            Bilan V2
                           </Button>
                         </Link>
                       </div>
