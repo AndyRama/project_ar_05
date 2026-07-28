@@ -20,7 +20,7 @@ export const UpgradeCard = () => {
       <CardHeader className="">
         <CardTitle>Programmes</CardTitle>
         <CardDescription>
-          Renouveller votre programme avec le code promo UNLBOOSTER
+          Renouveller  de votre programme
         </CardDescription>
       </CardHeader>
       <CardContent className="">
@@ -28,7 +28,7 @@ export const UpgradeCard = () => {
           href={BILLING_URL}
           className={buttonVariants({ className: "w-full" })}
         >
-          Renouveller
+          Je renouvelle
         </Link>
       </CardContent>
     </Card>

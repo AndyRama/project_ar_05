@@ -50,12 +50,12 @@ export const ContactSupportDialog = (props: ContactSupportDialogProps) => {
       return resolveActionResult(contactSupportAction(values));
     },
     onSuccess: () => {
-      toast.success("Your message has been sent.");
+      toast.success("Votre message a été envoyé");
       form.reset();
       setOpen(false);
     },
     onError: () => {
-      toast.error("An error occurred");
+      toast.error("Une erreur est survenue");
     },
   });
 
@@ -72,7 +72,7 @@ export const ContactSupportDialog = (props: ContactSupportDialogProps) => {
         <DialogHeader>
           <DialogTitle>Contact Support</DialogTitle>
           <DialogDescription>
-            Fill the form bellow or send an email to{" "}
+            Remplissez le formulaire ci-dessous ou envoyez un e-mail{" "}
             <Link
               className="text-primary"
               href={`mailto:${env.NEXT_PUBLIC_EMAIL_CONTACT}`}
@@ -107,7 +107,7 @@ export const ContactSupportDialog = (props: ContactSupportDialogProps) => {
             name="subject"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Subject</FormLabel>
+                <FormLabel>Sujet</FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
@@ -128,7 +128,7 @@ export const ContactSupportDialog = (props: ContactSupportDialogProps) => {
               </FormItem>
             )}
           />
-          <Button type="submit">Send</Button>
+          <Button type="submit">Envoyer</Button>
         </Form>
       </DialogContent>
     </Dialog>

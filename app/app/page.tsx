@@ -35,7 +35,7 @@ export default async function RoutePage() {
   return (
     <Layout size="lg">
       <LayoutHeader>
-        <LayoutTitle>Dashboard</LayoutTitle>
+        <LayoutTitle>Dashboard utilisateur</LayoutTitle>
       </LayoutHeader>
       <LayoutActions>
         <form>

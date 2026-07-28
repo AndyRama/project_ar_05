@@ -35,7 +35,7 @@ export function AppCommand() {
         <Search className="text-muted-foreground absolute top-2.5 left-2.5 size-4" />
         <Input
           type="search"
-          placeholder="Search..."
+          placeholder="Recherche ..."
           className="bg-background w-full appearance-none pl-8 shadow-none"
           onClick={() => {
             setOpen(true);
@@ -50,9 +50,9 @@ export function AppCommand() {
         </div>
       </div>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder="Recherche ..." />
         <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandEmpty>Aucun resultat trouvé.</CommandEmpty>
           {APP_LINKS.map((link, index) => (
             <CommandGroup heading={link.title} key={index}>
               {link.links.map((link) => (
