@@ -8,8 +8,10 @@ import {
   MonthlyAuditSchema,
   type MonthlyAuditData,
 } from "./audit-form.schema";
-import { submitMonthlyAuditAction } from "./audit-form.action";
-import { updateMonthlyAuditAction } from "./update-audit-form.action";
+import { 
+  submitMonthlyAuditAction, 
+  updateMonthlyAuditAction,
+} from "./audit-form.action";
 
 type MonthlyAuditFormProps = {
   defaultValues?: Partial<MonthlyAuditData>;
@@ -143,11 +145,11 @@ export const MonthlyAuditForm = ({
         className="rounded-md bg-orange-500 py-3 text-sm font-semibold text-white transition-all hover:bg-orange-400 disabled:opacity-60"
       >
         {isSubmitting
-      ? "Envoi…"
-      : mode === "edit"
-        ? "Mettre à jour mon bilan"
-        : "Enregistrer mon bilan mensuel"}
-  </button>
+          ? "Envoi…"
+          : mode === "edit"
+            ? "Mettre à jour mon bilan"
+            : "Enregistrer mon bilan mensuel"}
+      </button>
     </form>
   );
 };
