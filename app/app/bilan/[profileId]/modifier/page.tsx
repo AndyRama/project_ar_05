@@ -7,7 +7,7 @@ import {
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import { notFound } from "next/navigation";
-import { updateMonthlyAuditAction } from "@/features/landing/audit/monthly/update-audit-form";
+import {updateMonthlyAuditAction } from "@/features/landing/audit/monthly/update-audit-form";
 import type { PageParams } from "@/types/next";
 
 type EditBilanPageProps = PageParams<{ profileId: string }>;
@@ -50,7 +50,7 @@ export default async function EditBilanPage({ params }: EditBilanPageProps) {
       </LayoutHeader>
       <LayoutContent>
         <div className="mx-auto max-w-2xl">
-          <MonthlyAuditForm
+          <updateMonthlyAuditAction
             mode="edit"
             profileId={profile.id}
             defaultValues={defaultValues}
