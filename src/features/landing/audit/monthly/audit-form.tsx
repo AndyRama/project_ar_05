@@ -9,14 +9,21 @@ import {
   type MonthlyAuditData,
 } from "./audit-form.schema";
 import { submitMonthlyAuditAction } from "./audit-form.action";
+import { updateMonthlyAuditAction } from "./update-audit-form.action";
 
 type MonthlyAuditFormProps = {
-  // Pré-remplissage optionnel avec les valeurs du dernier bilan
   defaultValues?: Partial<MonthlyAuditData>;
   onSuccess?: () => void;
+  mode?: "create" | "edit";
+  profileId?: string;
 };
 
-export const MonthlyAuditForm = ({ defaultValues, onSuccess }: MonthlyAuditFormProps) => {
+export const MonthlyAuditForm = ({
+  defaultValues,
+  onSuccess,
+  mode = "create",
+  profileId,
+}: MonthlyAuditFormProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -49,25 +56,17 @@ export const MonthlyAuditForm = ({ defaultValues, onSuccess }: MonthlyAuditFormP
   const onSubmit = async (data: MonthlyAuditData) => {
     setError(null);
     try {
-      await submitMonthlyAuditAction(data);
+      if (mode === "edit" && profileId) {
+        await updateMonthlyAuditAction(profileId, data);
+      } else {
+        await submitMonthlyAuditAction(data);
+      }
       setSubmitted(true);
       onSuccess?.();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Une erreur est survenue.");
     }
   };
-
-  if (submitted) {
-    return (
-      <div className="rounded-md border border-border bg-card p-8 text-center">
-        <div className="mb-3 text-3xl">✅</div>
-        <h3 className="text-lg font-semibold text-foreground">Bilan enregistré !</h3>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Ton coach recevra ces nouvelles données pour ajuster ton programme.
-        </p>
-      </div>
-    );
-  }
 
   return (
     <form data-testid="monthly-audit-form" onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
@@ -143,8 +142,12 @@ export const MonthlyAuditForm = ({ defaultValues, onSuccess }: MonthlyAuditFormP
         data-testid="submit-btn"
         className="rounded-md bg-orange-500 py-3 text-sm font-semibold text-white transition-all hover:bg-orange-400 disabled:opacity-60"
       >
-        {isSubmitting ? "Envoi…" : "Enregistrer mon bilan mensuel"}
-      </button>
+        {isSubmitting
+      ? "Envoi…"
+      : mode === "edit"
+        ? "Mettre à jour mon bilan"
+        : "Enregistrer mon bilan mensuel"}
+  </button>
     </form>
   );
 };

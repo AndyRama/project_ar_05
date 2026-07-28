@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import Link from "next/link";
-import { Calendar, Plus } from "lucide-react";
+import { Calendar, Plus, Pencil } from "lucide-react";
 
 export default async function MyBilansPage() {
   const user = await getRequiredUser();
@@ -45,19 +45,27 @@ export default async function MyBilansPage() {
               return (
                 <Card key={profile.id} className="border-orange-500/30">
                   <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent px-4">
-                    <CardTitle className="flex items-center gap-2 px-2 text-orange-500">
-                      <Calendar className="size-4" />
-                      {new Date(profile.createdAt).toLocaleDateString("fr-FR", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}
-                      {isFirst && (
-                        <span className="ml-2 rounded-full bg-orange-500/20 px-2 py-0.5 text-xs font-semibold text-orange-600">
-                          Bilan initial
-                        </span>
-                      )}
-                    </CardTitle>
+                    <div className="flex items-center justify-between">
+                      <CardTitle className="flex items-center gap-2 px-2 text-orange-500">
+                        <Calendar className="size-4" />
+                        {new Date(profile.createdAt).toLocaleDateString("fr-FR", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                        {isFirst && (
+                          <span className="ml-2 rounded-full bg-orange-500/20 px-2 py-0.5 text-xs font-semibold text-orange-600">
+                            Bilan initial
+                          </span>
+                        )}
+                      </CardTitle>
+                      <Link href={`/app/bilan/${profile.id}/modifier`}>
+                        <Button variant="outline" size="sm" className="gap-2">
+                          <Pencil className="size-4" />
+                          Modifier
+                        </Button>
+                      </Link>
+                    </div>
                   </CardHeader>
                   <CardContent className="pt-4">
                     <div className="grid grid-cols-2 gap-4 text-sm md:grid-cols-4">
