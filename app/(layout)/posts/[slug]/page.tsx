@@ -11,6 +11,7 @@ import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { StickyAuthorCard } from "@/components/ui/sticky-author-card";
 
 export const dynamic = "force-static";
 
@@ -96,6 +97,8 @@ export default async function RoutePage(props: PostParams) {
 
         <Separator className="my-12 opacity-20" />
 
+        {/* 6. Contenu Article + Sidebar Auteur (sticky) */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-10">
         {/* Contenu article — styles inline via article tag */}
         <article className="mx-auto max-w-5xl">
           <ServerMdx
@@ -122,6 +125,18 @@ export default async function RoutePage(props: PostParams) {
             source={post.content}
           />
         </article>
+          {/* Colonne sidebar — sticky, cachée sur mobile */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-24">
+              <StickyAuthorCard
+                name="Jéremy Prat"
+                role="Coach sportif — Fondateur Unlcoaching"
+                avatarUrl="/images/unl-profil.jpg"
+                bio="+ de 350 transformations réussies "
+              />
+            </div>
+          </aside>
+          </div>
       </LayoutContent>
     </Layout>
   );
