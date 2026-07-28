@@ -71,7 +71,7 @@ export const RecentPosts = () => {
         date: '2026-02-19',
         coverUrl: '/images/article-10.jpg',
       },
-      slug: '2026-02-19_Pourquoi_les_regimes_echouent_et_comment_reussir_votre_transformation_en_2026',
+      slug: 'pourquoi_les_regimes_echouent_et_comment_reussir_votre_transformation_en_2026',
     },
     {
       attributes: {
@@ -80,7 +80,7 @@ export const RecentPosts = () => {
         date: '2026-02-20',
         coverUrl: '/images/article-complement-alimentaire.jpg',
       },
-      slug: '2026-02-20_Guide_complet_des_complements_alimentaire_dans_le_sport',
+      slug: 'guide_complet_des_complements_alimentaire_dans_le_sport',
     },
     {
       attributes: {
@@ -89,7 +89,7 @@ export const RecentPosts = () => {
         date: '2026-02-09',
         coverUrl: '/images/salle-de-sport.jpg',
       },
-      slug: '2026-02-09_La_salle_de_sport_quand_on_debute',
+      slug: 'la_salle_de_sport_quand_on_debute',
     },
     {
       attributes: {
@@ -98,7 +98,7 @@ export const RecentPosts = () => {
         date: '2026-02-02',
         coverUrl: '/images/post2.jpg',
       },
-      slug: '2026-02-02_Comment_perdre_du_poids_de_maniere_saine_et_durable',
+      slug: 'comment_perdre_du_poids_de_maniere_saine_et_durable',
     },
   ];
 
