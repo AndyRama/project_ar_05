@@ -72,14 +72,7 @@ export const ContactSupportDialog = (props: ContactSupportDialogProps) => {
         <DialogHeader>
           <DialogTitle>Contact Support</DialogTitle>
           <DialogDescription>
-            Remplissez le formulaire ci-dessous ou envoyez un e-mail{" "}
-            <Link
-              className="text-primary"
-              href={`mailto:${env.NEXT_PUBLIC_EMAIL_CONTACT}`}
-            >
-              {env.NEXT_PUBLIC_EMAIL_CONTACT}
-            </Link>
-            .
+            Remplissez le formulaire ci-dessous qui contactera directement le support technique.     
           </DialogDescription>
         </DialogHeader>
         <Form

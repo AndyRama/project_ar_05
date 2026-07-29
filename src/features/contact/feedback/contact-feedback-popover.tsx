@@ -124,7 +124,7 @@ export const ContactFeedbackPopover = (props: ContactFeedbackPopoverProps) => {
               type="submit"
               variant="outline"
             >
-              Send
+              Envoyer
             </LoadingButton>
           </div>
         </Form>
