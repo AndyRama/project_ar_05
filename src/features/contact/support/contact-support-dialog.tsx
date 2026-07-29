@@ -72,7 +72,7 @@ export const ContactSupportDialog = (props: ContactSupportDialogProps) => {
         <DialogHeader>
           <DialogTitle>Contact Support</DialogTitle>
           <DialogDescription>
-            Remplissez le formulaire ci-dessous qui contactera directement le support technique.     
+            Remplissez le formulaire ci-dessous qui contactera le support technique.     
           </DialogDescription>
         </DialogHeader>
         <Form
