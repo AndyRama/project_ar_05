@@ -42,7 +42,6 @@ export default async function AdminMealPlansPage() {
                 <TableHead className="text-center">Actions</TableHead>
                 <TableHead className="text-center">Plans envoyés</TableHead>
                 <TableHead className="text-center">Actions</TableHead>
-                <TableHead className="text-center">Bilan v2</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -86,20 +85,6 @@ export default async function AdminMealPlansPage() {
                             Gérer PDF
                           </Button>
                         </Link>           
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center gap-2">
-                          <Link href={`/admin/demo-live`}>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="gap-2 hover:bg-orange-50 hover:text-orange-600"
-                          >
-                          <NotebookText  className="size-4" />
-                            Bilan V2
-                          </Button>
-                        </Link>
                       </div>
                     </TableCell>
                   </TableRow>

@@ -4,11 +4,14 @@ import {
   LayoutHeader,
   LayoutTitle,
 } from "@/features/page/layout";
+import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import { notFound } from "next/navigation";
 import { MonthlyAuditForm } from "@/features/landing/audit/monthly/audit-form";
 import type { PageParams } from "@/types/next";
+import { ArrowLeft} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 type EditBilanPageProps = PageParams<{ profileId: string }>;
 
@@ -46,7 +49,18 @@ export default async function EditBilanPage({ params }: EditBilanPageProps) {
   return (
     <Layout>
       <LayoutHeader>
-        <LayoutTitle>Modifier le bilan</LayoutTitle>
+        <div className="flex items-center gap-4">
+          <Link href="/admin/alimentaire">
+            <Button variant="outline" size="sm" className="gap-2">
+              <ArrowLeft className="size-4" />
+              Retour
+            </Button>
+          </Link>
+          <div>
+            <LayoutTitle>Modifier ce bilan</LayoutTitle>
+          </div>
+        </div>
+    
       </LayoutHeader>
       <LayoutContent>
         <div className="mx-auto max-w-2xl">

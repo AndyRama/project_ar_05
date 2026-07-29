@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
   MonthlyAuditSchema,
@@ -26,6 +27,7 @@ export const MonthlyAuditForm = ({
   mode = "create",
   profileId,
 }: MonthlyAuditFormProps) => {
+  const router = useRouter();
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -60,15 +62,37 @@ export const MonthlyAuditForm = ({
     try {
       if (mode === "edit" && profileId) {
         await updateMonthlyAuditAction(profileId, data);
+        setSubmitted(true);
+        onSuccess?.();
+        // Petite pause pour laisser voir le message de succès avant la redirection
+        setTimeout(() => {
+          router.push("/app/bilan");
+        }, 1200);
       } else {
         await submitMonthlyAuditAction(data);
+        setSubmitted(true);
+        onSuccess?.();
       }
-      setSubmitted(true);
-      onSuccess?.();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Une erreur est survenue.");
     }
   };
+
+  if (submitted) {
+    return (
+      <div className="rounded-md border border-border bg-card p-8 text-center">
+        <div className="mb-3 text-3xl">✅</div>
+        <h3 className="text-lg font-semibold text-foreground">
+          {mode === "edit" ? "Bilan mis à jour !" : "Bilan enregistré !"}
+        </h3>
+        <p className="mt-2 text-sm text-muted-foreground">
+          {mode === "edit"
+            ? "Redirection vers tes bilans..."
+            : "Ton coach recevra ces nouvelles données pour ajuster ton programme."}
+        </p>
+      </div>
+    );
+  }
 
   return (
     <form data-testid="monthly-audit-form" onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
@@ -154,7 +178,7 @@ export const MonthlyAuditForm = ({
   );
 };
 
-// ── Helpers (identiques à audit-form.tsx) ──────────────────────────
+// ── Helpers ──────────────────────────
 
 const inputCn = (hasError: boolean) =>
   cn(
