@@ -50,7 +50,7 @@ export default async function EditBilanPage({ params }: EditBilanPageProps) {
     <Layout size="lg">
       <LayoutHeader>
         <div className="flex items-center gap-4">
-          <Link href="/admin/alimentaire">
+          <Link href="/app/bilan">
             <Button variant="outline" size="sm" className="gap-2">
               <ArrowLeft className="size-4" />
               Retour
