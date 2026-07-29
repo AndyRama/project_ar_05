@@ -9,8 +9,8 @@ import {
   MonthlyAuditSchema,
   type MonthlyAuditData,
 } from "./audit-form.schema";
-import { 
-  submitMonthlyAuditAction, 
+import {
+  submitMonthlyAuditAction,
   updateMonthlyAuditAction,
 } from "./audit-form.action";
 
@@ -64,7 +64,6 @@ export const MonthlyAuditForm = ({
         await updateMonthlyAuditAction(profileId, data);
         setSubmitted(true);
         onSuccess?.();
-        // Petite pause pour laisser voir le message de succès avant la redirection
         setTimeout(() => {
           router.push("/app/bilan");
         }, 1200);
@@ -96,27 +95,29 @@ export const MonthlyAuditForm = ({
 
   return (
     <form data-testid="monthly-audit-form" onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
-      <section className="flex flex-col gap-4">
-        <h3 className="text-sm font-semibold text-foreground">Profil & activité</h3>
+      <SectionCard title="Informations personnelles" description="Renseignez vos informations de base">
         <div className="grid grid-cols-2 gap-4">
           <Field label="Âge" required error={errors.age?.message}>
             <input {...register("age")} type="number" className={inputCn(!!errors.age)} />
-          </Field>
-          <Field label="Taille (cm)" required error={errors.size?.message}>
-            <input {...register("size")} type="number" className={inputCn(!!errors.size)} />
-          </Field>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
-          <Field label="Poids (kg)" required error={errors.weight?.message}>
-            <input {...register("weight")} type="number" step="0.1" className={inputCn(!!errors.weight)} />
           </Field>
           <Field label="Profession" required error={errors.profession?.message}>
             <input {...register("profession")} className={inputCn(!!errors.profession)} />
           </Field>
         </div>
-        <Field label="Pathologie / maladie" error={errors.pathology?.message}>
+        <div className="grid grid-cols-2 gap-4">
+          <Field label="Taille (cm)" required error={errors.size?.message}>
+            <input {...register("size")} type="number" className={inputCn(!!errors.size)} />
+          </Field>
+          <Field label="Poids (kg)" required error={errors.weight?.message}>
+            <input {...register("weight")} type="number" step="0.1" className={inputCn(!!errors.weight)} />
+          </Field>
+        </div>
+        <Field label="Pathologie, maladie" error={errors.pathology?.message}>
           <textarea {...register("pathology")} rows={2} placeholder="Aucune ou décrivez vos conditions médicales" className={inputCn(!!errors.pathology)} />
         </Field>
+      </SectionCard>
+
+      <SectionCard title="Activité physique" description="Informations sur votre niveau d'activité">
         <div className="grid grid-cols-2 gap-4">
           <Field label="Heures d'activité / semaine" required error={errors.hoursActivityPerWeek?.message}>
             <input {...register("hoursActivityPerWeek")} className={inputCn(!!errors.hoursActivityPerWeek)} />
@@ -128,37 +129,36 @@ export const MonthlyAuditForm = ({
         <Field label="Heures de sommeil" required error={errors.sleepHours?.message}>
           <textarea {...register("sleepHours")} rows={2} className={inputCn(!!errors.sleepHours)} />
         </Field>
-      </section>
+      </SectionCard>
 
-      <section className="flex flex-col gap-4">
-        <h3 className="text-sm font-semibold text-foreground">Mensurations (cm)</h3>
-        <div className="grid grid-cols-2 gap-4">
-          <Field label="Bras gauche" required error={errors.leftArm?.message}>
+      <SectionCard title="Mensurations" description="Prenez vos mesures corporelles en centimètres">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
+          <Field label="Bras gauche (cm)" required error={errors.leftArm?.message}>
             <input {...register("leftArm")} type="number" step="0.1" className={inputCn(!!errors.leftArm)} />
           </Field>
-          <Field label="Bras droit" required error={errors.rightArm?.message}>
+          <Field label="Bras droit (cm)" required error={errors.rightArm?.message}>
             <input {...register("rightArm")} type="number" step="0.1" className={inputCn(!!errors.rightArm)} />
           </Field>
-          <Field label="Jambe gauche" required error={errors.leftThigh?.message}>
-            <input {...register("leftThigh")} type="number" step="0.1" className={inputCn(!!errors.leftThigh)} />
-          </Field>
-          <Field label="Jambe droite" required error={errors.rightThigh?.message}>
-            <input {...register("rightThigh")} type="number" step="0.1" className={inputCn(!!errors.rightThigh)} />
-          </Field>
-          <Field label="Fessiers" required error={errors.glutes?.message}>
+          <Field label="Fessiers (cm)" required error={errors.glutes?.message}>
             <input {...register("glutes")} type="number" step="0.1" className={inputCn(!!errors.glutes)} />
           </Field>
-          <Field label="Épaules" required error={errors.shoulders?.message}>
+          <Field label="Jambe gauche (cm)" required error={errors.leftThigh?.message}>
+            <input {...register("leftThigh")} type="number" step="0.1" className={inputCn(!!errors.leftThigh)} />
+          </Field>
+          <Field label="Jambe droite (cm)" required error={errors.rightThigh?.message}>
+            <input {...register("rightThigh")} type="number" step="0.1" className={inputCn(!!errors.rightThigh)} />
+          </Field>
+          <Field label="Tour d'épaules (cm)" required error={errors.shoulders?.message}>
             <input {...register("shoulders")} type="number" step="0.1" className={inputCn(!!errors.shoulders)} />
           </Field>
-          <Field label="Poitrine" required error={errors.chest?.message}>
+          <Field label="Poitrine (cm)" required error={errors.chest?.message}>
             <input {...register("chest")} type="number" step="0.1" className={inputCn(!!errors.chest)} />
           </Field>
-          <Field label="Tour de taille" required error={errors.waist?.message}>
+          <Field label="Tour de taille (cm)" required error={errors.waist?.message}>
             <input {...register("waist")} type="number" step="0.1" className={inputCn(!!errors.waist)} />
           </Field>
         </div>
-      </section>
+      </SectionCard>
 
       {error && <p data-testid="submit-error" className="text-sm text-red-400">{error}</p>}
 
@@ -179,6 +179,26 @@ export const MonthlyAuditForm = ({
 };
 
 // ── Helpers ──────────────────────────
+
+const SectionCard = ({
+  title,
+  description,
+  children,
+}: {
+  title: string;
+  description?: string;
+  children: React.ReactNode;
+}) => (
+  <div className="rounded-md border border-orange-500/40 bg-card p-6">
+    <div className="mb-6 text-center">
+      <h3 className="text-lg font-bold text-orange-500">{title}</h3>
+      {description && (
+        <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+      )}
+    </div>
+    <div className="flex flex-col gap-4">{children}</div>
+  </div>
+);
 
 const inputCn = (hasError: boolean) =>
   cn(
