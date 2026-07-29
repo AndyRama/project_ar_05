@@ -47,7 +47,7 @@ export default async function EditBilanPage({ params }: EditBilanPageProps) {
   };
 
   return (
-    <Layout>
+    <Layout size="lg">
       <LayoutHeader>
         <div className="flex items-center gap-4">
           <Link href="/admin/alimentaire">
@@ -57,13 +57,13 @@ export default async function EditBilanPage({ params }: EditBilanPageProps) {
             </Button>
           </Link>
           <div>
-            <LayoutTitle>Modifier ce bilan</LayoutTitle>
+            <LayoutTitle>Modifier mon bilan</LayoutTitle>
           </div>
         </div>
     
       </LayoutHeader>
       <LayoutContent>
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-5xl">
           <MonthlyAuditForm
             mode="edit"
             profileId={profile.id}
