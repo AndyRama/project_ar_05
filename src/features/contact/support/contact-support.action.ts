@@ -9,8 +9,8 @@ export const contactSupportAction = action
   .inputSchema(ContactSupportSchema)
   .action(async ({ parsedInput: { email, subject, message } }) => {
     await sendEmail({
-      to: env.NEXT_PUBLIC_EMAIL_CONTACT,
-      subject: `Support needed from ${email} - ${subject}`,
+      to: env.NEXT_PUBLIC_EMAIL_SUPPORT,
+      subject: `Besoin d'aide pour ${email} - ${subject}`,
       text: message,
       html: `<p>${message}</p>`,
       replyTo: email,

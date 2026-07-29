@@ -36,7 +36,7 @@ export default async function MyMealPlansPage() {
       <LayoutContent>
         {documents.length === 0 ? (
           <div className="rounded-md border border-dashed p-10 text-center text-sm text-muted-foreground">
-            Ton coach ne t'a pas encore envoyé de plan alimentaire.
+            Ton coach ne t'a pas encore envoyé ton plan alimentaire.
           </div>
         ) : (
           <div className="space-y-3">
