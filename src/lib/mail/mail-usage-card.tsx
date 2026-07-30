@@ -20,32 +20,36 @@ export async function MailUsageCard() {
       ? "bg-amber-500"
       : "bg-emerald-500";
 
+  const remainingColor = isCritical
+    ? "text-red-400"
+    : isWarning
+      ? "text-amber-400"
+      : "text-emerald-400";
+
   return (
-    <div className="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm">
-      <div className="flex items-center justify-between">
-        <h3 className="text-sm font-medium text-neutral-500">Emails (Resend)</h3>
-        <span className="text-xs text-neutral-400">
-          Réinitialisation le {formatResetDate(resetDate)}
+    <div className="rounded-xl border border-sky-900/40 bg-zinc-900/60 p-5">
+      <h3 className="text-sm font-semibold text-sky-400">Emails (Resend)</h3>
+
+      <div className="mt-3 flex items-center justify-between">
+        <p className="text-sm text-zinc-300">
+          {sentThisMonth.toLocaleString("fr-FR")} envoyés / {limit.toLocaleString("fr-FR")}
+        </p>
+        <span className={`text-sm font-medium ${remainingColor}`}>
+          {remaining.toLocaleString("fr-FR")} restants
         </span>
       </div>
 
-      <div className="mt-2 flex items-baseline gap-1">
-        <span className="text-2xl font-semibold text-neutral-900">
-          {sentThisMonth.toLocaleString("fr-FR")}
-        </span>
-        <span className="text-sm text-neutral-400">/ {limit.toLocaleString("fr-FR")} envoyés ce mois-ci</span>
-      </div>
-
-      <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-neutral-100">
+      <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-zinc-800">
         <div
           className={`h-full rounded-full transition-all ${barColor}`}
           style={{ width: `${percentUsed}%` }}
         />
       </div>
 
-      <p className="mt-2 text-xs text-neutral-400">
-        {remaining.toLocaleString("fr-FR")} emails restants ({percentUsed.toFixed(1)}% utilisé)
-      </p>
+      <div className="mt-2 flex items-center justify-between text-xs text-zinc-500">
+        <span>{percentUsed.toFixed(1)}% utilisé</span>
+        <span>Réinitialisation le {formatResetDate(resetDate)}</span>
+      </div>
     </div>
   );
 }

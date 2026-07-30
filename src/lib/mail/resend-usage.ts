@@ -20,6 +20,18 @@ type ResendListResponse = {
   data: ResendEmail[];
 };
 
+// Resend renvoie des dates du type "2026-04-03 22:13:42.674981+00".
+// new Date() sur ce format brut renvoie Invalid Date car:
+//  - il manque le "T" entre date et heure
+//  - le fuseau horaire "+00" n'a pas de ":00" (format ISO strict requis)
+//  - les microsecondes (6 chiffres) ne sont pas supportées (JS gère jusqu'à 3)
+function parseResendDate(raw: string): Date {
+  let iso = raw.trim().replace(" ", "T");
+  iso = iso.replace(/(\.\d{3})\d+/, "$1"); // tronque à 3 décimales (ms)
+  iso = iso.replace(/([+-]\d{2})$/, "$1:00"); // +00 -> +00:00
+  return new Date(iso);
+}
+
 export async function getResendUsage() {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
@@ -54,7 +66,13 @@ export async function getResendUsage() {
     const json = (await res.json()) as ResendListResponse;
 
     for (const email of json.data) {
-      const createdAt = new Date(email.created_at.replace(" ", "T"));
+      const createdAt = parseResendDate(email.created_at);
+      if (Number.isNaN(createdAt.getTime())) {
+        console.warn(
+          `[getResendUsage] Date illisible depuis Resend: "${email.created_at}", email ignoré`,
+        );
+        continue;
+      }
       if (createdAt >= startOfMonth) {
         sentThisMonth += 1;
       } else {
