@@ -17,8 +17,8 @@ import {
 import { useSession } from "@/lib/auth-client";
 import {
   LayoutDashboard,
-  Monitor,
-  Moon,
+  // Monitor,
+  // Moon,
   Settings,
   Shield,
   SunMedium,
@@ -56,6 +56,15 @@ export const UserDropdown = ({ children }: PropsWithChildren) => {
           )}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
+        {session.data.user.role === "admin" && (
+          <DropdownMenuItem asChild>
+            <Link href="/admin">
+              <Shield className="mr-2 size-4" />
+              Admin
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+        )}
         <DropdownMenuItem asChild>
           <Link href="/app">
             <LayoutDashboard className="mr-2 size-4" />
@@ -68,14 +77,6 @@ export const UserDropdown = ({ children }: PropsWithChildren) => {
             Paramètre
           </Link>
         </DropdownMenuItem>
-        {session.data.user.role === "admin" && (
-          <DropdownMenuItem asChild>
-            <Link href="/admin">
-              <Shield className="mr-2 size-4" />
-              Admin
-            </Link>
-          </DropdownMenuItem>
-        )}
         <DropdownMenuSeparator />
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
@@ -88,7 +89,7 @@ export const UserDropdown = ({ children }: PropsWithChildren) => {
                 <SunMedium className="mr-2 size-4" />
                 <span>Dark</span>
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => theme.setTheme("light")}>
+              {/* <DropdownMenuItem onClick={() => theme.setTheme("light")}>
                 <Moon className="mr-2 size-4" />
                 <span>Light</span>
               </DropdownMenuItem>
@@ -96,7 +97,7 @@ export const UserDropdown = ({ children }: PropsWithChildren) => {
               <DropdownMenuItem onClick={() => theme.setTheme("system")}>
                 <Monitor className="mr-2 size-4" />
                 <span>System</span>
-              </DropdownMenuItem>
+              </DropdownMenuItem> */}
             </DropdownMenuSubContent>
           </DropdownMenuPortal>
         </DropdownMenuSub>
