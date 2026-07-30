@@ -121,7 +121,7 @@ export default async function AdminPage() {
         {/* Statistiques */}
         {usersWithProfiles.length > 0 && (
           <div className="mb-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <Card className="border-orange-200">
+            <Card className="border-orange-500/30">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="py-2 text-sm font-medium">
                   Clients suivis
@@ -138,7 +138,7 @@ export default async function AdminPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-orange-200">
+            <Card className="border-orange-500/30">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="py-2 text-sm font-medium">
                   Cette semaine
@@ -155,7 +155,7 @@ export default async function AdminPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-orange-200">
+            <Card className="border-orange-500/30">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
                   Âge moyen
@@ -176,7 +176,7 @@ export default async function AdminPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-orange-200">
+            <Card className="border-orange-500/30">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
                   Activité moyenne

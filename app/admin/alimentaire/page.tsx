@@ -12,6 +12,7 @@ import { prisma } from "@/lib/prisma";
 import { getRequiredAdmin } from "@/lib/auth/auth-user";
 import Link from "next/link";
 import { FileText, Eye, NotebookText  } from "lucide-react";
+import { StorageUsageCard } from "@/features/admin/meal-plans/storage-usage-card";
 
 export default async function AdminMealPlansPage() {
   await getRequiredAdmin();
@@ -30,7 +31,8 @@ export default async function AdminMealPlansPage() {
       <LayoutHeader>
         <LayoutTitle>Plans alimentaires | Gestion des PDF</LayoutTitle>
       </LayoutHeader>
-      <LayoutContent>
+      <LayoutContent className="space-y-6">
+        <StorageUsageCard />
         <div className="overflow-x-auto rounded-md border">
           <Table>
             <TableHeader>
