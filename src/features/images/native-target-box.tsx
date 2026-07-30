@@ -101,7 +101,7 @@ export const NativeTargetBox = ({
         </div>
       ) : (
         <div className="absolute inset-0 flex items-center justify-center">
-          <Typography variant="muted">Upload</Typography>
+          <Typography variant="muted">Dépose un PDF ou clique pour choisir</Typography>
         </div>
       )}
       <input

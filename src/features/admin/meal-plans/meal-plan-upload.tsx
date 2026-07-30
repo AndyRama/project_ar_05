@@ -54,7 +54,7 @@ export const MealPlanUpload = ({ userId, onUploaded }: MealPlanUploadProps) => {
       onDrop={handleDrop}
       accept={["application/pdf"]}
     >
-      {uploadMutation.isPending ? <Loader /> : <span className="text-sm text-muted-foreground">Dépose un PDF ou clique pour choisir</span>}
+      {uploadMutation.isPending ? <Loader /> : <span className="text-sm text-muted-foreground"></span>}
     </NativeTargetBox>
   );
 };
