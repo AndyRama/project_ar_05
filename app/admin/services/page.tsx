@@ -8,7 +8,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/ca
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { StorageUsageCard } from "@/features/admin/meal-plans/storage-usage-card";
-import { MailUsageCard } from "@/features/lib/mail/mail-usage-card";
+import { MailUsageCard } from "@/lib/mail/mail-usage-card";
 
 const SERVICES = [
   { title: "Github",      description: "Dépôt du code source de l'application",      link: "https://github.com/" },
@@ -17,7 +17,6 @@ const SERVICES = [
   { title: "NeonDb",      description: "Base de données de l'application",           link: "https://neon.tech/" },
   { title: "Resend",      description: "Emailing pour l'application",                link: "https://resend.com/" },
   { title: "Uploadthing", description: "stockage image cloud",                       link: "https://uploadthing.com" },
-  { title: "Resend",      description: "Gestion email cloud",                        link: "https://resend.com" },
 ];
 
 export default async function ServicesPage() {
