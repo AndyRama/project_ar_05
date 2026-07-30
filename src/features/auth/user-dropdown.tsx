@@ -63,7 +63,6 @@ export const UserDropdown = ({ children }: PropsWithChildren) => {
               Admin
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuSeparator />
         )}
         <DropdownMenuItem asChild>
           <Link href="/app">
