@@ -2,7 +2,7 @@
 
 import { authAction } from "@/lib/actions/safe-actions";
 import { ActionError } from "@/lib/errors/action-error";
-import { fileAdapter } from "@/lib/files/uploadthing-adapter";
+import { uploadFileDetailed } from "@/lib/files/uploadthing-adapter";
 import { getRequiredAdmin } from "@/lib/auth/auth-user";
 import { prisma } from "@/lib/prisma";
 import { z } from "zod";
@@ -16,7 +16,6 @@ export const uploadMealPlanAction = authAction
     }),
   )
   .action(async ({ parsedInput: { formData, userId } }) => {
-    // Vérifie que celui qui upload est bien admin (pas juste connecté)
     await getRequiredAdmin();
 
     const files = formData.get("files") as File | File[];
@@ -25,20 +24,14 @@ export const uploadMealPlanAction = authAction
     if (!(file instanceof File)) {
       throw new ActionError("Fichier invalide");
     }
-
     if (file.type !== "application/pdf") {
       throw new ActionError("Seuls les fichiers PDF sont acceptés");
     }
-
     if (file.size > 10 * 1024 * 1024) {
       throw new ActionError("Fichier trop volumineux (max 10mb)");
     }
 
-    const response = await fileAdapter.uploadFile({
-      file,
-      path: "meal-plans",
-    });
-
+    const response = await uploadFileDetailed(file);
     if (response.error) {
       throw new ActionError(response.error.message);
     }
@@ -48,10 +41,11 @@ export const uploadMealPlanAction = authAction
         userId,
         fileName: file.name,
         fileUrl: response.data.url,
+        fileKey: response.data.key,
       },
     });
 
-    revalidatePath(`/admin/alimentaire/${userId}`);
+    revalidatePath(`/admin/alimentaire/pdf/${userId}`);
 
     return response.data.url;
   });

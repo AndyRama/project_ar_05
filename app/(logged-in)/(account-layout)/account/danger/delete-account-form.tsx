@@ -87,7 +87,7 @@ export function DeleteAccountForm() {
             });
           }}
         >
-          Delete
+          Supprimer
         </LoadingButton>
       </CardFooter>
     </Card>

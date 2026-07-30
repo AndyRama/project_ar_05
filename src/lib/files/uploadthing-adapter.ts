@@ -6,17 +6,14 @@ const utapi = new UTApi();
 export const fileAdapter: UploadFileAdapter = {
   uploadFile: async ({ file }) => {
     const response = await utapi.uploadFiles(file);
-
     if (response.error) {
       return { error: new Error(response.error.message), data: null };
     }
-
     return { error: null, data: { url: response.data.url } };
   },
   uploadFiles: async (params) => {
     const files = params.map((p) => p.file);
     const responses = await utapi.uploadFiles(files);
-
     return responses.map((r) => {
       if (r.error) {
         return { error: new Error(r.error.message), data: null };
@@ -25,3 +22,21 @@ export const fileAdapter: UploadFileAdapter = {
     });
   },
 };
+
+// Variante qui expose aussi la clé UploadThing pour delete/cleanup
+export const uploadFileDetailed = async (file: File) => {
+  const response = await utapi.uploadFiles(file);
+  if (response.error) {
+    return { error: new Error(response.error.message), data: null };
+  }
+  return {
+    error: null,
+    data: {
+      url: response.data.url,
+      key: response.data.key,
+      size: response.data.size,
+    },
+  };
+};
+
+export { utapi };

@@ -82,7 +82,7 @@ export default async function AdminMealPlansPage() {
                         <Link href={`/admin/alimentaire/pdf/${u.id}`}>
                           <Button variant="outline" size="sm" className="gap-2">
                             <FileText className="size-4" />
-                            Gérer PDF
+                              PDF
                           </Button>
                         </Link>           
                       </div>

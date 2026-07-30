@@ -7,8 +7,10 @@ import { prisma } from "@/lib/prisma";
 import { getRequiredAdmin } from "@/lib/auth/auth-user";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Download, FileText } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { MealPlanUpload } from "@/features/admin/meal-plans/meal-plan-upload";
+import { MealPlanList } from "@/features/admin/meal-plans/meal-plan-list";
+import { StorageUsageCard } from "@/features/admin/meal-plans/storage-usage-card";
 import type { PageParams } from "@/types/next";
 
 type Props = PageParams<{ userId: string }>;
@@ -42,6 +44,8 @@ export default async function AdminClientMealPlanPage({ params }: Props) {
       </LayoutHeader>
 
       <LayoutContent className="space-y-6">
+        <StorageUsageCard />
+
         <Card className="border-orange-500/30">
           <CardHeader>
             <CardTitle className="text-sm text-orange-500">Envoyer un nouveau plan</CardTitle>
@@ -51,31 +55,7 @@ export default async function AdminClientMealPlanPage({ params }: Props) {
           </CardContent>
         </Card>
 
-        <div className="space-y-3">
-          {client.mealPlanDocuments.length === 0 ? (
-            <p className="text-sm text-muted-foreground">Aucun plan envoyé pour l'instant.</p>
-          ) : (
-            client.mealPlanDocuments.map((doc) => (
-              <div key={doc.id} className="flex items-center justify-between rounded-md border p-3">
-                <div className="flex items-center gap-2">
-                  <FileText className="size-4 text-orange-500" />
-                  <div>
-                    <p className="text-sm font-medium">{doc.fileName}</p>
-                    <p className="text-xs text-muted-foreground">
-                      {new Date(doc.createdAt).toLocaleDateString("fr-FR")}
-                    </p>
-                  </div>
-                </div>
-                <a href={doc.fileUrl} target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="sm" className="gap-2">
-                    <Download className="size-4" />
-                    Ouvrir
-                  </Button>
-                </a>
-              </div>
-            ))
-          )}
-        </div>
+        <MealPlanList documents={client.mealPlanDocuments} />
       </LayoutContent>
     </Layout>
   );

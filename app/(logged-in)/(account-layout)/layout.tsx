@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import { AccountNavigation } from "./account-navigation";
 
 export const metadata: Metadata = {
-  title: "Account",
-  description: "Manage your account settings.",
+  title: "Compte",
+  description: "Gérez les paramètres de votre compte.",
 };
 
 export default async function RouteLayout(props: LayoutParams) {
