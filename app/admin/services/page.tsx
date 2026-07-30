@@ -25,9 +25,12 @@ export default async function ServicesPage() {
       <LayoutHeader>
         <LayoutTitle>Gestion des services</LayoutTitle>
       </LayoutHeader>
-      <LayoutContent className="space-y-6">
-        <StorageUsageCard />
-        <MailUsageCard />
+      <LayoutContent>
+      {/* Gestion des services */}
+        <div className="mb-6 grid grid-cols-1 gap-4 xl:grid-cols-2">
+          <StorageUsageCard />
+          <MailUsageCard />
+        </div>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
           {SERVICES.map((service) => (
