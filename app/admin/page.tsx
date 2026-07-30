@@ -21,6 +21,8 @@ import { getRequiredAdmin } from "@/lib/auth/auth-user";
 import Link from "next/link";
 import { Eye, Users, Calendar, TrendingUp, Activity, ExternalLink, File } from "lucide-react";
 import type { Prisma } from "@/generated/prisma";
+import { StorageUsageCard } from "@/features/admin/meal-plans/storage-usage-card";
+import { MailUsageCard } from "@/features/email/mail-usage-card";
 
 // Type pour un client avec tous ses bilans
 type UserWithProfiles = Prisma.UserGetPayload<{
@@ -110,6 +112,12 @@ export default async function AdminPage() {
       </LayoutActions>
 
       <LayoutContent>
+        {/* Gestion des services */}
+        <div className="mb-6 grid grid-cols-1 gap-4 xl:grid-cols-2">
+          <StorageUsageCard />
+          <MailUsageCard />
+        </div>
+
         {/* Statistiques */}
         {usersWithProfiles.length > 0 && (
           <div className="mb-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
