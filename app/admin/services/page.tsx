@@ -8,7 +8,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/ca
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { StorageUsageCard } from "@/features/admin/meal-plans/storage-usage-card";
-import { MailUsageCard } from "@/lib/mail/mail-usage-card";
+import { MailUsageCard } from "@/features/email/mail-usage-card";
 
 const SERVICES = [
   { title: "Github",      description: "Dépôt du code source de l'application",      link: "https://github.com/" },
