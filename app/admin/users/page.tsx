@@ -26,7 +26,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
       <LayoutHeader>
         <LayoutTitle>User Management</LayoutTitle>
         <LayoutDescription>
-          View and manage all users in the system
+          Afficher et gérer tous les utilisateurs du système
         </LayoutDescription>
       </LayoutHeader>
 

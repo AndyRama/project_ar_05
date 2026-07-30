@@ -70,22 +70,22 @@ export function UserProviders({ accounts }: UserProvidersProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Authentication Providers</CardTitle>
+        <CardTitle>Fournisseurs d'authentification</CardTitle>
         <CardDescription>
-          Connected authentication methods for this user
+          Méthodes d'authentification connectées pour cet utilisateur
         </CardDescription>
       </CardHeader>
       <CardContent>
         {accounts.length === 0 ? (
           <div className="text-muted-foreground py-4 text-center">
-            No authentication providers found
+            Aucun fournisseur d'authentification trouvé
           </div>
         ) : (
           <div className="rounded-md border">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Provider</TableHead>
+                  <TableHead>Fournisseur </TableHead>
                   <TableHead>Account ID</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead>Connected</TableHead>

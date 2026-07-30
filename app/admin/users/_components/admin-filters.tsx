@@ -17,7 +17,7 @@ export const AdminFilters = () => {
       <div className="relative flex-1">
         <Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2 transform" />
         <Input
-          placeholder="Search users by email..."
+          placeholder="Rechercher des utilisateurs par e-mail..."
           value={filters.search}
           onChange={(e) => {
             void setFilters({

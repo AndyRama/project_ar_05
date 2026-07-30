@@ -3,6 +3,7 @@ import {
   LayoutContent,
   LayoutHeader,
   LayoutTitle,
+  LayoutActions,
 } from "@/features/page/layout";
 import {
   Card,
@@ -15,7 +16,7 @@ import { prisma } from "@/lib/prisma";
 import { getUser } from "@/lib/auth/auth-user";
 import { redirect, notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Files } from "lucide-react";
 import type { PageParams } from "@/types/next";
 import { MeasurementChart } from "./MeasurementChart";
 
@@ -69,6 +70,15 @@ export default async function AlimentaireDetailPage({
             </div>
           </div>
         </LayoutHeader>
+
+        <LayoutActions>  
+          <Link href="/admin/demo-live">
+            <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
+              <Files  className="size-4" />
+                Version 2
+            </Button>
+          </Link>
+        </LayoutActions>
 
         <LayoutContent className="space-y-6">
           {/* Première ligne : Infos générales (1/3) + Statistiques (2/3) */}

@@ -42,7 +42,7 @@ export default async function RoutePage(props: {
       <LayoutHeader>
         <LayoutTitle>User Details</LayoutTitle>
         <LayoutDescription>
-          View and manage user information and organization memberships
+          Consulter et gérer les informations utilisateur et les appartenances à des organisations
         </LayoutDescription>
       </LayoutHeader>
       <LayoutActions>

@@ -66,7 +66,7 @@ export default async function NewBilanPage() {
         </Link>
       </LayoutActions>
       <LayoutContent>
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <MonthlyAuditForm defaultValues={defaultValues} />
         </div>
       </LayoutContent>

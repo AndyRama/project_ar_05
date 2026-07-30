@@ -25,21 +25,6 @@ const ADMIN_LINKS: NavigationGroup[] = [
     ],
   },
   {
-    title: "Marketing",
-    links: [
-      {
-        href: `${ADMIN_PATH}/publication`,
-        Icon: BookOpen,
-        label: "Publication",
-      },
-      {
-        href: `${ADMIN_PATH}/feedback`,
-        Icon: MessageSquare,
-        label: "Feedback",
-      },
-    ],
-  },
-  {
     title: "Paramètres",
     links: [
       {
@@ -51,6 +36,21 @@ const ADMIN_LINKS: NavigationGroup[] = [
         href: `/account`,
         Icon: Settings,
         label: "Compte utilisateur",
+      },
+    ],
+  },
+  {
+    title: "Marketing",
+    links: [
+      {
+        href: `${ADMIN_PATH}/publication`,
+        Icon: BookOpen,
+        label: "Publication",
+      },
+      {
+        href: `${ADMIN_PATH}/feedback`,
+        Icon: MessageSquare,
+        label: "Feedback",
       },
     ],
   },

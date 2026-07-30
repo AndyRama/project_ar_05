@@ -37,7 +37,7 @@ export default async function AdminFeedbackPage({ searchParams }: PageProps) {
       <LayoutHeader>
         <LayoutTitle>Feedback Management</LayoutTitle>
         <LayoutDescription>
-          View and manage all user feedback submissions
+          Consulter et gérer tous les retours d'utilisateurs
         </LayoutDescription>
       </LayoutHeader>
 

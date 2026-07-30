@@ -141,7 +141,7 @@ export function UserSessions({ userId }: UserSessionsProps) {
           <div>
             <CardTitle>Active Sessions</CardTitle>
             <CardDescription>
-              View and manage user sessions for debugging
+              Afficher et gérer les sessions utilisateur à des fins de débogage
             </CardDescription>
           </div>
           {sessions.length > 0 && (
@@ -152,7 +152,7 @@ export function UserSessions({ userId }: UserSessionsProps) {
               disabled={revokeAllSessionsMutation.isPending}
             >
               <TrashIcon className="mr-2 size-4" />
-              Revoke All Sessions
+              Révoquer toutes les sessions
             </Button>
           )}
         </div>
@@ -165,11 +165,11 @@ export function UserSessions({ userId }: UserSessionsProps) {
           </div>
         ) : error ? (
           <div className="text-destructive py-4 text-center">
-            Failed to load sessions: {error.message}
+            Échec du chargement des sessions: {error.message}
           </div>
         ) : sessions.length === 0 ? (
           <div className="text-muted-foreground py-4 text-center">
-            No active sessions found
+            Aucune session active trouvée
           </div>
         ) : (
           <div className="rounded-md border">
