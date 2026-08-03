@@ -1,0 +1,330 @@
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
+import {
+  MonthlyAuditSchema,
+  RATING_LEVELS,
+  RATING_LABELS,
+  type MonthlyAuditData,
+} from "./audit-form.schema";
+import {
+  submitMonthlyAuditAction,
+  updateMonthlyAuditAction,
+} from "./audit-form.action";
+
+type MonthlyAuditFormProps = {
+  defaultValues?: Partial<MonthlyAuditData>;
+  onSuccess?: () => void;
+  mode?: "create" | "edit";
+  profileId?: string;
+};
+
+export const MonthlyAuditForm = ({
+  defaultValues,
+  onSuccess,
+  mode = "create",
+  profileId,
+}: MonthlyAuditFormProps) => {
+  const router = useRouter();
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const form = useForm<MonthlyAuditData>({
+    resolver: zodResolver(MonthlyAuditSchema),
+    mode: "onTouched",
+    defaultValues: {
+      age: "", size: "", weight: "", gender: undefined,
+      profession: "", pathology: "",
+      hoursActivityPerWeek: "", stepsPerWeek: "", sleepHours: "",
+      leftArm: "", rightArm: "", leftThigh: "", rightThigh: "",
+      glutes: "", shoulders: "", chest: "", waist: "",
+      back: "", hips: "", leftForearm: "", rightForearm: "",
+      leftCalf: "", rightCalf: "", bodyFatPercentage: "",
+      sleepQuality: undefined, mealsPerDay: "", hydrationLiters: "",
+      dietCompliance: undefined, supplements: "", stressLevel: undefined, stressComment: "",
+      trainingSessionsPerWeek: "", avgSessionDuration: "", trainingIntensity: undefined,
+      monthlyFocus: "", monthlyProgress: "", pointsToImprove: "",
+      energyLevel: undefined, motivationLevel: undefined, recoveryLevel: undefined,
+      monthlyObservations: "", nextMonthGoals: "",
+      ...defaultValues,
+    },
+  });
+
+  const { register, watch, setValue, handleSubmit, formState: { errors, isSubmitting } } = form;
+
+  const onSubmit = async (data: MonthlyAuditData) => {
+    setError(null);
+    try {
+      if (mode === "edit" && profileId) {
+        await updateMonthlyAuditAction(profileId, data);
+        setSubmitted(true);
+        onSuccess?.();
+        setTimeout(() => router.push("/app/bilan"), 1200);
+      } else {
+        await submitMonthlyAuditAction(data);
+        setSubmitted(true);
+        onSuccess?.();
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Une erreur est survenue.");
+    }
+  };
+
+  if (submitted) {
+    return (
+      <div className="rounded-md border border-border bg-card p-8 text-center">
+        <div className="mb-3 text-3xl">✅</div>
+        <h3 className="text-lg font-semibold text-foreground">
+          {mode === "edit" ? "Bilan mis à jour !" : "Bilan enregistré !"}
+        </h3>
+        <p className="mt-2 text-sm text-muted-foreground">
+          {mode === "edit"
+            ? "Redirection vers tes bilans..."
+            : "Ton coach recevra ces nouvelles données pour ajuster ton programme."}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form data-testid="monthly-audit-form" onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+      <SectionCard title="Informations personnelles" description="Renseignez vos informations de base">
+        <div className="grid grid-cols-2 gap-4">
+          <Field label="Âge" required error={errors.age?.message}>
+            <input {...register("age")} type="number" className={inputCn(!!errors.age)} />
+          </Field>
+          <Field label="Profession" required error={errors.profession?.message}>
+            <input {...register("profession")} className={inputCn(!!errors.profession)} />
+          </Field>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <Field label="Taille (cm)" required error={errors.size?.message}>
+            <input {...register("size")} type="number" className={inputCn(!!errors.size)} />
+          </Field>
+          <Field label="Poids (kg)" required error={errors.weight?.message}>
+            <input {...register("weight")} type="number" step="0.1" className={inputCn(!!errors.weight)} />
+          </Field>
+        </div>
+        <Field label="Sexe" error={errors.gender?.message}>
+          <div className="flex gap-2">
+            {(["HOMME", "FEMME"] as const).map((g) => (
+              <button
+                key={g}
+                type="button"
+                onClick={() => setValue("gender", g, { shouldValidate: true })}
+                className={cn(
+                  "flex-1 rounded-md border px-4 py-2 text-sm font-medium transition-all",
+                  watch("gender") === g
+                    ? "border-orange-500 bg-orange-50 text-orange-600 dark:bg-orange-950/40"
+                    : "border-border bg-background hover:border-orange-300"
+                )}
+              >
+                {g === "HOMME" ? "Homme" : "Femme"}
+              </button>
+            ))}
+          </div>
+        </Field>
+        <Field label="Pathologie, maladie" error={errors.pathology?.message}>
+          <textarea {...register("pathology")} rows={2} className={inputCn(!!errors.pathology)} />
+        </Field>
+      </SectionCard>
+
+      <SectionCard title="Activité physique" description="Informations sur votre niveau d'activité">
+        <div className="grid grid-cols-2 gap-4">
+          <Field label="Heures d'activité / semaine" required error={errors.hoursActivityPerWeek?.message}>
+            <input {...register("hoursActivityPerWeek")} className={inputCn(!!errors.hoursActivityPerWeek)} />
+          </Field>
+          <Field label="Pas par semaine" required error={errors.stepsPerWeek?.message}>
+            <input {...register("stepsPerWeek")} className={inputCn(!!errors.stepsPerWeek)} />
+          </Field>
+        </div>
+        <Field label="Heures de sommeil" required error={errors.sleepHours?.message}>
+          <textarea {...register("sleepHours")} rows={2} className={inputCn(!!errors.sleepHours)} />
+        </Field>
+      </SectionCard>
+
+      <SectionCard title="Mensurations" description="Prenez vos mesures corporelles en centimètres">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
+          <Field label="Tour d'épaules" required error={errors.shoulders?.message}>
+            <input {...register("shoulders")} type="number" step="0.1" className={inputCn(!!errors.shoulders)} />
+          </Field>
+          <Field label="Tour de poitrine" required error={errors.chest?.message}>
+            <input {...register("chest")} type="number" step="0.1" className={inputCn(!!errors.chest)} />
+          </Field>
+          <Field label="Tour de taille" required error={errors.waist?.message}>
+            <input {...register("waist")} type="number" step="0.1" className={inputCn(!!errors.waist)} />
+          </Field>
+          <Field label="Tour de dos" required error={errors.back?.message}>
+            <input {...register("back")} type="number" step="0.1" className={inputCn(!!errors.back)} />
+          </Field>
+          <Field label="Tour de hanches" required error={errors.hips?.message}>
+            <input {...register("hips")} type="number" step="0.1" className={inputCn(!!errors.hips)} />
+          </Field>
+          <Field label="Tour de fessiers" required error={errors.glutes?.message}>
+            <input {...register("glutes")} type="number" step="0.1" className={inputCn(!!errors.glutes)} />
+          </Field>
+          <Field label="Bras gauche (flex)" required error={errors.leftArm?.message}>
+            <input {...register("leftArm")} type="number" step="0.1" className={inputCn(!!errors.leftArm)} />
+          </Field>
+          <Field label="Bras droit (flex)" required error={errors.rightArm?.message}>
+            <input {...register("rightArm")} type="number" step="0.1" className={inputCn(!!errors.rightArm)} />
+          </Field>
+          <Field label="Avant-bras gauche" required error={errors.leftForearm?.message}>
+            <input {...register("leftForearm")} type="number" step="0.1" className={inputCn(!!errors.leftForearm)} />
+          </Field>
+          <Field label="Avant-bras droit" required error={errors.rightForearm?.message}>
+            <input {...register("rightForearm")} type="number" step="0.1" className={inputCn(!!errors.rightForearm)} />
+          </Field>
+          <Field label="Cuisse gauche" required error={errors.leftThigh?.message}>
+            <input {...register("leftThigh")} type="number" step="0.1" className={inputCn(!!errors.leftThigh)} />
+          </Field>
+          <Field label="Cuisse droite" required error={errors.rightThigh?.message}>
+            <input {...register("rightThigh")} type="number" step="0.1" className={inputCn(!!errors.rightThigh)} />
+          </Field>
+          <Field label="Mollet gauche" required error={errors.leftCalf?.message}>
+            <input {...register("leftCalf")} type="number" step="0.1" className={inputCn(!!errors.leftCalf)} />
+          </Field>
+          <Field label="Mollet droit" required error={errors.rightCalf?.message}>
+            <input {...register("rightCalf")} type="number" step="0.1" className={inputCn(!!errors.rightCalf)} />
+          </Field>
+          <Field label="Masse grasse (%)" error={errors.bodyFatPercentage?.message}>
+            <input {...register("bodyFatPercentage")} type="number" step="0.1" placeholder="Si connue" className={inputCn(!!errors.bodyFatPercentage)} />
+          </Field>
+        </div>
+      </SectionCard>
+
+      <SectionCard title="Hygiène de vie" description="Sommeil, nutrition et gestion du stress">
+        <RatingField label="Qualité du sommeil" value={watch("sleepQuality")} onChange={(v) => setValue("sleepQuality", v as MonthlyAuditData["sleepQuality"])} />
+        <div className="grid grid-cols-2 gap-4">
+          <Field label="Repas / jour" error={errors.mealsPerDay?.message}>
+            <input {...register("mealsPerDay")} type="number" className={inputCn(!!errors.mealsPerDay)} />
+          </Field>
+          <Field label="Hydratation (L/jour)" error={errors.hydrationLiters?.message}>
+            <input {...register("hydrationLiters")} type="number" step="0.1" className={inputCn(!!errors.hydrationLiters)} />
+          </Field>
+        </div>
+        <RatingField label="Respect du plan alimentaire" value={watch("dietCompliance")} onChange={(v) => setValue("dietCompliance", v as MonthlyAuditData["dietCompliance"])} />
+        <Field label="Suppléments utilisés" error={errors.supplements?.message}>
+          <input {...register("supplements")} placeholder="Ex: whey, créatine" className={inputCn(!!errors.supplements)} />
+        </Field>
+        <RatingField label="Niveau de stress" value={watch("stressLevel")} onChange={(v) => setValue("stressLevel", v as MonthlyAuditData["stressLevel"])} />
+        <Field label="Commentaire sur le stress" error={errors.stressComment?.message}>
+          <textarea {...register("stressComment")} rows={2} className={inputCn(!!errors.stressComment)} />
+        </Field>
+      </SectionCard>
+
+      <SectionCard title="Musculation" description="Fréquence, intensité et progression">
+        <div className="grid grid-cols-2 gap-4">
+          <Field label="Séances / semaine" error={errors.trainingSessionsPerWeek?.message}>
+            <input {...register("trainingSessionsPerWeek")} type="number" className={inputCn(!!errors.trainingSessionsPerWeek)} />
+          </Field>
+          <Field label="Durée moyenne (min)" error={errors.avgSessionDuration?.message}>
+            <input {...register("avgSessionDuration")} type="number" className={inputCn(!!errors.avgSessionDuration)} />
+          </Field>
+        </div>
+        <RatingField label="Intensité globale" value={watch("trainingIntensity")} onChange={(v) => setValue("trainingIntensity", v as MonthlyAuditData["trainingIntensity"])} />
+        <Field label="Focus du mois" error={errors.monthlyFocus?.message}>
+          <input {...register("monthlyFocus")} className={inputCn(!!errors.monthlyFocus)} />
+        </Field>
+        <Field label="Progression ce mois" error={errors.monthlyProgress?.message}>
+          <textarea {...register("monthlyProgress")} rows={2} className={inputCn(!!errors.monthlyProgress)} />
+        </Field>
+        <Field label="Points à améliorer" error={errors.pointsToImprove?.message}>
+          <textarea {...register("pointsToImprove")} rows={2} className={inputCn(!!errors.pointsToImprove)} />
+        </Field>
+      </SectionCard>
+
+      <SectionCard title="Bilan qualitatif du mois" description="Énergie, motivation et objectifs">
+        <div className="grid grid-cols-3 gap-4">
+          <RatingField label="Énergie" value={watch("energyLevel")} onChange={(v) => setValue("energyLevel", v as MonthlyAuditData["energyLevel"])} />
+          <RatingField label="Motivation" value={watch("motivationLevel")} onChange={(v) => setValue("motivationLevel", v as MonthlyAuditData["motivationLevel"])} />
+          <RatingField label="Récupération" value={watch("recoveryLevel")} onChange={(v) => setValue("recoveryLevel", v as MonthlyAuditData["recoveryLevel"])} />
+        </div>
+        <Field label="Résultats / observations" error={errors.monthlyObservations?.message}>
+          <textarea {...register("monthlyObservations")} rows={3} className={inputCn(!!errors.monthlyObservations)} />
+        </Field>
+        <Field label="Objectifs pour le mois prochain" error={errors.nextMonthGoals?.message}>
+          <textarea {...register("nextMonthGoals")} rows={3} className={inputCn(!!errors.nextMonthGoals)} />
+        </Field>
+      </SectionCard>
+
+      {error && <p data-testid="submit-error" className="text-sm text-red-400">{error}</p>}
+
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        data-testid="submit-btn"
+        className="rounded-md bg-orange-500 py-3 text-sm font-semibold text-white transition-all hover:bg-orange-400 disabled:opacity-60"
+      >
+        {isSubmitting
+          ? "Envoi…"
+          : mode === "edit" ? "Mettre à jour mon bilan" : "Enregistrer mon bilan mensuel"}
+      </button>
+    </form>
+  );
+};
+
+// ── Helpers ──────────────────────────
+
+const SectionCard = ({
+  title, description, children,
+}: { title: string; description?: string; children: React.ReactNode }) => (
+  <div className="rounded-md border border-orange-500/40 bg-card p-6">
+    <div className="mb-6 text-center">
+      <h3 className="text-lg font-bold text-orange-500">{title}</h3>
+      {description && <p className="mt-1 text-sm text-muted-foreground">{description}</p>}
+    </div>
+    <div className="flex flex-col gap-4">{children}</div>
+  </div>
+);
+
+const RatingField = ({
+  label, value, onChange,
+}: { label: string; value: string | undefined; onChange: (v: string) => void }) => (
+  <div className="flex flex-col gap-1.5">
+    <label className="text-sm font-semibold text-foreground">{label}</label>
+    <div className="flex gap-1.5">
+      {RATING_LEVELS.map((level) => (
+        <button
+          key={level}
+          type="button"
+          onClick={() => onChange(level)}
+          className={cn(
+            "flex-1 rounded-md border px-2 py-2 text-xs font-medium transition-all",
+            value === level
+              ? "border-orange-500 bg-orange-50 text-orange-600 dark:bg-orange-950/40"
+              : "border-border bg-background text-muted-foreground hover:border-orange-300"
+          )}
+        >
+          {RATING_LABELS[level]}
+        </button>
+      ))}
+    </div>
+  </div>
+);
+
+const inputCn = (hasError: boolean) =>
+  cn(
+    "w-full rounded-md border bg-background px-4 py-3",
+    "text-sm text-foreground placeholder:text-muted-foreground/50",
+    "outline-none transition-all",
+    "focus:border-orange-500/50 focus:ring-2 focus:ring-orange-500/10",
+    hasError ? "border-red-500/60" : "border-border"
+  );
+
+const Field = ({
+  label, required, error, children,
+}: { label: string; required?: boolean; error?: string; children: React.ReactNode }) => (
+  <div className="flex flex-col gap-1.5">
+    <label className="text-sm font-semibold text-foreground">
+      {label}
+      {required && <span className="ml-0.5 text-orange-500"> *</span>}
+    </label>
+    {children}
+    {error && <p data-testid="field-error" className="text-xs text-red-400">{error}</p>}
+  </div>
+);

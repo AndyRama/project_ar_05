@@ -24,23 +24,33 @@ model Feedback {
   updatedAt DateTime @updatedAt
 }
 
+enum Gender {
+  HOMME
+  FEMME
+}
+
+enum RatingLevel {
+  TRES_FAIBLE
+  FAIBLE
+  MOYEN
+  BON
+  EXCELLENT
+}
+
 model AlimentaireProfile {
   id        String    @id @default(nanoid(11))
 
-  // information fields
   size      Int
   age       Int
   weight    Float
+  gender    Gender?
 
-  // New personal information fields
   profession String?
   pathology  String?
 
-  // Physical activity fields
   hoursActivityPerWeek String?
   stepsPerWeek         String?
 
-  // Body measurements (in cm)
   leftArm      Float?
   rightArm     Float?
   shoulders    Float?
@@ -50,8 +60,36 @@ model AlimentaireProfile {
   leftThigh    Float?
   rightThigh   Float?
 
-  // Sleep information
+  back              Float?
+  hips              Float?
+  leftForearm       Float?
+  rightForearm      Float?
+  leftCalf          Float?
+  rightCalf         Float?
+  bodyFatPercentage Float?
+
   sleepHours String?
+
+  sleepQuality    RatingLevel?
+  mealsPerDay     Int?
+  hydrationLiters Float?
+  dietCompliance  RatingLevel?
+  supplements     String?
+  stressLevel     RatingLevel?
+  stressComment   String?
+
+  trainingSessionsPerWeek Int?
+  avgSessionDuration      Int?
+  trainingIntensity       RatingLevel?
+  monthlyFocus            String?
+  monthlyProgress         String?
+  pointsToImprove         String?
+
+  energyLevel         RatingLevel?
+  motivationLevel     RatingLevel?
+  recoveryLevel       RatingLevel?
+  monthlyObservations String?
+  nextMonthGoals      String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

@@ -3,239 +3,88 @@ import {
   LayoutContent,
   LayoutHeader,
   LayoutTitle,
-  LayoutActions,
 } from "@/features/page/layout";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
-import { getUser } from "@/lib/auth/auth-user";
-import { redirect, notFound } from "next/navigation";
+import { getRequiredAdmin } from "@/lib/auth/auth-user";
+import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Files } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
+import { BodyDiagramCard } from "@/features/admin/bilan-detail/body-diagram-card";
+import { LifestyleCard } from "@/features/admin/bilan-detail/lifestyle-card";
+import { TrainingCard } from "@/features/admin/bilan-detail/training-card";
+import { MonthlyReviewCard } from "@/features/admin/bilan-detail/monthly-review-card";
+import { MonthlyHistoryTable } from "@/features/admin/bilan-detail/monthly-history-table";
 import type { PageParams } from "@/types/next";
-import { MeasurementChart } from "./MeasurementChart";
 
-type AlimentaireDetailPageProps = PageParams<{
-  profileId: string;
-}>;
+type Props = PageParams<{ profileId: string }>;
 
-export default async function AlimentaireDetailPage({
-  params
-}: AlimentaireDetailPageProps) {
-  // Vérification de l'authentification
-  const user = await getUser();
-  if (!user) {
-    redirect("/auth/signin");
-  }
-
+export default async function AlimentaireDetailPage({ params }: Props) {
+  await getRequiredAdmin();
   const { profileId } = await params;
 
-  // Récupération du profil avec les données utilisateur
   const profile = await prisma.alimentaireProfile.findUnique({
-    where: {
-      id: profileId,
-    },
-    include: {
-      user: {
-        select: {
-          name: true,
-          email: true,
-        },
-      },
-    },
+    where: { id: profileId },
+    include: { user: { select: { name: true, email: true } } },
   });
 
-  if (!profile) {
-    notFound();
-  }
+  if (!profile) notFound();
+
+  const allProfiles = await prisma.alimentaireProfile.findMany({
+    where: { userId: profile.userId },
+    orderBy: { createdAt: "asc" },
+  });
 
   return (
-    <div className="mx-auto p-4">
-      <Layout size="lg">
-        <LayoutHeader>
-          <div className="flex items-center gap-4">
-            <Link href="/admin/alimentaire">
-              <Button variant="outline" size="sm" className="gap-2">
-                <ArrowLeft className="size-4" />
-                Retour
-              </Button>
-            </Link>
-            <div>
-              <LayoutTitle>Détails du profil alimentaire</LayoutTitle>
-            </div>
-          </div>
-        </LayoutHeader>
-
-        <LayoutActions>  
-          <Link href="/admin/demo-live">
-            <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
-              <Files  className="size-4" />
-                Version 2
+    <Layout size="lg">
+      <LayoutHeader>
+        <div className="flex items-center gap-4">
+          <Link href="/admin/alimentaire">
+            <Button variant="outline" size="sm" className="gap-2">
+              <ArrowLeft className="size-4" />
+              Retour
             </Button>
           </Link>
-        </LayoutActions>
-
-        <LayoutContent className="space-y-6">
-          {/* Première ligne : Infos générales (1/3) + Statistiques (2/3) */}
-          <div className="grid gap-6 lg:grid-cols-3">
-            {/* Informations générales - 1/3 - EN COLONNE */}
-            <Card className="border-orange-500">
-              <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-                <CardTitle className="px-6 text-orange-500">Informations générales</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <div className="flex flex-col gap-6">
-                  <InfoItem label="Nom - Prénoms" value={profile.user?.name || 'N/A'} />
-                  <InfoItem label="Âge" value={`${profile.age} ans`} />
-                  <InfoItem label="Profession" value={profile.profession ?? 'N/A'} />
-                  <InfoItem label="Date d'inscription" value={new Date(profile.createdAt).toLocaleDateString('fr-FR')} />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Statistiques d'entraînement - 2/3 */}
-            <Card className="border-orange-500 lg:col-span-2">
-              <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-                <CardTitle className="px-6 text-orange-500">Statistiques d'entraînement</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <MeasurementChart
-                  leftArm={profile.leftArm}
-                  rightArm={profile.rightArm}
-                  shoulders={profile.shoulders}
-                  chest={profile.chest}
-                  waist={profile.waist}
-                  glutes={profile.glutes}
-                  leftThigh={profile.leftThigh}
-                  rightThigh={profile.rightThigh}
-                  size={profile.size}
-                  weight={profile.weight}
-                  age={profile.age}
-                  hoursActivityPerWeek={profile.hoursActivityPerWeek}
-                  stepsPerWeek={profile.stepsPerWeek}
-                />
-              </CardContent>
-            </Card>
+          <div>
+            <LayoutTitle>Fiche de suivi — {profile.user?.name ?? "N/A"}</LayoutTitle>
+            <p className="text-sm text-muted-foreground">{profile.user?.email}</p>
           </div>
+        </div>
+      </LayoutHeader>
 
-          {/* Pathologie + Sommeil - MÊME LARGEUR que la ligne au-dessus */}
-          {(profile.pathology ?? profile.sleepHours) && (
-            <Card className="border-orange-500">
-              <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-                <CardTitle className="px-6 text-orange-500">Pathologie & Sommeil</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <div className="grid gap-6 md:grid-cols-2">
-                  {profile.pathology && (
-                    <div>
-                      <p className="mb-2 text-sm font-medium text-muted-foreground">Pathologie / Conditions médicales</p>
-                      <p className="whitespace-pre-wrap text-sm">{profile.pathology}</p>
-                    </div>
-                  )}
-                  {profile.sleepHours && (
-                    <div>
-                      <p className="mb-2 text-sm font-medium text-muted-foreground">Habitudes de sommeil</p>
-                      <p className="whitespace-pre-wrap text-sm">{profile.sleepHours}</p>
-                    </div>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          )}
+      <LayoutContent className="space-y-6">
+        <Card className="border-orange-500/30">
+          <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
+            <CardTitle className="px-2 text-orange-500">Fiche de renseignements</CardTitle>
+          </CardHeader>
+          <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
+            <Info label="Nom - Prénom" value={profile.user?.name ?? "N/A"} />
+            <Info label="Âge" value={`${profile.age} ans`} />
+            <Info label="Sexe" value={profile.gender === "HOMME" ? "Homme" : profile.gender === "FEMME" ? "Femme" : "N/A"} />
+            <Info label="Profession" value={profile.profession ?? "N/A"} />
+            <Info label="Email" value={profile.user?.email ?? "N/A"} />
+            <Info label="Date du bilan" value={new Date(profile.createdAt).toLocaleDateString("fr-FR")} />
+          </CardContent>
+        </Card>
 
-          {/* Activité physique */}
-          <Card className="border-orange-500">
-            <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-              <CardTitle className="px-6 text-orange-500">Activité physique</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <div className="grid gap-6 md:grid-cols-2">
-                <InfoItem label="Heures d'activité / semaine" value={profile.hoursActivityPerWeek ?? 'N/A'} />
-                <InfoItem label="Pas / semaine" value={profile.stepsPerWeek ?? 'N/A'} />
-              </div>
-            </CardContent>
-          </Card>
+        <BodyDiagramCard profile={profile} />
 
-          {/* Mensurations */}
-          <Card className="border-orange-500">
-            <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-              <CardTitle className="px-6 text-orange-500">Mensurations corporelles</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <div className="space-y-6">
-                {/* Mesures principales */}
-                <div className="grid gap-4 md:grid-cols-2">
-                  <MeasurementBox label="Taille" value={profile.size} unit="cm" />
-                  <MeasurementBox label="Poids" value={profile.weight} unit="kg" />
-                </div>
+        <div className="grid gap-6 lg:grid-cols-3">
+          <LifestyleCard profile={profile} />
+          <TrainingCard profile={profile} />
+          <MonthlyReviewCard profile={profile} />
+        </div>
 
-                {/* Mesures détaillées */}
-                <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
-                  {profile.leftArm && <MeasurementItem label="Bras gauche" value={profile.leftArm} />}
-                  {profile.rightArm && <MeasurementItem label="Bras droit" value={profile.rightArm} />}
-                  {profile.shoulders && <MeasurementItem label="Épaules" value={profile.shoulders} />}
-                  {profile.chest && <MeasurementItem label="Poitrine" value={profile.chest} />}
-                  {profile.waist && <MeasurementItem label="Tour de Taille" value={profile.waist} />}
-                  {profile.glutes && <MeasurementItem label="Fessiers" value={profile.glutes} />}
-                  {profile.leftThigh && <MeasurementItem label="Jambe gauche" value={profile.leftThigh} />}
-                  {profile.rightThigh && <MeasurementItem label="Jambe droite" value={profile.rightThigh} />}
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Dernière mise à jour */}
-          <div className="text-center text-sm text-muted-foreground">
-            Dernière mise à jour le{' '}
-            {new Date(profile.updatedAt).toLocaleDateString('fr-FR', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-              hour: '2-digit',
-              minute: '2-digit'
-            })}
-          </div>
-        </LayoutContent>
-      </Layout>
-    </div>
+        <MonthlyHistoryTable profiles={allProfiles} />
+      </LayoutContent>
+    </Layout>
   );
 }
 
-// Composant pour afficher une information simple
-function InfoItem({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <p className="text-sm font-medium text-muted-foreground">{label}</p>
-      <p className="mt-1 text-lg font-semibold">{value}</p>
-    </div>
-  );
-}
-
-// Composant pour les mesures principales (taille/poids)
-function MeasurementBox({ label, value, unit }: { label: string; value: number; unit: string }) {
-  return (
-    <div className="rounded-md border border-orange-500/20 bg-orange-500/5 p-4">
-      <p className="text-sm font-medium text-muted-foreground">{label}</p>
-      <p className="mt-2 text-2xl font-bold text-orange-500">
-        {value} <span className="text-base font-normal">{unit}</span>
-      </p>
-    </div>
-  );
-}
-
-// Composant pour afficher une mesure détaillée
-function MeasurementItem({ label, value }: { label: string; value: number }) {
-  return (
-    <div className="rounded-md border p-3">
-      <p className="text-xs font-medium text-muted-foreground">{label}</p>
-      <p className="mt-1 text-base font-semibold">
-        {value} <span className="text-sm font-normal text-muted-foreground">cm</span>
-      </p>
-    </div>
-  );
-}
+const Info = ({ label, value }: { label: string; value: string }) => (
+  <div>
+    <p className="text-xs font-medium text-muted-foreground">{label}</p>
+    <p className="mt-1 text-sm font-semibold">{value}</p>
+  </div>
+);

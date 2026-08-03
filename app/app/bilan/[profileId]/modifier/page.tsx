@@ -4,18 +4,23 @@ import {
   LayoutHeader,
   LayoutTitle,
 } from "@/features/page/layout";
-import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import { notFound } from "next/navigation";
-import { MonthlyAuditForm } from "@/features/landing/audit/monthly/audit-form";
+import Link from "next/link";
+import { ArrowLeft, Pencil } from "lucide-react";
+import { BodyDiagramCard } from "@/features/admin/bilan-detail/body-diagram-card";
+import { LifestyleCard } from "@/features/admin/bilan-detail/lifestyle-card";
+import { TrainingCard } from "@/features/admin/bilan-detail/training-card";
+import { MonthlyReviewCard } from "@/features/admin/bilan-detail/monthly-review-card";
+import { MonthlyHistoryTable } from "@/features/admin/bilan-detail/monthly-history-table";
 import type { PageParams } from "@/types/next";
-import { ArrowLeft} from "lucide-react";
-import { Button } from "@/components/ui/button";
 
-type EditBilanPageProps = PageParams<{ profileId: string }>;
+type Props = PageParams<{ profileId: string }>;
 
-export default async function EditBilanPage({ params }: EditBilanPageProps) {
+export default async function MyBilanDetailPage({ params }: Props) {
   const user = await getRequiredUser();
   const { profileId } = await params;
 
@@ -27,50 +32,65 @@ export default async function EditBilanPage({ params }: EditBilanPageProps) {
     notFound();
   }
 
-  const defaultValues = {
-    age: String(profile.age),
-    size: String(profile.size),
-    weight: String(profile.weight),
-    profession: profile.profession ?? "",
-    pathology: profile.pathology ?? "",
-    hoursActivityPerWeek: profile.hoursActivityPerWeek ?? "",
-    stepsPerWeek: profile.stepsPerWeek ?? "",
-    sleepHours: profile.sleepHours ?? "",
-    leftArm: profile.leftArm ? String(profile.leftArm) : "",
-    rightArm: profile.rightArm ? String(profile.rightArm) : "",
-    leftThigh: profile.leftThigh ? String(profile.leftThigh) : "",
-    rightThigh: profile.rightThigh ? String(profile.rightThigh) : "",
-    glutes: profile.glutes ? String(profile.glutes) : "",
-    shoulders: profile.shoulders ? String(profile.shoulders) : "",
-    chest: profile.chest ? String(profile.chest) : "",
-    waist: profile.waist ? String(profile.waist) : "",
-  };
+  const allProfiles = await prisma.alimentaireProfile.findMany({
+    where: { userId: user.id },
+    orderBy: { createdAt: "asc" },
+  });
 
   return (
     <Layout size="lg">
       <LayoutHeader>
-        <div className="flex items-center gap-4">
-          <Link href="/app/bilan">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Link href="/app/bilan">
+              <Button variant="outline" size="sm" className="gap-2">
+                <ArrowLeft className="size-4" />
+                Retour
+              </Button>
+            </Link>
+            <LayoutTitle>
+              Bilan du {new Date(profile.createdAt).toLocaleDateString("fr-FR")}
+            </LayoutTitle>
+          </div>
+          <Link href={`/app/bilan/${profile.id}/modifier`}>
             <Button variant="outline" size="sm" className="gap-2">
-              <ArrowLeft className="size-4" />
-              Retour
+              <Pencil className="size-4" />
+              Modifier
             </Button>
           </Link>
-          <div>
-            <LayoutTitle>Modifier mon bilan</LayoutTitle>
-          </div>
         </div>
-    
       </LayoutHeader>
-      <LayoutContent>
-        <div className="mx-auto max-w-5xl">
-          <MonthlyAuditForm
-            mode="edit"
-            profileId={profile.id}
-            defaultValues={defaultValues}
-          />
+
+      <LayoutContent className="space-y-6">
+        <Card className="border-orange-500/30">
+          <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
+            <CardTitle className="px-2 text-orange-500">Fiche de renseignements</CardTitle>
+          </CardHeader>
+          <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
+            <Info label="Âge" value={`${profile.age} ans`} />
+            <Info label="Sexe" value={profile.gender === "HOMME" ? "Homme" : profile.gender === "FEMME" ? "Femme" : "N/A"} />
+            <Info label="Profession" value={profile.profession ?? "N/A"} />
+            <Info label="Date du bilan" value={new Date(profile.createdAt).toLocaleDateString("fr-FR")} />
+          </CardContent>
+        </Card>
+
+        <BodyDiagramCard profile={profile} />
+
+        <div className="grid gap-6 lg:grid-cols-3">
+          <LifestyleCard profile={profile} />
+          <TrainingCard profile={profile} />
+          <MonthlyReviewCard profile={profile} />
         </div>
+
+        <MonthlyHistoryTable profiles={allProfiles} />
       </LayoutContent>
     </Layout>
   );
 }
+
+const Info = ({ label, value }: { label: string; value: string }) => (
+  <div>
+    <p className="text-xs font-medium text-muted-foreground">{label}</p>
+    <p className="mt-1 text-sm font-semibold">{value}</p>
+  </div>
+);

@@ -25,21 +25,6 @@ const ADMIN_LINKS: NavigationGroup[] = [
     ],
   },
   {
-    title: "Paramètres",
-    links: [
-      {
-        href: `${ADMIN_PATH}/services`,
-        Icon:  Wrench ,
-        label: "Gestion des services",
-      },
-      {
-        href: `/account`,
-        Icon: Settings,
-        label: "Compte utilisateur",
-      },
-    ],
-  },
-  {
     title: "Marketing",
     links: [
       {
@@ -55,12 +40,17 @@ const ADMIN_LINKS: NavigationGroup[] = [
     ],
   },
   {
-    title: "Démo live",
+    title: "Paramètres",
     links: [
-        {
-        href: `${ADMIN_PATH}/demo-live`,
-        Icon: ScreenShare,
-        label: "Bilan mensuel v2",
+      {
+        href: `${ADMIN_PATH}/services`,
+        Icon:  Wrench ,
+        label: "Gestion des services",
+      },
+      {
+        href: `/account`,
+        Icon: Settings,
+        label: "Ton compte utilisateur",
       },
     ],
   },
