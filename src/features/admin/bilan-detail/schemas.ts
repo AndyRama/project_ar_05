@@ -1,25 +1,30 @@
 import { z } from "zod";
 
 const RatingLevelSchema = z.enum(["TRES_FAIBLE", "FAIBLE", "MOYEN", "BON", "EXCELLENT"]);
-const numStr = (msg: string) => z.string().refine((v) => !isNaN(Number(v)) && Number(v) > 0, msg);
+
+// Accepte vide (non renseigné) ou une valeur numérique positive
+const optionalNumStr = z
+  .string()
+  .optional()
+  .refine((v) => !v || (!isNaN(Number(v)) && Number(v) > 0), "Valeur invalide");
 
 export const MeasurementsSchema = z.object({
-  weight: numStr("Poids invalide"),
-  bodyFatPercentage: z.string().optional(),
-  shoulders: numStr("Valeur invalide"),
-  chest: numStr("Valeur invalide"),
-  waist: numStr("Valeur invalide"),
-  back: numStr("Valeur invalide"),
-  hips: numStr("Valeur invalide"),
-  glutes: numStr("Valeur invalide"),
-  leftArm: numStr("Valeur invalide"),
-  rightArm: numStr("Valeur invalide"),
-  leftForearm: numStr("Valeur invalide"),
-  rightForearm: numStr("Valeur invalide"),
-  leftThigh: numStr("Valeur invalide"),
-  rightThigh: numStr("Valeur invalide"),
-  leftCalf: numStr("Valeur invalide"),
-  rightCalf: numStr("Valeur invalide"),
+  weight: z.string().refine((v) => !isNaN(Number(v)) && Number(v) > 0, "Poids invalide"), // seul champ vraiment requis
+  bodyFatPercentage: optionalNumStr,
+  shoulders: optionalNumStr,
+  chest: optionalNumStr,
+  waist: optionalNumStr,
+  back: optionalNumStr,
+  hips: optionalNumStr,
+  glutes: optionalNumStr,
+  leftArm: optionalNumStr,
+  rightArm: optionalNumStr,
+  leftForearm: optionalNumStr,
+  rightForearm: optionalNumStr,
+  leftThigh: optionalNumStr,
+  rightThigh: optionalNumStr,
+  leftCalf: optionalNumStr,
+  rightCalf: optionalNumStr,
 });
 export type MeasurementsData = z.infer<typeof MeasurementsSchema>;
 
