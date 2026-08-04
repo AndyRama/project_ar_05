@@ -3,11 +3,13 @@ import {
   LayoutContent,
   LayoutHeader,
   LayoutTitle,
+  LayoutActions,
 } from "@/features/page/layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import { MonthlyAuditForm } from "@/features/landing/audit/month/audit-form";
+import { ArrowLeft } from "lucide-react";
 
 export default async function NewBilanPage() {
   const user = await getRequiredUser();
@@ -74,6 +76,15 @@ export default async function NewBilanPage() {
       <LayoutHeader>
         <LayoutTitle>Nouveau bilan mensuel</LayoutTitle>
       </LayoutHeader>
+
+      <LayoutActions>
+        <Link href={`/app/bilan`}>
+          <Button variant="outline" size="sm" className="gap-2">
+            <ArrowLeft className="size-4" />
+            Retour
+          </Button>
+        </Link>
+      </LayoutActions>
 
       <LayoutContent className="space-y-6">
         {/* Logo (1/4) + Intro (3/4) — même habillage que la page détail */}

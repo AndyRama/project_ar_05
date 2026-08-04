@@ -54,16 +54,17 @@ export default async function MyBilanDetailPage({ params }: Props) {
               Bilan du {new Date(profile.createdAt).toLocaleDateString("fr-FR")}
             </LayoutTitle>
           </div>
-          <LayoutActions>
-            <Link href={`/app/bilan/${profile.id}/modifier`}>
-              <Button variant="outline" size="sm" className="gap-2">
-                <Pencil className="size-4" />
-                Modifier
-              </Button>
-            </Link>
-          </LayoutActions>
         </div>
       </LayoutHeader>
+
+      <LayoutActions>
+        <Link href={`/app/bilan/${profile.id}/modifier`}>
+          <Button variant="outline" size="sm" className="gap-2">
+            <Pencil className="size-4" />
+            Nouveau bilan
+          </Button>
+        </Link>
+      </LayoutActions>
 
       <LayoutContent className="space-y-6">
         {/* Logo (1/4) + Infos personnelles (3/4) */}
