@@ -3,6 +3,7 @@ import {
   LayoutContent,
   LayoutHeader,
   LayoutTitle,
+  LayoutAction,
 } from "@/features/page/layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -52,12 +53,14 @@ export default async function MyBilanDetailPage({ params }: Props) {
               Bilan du {new Date(profile.createdAt).toLocaleDateString("fr-FR")}
             </LayoutTitle>
           </div>
+          <LayoutAction>
           <Link href={`/app/bilan/${profile.id}/modifier`}>
             <Button variant="outline" size="sm" className="gap-2">
               <Pencil className="size-4" />
               Modifier
             </Button>
           </Link>
+          </LayoutAction>
         </div>
       </LayoutHeader>
 
