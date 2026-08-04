@@ -9,7 +9,7 @@ type EditableSectionProps<T> = {
   view: ReactNode;
   renderForm: (props: { values: T; setValues: (v: T) => void }) => ReactNode;
   initialValues: T;
-  onSave: (values: T) => Promise<void>;
+  onSave: (values: T) => Promise<unknown>;
 };
 
 export function EditableSection<T>({ view, renderForm, initialValues, onSave }: EditableSectionProps<T>) {
