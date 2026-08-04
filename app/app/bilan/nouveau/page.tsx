@@ -3,14 +3,11 @@ import {
   LayoutContent,
   LayoutHeader,
   LayoutTitle,
-  LayoutActions,
 } from "@/features/page/layout";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import { MonthlyAuditForm } from "@/features/landing/audit/month/audit-form";
-import { Files } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 export default async function NewBilanPage() {
   const user = await getRequiredUser();
@@ -20,11 +17,8 @@ export default async function NewBilanPage() {
     orderBy: { createdAt: "desc" },
   });
 
-  // Pré-remplissage avec les valeurs du dernier bilan (converties en string
-  // pour matcher le schema Zod du formulaire)
   const defaultValues = lastProfile
     ? {
-        // Informations personnelles
         age: String(lastProfile.age),
         size: String(lastProfile.size),
         weight: String(lastProfile.weight),
@@ -32,12 +26,10 @@ export default async function NewBilanPage() {
         profession: lastProfile.profession ?? "",
         pathology: lastProfile.pathology ?? "",
 
-        // Activité physique
         hoursActivityPerWeek: lastProfile.hoursActivityPerWeek ?? "",
         stepsPerWeek: lastProfile.stepsPerWeek ?? "",
         sleepHours: lastProfile.sleepHours ?? "",
 
-        // Mensurations
         leftArm: lastProfile.leftArm ? String(lastProfile.leftArm) : "",
         rightArm: lastProfile.rightArm ? String(lastProfile.rightArm) : "",
         leftThigh: lastProfile.leftThigh ? String(lastProfile.leftThigh) : "",
@@ -54,7 +46,6 @@ export default async function NewBilanPage() {
         rightCalf: lastProfile.rightCalf ? String(lastProfile.rightCalf) : "",
         bodyFatPercentage: lastProfile.bodyFatPercentage ? String(lastProfile.bodyFatPercentage) : "",
 
-        // Hygiène de vie
         sleepQuality: lastProfile.sleepQuality ?? undefined,
         mealsPerDay: lastProfile.mealsPerDay ? String(lastProfile.mealsPerDay) : "",
         hydrationLiters: lastProfile.hydrationLiters ? String(lastProfile.hydrationLiters) : "",
@@ -63,7 +54,6 @@ export default async function NewBilanPage() {
         stressLevel: lastProfile.stressLevel ?? undefined,
         stressComment: lastProfile.stressComment ?? "",
 
-        // Musculation
         trainingSessionsPerWeek: lastProfile.trainingSessionsPerWeek ? String(lastProfile.trainingSessionsPerWeek) : "",
         avgSessionDuration: lastProfile.avgSessionDuration ? String(lastProfile.avgSessionDuration) : "",
         trainingIntensity: lastProfile.trainingIntensity ?? undefined,
@@ -71,8 +61,6 @@ export default async function NewBilanPage() {
         monthlyProgress: lastProfile.monthlyProgress ?? "",
         pointsToImprove: lastProfile.pointsToImprove ?? "",
 
-        // Bilan qualitatif — volontairement non pré-rempli : ce sont des
-        // observations propres au mois passé, pas des valeurs à reconduire
         energyLevel: undefined,
         motivationLevel: undefined,
         recoveryLevel: undefined,
@@ -87,16 +75,33 @@ export default async function NewBilanPage() {
         <LayoutTitle>Nouveau bilan mensuel</LayoutTitle>
       </LayoutHeader>
 
-      <LayoutActions>
-        <Link href="/app/demo-live">
-          <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
-            <Files className="size-4" />
-            Plan alimentaire V2
-          </Button>
-        </Link>
-      </LayoutActions>
+      <LayoutContent className="space-y-6">
+        {/* Logo (1/4) + Intro (3/4) — même habillage que la page détail */}
+        <div className="grid gap-6 lg:grid-cols-4">
+          <Card className="flex items-center justify-center border-orange-500/30 lg:col-span-1">
+            <CardContent className="flex items-center justify-center p-6">
+              <img
+                src="/images/logo-suivi-mensuel.jpg"
+                alt="Team UNL Coaching"
+                className="w-full max-w-[200px] object-contain"
+              />
+            </CardContent>
+          </Card>
 
-      <LayoutContent>
+          <Card className="border-orange-500/30 lg:col-span-3">
+            <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
+              <CardTitle className="px-2 text-orange-500">Nouveau bilan</CardTitle>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <p className="text-sm text-muted-foreground">
+                {lastProfile
+                  ? "Le formulaire est pré-rempli avec les valeurs de ton dernier bilan. Ajuste ce qui a changé."
+                  : "Remplis ce formulaire pour créer ton premier bilan mensuel."}
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
         <div className="mx-auto max-w-5xl">
           <MonthlyAuditForm defaultValues={defaultValues} />
         </div>
