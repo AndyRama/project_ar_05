@@ -9,105 +9,93 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
-import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Plus } from "lucide-react";
-import { BodyDiagramCard } from "@/features/admin/bilan-detail/body-diagram-card";
-import { LifestyleCard } from "@/features/admin/bilan-detail/lifestyle-card";
-import { TrainingCard } from "@/features/admin/bilan-detail/training-card";
-import { MonthlyReviewCard } from "@/features/admin/bilan-detail/monthly-review-card";
-import { MonthlyHistoryTable } from "@/features/admin/bilan-detail/monthly-history-table";
-import type { PageParams } from "@/types/next";
+import { Calendar, Plus } from "lucide-react";
+import { BilanRowActions } from "@/features/admin/bilan-detail/bilan-row-actions";
 
-type Props = PageParams<{ profileId: string }>;
-
-export default async function MyBilanDetailPage({ params }: Props) {
+export default async function MyBilansPage() {
   const user = await getRequiredUser();
-  const { profileId } = await params;
 
-  const profile = await prisma.alimentaireProfile.findUnique({
-    where: { id: profileId },
-    include: { user: { select: { name: true, email: true } } },
-  });
-
-  if (!profile || profile.userId !== user.id) {
-    notFound();
-  }
-
-  const allProfiles = await prisma.alimentaireProfile.findMany({
+  const profiles = await prisma.alimentaireProfile.findMany({
     where: { userId: user.id },
-    orderBy: { createdAt: "asc" },
+    orderBy: { createdAt: "desc" },
   });
 
   return (
     <Layout size="lg">
       <LayoutHeader>
-        <div className="flex items-center gap-4">
-          <Link href="/app/bilan">
-            <Button variant="outline" size="sm" className="gap-2">
-              <ArrowLeft className="size-4" />
-              Retour
-            </Button>
-          </Link>
-          <LayoutTitle>
-            Bilan du {new Date(profile.createdAt).toLocaleDateString("fr-FR")}
-          </LayoutTitle>
-        </div>
+        <LayoutTitle>Mes bilans</LayoutTitle>
       </LayoutHeader>
-
       <LayoutActions>
         <Link href="/app/bilan/nouveau">
-          <Button variant="outline" size="sm" className="gap-2">
+          <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
             <Plus className="size-4" />
             Nouveau bilan
           </Button>
         </Link>
+
+        <Link href="/app/bilan/complet">
+          <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
+            <Plus className="size-4" />
+            Formulaire complet
+          </Button>
+        </Link>
       </LayoutActions>
-
-      <LayoutContent className="space-y-6">
-        <div className="grid gap-6 lg:grid-cols-4">
-          <Card className="flex items-center justify-center border-orange-500/30 lg:col-span-1">
-            <CardContent className="flex items-center justify-center p-6">
-              <img
-                src="/images/logo-suivi-mensuel.jpg"
-                alt="Team UNL Coaching"
-                className="w-full max-w-[200px] object-contain"
-              />
-            </CardContent>
-          </Card>
-
-          <Card className="border-orange-500/30 lg:col-span-3">
-            <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-              <CardTitle className="px-2 text-orange-500">Fiche de renseignements</CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
-              <Info label="Nom - Prénom" value={profile.user?.name ?? "N/A"} />
-              <Info label="Âge" value={`${profile.age} ans`} />
-              <Info label="Sexe" value={profile.gender === "HOMME" ? "Homme" : profile.gender === "FEMME" ? "Femme" : "N/A"} />
-              <Info label="Profession" value={profile.profession ?? "N/A"} />
-              <Info label="Email" value={profile.user?.email ?? "N/A"} />
-              <Info label="Début de suivi" value={new Date(profile.createdAt).toLocaleDateString("fr-FR")} />
-            </CardContent>
-          </Card>
-        </div>
-
-        <BodyDiagramCard profile={profile} />
-
-        <div className="grid gap-6 lg:grid-cols-3">
-          <LifestyleCard profile={profile} />
-          <TrainingCard profile={profile} />
-          <MonthlyReviewCard profile={profile} />
-        </div>
-
-        <MonthlyHistoryTable profiles={allProfiles} />
+      <LayoutContent>
+        {profiles.length === 0 ? (
+          <div className="rounded-md border border-dashed p-10 text-center text-sm text-muted-foreground">
+            Aucun bilan enregistré pour le moment.
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {profiles.map((profile, idx) => {
+              const isFirst = idx === profiles.length - 1;
+              return (
+                <Card key={profile.id} className="border-orange-500/30">
+                  <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent px-4">
+                    <div className="flex items-center justify-between">
+                      <CardTitle className="flex items-center gap-2 px-2 text-orange-500">
+                        <Calendar className="size-4" />
+                        {new Date(profile.createdAt).toLocaleDateString("fr-FR", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                        {isFirst && (
+                          <span className="ml-2 rounded-full bg-orange-500/20 px-2 py-0.5 text-xs font-semibold text-orange-600">
+                            Bilan initial
+                          </span>
+                        )}
+                      </CardTitle>
+                      <BilanRowActions profileId={profile.id} />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-4">
+                    <div className="grid grid-cols-2 gap-4 text-sm md:grid-cols-4">
+                      <div>
+                        <p className="text-muted-foreground">Poids</p>
+                        <p className="font-semibold">{profile.weight} kg</p>
+                      </div>
+                      <div>
+                        <p className="text-muted-foreground">Taille</p>
+                        <p className="font-semibold">{profile.size} cm</p>
+                      </div>
+                      <div>
+                        <p className="text-muted-foreground">Tour de taille</p>
+                        <p className="font-semibold">{profile.waist ?? "N/A"} cm</p>
+                      </div>
+                      <div>
+                        <p className="text-muted-foreground">Activité / semaine</p>
+                        <p className="font-semibold">{profile.hoursActivityPerWeek ?? "N/A"}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        )}
       </LayoutContent>
     </Layout>
   );
 }
-
-const Info = ({ label, value }: { label: string; value: string }) => (
-  <div>
-    <p className="text-xs font-medium text-muted-foreground">{label}</p>
-    <p className="mt-1 text-sm font-semibold">{value}</p>
-  </div>
-);
