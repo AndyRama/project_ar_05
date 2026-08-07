@@ -32,6 +32,13 @@ export default async function MyBilansPage() {
             Nouveau bilan
           </Button>
         </Link>
+
+        <Link href="/app/bilan/complet">
+          <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
+            <Plus className="size-4" />
+            Formulaire complet
+          </Button>
+        </Link>
       </LayoutActions>
       <LayoutContent>
         {profiles.length === 0 ? (
