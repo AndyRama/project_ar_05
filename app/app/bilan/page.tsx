@@ -59,10 +59,10 @@ export default async function MyBilansPage() {
                           </span>
                         )}
                       </CardTitle>
-                      <Link href={`/app/bilan/${profile.id}`}>
+                      <Link href={`/app/bilan/${profile.id}/modifier`}>
                         <Button variant="outline" size="sm" className="gap-2">
                           <Eye className="size-4" />
-                          Voir
+                          Modifier
                         </Button>
                       </Link>
                     </div>

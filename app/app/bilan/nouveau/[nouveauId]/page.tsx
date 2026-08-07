@@ -64,6 +64,15 @@ export default async function MyBilanDetailPage({ params }: Props) {
         </Link>
       </LayoutActions>
 
+      <LayoutActions>
+        <Link href="/app/bilan/complet">
+          <Button variant="outline" size="sm" className="gap-2">
+            <Plus className="size-4" />
+             Formulaire complet
+          </Button>
+        </Link>
+      </LayoutActions>
+
       <LayoutContent className="space-y-6">
         <div className="grid gap-6 lg:grid-cols-4">
           <Card className="flex items-center justify-center border-orange-500/30 lg:col-span-1">
