@@ -33,7 +33,8 @@ export default async function MyBilansPage() {
             Nouveau bilan
           </Button>
         </Link>
-
+      </LayoutActions>
+      <LayoutActions>
         <Link href="/app/bilan/complet">
           <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
             <Plus className="size-4" />
@@ -49,7 +50,9 @@ export default async function MyBilansPage() {
         ) : (
           <div className="space-y-4">
             {profiles.map((profile, idx) => {
-              const isFirst = idx === profiles.length - 1;
+              const isInitial = idx === profiles.length - 1;
+              const isLatest = idx === 0;
+
               return (
                 <Card key={profile.id} className="border-orange-500/30">
                   <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent px-4">
@@ -61,11 +64,15 @@ export default async function MyBilansPage() {
                           month: "long",
                           year: "numeric",
                         })}
-                        {isFirst && (
+                        {isInitial ? (
                           <span className="ml-2 rounded-full bg-orange-500/20 px-2 py-0.5 text-xs font-semibold text-orange-600">
                             Bilan initial
                           </span>
-                        )}
+                        ) : isLatest ? (
+                          <span className="ml-2 rounded-full bg-green-500/20 px-2 py-0.5 text-xs font-semibold text-green-600">
+                            Nouveau
+                          </span>
+                        ) : null}
                       </CardTitle>
                       <BilanRowActions profileId={profile.id} />
                     </div>

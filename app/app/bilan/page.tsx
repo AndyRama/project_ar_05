@@ -10,7 +10,8 @@ import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import Link from "next/link";
-import { Calendar, Plus, Eye } from "lucide-react";
+import { Calendar, Plus } from "lucide-react";
+import { BilanRowActions } from "@/features/admin/bilan-detail/bilan-row-actions";
 
 export default async function MyBilansPage() {
   const user = await getRequiredUser();
@@ -29,10 +30,11 @@ export default async function MyBilansPage() {
         <Link href="/app/bilan/nouveau">
           <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
             <Plus className="size-4" />
-            Nouveau bilan
+            Créer
           </Button>
         </Link>
-
+      </LayoutActions>
+      <LayoutActions>
         <Link href="/app/bilan/complet">
           <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
             <Plus className="size-4" />
@@ -66,12 +68,7 @@ export default async function MyBilansPage() {
                           </span>
                         )}
                       </CardTitle>
-                      <Link href={`/app/bilan/${profile.id}/modifier`}>
-                        <Button variant="outline" size="sm" className="gap-2">
-                          <Eye className="size-4" />
-                          Modifier
-                        </Button>
-                      </Link>
+                      <BilanRowActions profileId={profile.id} />
                     </div>
                   </CardHeader>
                   <CardContent className="pt-4">
