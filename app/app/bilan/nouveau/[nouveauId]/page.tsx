@@ -6,90 +6,65 @@ import {
   LayoutActions,
 } from "@/features/page/layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
-import { MonthlyAuditForm } from "@/features/landing/audit/month/audit-form";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { notFound } from "next/navigation";
 import Link from "next/link";
+import { ArrowLeft, Plus } from "lucide-react";
+import { BodyDiagramCard } from "@/features/admin/bilan-detail/body-diagram-card";
+import { LifestyleCard } from "@/features/admin/bilan-detail/lifestyle-card";
+import { TrainingCard } from "@/features/admin/bilan-detail/training-card";
+import { MonthlyReviewCard } from "@/features/admin/bilan-detail/monthly-review-card";
+import { MonthlyHistoryTable } from "@/features/admin/bilan-detail/monthly-history-table";
+import type { PageParams } from "@/types/next";
 
-export default async function NewBilanPage() {
+type Props = PageParams<{ profileId: string }>;
+
+export default async function MyBilanDetailPage({ params }: Props) {
   const user = await getRequiredUser();
+  const { profileId } = await params;
 
-  const lastProfile = await prisma.alimentaireProfile.findFirst({
-    where: { userId: user.id },
-    orderBy: { createdAt: "desc" },
+  const profile = await prisma.alimentaireProfile.findUnique({
+    where: { id: profileId },
+    include: { user: { select: { name: true, email: true } } },
   });
 
-  const defaultValues = lastProfile
-    ? {
-        age: String(lastProfile.age),
-        size: String(lastProfile.size),
-        weight: String(lastProfile.weight),
-        gender: lastProfile.gender ?? undefined,
-        profession: lastProfile.profession ?? "",
-        pathology: lastProfile.pathology ?? "",
+  if (!profile || profile.userId !== user.id) {
+    notFound();
+  }
 
-        hoursActivityPerWeek: lastProfile.hoursActivityPerWeek ?? "",
-        stepsPerWeek: lastProfile.stepsPerWeek ?? "",
-        sleepHours: lastProfile.sleepHours ?? "",
-
-        leftArm: lastProfile.leftArm ? String(lastProfile.leftArm) : "",
-        rightArm: lastProfile.rightArm ? String(lastProfile.rightArm) : "",
-        leftThigh: lastProfile.leftThigh ? String(lastProfile.leftThigh) : "",
-        rightThigh: lastProfile.rightThigh ? String(lastProfile.rightThigh) : "",
-        glutes: lastProfile.glutes ? String(lastProfile.glutes) : "",
-        shoulders: lastProfile.shoulders ? String(lastProfile.shoulders) : "",
-        chest: lastProfile.chest ? String(lastProfile.chest) : "",
-        waist: lastProfile.waist ? String(lastProfile.waist) : "",
-        back: lastProfile.back ? String(lastProfile.back) : "",
-        hips: lastProfile.hips ? String(lastProfile.hips) : "",
-        leftForearm: lastProfile.leftForearm ? String(lastProfile.leftForearm) : "",
-        rightForearm: lastProfile.rightForearm ? String(lastProfile.rightForearm) : "",
-        leftCalf: lastProfile.leftCalf ? String(lastProfile.leftCalf) : "",
-        rightCalf: lastProfile.rightCalf ? String(lastProfile.rightCalf) : "",
-        bodyFatPercentage: lastProfile.bodyFatPercentage ? String(lastProfile.bodyFatPercentage) : "",
-
-        sleepQuality: lastProfile.sleepQuality ?? undefined,
-        mealsPerDay: lastProfile.mealsPerDay ? String(lastProfile.mealsPerDay) : "",
-        hydrationLiters: lastProfile.hydrationLiters ? String(lastProfile.hydrationLiters) : "",
-        dietCompliance: lastProfile.dietCompliance ?? undefined,
-        supplements: lastProfile.supplements ?? "",
-        stressLevel: lastProfile.stressLevel ?? undefined,
-        stressComment: lastProfile.stressComment ?? "",
-
-        trainingSessionsPerWeek: lastProfile.trainingSessionsPerWeek ? String(lastProfile.trainingSessionsPerWeek) : "",
-        avgSessionDuration: lastProfile.avgSessionDuration ? String(lastProfile.avgSessionDuration) : "",
-        trainingIntensity: lastProfile.trainingIntensity ?? undefined,
-        monthlyFocus: lastProfile.monthlyFocus ?? "",
-        monthlyProgress: lastProfile.monthlyProgress ?? "",
-        pointsToImprove: lastProfile.pointsToImprove ?? "",
-
-        energyLevel: undefined,
-        motivationLevel: undefined,
-        recoveryLevel: undefined,
-        monthlyObservations: "",
-        nextMonthGoals: "",
-      }
-    : undefined;
+  const allProfiles = await prisma.alimentaireProfile.findMany({
+    where: { userId: user.id },
+    orderBy: { createdAt: "asc" },
+  });
 
   return (
     <Layout size="lg">
       <LayoutHeader>
-        <LayoutTitle>Nouveau bilan mensuel</LayoutTitle>
+        <div className="flex items-center gap-4">
+          <Link href="/app/bilan">
+            <Button variant="outline" size="sm" className="gap-2">
+              <ArrowLeft className="size-4" />
+              Retour
+            </Button>
+          </Link>
+          <LayoutTitle>
+            Bilan du {new Date(profile.createdAt).toLocaleDateString("fr-FR")}
+          </LayoutTitle>
+        </div>
       </LayoutHeader>
 
       <LayoutActions>
-        <Link href={`/app/bilan`}>
+        <Link href="/app/bilan/nouveau">
           <Button variant="outline" size="sm" className="gap-2">
-            <ArrowLeft className="size-4" />
-            Retour
+            <Plus className="size-4" />
+            Nouveau bilan
           </Button>
         </Link>
       </LayoutActions>
 
       <LayoutContent className="space-y-6">
-        {/* Logo (1/4) + Intro (3/4) — même habillage que la page détail */}
         <div className="grid gap-6 lg:grid-cols-4">
           <Card className="flex items-center justify-center border-orange-500/30 lg:col-span-1">
             <CardContent className="flex items-center justify-center p-6">
@@ -103,22 +78,36 @@ export default async function NewBilanPage() {
 
           <Card className="border-orange-500/30 lg:col-span-3">
             <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-              <CardTitle className="px-2 text-orange-500">Nouveau bilan</CardTitle>
+              <CardTitle className="px-2 text-orange-500">Fiche de renseignements</CardTitle>
             </CardHeader>
-            <CardContent className="pt-6">
-              <p className="text-sm text-muted-foreground">
-                {lastProfile
-                  ? "Le formulaire est pré-rempli avec les valeurs de ton dernier bilan. Ajuste ce qui a changé."
-                  : "Remplis ce formulaire pour créer ton premier bilan mensuel."}
-              </p>
+            <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
+              <Info label="Nom - Prénom" value={profile.user?.name ?? "N/A"} />
+              <Info label="Âge" value={`${profile.age} ans`} />
+              <Info label="Sexe" value={profile.gender === "HOMME" ? "Homme" : profile.gender === "FEMME" ? "Femme" : "N/A"} />
+              <Info label="Profession" value={profile.profession ?? "N/A"} />
+              <Info label="Email" value={profile.user?.email ?? "N/A"} />
+              <Info label="Début de suivi" value={new Date(profile.createdAt).toLocaleDateString("fr-FR")} />
             </CardContent>
           </Card>
         </div>
 
-        <div className="mx-auto max-w-5xl">
-          <MonthlyAuditForm defaultValues={defaultValues} />
+        <BodyDiagramCard profile={profile} />
+
+        <div className="grid gap-6 lg:grid-cols-3">
+          <LifestyleCard profile={profile} />
+          <TrainingCard profile={profile} />
+          <MonthlyReviewCard profile={profile} />
         </div>
+
+        <MonthlyHistoryTable profiles={allProfiles} />
       </LayoutContent>
     </Layout>
   );
 }
+
+const Info = ({ label, value }: { label: string; value: string }) => (
+  <div>
+    <p className="text-xs font-medium text-muted-foreground">{label}</p>
+    <p className="mt-1 text-sm font-semibold">{value}</p>
+  </div>
+);

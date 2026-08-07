@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import Link from "next/link";
-import { Calendar, Plus, Pencil, Eye } from "lucide-react";
+import { Calendar, Plus, Eye } from "lucide-react";
 
 export default async function MyBilansPage() {
   const user = await getRequiredUser();
@@ -59,10 +59,10 @@ export default async function MyBilansPage() {
                           </span>
                         )}
                       </CardTitle>
-                      <Link href={`/app/bilan/${profile.id}/modifier`}>
+                      <Link href={`/app/bilan/${profile.id}`}>
                         <Button variant="outline" size="sm" className="gap-2">
                           <Eye className="size-4" />
-                           Voir
+                          Voir
                         </Button>
                       </Link>
                     </div>

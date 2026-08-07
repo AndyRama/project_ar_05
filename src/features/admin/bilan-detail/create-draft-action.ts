@@ -4,6 +4,7 @@ import { getRequiredUser } from "@/lib/auth/auth-user";
 import { prisma } from "@/lib/prisma";
 import { logger } from "@/lib/logger";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export async function createDraftBilanAction() {
   const user = await getRequiredUser();
@@ -73,6 +74,6 @@ export async function createDraftBilanAction() {
     logger.error("Échec de la création du brouillon de bilan", { err, userId: user.id });
     throw new Error("Impossible de créer un nouveau bilan, merci de réessayer.");
   }
-
+  revalidatePath("/app/bilan");
   redirect(`/app/bilan/${newProfile.id}`);
 }
