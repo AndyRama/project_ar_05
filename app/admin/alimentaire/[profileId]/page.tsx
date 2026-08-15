@@ -54,19 +54,31 @@ export default async function AlimentaireDetailPage({ params }: Props) {
       </LayoutHeader>
 
       <LayoutContent className="space-y-6">
-        <Card className="border-orange-500/30">
-          <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-            <CardTitle className="px-2 text-orange-500">Fiche de renseignements</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
-            <Info label="Nom - Prénom" value={profile.user?.name ?? "N/A"} />
-            <Info label="Âge" value={`${profile.age} ans`} />
-            <Info label="Sexe" value={profile.gender === "HOMME" ? "Homme" : profile.gender === "FEMME" ? "Femme" : "N/A"} />
-            <Info label="Profession" value={profile.profession ?? "N/A"} />
-            <Info label="Email" value={profile.user?.email ?? "N/A"} />
-            <Info label="Date du bilan" value={new Date(profile.createdAt).toLocaleDateString("fr-FR")} />
-          </CardContent>
-        </Card>
+        {/* Logo (1/4) + Infos personnelles (3/4) */}
+        <div className="grid gap-6 lg:grid-cols-4">
+          <Card className="flex items-center justify-center border-orange-500/30 lg:col-span-1">
+            <CardContent className="flex items-center justify-center p-6">
+              <img
+                src="/images/logo-suivi-mensuel.jpg"
+                alt="Team UNL Coaching"
+                className="w-full max-w-[200px] object-contain"
+              />
+            </CardContent>
+          </Card>
+          <Card className="border-orange-500/30 lg:col-span-3">
+            <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
+              <CardTitle className="px-2 text-orange-500">Fiche de renseignements</CardTitle>
+            </CardHeader>
+            <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
+              <Info label="Nom - Prénom" value={profile.user?.name ?? "N/A"} />
+              <Info label="Âge" value={`${profile.age} ans`} />
+              <Info label="Sexe" value={profile.gender === "HOMME" ? "Homme" : profile.gender === "FEMME" ? "Femme" : "N/A"} />
+              <Info label="Profession" value={profile.profession ?? "N/A"} />
+              <Info label="Email" value={profile.user?.email ?? "N/A"} />
+              <Info label="Date du bilan" value={new Date(profile.createdAt).toLocaleDateString("fr-FR")} />
+            </CardContent>
+          </Card>
+        </div>
 
         <BodyDiagramCard profile={profile} />
 

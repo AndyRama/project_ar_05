@@ -36,7 +36,7 @@ export default async function MyBilansPage() {
       </LayoutActions>
       <LayoutActions>
         <Link href="/app/bilan/complet">
-          <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
+          <Button className="gap-2 border border-orange-500 hover:bg-orange-500">
             <Plus className="size-4" />
             Formulaire complet
           </Button>

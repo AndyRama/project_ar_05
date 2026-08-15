@@ -57,11 +57,11 @@ export default async function NewBilanPage() {
                     On part des valeurs de ton dernier bilan (
                     {new Date(lastProfile.createdAt).toLocaleDateString("fr-FR")}) — tu
                     pourras ajuster chaque section une par une une fois sur la page du
-                    bilan.
+                    bilan en le modifiant.
                   </p>
                   <form action={createDraftBilanAction} className="mt-4">
                     <Button type="submit" className="gap-2 bg-orange-500 hover:bg-orange-400">
-                      Commencer mon bilan
+                      Crée un bilan
                     </Button>
                   </form>
                 </>
