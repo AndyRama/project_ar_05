@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AlimentaireProfile } from "@/generated/prisma";
 import { EditableSection } from "./editable-section";
 import { updateFicheAction } from "./section-actions";
+import { PLAN_LABELS } from "./plan-constants";
 
 type FicheRenseignementsCardProps = {
   profile: AlimentaireProfile & {
@@ -30,7 +31,7 @@ export const FicheRenseignementsCard = ({ profile }: FicheRenseignementsCardProp
           onSave={(v) => updateFicheAction(profile.id, v)}
           view={
             <div className="grid gap-4 pr-8 md:grid-cols-4">
-              <Info label="Plan" value={profile.plan ?? "N/A"} />
+              <Info label="Plan" value={profile.plan ? PLAN_LABELS[profile.plan] : "N/A"} />
               <Info label="Nom - Prénom" value={profile.user?.name ?? "N/A"} />
               <Info label="Âge" value={`${profile.age} ans`} />
               <Info
@@ -54,12 +55,19 @@ export const FicheRenseignementsCard = ({ profile }: FicheRenseignementsCardProp
           renderForm={({ values, setValues }) => (
             <div className="grid gap-3 md:grid-cols-2">
               <FormField label="Plan">
-                <input
-                  value={values.plan}
-                  onChange={(e) => setValues({ ...values, plan: e.target.value })}
-                  className={inputCn}
-                />
-              </FormField>
+								<select
+									value={values.plan ?? ""}
+									onChange={(e) =>
+										setValues({ ...values, plan: e.target.value as "starter" | "premium" | "competition-vip" })
+									}
+									className={inputCn}
+								>
+									<option value="">—</option>
+									<option value="starter">Starter — 3 mois</option>
+									<option value="premium">Premium — 6 mois</option>
+									<option value="competition-vip">Competition VIP — 12 mois</option>
+								</select>
+							</FormField>
               <FormField label="Âge">
                 <input
                   type="number"

@@ -37,6 +37,12 @@ enum RatingLevel {
   EXCELLENT
 }
 
+enum Plan {
+  STARTER         @map("starter")
+  PREMIUM         @map("premium")
+  COMPETITION_VIP @map("competition-vip")
+}
+
 model AlimentaireProfile {
   id        String    @id @default(nanoid(11))
 
@@ -44,7 +50,7 @@ model AlimentaireProfile {
   age       Int
   weight    Float
   gender    Gender?
-  plan      String?
+  plan      Plan?
 
   profession String?
   pathology  String?
@@ -102,7 +108,7 @@ model AlimentaireProfile {
 model PendingAuditSubmission {
   id        String   @id @default(nanoid(11))
 
-  plan      String
+  plan      Plan
   firstname String
   lastname  String
   phone     String
@@ -146,3 +152,4 @@ model MealPlanDocument {
 
   @@index([userId])
 }
+

@@ -2,6 +2,8 @@ import { z } from "zod";
 
 const RatingLevelSchema = z.enum(["TRES_FAIBLE", "FAIBLE", "MOYEN", "BON", "EXCELLENT"]);
 
+const PlanSchema = z.enum(["starter", "premium", "competition-vip"]);
+
 // Accepte vide (non renseigné) ou une valeur numérique positive
 const optionalNumStr = z
   .string()
@@ -63,6 +65,6 @@ export const FicheSchema = z.object({
   age: z.string().refine((v) => !isNaN(Number(v)) && Number(v) > 0, "Âge invalide"),
   gender: z.enum(["HOMME", "FEMME"]).optional(),
   profession: z.string().optional(),
-  plan: z.string().optional(),
+  plan: PlanSchema.optional(),
 });
 export type FicheData = z.infer<typeof FicheSchema>;
