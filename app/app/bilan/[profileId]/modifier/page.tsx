@@ -17,6 +17,7 @@ import { LifestyleCard } from "@/features/admin/bilan-detail/lifestyle-card";
 import { TrainingCard } from "@/features/admin/bilan-detail/training-card";
 import { MonthlyReviewCard } from "@/features/admin/bilan-detail/monthly-review-card";
 import { MonthlyHistoryTable } from "@/features/admin/bilan-detail/monthly-history-table";
+import { NotifyCoachButton } from "@/features/admin/bilan-detail/notify-coach-button";
 import type { PageParams } from "@/types/next";
 
 type Props = PageParams<{ profileId: string }>;
@@ -56,14 +57,9 @@ export default async function MyBilanDetailPage({ params }: Props) {
           </div>
         </div>
       </LayoutHeader>
-
+    
       <LayoutActions>
-        <Link href={`/app/bilan/${profile.id}/modifier`}>
-          <Button variant="outline" size="sm" className="gap-2">
-            <Pencil className="size-4" />
-            Nouveau bilan
-          </Button>
-        </Link>
+        <NotifyCoachButton profileId={profile.id} />
       </LayoutActions>
 
       <LayoutContent className="space-y-6">
@@ -84,6 +80,7 @@ export default async function MyBilanDetailPage({ params }: Props) {
               <CardTitle className="px-2 text-orange-500">Fiche de renseignements</CardTitle>
             </CardHeader>
             <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
+              <Info label="Nom - Prénom" value={profile.plan ?? "N/A"} />
               <Info label="Nom - Prénom" value={profile.user?.name ?? "N/A"} />
               <Info label="Âge" value={`${profile.age} ans`} />
               <Info label="Sexe" value={profile.gender === "HOMME" ? "Homme" : profile.gender === "FEMME" ? "Femme" : "N/A"} />

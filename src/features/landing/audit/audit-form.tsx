@@ -85,7 +85,7 @@ export const AuditForm = () => {
           </p>
           <div className="mt-8 flex flex-col gap-3">
             <p className="text-sm font-semibold text-foreground">
-              Dernière étape — créez votre compte pour accéder à votre espace membre.
+              Dernière étape — créez ton compte pour accéder à votre espace membre.
             </p>
             <Link
               href="/auth/signin"
@@ -96,7 +96,7 @@ export const AuditForm = () => {
             </Link>
             <span className="flex items-center justify-center gap-3 text-xs text-muted-foreground">
               <span className="h-px flex-1 bg-border" />
-              Connexion via lien magique par email ou Google
+                Connexion via lien magique par email ou Google
               <span className="h-px flex-1 bg-border" />
             </span>
           </div>
