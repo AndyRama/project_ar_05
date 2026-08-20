@@ -1,6 +1,6 @@
 "use server";
 
-import { resend } from "@/lib/resend";
+import { resend } from "@/lib/mail/resend";
 import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 
