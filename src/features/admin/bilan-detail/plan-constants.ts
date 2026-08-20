@@ -7,9 +7,16 @@ export const PLAN_LABELS: Record<Plan, string> = {
   COMPETITION_VIP: "Competition VIP — 12 mois",
 };
 
-// Conversion vers les valeurs minuscules attendues par EditableSection / updateFicheAction
+// Conversion enum Prisma → valeur minuscule (front / EditableSection)
 export const PLAN_DB_VALUES: Record<Plan, "starter" | "premium" | "competition-vip"> = {
   STARTER: "starter",
   PREMIUM: "premium",
   COMPETITION_VIP: "competition-vip",
+};
+
+// Conversion valeur minuscule (formulaire / Zod) → enum Prisma
+export const PLAN_FROM_DB_VALUE: Record<"starter" | "premium" | "competition-vip", Plan> = {
+  starter: "STARTER",
+  premium: "PREMIUM",
+  "competition-vip": "COMPETITION_VIP",
 };

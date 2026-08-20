@@ -6,6 +6,7 @@ import MarkdownEmail from "@email/markdown.email";
 import { AuditFormSchema, PLANS } from "./audit-form.schema";
 import { logger } from "@/lib/logger";
 import { prisma } from "@/lib/prisma";
+import { PLAN_FROM_DB_VALUE } from "@/features/admin/bilan-detail/plan-constants";
 
 export async function submitAuditFormAction(
   data: z.infer<typeof AuditFormSchema>
@@ -48,7 +49,7 @@ export async function submitAuditFormAction(
   try {
     await prisma.pendingAuditSubmission.create({
       data: {
-        plan,
+        plan: PLAN_FROM_DB_VALUE[plan],
         firstname,
         lastname,
         phone,
