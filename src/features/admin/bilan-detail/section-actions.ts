@@ -10,6 +10,7 @@ import {
   LifestyleSchema,
   TrainingSchema,
   QualitativeSchema,
+  FicheSchema,
 } from "./schemas";
 
 // Convertit les strings numériques en number, laisse le reste tel quel,
@@ -75,4 +76,8 @@ export async function updateTrainingAction(profileId: string, data: z.infer<type
 
 export async function updateQualitativeAction(profileId: string, data: z.infer<typeof QualitativeSchema>) {
   return updateSection(QualitativeSchema, profileId, data, ["/app/bilan", `/app/bilan/${profileId}`]);
+}
+
+export async function updateFicheAction(profileId: string, data: z.infer<typeof FicheSchema>) {
+  return updateSection(FicheSchema, profileId, data, ["/app/bilan", `/app/bilan/${profileId}`]);
 }

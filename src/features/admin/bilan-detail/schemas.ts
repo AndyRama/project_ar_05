@@ -58,3 +58,11 @@ export const QualitativeSchema = z.object({
   nextMonthGoals: z.string().optional(),
 });
 export type QualitativeData = z.infer<typeof QualitativeSchema>;
+
+export const FicheSchema = z.object({
+  age: z.string().refine((v) => !isNaN(Number(v)) && Number(v) > 0, "Âge invalide"),
+  gender: z.enum(["HOMME", "FEMME"]).optional(),
+  profession: z.string().optional(),
+  plan: z.string().optional(),
+});
+export type FicheData = z.infer<typeof FicheSchema>;

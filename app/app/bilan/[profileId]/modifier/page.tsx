@@ -11,13 +11,14 @@ import { prisma } from "@/lib/prisma";
 import { getRequiredUser } from "@/lib/auth/auth-user";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Pencil } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { BodyDiagramCard } from "@/features/admin/bilan-detail/body-diagram-card";
 import { LifestyleCard } from "@/features/admin/bilan-detail/lifestyle-card";
 import { TrainingCard } from "@/features/admin/bilan-detail/training-card";
 import { MonthlyReviewCard } from "@/features/admin/bilan-detail/monthly-review-card";
 import { MonthlyHistoryTable } from "@/features/admin/bilan-detail/monthly-history-table";
 import { NotifyCoachButton } from "@/features/admin/bilan-detail/notify-coach-button";
+import { FicheRenseignementsCard } from "@/features/admin/bilan-detail/fiche-renseignements-card";
 import type { PageParams } from "@/types/next";
 
 type Props = PageParams<{ profileId: string }>;
@@ -75,20 +76,7 @@ export default async function MyBilanDetailPage({ params }: Props) {
             </CardContent>
           </Card>
 
-          <Card className="border-orange-500/30 lg:col-span-3">
-            <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
-              <CardTitle className="px-2 text-orange-500">Fiche de renseignements</CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
-              <Info label="Nom - Prénom" value={profile.plan ?? "N/A"} />
-              <Info label="Nom - Prénom" value={profile.user?.name ?? "N/A"} />
-              <Info label="Âge" value={`${profile.age} ans`} />
-              <Info label="Sexe" value={profile.gender === "HOMME" ? "Homme" : profile.gender === "FEMME" ? "Femme" : "N/A"} />
-              <Info label="Profession" value={profile.profession ?? "N/A"} />
-              <Info label="Email" value={profile.user?.email ?? "N/A"} />
-              <Info label="Début de suivi" value={new Date(profile.createdAt).toLocaleDateString("fr-FR")} />
-            </CardContent>
-          </Card>
+          <FicheRenseignementsCard profile={profile} />
         </div>
 
         <BodyDiagramCard profile={profile} />
