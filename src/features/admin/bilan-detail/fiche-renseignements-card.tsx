@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AlimentaireProfile } from "@/generated/prisma";
 import { EditableSection } from "./editable-section";
 import { updateFicheAction } from "./section-actions";
-import { PLAN_LABELS } from "./plan-constants";
+import { PLAN_LABELS, PLAN_DB_VALUES } from "./plan-constants";
 
 type FicheRenseignementsCardProps = {
   profile: AlimentaireProfile & {
@@ -13,12 +13,12 @@ type FicheRenseignementsCardProps = {
 };
 
 export const FicheRenseignementsCard = ({ profile }: FicheRenseignementsCardProps) => {
-  const initialValues = {
-    age: String(profile.age),
-    gender: profile.gender ?? undefined,
-    profession: profile.profession ?? "",
-    plan: profile.plan ?? undefined,
-  };
+	const initialValues = {
+		age: String(profile.age),
+		gender: profile.gender ?? undefined,
+		profession: profile.profession ?? "",
+		plan: profile.plan ? PLAN_DB_VALUES[profile.plan] : undefined,
+	};
 
   return (
     <Card className="border-orange-500/30 lg:col-span-3">
