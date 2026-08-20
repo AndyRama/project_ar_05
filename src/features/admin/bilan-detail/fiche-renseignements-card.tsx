@@ -17,7 +17,7 @@ export const FicheRenseignementsCard = ({ profile }: FicheRenseignementsCardProp
     age: String(profile.age),
     gender: profile.gender ?? undefined,
     profession: profile.profession ?? "",
-    plan: profile.plan ?? "",
+    plan: profile.plan ?? undefined,
   };
 
   return (
