@@ -44,6 +44,7 @@ model AlimentaireProfile {
   age       Int
   weight    Float
   gender    Gender?
+  plan      String?
 
   profession String?
   pathology  String?

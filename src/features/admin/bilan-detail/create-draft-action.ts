@@ -23,6 +23,7 @@ export async function createDraftBilanAction() {
     newProfile = await prisma.alimentaireProfile.create({
       data: {
         userId: user.id,
+        plan: lastProfile.plan,
         // Copie tous les champs du dernier bilan comme point de départ
         age: lastProfile.age,
         size: lastProfile.size,
