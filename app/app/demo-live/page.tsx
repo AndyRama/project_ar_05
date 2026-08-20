@@ -32,10 +32,10 @@ export default async function DemoFichePage() {
       </LayoutHeader>
 
        <LayoutActions>
-          <Link href="#">
+          <Link href="/bilan">
             <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
               <Plus className="size-4" />
-              Nouveau bilan
+                Retour au bilan
             </Button>
           </Link>
         </LayoutActions>

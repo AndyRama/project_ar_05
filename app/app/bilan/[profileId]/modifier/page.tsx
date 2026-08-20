@@ -58,10 +58,20 @@ export default async function MyBilanDetailPage({ params }: Props) {
           </div>
         </div>
       </LayoutHeader>
+ 
+      <LayoutActions>
+        <Link href="/app/demo-live">
+          <Button variant="" size="sm" className="gap-2">
+            <ArrowLeft className="size-4" />
+            Example
+          </Button>
+        </Link>
+      </LayoutActions>
     
       <LayoutActions>
         <NotifyCoachButton profileId={profile.id} />
       </LayoutActions>
+
 
       <LayoutContent className="space-y-6">
         {/* Logo (1/4) + Infos personnelles (3/4) */}
