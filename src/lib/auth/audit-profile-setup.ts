@@ -29,7 +29,7 @@ export const createInitialAlimentaireProfile = async (user: User) => {
     await prisma.alimentaireProfile.create({
       data: {
         userId: user.id,
-        plan: pendingSubmission.plan,
+        plan: pending.plan,
         size: Number(pending.size),
         age: Number(pending.age),
         weight: Number(pending.weight),
