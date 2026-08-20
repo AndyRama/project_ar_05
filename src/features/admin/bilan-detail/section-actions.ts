@@ -12,6 +12,7 @@ import {
   QualitativeSchema,
   FicheSchema,
 } from "./schemas";
+import { PLAN_FROM_DB_VALUE } from "@/features/admin/bilan-detail/plan-constants"; // ← ajout
 
 // Convertit les strings numériques en number, laisse le reste tel quel,
 // transforme "" en null pour les champs optionnels
@@ -33,7 +34,8 @@ async function updateSection<S extends ZodType>(
   schema: S,
   profileId: string,
   data: z.infer<S>,
-  revalidatePaths: string[]
+  revalidatePaths: string[],
+  transform?: (parsed: z.infer<S>) => Record<string, unknown> // ← ajout
 ) {
   const user = await getRequiredUser();
 
@@ -47,10 +49,14 @@ async function updateSection<S extends ZodType>(
     throw new Error("Données invalides");
   }
 
+  const finalData = transform
+    ? transform(parsed.data)
+    : (parsed.data as Record<string, unknown>);
+
   try {
     await prisma.alimentaireProfile.update({
       where: { id: profileId },
-      data: coerce(parsed.data as Record<string, unknown>),
+      data: coerce(finalData),
     });
   } catch (err) {
     logger.error("Échec de la mise à jour de section", { err, userId: user.id, profileId });
@@ -79,5 +85,14 @@ export async function updateQualitativeAction(profileId: string, data: z.infer<t
 }
 
 export async function updateFicheAction(profileId: string, data: z.infer<typeof FicheSchema>) {
-  return updateSection(FicheSchema, profileId, data, ["/app/bilan", `/app/bilan/${profileId}`]);
+  return updateSection(
+    FicheSchema,
+    profileId,
+    data,
+    ["/app/bilan", `/app/bilan/${profileId}`],
+    (parsed) => ({
+      ...parsed,
+      plan: parsed.plan ? PLAN_FROM_DB_VALUE[parsed.plan as "starter" | "premium" | "competition-vip"] : parsed.plan,
+    })
+  );
 }
