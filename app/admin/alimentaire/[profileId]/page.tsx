@@ -70,12 +70,12 @@ export default async function AlimentaireDetailPage({ params }: Props) {
               <CardTitle className="px-2 text-orange-500">Fiche de renseignements</CardTitle>
             </CardHeader>
             <CardContent className="grid gap-4 pt-6 md:grid-cols-4">
+              <Info label="Date du bilan" value={new Date(profile.createdAt).toLocaleDateString("fr-FR")} />
               <Info label="Nom - Prénom" value={profile.user?.name ?? "N/A"} />
               <Info label="Âge" value={`${profile.age} ans`} />
               <Info label="Sexe" value={profile.gender === "HOMME" ? "Homme" : profile.gender === "FEMME" ? "Femme" : "N/A"} />
               <Info label="Profession" value={profile.profession ?? "N/A"} />
               <Info label="Email" value={profile.user?.email ?? "N/A"} />
-              <Info label="Date du bilan" value={new Date(profile.createdAt).toLocaleDateString("fr-FR")} />
             </CardContent>
           </Card>
         </div>
