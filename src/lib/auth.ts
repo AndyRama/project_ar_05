@@ -25,10 +25,10 @@ if (env.GITHUB_CLIENT_ID && env.GITHUB_CLIENT_SECRET) {
   };
 }
 
-if (env.GOOGLE_ID && env.GOOGLE_SECRET) {
+if (env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET) {
   SocialProviders.google = {
-    clientId: env.GOOGLE_ID,
-    clientSecret: env.GOOGLE_SECRET,
+    clientId: env.GOOGLE_CLIENT_ID,
+    clientSecret: env.GOOGLE_CLIENT_SECRET,
   };
 }
 
