@@ -163,7 +163,7 @@ export const EditProfileCardForm = ({
             </Link>
             <div className="flex-1"></div>
             <LoadingButton loading={updateProfileMutation.isPending}>
-              Sauveguarder
+              Sauvegarder
             </LoadingButton>
           </CardFooter>
         </Card>
