@@ -61,7 +61,7 @@ export default async function MyBilanDetailPage({ params }: Props) {
  
       <LayoutActions>
         <Link href="/app/demo-live">
-          <Button variant="" size="sm" className="gap-2">
+          <Button size="sm" className="gap-2">
             <ArrowLeft className="size-4" />
             Example
           </Button>
