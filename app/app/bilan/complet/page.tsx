@@ -88,7 +88,7 @@ export default async function NewBilanPage() {
         </Link>
       </LayoutActions>
 
-      <LayoutContent className="space-y-6 max-w-6xl">
+      <LayoutContent className="space-y-6 max-w-7xl">
         {/* Logo (1/4) + Intro (3/4) — même habillage que la page détail */}
         <div className="grid gap-6 lg:grid-cols-4">
           <Card className="flex items-center justify-center border-orange-500/30 lg:col-span-1">
