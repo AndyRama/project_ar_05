@@ -25,10 +25,10 @@ if (env.GITHUB_CLIENT_ID && env.GITHUB_CLIENT_SECRET) {
   };
 }
 
-if (env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET) {
+if (env.GOOGLE_ID && env.GOOGLE_SECRET) {
   SocialProviders.google = {
-    clientId: env.GOOGLE_CLIENT_ID,
-    clientSecret: env.GOOGLE_CLIENT_SECRET,
+    clientId: env.GOOGLE_ID,
+    clientSecret: env.GOOGLE_SECRET,
   };
 }
 
@@ -38,7 +38,7 @@ export const auth = betterAuth({
   }),
   baseURL: getServerUrl(),
     trustedOrigins: [
-    "http://f8cs888kokw84o4w0wc48044.148.230.125.176.sslip.io",
+    "https://www.unlcoaching.com",
   ],
   databaseHooks: {
     user: {
