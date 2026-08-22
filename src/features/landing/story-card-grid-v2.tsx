@@ -78,7 +78,7 @@ export const StoryCardV2: React.FC<StoryCardV2Props> = ({
 };
 
 // ── Data ──────────────────────────────────────────────────────────
-// Chaque bloc = 1 grande image + 2 petites images
+// Chaque bloc = 1 grande image (3/4) + 1 petite image (1/4)
 
 const ALL_IMAGES: TransformationImage[] = [
   { img: "/images/story1.png",  alt: "Transformation Team",              width: 1188, height: 1413, category: ["Perte de poids"],  duration: "4 mois",  weightLoss: "-12 kg" },
@@ -96,8 +96,8 @@ const ALL_IMAGES: TransformationImage[] = [
   { img: "/images/story13.jpg", alt: "Transformation musculation",       width: 1188, height: 1413, category: ["Prise de masse"],  duration: "6 mois" },
 ];
 
-// Nombre de blocs (chacun = 1 grande + 2 petites) visibles avant "Voir plus"
-const INITIAL_BLOCKS = 2;
+// Nombre de blocs (chacun = 1 grande + 1 petite) visibles avant "Voir plus"
+const INITIAL_BLOCKS = 3;
 
 const CATEGORIES: TransformationCategory[] = [
   "Tous",
@@ -107,11 +107,11 @@ const CATEGORIES: TransformationCategory[] = [
   "Compétition",
 ];
 
-// Découpe un tableau plat en blocs de 3 [grande, petite, petite]
+// Découpe un tableau plat en blocs de 2 [grande, petite]
 function chunkIntoBlocks(images: TransformationImage[]) {
   const blocks: TransformationImage[][] = [];
-  for (let i = 0; i < images.length; i += 3) {
-    blocks.push(images.slice(i, i + 3));
+  for (let i = 0; i < images.length; i += 2) {
+    blocks.push(images.slice(i, i + 2));
   }
   return blocks;
 }
@@ -226,46 +226,35 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
         ) : (
           <div className="flex flex-col gap-4 md:gap-6">
             {visibleBlocks.map((block, blockIndex) => {
-              const [large, small1, small2] = block;
+              const [large, small] = block;
               // Alterne le côté de la grande image : gauche sur les blocs pairs, droite sur les impairs
               const largeOnLeft = blockIndex % 2 === 0;
 
               const largeCard = large && (
-                <StoryCardV2
-                  img={large.img}
-                  alt={large.alt}
-                  width={large.width}
-                  height={large.height}
-                  tailwindClass="h-[300px] md:h-[520px]"
-                  duration={large.duration}
-                  weightLoss={large.weightLoss}
-                />
+                <div className="w-3/4">
+                  <StoryCardV2
+                    img={large.img}
+                    alt={large.alt}
+                    width={large.width}
+                    height={large.height}
+                    tailwindClass="h-[320px] md:h-[420px]"
+                    duration={large.duration}
+                    weightLoss={large.weightLoss}
+                  />
+                </div>
               );
 
-              const smallStack = (small1 || small2) && (
-                <div className="flex flex-1 flex-col gap-4 md:gap-6">
-                  {small1 && (
-                    <StoryCardV2
-                      img={small1.img}
-                      alt={small1.alt}
-                      width={small1.width}
-                      height={small1.height}
-                      tailwindClass="h-[240px] md:h-[250px]"
-                      duration={small1.duration}
-                      weightLoss={small1.weightLoss}
-                    />
-                  )}
-                  {small2 && (
-                    <StoryCardV2
-                      img={small2.img}
-                      alt={small2.alt}
-                      width={small2.width}
-                      height={small2.height}
-                      tailwindClass="h-[240px] md:h-[250px]"
-                      duration={small2.duration}
-                      weightLoss={small2.weightLoss}
-                    />
-                  )}
+              const smallCard = small && (
+                <div className="w-1/4">
+                  <StoryCardV2
+                    img={small.img}
+                    alt={small.alt}
+                    width={small.width}
+                    height={small.height}
+                    tailwindClass="h-[320px] md:h-[420px]"
+                    duration={small.duration}
+                    weightLoss={small.weightLoss}
+                  />
                 </div>
               );
 
@@ -273,13 +262,13 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
                 <div key={blockIndex} className="flex gap-4 md:gap-6">
                   {largeOnLeft ? (
                     <>
-                      <div className="flex-1">{largeCard}</div>
-                      {smallStack}
+                      {largeCard}
+                      {smallCard}
                     </>
                   ) : (
                     <>
-                      {smallStack}
-                      <div className="flex-1">{largeCard}</div>
+                      {smallCard}
+                      {largeCard}
                     </>
                   )}
                 </div>
