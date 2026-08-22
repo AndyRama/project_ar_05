@@ -60,12 +60,12 @@ export const StoryCardV2: React.FC<StoryCardV2Props> = ({
 // ── Data ──────────────────────────────────────────────────────────
 
 const ALL_IMAGES: TransformationImage[] = [
-  { img: "/images/story1.png",  alt: "Transformation -8kg en 4 mois",          width: 1405, height: 1119, category: ["Perte de poids"] },
-  { img: "/images/story2.jpg",  alt: "Transformation coaching nutrition",      width: 1536, height: 1023, category: ["Remise en forme"] },
-  { img: "/images/story3.jpg",  alt: "Transformation prise de masse sèche",    width: 1405, height: 1119, category: ["Prise de masse", "Compétition"] },
-  { img: "/images/story4.jpg",  alt: "Transformation surplus calorique",       width: 1329, height: 1119, category: ["Prise de masse"] },
-  { img: "/images/story5.jpg",  alt: "Transformation posture et définition",   width: 1456, height: 1119, category: ["Remise en forme"] },
-  { img: "/images/story6.jpg",  alt: "Transformation -15kg +4kg de muscle",    width: 1536, height: 1023, category: ["Perte de poids", "Prise de masse"] },
+  { img: "/images/modele-1.jpeg",  alt: "Transformation -8kg en 4 mois",          width: 1405, height: 1119, category: ["Perte de poids"] },
+  { img: "/images/modele-2.jpeg",  alt: "Transformation coaching nutrition",      width: 1536, height: 1023, category: ["Remise en forme"] },
+  { img: "/images/modele-3.jpeg",  alt: "Transformation prise de masse sèche",    width: 1405, height: 1119, category: ["Prise de masse", "Compétition"] },
+  { img: "/images/modele.jpeg",  alt: "Transformation surplus calorique",       width: 1329, height: 1119, category: ["Prise de masse"] },
+  { img: "/images/modele-5.jpeg",  alt: "Transformation posture et définition",   width: 1456, height: 1119, category: ["Remise en forme"] },
+  { img: "/images/modele-6.jpeg",  alt: "Transformation -15kg +4kg de muscle",    width: 1536, height: 1023, category: ["Perte de poids", "Prise de masse"] },
 ];
 
 const INITIAL_COUNT = 3;
@@ -184,7 +184,7 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
             </div>
           </div>
         ) : (
-          <div className="flex flex-col gap-6 md:gap-8">
+          <div className="mx-auto max-w-5xl flex flex-col gap-6 md:gap-8">
             {visible.map((item, i) => (
               <StoryCardV2
                 key={i}
