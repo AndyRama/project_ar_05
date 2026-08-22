@@ -7,8 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/nowts/typography";
 import { FileQuestion } from "lucide-react";
 
-// ── Types ─────────────────────────────────────────────────────────
-
 type TransformationCategory =
   | "Tous"
   | "Perte de poids"
@@ -22,8 +20,6 @@ type TransformationImage = {
   width: number;
   height: number;
   category: TransformationCategory[];
-  duration?: string;
-  weightLoss?: string;
 };
 
 export type StoryCardV2Props = {
@@ -31,9 +27,6 @@ export type StoryCardV2Props = {
   alt: string;
   width: number;
   height: number;
-  tailwindClass?: string;
-  duration?: string;
-  weightLoss?: string;
 };
 
 export type StoryCardGridV2Props = {
@@ -50,54 +43,32 @@ export const StoryCardV2: React.FC<StoryCardV2Props> = ({
   alt,
   width,
   height,
-  tailwindClass,
-  duration,
-  weightLoss,
 }) => {
   return (
-    <div className={`group relative overflow-hidden rounded-md ring-1 ring-border shadow-sm ${tailwindClass ?? ""}`}>
+    <div className="group relative overflow-hidden rounded-md ring-1 ring-border shadow-sm">
       <Image
         src={img}
         alt={alt}
         width={width}
         height={height}
-        className="h-full w-full object-cover object-center transition-all duration-500 group-hover:scale-105"
+        className="h-auto w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
       />
-      {(duration ?? weightLoss) && (
-        <div className="absolute inset-x-3 bottom-3 z-10 rounded-md bg-black/80 p-2.5 text-sm text-white backdrop-blur-sm">
-          <div className="flex items-center justify-between">
-            {duration && <span>⏱️ {duration}</span>}
-            {weightLoss && (
-              <span className="font-bold text-orange-500">{weightLoss}</span>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 };
 
 // ── Data ──────────────────────────────────────────────────────────
-// Chaque bloc = 1 grande image (3/4) + 1 petite image (1/4)
 
 const ALL_IMAGES: TransformationImage[] = [
-  { img: "/images/story1.png",  alt: "Transformation Team",              width: 1188, height: 1413, category: ["Perte de poids"],  duration: "4 mois",  weightLoss: "-12 kg" },
-  { img: "/images/story2.jpg",  alt: "Transformation coaching",          width: 1188, height: 1413, category: ["Remise en forme"], duration: "3 mois" },
-  { img: "/images/story3.jpg",  alt: "Transformation No pain no gain",   width: 1188, height: 1413, category: ["Prise de masse"],  duration: "6 mois" },
-
-  { img: "/images/story4.jpg",  alt: "Transformation fitness",           width: 1188, height: 1413, category: ["Perte de poids"],  duration: "5 mois",  weightLoss: "-8 kg" },
-  { img: "/images/story5.jpg",  alt: "Transformation entrainement",      width: 1188, height: 1413, category: ["Prise de masse"],  duration: "8 mois" },
-  { img: "/images/story6.jpg",  alt: "Transformation remise en forme",   width: 1188, height: 1413, category: ["Remise en forme"], duration: "4 mois" },
-
-  { img: "/images/story7.jpg",  alt: "Préparation compétition",          width: 1188, height: 1413, category: ["Compétition"],     duration: "12 semaines" },
-  { img: "/images/story8.jpg",  alt: "Transformation étirements",        width: 1188, height: 1413, category: ["Remise en forme"], duration: "3 mois" },
-  { img: "/images/story9.jpg",  alt: "Transformation coaching en salle", width: 1188, height: 1413, category: ["Perte de poids"],  duration: "5 mois",  weightLoss: "-10 kg" },
-
-  { img: "/images/story13.jpg", alt: "Transformation musculation",       width: 1188, height: 1413, category: ["Prise de masse"],  duration: "6 mois" },
+  { img: "/images/story1.png",  alt: "Transformation -8kg en 4 mois",          width: 1405, height: 1119, category: ["Perte de poids"] },
+  { img: "/images/story2.jpg",  alt: "Transformation coaching nutrition",      width: 1536, height: 1023, category: ["Remise en forme"] },
+  { img: "/images/story3.jpg",  alt: "Transformation prise de masse sèche",    width: 1405, height: 1119, category: ["Prise de masse", "Compétition"] },
+  { img: "/images/story4.jpg",  alt: "Transformation surplus calorique",       width: 1329, height: 1119, category: ["Prise de masse"] },
+  { img: "/images/story5.jpg",  alt: "Transformation posture et définition",   width: 1456, height: 1119, category: ["Remise en forme"] },
+  { img: "/images/story6.jpg",  alt: "Transformation -15kg +4kg de muscle",    width: 1536, height: 1023, category: ["Perte de poids", "Prise de masse"] },
 ];
 
-// Nombre de blocs (chacun = 1 grande + 1 petite) visibles avant "Voir plus"
-const INITIAL_BLOCKS = 3;
+const INITIAL_COUNT = 3;
 
 const CATEGORIES: TransformationCategory[] = [
   "Tous",
@@ -106,15 +77,6 @@ const CATEGORIES: TransformationCategory[] = [
   "Remise en forme",
   "Compétition",
 ];
-
-// Découpe un tableau plat en blocs de 2 [grande, petite]
-function chunkIntoBlocks(images: TransformationImage[]) {
-  const blocks: TransformationImage[][] = [];
-  for (let i = 0; i < images.length; i += 2) {
-    blocks.push(images.slice(i, i + 2));
-  }
-  return blocks;
-}
 
 // ── Main ──────────────────────────────────────────────────────────
 
@@ -133,15 +95,13 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
       ? ALL_IMAGES
       : ALL_IMAGES.filter((t) => t.category.includes(activeCategory));
 
-  // Découper en blocs de 3 (1 grande + 2 petites)
-  const allBlocks = chunkIntoBlocks(filtered);
-  const visibleBlocks = showAll ? allBlocks : allBlocks.slice(0, INITIAL_BLOCKS);
+  const visible = showAll ? filtered : filtered.slice(0, INITIAL_COUNT);
 
   return (
     <section className="relative isolate overflow-hidden py-24 sm:py-32">
       <GradientBackground />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-6 lg:px-8">
 
         {/* Header */}
         {(badge ?? title ?? highlight ?? description) && (
@@ -209,7 +169,7 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
           </p>
         )}
 
-        {/* Grille ou empty state */}
+        {/* Liste en 1 colonne ou empty state */}
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16">
             <div className="flex flex-col items-center rounded-lg border-2 border-dashed p-8 gap-4">
@@ -224,62 +184,22 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
             </div>
           </div>
         ) : (
-          <div className="flex flex-col gap-4 md:gap-6">
-            {visibleBlocks.map((block, blockIndex) => {
-              const [large, small] = block;
-              // Alterne le côté de la grande image : gauche sur les blocs pairs, droite sur les impairs
-              const largeOnLeft = blockIndex % 2 === 0;
-
-              const largeCard = large && (
-                <div className="w-3/4">
-                  <StoryCardV2
-                    img={large.img}
-                    alt={large.alt}
-                    width={large.width}
-                    height={large.height}
-                    tailwindClass="h-[320px] md:h-[420px]"
-                    duration={large.duration}
-                    weightLoss={large.weightLoss}
-                  />
-                </div>
-              );
-
-              const smallCard = small && (
-                <div className="w-1/4">
-                  <StoryCardV2
-                    img={small.img}
-                    alt={small.alt}
-                    width={small.width}
-                    height={small.height}
-                    tailwindClass="h-[320px] md:h-[420px]"
-                    duration={small.duration}
-                    weightLoss={small.weightLoss}
-                  />
-                </div>
-              );
-
-              return (
-                <div key={blockIndex} className="flex gap-4 md:gap-6">
-                  {largeOnLeft ? (
-                    <>
-                      {largeCard}
-                      {smallCard}
-                    </>
-                  ) : (
-                    <>
-                      {smallCard}
-                      {largeCard}
-                    </>
-                  )}
-                </div>
-              );
-            })}
+          <div className="flex flex-col gap-6 md:gap-8">
+            {visible.map((item, i) => (
+              <StoryCardV2
+                key={i}
+                img={item.img}
+                alt={item.alt}
+                width={item.width}
+                height={item.height}
+              />
+            ))}
           </div>
         )}
 
         {/* Voir plus */}
-        {!showAll && allBlocks.length > INITIAL_BLOCKS && (
-          <div className="mt-12 flex justify-center">
+        {!showAll && filtered.length > INITIAL_COUNT && (
+        <div className="mt-12 flex justify-center">
             <button
               onClick={() => setShowAll(true)}
               className="rounded-md border border-border px-8 py-3.5 text-sm
