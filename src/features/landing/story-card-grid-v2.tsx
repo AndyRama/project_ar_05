@@ -18,7 +18,6 @@ type TransformationCategory =
 
 type TransformationImage = {
   img: string;
-  imgAfter: string;
   alt: string;
   width: number;
   height: number;
@@ -30,7 +29,6 @@ type TransformationImage = {
 
 export type StoryCardV2Props = {
   img: string;
-  imgAfter: string;
   alt: string;
   width: number;
   height: number;
@@ -49,34 +47,21 @@ export type StoryCardGridV2Props = {
 
 export const StoryCardV2: React.FC<StoryCardV2Props> = ({
   img,
-  imgAfter,
   alt,
   width,
   height,
   tailwindClass,
 }) => {
-  const [hovered, setHovered] = useState(false);
-
   return (
-    <div
-      className="group relative overflow-hidden rounded-md ring-1 ring-border shadow-sm cursor-pointer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <div className="group relative overflow-hidden rounded-md ring-1 ring-border shadow-sm">
       <Image
-        src={hovered ? imgAfter : img}
+        src={img}
         alt={alt}
         width={width}
         height={height}
         className={`${tailwindClass ?? ""} w-full object-cover object-center
                     transition-all duration-500 group-hover:scale-105`}
       />
-      {/* Overlay AVANT / APRÈS au hover */}
-      <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${hovered ? "bg-black/20" : "bg-black/0"}`}>
-        <span className={`text-white font-bold tracking-widest uppercase text-sm transition-all duration-300 ${hovered ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
-          AVANT / APRÈS
-        </span>
-      </div>
     </div>
   );
 };
@@ -86,30 +71,30 @@ export const StoryCardV2: React.FC<StoryCardV2Props> = ({
 const COLUMNS: { initial: TransformationImage[]; hidden: TransformationImage[] }[] = [
   {
     initial: [
-      { img: "/images/story1.png",  imgAfter: "/images/story1.png",  alt: "Transformation Team",             width: 1188, height: 1413, tailwindClass: "mt-10 md:mt-32 pb-10 h-full", category: ["Perte de poids"],  duration: "4 mois",  weightLoss: "-12 kg" },
-      { img: "/images/story2.jpg",  imgAfter: "/images/story2.jpg",  alt: "Transformation coaching",         width: 1188, height: 1413, tailwindClass: "pb-10",                         category: ["Remise en forme"], duration: "3 mois" },
+      { img: "/images/story1.png",  alt: "Transformation Team",             width: 1188, height: 1413, tailwindClass: "mt-10 md:mt-32 pb-10 h-full", category: ["Perte de poids"],  duration: "4 mois",  weightLoss: "-12 kg" },
+      { img: "/images/story2.jpg",  alt: "Transformation coaching",         width: 1188, height: 1413, tailwindClass: "pb-10",                         category: ["Remise en forme"], duration: "3 mois" },
     ],
     hidden: [
-      { img: "/images/story3.jpg",  imgAfter: "/images/story3.jpg",  alt: "Transformation No pain no gain",  width: 1188, height: 1413, tailwindClass: "h-full pb-10",                  category: ["Prise de masse"],  duration: "6 mois" },
+      { img: "/images/story3.jpg",  alt: "Transformation No pain no gain",  width: 1188, height: 1413, tailwindClass: "h-full pb-10",                  category: ["Prise de masse"],  duration: "6 mois" },
     ],
   },
   {
     initial: [
-      { img: "/images/story4.jpg",  imgAfter: "/images/story4.jpg",  alt: "Transformation fitness",          width: 1188, height: 1413, tailwindClass: "mt-10 h-56 lg:h-96 pb-10",     category: ["Perte de poids"],  duration: "5 mois",  weightLoss: "-8 kg" },
-      { img: "/images/story5.jpg",  imgAfter: "/images/story5.jpg",  alt: "Transformation entrainement",     width: 1188, height: 1413, tailwindClass: "h-full lg:h-100 pb-10",         category: ["Prise de masse"],  duration: "8 mois" },
+      { img: "/images/story4.jpg",  alt: "Transformation fitness",          width: 1188, height: 1413, tailwindClass: "mt-10 h-56 lg:h-96 pb-10",     category: ["Perte de poids"],  duration: "5 mois",  weightLoss: "-8 kg" },
+      { img: "/images/story5.jpg",  alt: "Transformation entrainement",     width: 1188, height: 1413, tailwindClass: "h-full lg:h-100 pb-10",         category: ["Prise de masse"],  duration: "8 mois" },
     ],
     hidden: [
-      { img: "/images/story6.jpg",  imgAfter: "/images/story6.jpg",  alt: "Transformation remise en forme",  width: 1188, height: 1413, tailwindClass: "h-66 lg:h-100 pb-10",           category: ["Remise en forme"], duration: "4 mois" },
-      { img: "/images/story7.jpg",  imgAfter: "/images/story7.jpg",  alt: "Préparation compétition",         width: 1188, height: 1413, tailwindClass: "h-56 lg:h-96",                  category: ["Compétition"],     duration: "12 semaines" },
+      { img: "/images/story6.jpg",  alt: "Transformation remise en forme",  width: 1188, height: 1413, tailwindClass: "h-66 lg:h-100 pb-10",           category: ["Remise en forme"], duration: "4 mois" },
+      { img: "/images/story7.jpg",  alt: "Préparation compétition",         width: 1188, height: 1413, tailwindClass: "h-56 lg:h-96",                  category: ["Compétition"],     duration: "12 semaines" },
     ],
   },
   {
     initial: [
-      { img: "/images/story8.jpg",  imgAfter: "/images/story8.jpg",  alt: "Transformation étirements",       width: 1188, height: 1413, tailwindClass: "mt-10 md:mt-32 pb-10 h-full",  category: ["Remise en forme"], duration: "3 mois" },
-      { img: "/images/story9.jpg",  imgAfter: "/images/story9.jpg",  alt: "Transformation coaching en salle",width: 1188, height: 1413, tailwindClass: "pb-10 h-106",                   category: ["Perte de poids"],  duration: "5 mois",  weightLoss: "-10 kg" },
+      { img: "/images/story8.jpg",  alt: "Transformation étirements",       width: 1188, height: 1413, tailwindClass: "mt-10 md:mt-32 pb-10 h-full",  category: ["Remise en forme"], duration: "3 mois" },
+      { img: "/images/story9.jpg",  alt: "Transformation coaching en salle",width: 1188, height: 1413, tailwindClass: "pb-10 h-106",                   category: ["Perte de poids"],  duration: "5 mois",  weightLoss: "-10 kg" },
     ],
     hidden: [
-      { img: "/images/story13.jpg", imgAfter: "/images/story13.jpg", alt: "Transformation musculation",      width: 1188, height: 1413, tailwindClass: "pb-10 h-full",                  category: ["Prise de masse"],  duration: "6 mois" },
+      { img: "/images/story13.jpg", alt: "Transformation musculation",      width: 1188, height: 1413, tailwindClass: "pb-10 h-full",                  category: ["Prise de masse"],  duration: "6 mois" },
     ],
   },
 ];
@@ -242,7 +227,6 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
                   <div key={i} className="relative">
                     <StoryCardV2
                       img={card.img}
-                      imgAfter={card.imgAfter}
                       alt={card.alt}
                       width={card.width}
                       height={card.height}
