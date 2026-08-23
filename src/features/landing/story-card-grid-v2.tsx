@@ -60,15 +60,16 @@ export const StoryCardV2: React.FC<StoryCardV2Props> = ({
 // ── Data ──────────────────────────────────────────────────────────
 
 const ALL_IMAGES: TransformationImage[] = [
-  { img: "/images/modele-1.jpeg",  alt: "Transformation -8kg en 4 mois",          width: 1405, height: 1119, category: ["Perte de poids"] },
-  { img: "/images/modele-2.jpg",  alt: "Transformation coaching nutrition",      width: 1536, height: 1023, category: ["Remise en forme"] },
-  { img: "/images/modele-3.jpeg",  alt: "Transformation prise de masse sèche",    width: 1405, height: 1119, category: ["Prise de masse", "Compétition"] },
-  { img: "/images/modele.jpeg",    alt: "Transformation surplus calorique",       width: 1329, height: 1119, category: ["Prise de masse"] },
-  { img: "/images/modele-5.jpeg",  alt: "Transformation posture et définition",   width: 1456, height: 1119, category: ["Remise en forme"] },
-  { img: "/images/modele-6.jpeg",  alt: "Transformation -15kg +4kg de muscle",    width: 1536, height: 1023, category: ["Perte de poids", "Prise de masse"] },
+  { img: "/images/modele-1.jpeg", alt: "Transformation prise de masse sèche -11kg, préparation bikini", width: 1402, height: 1122, category: ["Prise de masse", "Compétition"] },
+  { img: "/images/modele-2.jpg",  alt: "Transformation -15kg +4kg de muscle en 12 mois", width: 1536, height: 1094, category: ["Perte de poids", "Prise de masse"] },
+  { img: "/images/modele-3.jpeg", alt: "Transformation surplus calorique 1650 à 2600 kcal", width: 1324, height: 1188, category: ["Prise de masse"] },
+  { img: "/images/modele.jpeg",   alt: "Transformation -8kg en 4 mois",                width: 1405, height: 1119, category: ["Perte de poids"] },
+  // { img: "/images/modele-4.jpeg", alt: "Transformation en 60 jours, montée calorique 2200 à 2500 kcal", width: 1536, height: 1024, category: ["Remise en forme"] },
+  { img: "/images/modele-5.jpeg", alt: "Transformation coaching nutrition 1300 à 2550 kcal/jour", width: 1535, height: 1024, category: ["Remise en forme"] },
+  { img: "/images/modele-6.jpeg", alt: "Transformation posture et définition",             width: 1448, height: 1086, category: ["Remise en forme"] },
 ];
 
-const INITIAL_COUNT = 3;
+const INITIAL_COUNT = 5;
 
 const CATEGORIES: TransformationCategory[] = [
   "Tous",
@@ -101,7 +102,7 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
     <section className="relative isolate overflow-hidden py-24 sm:py-32">
       <GradientBackground />
 
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Header */}
         {(badge ?? title ?? highlight ?? description) && (
