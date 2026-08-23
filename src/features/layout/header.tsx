@@ -8,10 +8,10 @@ import { SiteConfig } from "@/site-config";
 
 const NAV_LINKS = [
   { label: "Accueil",    href: "/" },
-  { label: "Blog",         href: "/posts" },
-  { label: "Prestations",      href: "/prestations" },
-  { label: "Team",      href: "/team" },
   { label: "Avant/Après",      href: "/avant-apres" },
+  { label: "Prestations",      href: "/prestations" },
+  { label: "Blog",         href: "/posts" },
+  { label: "Team",      href: "/team" },
   // { label: "Contact",       href: "/contact" },
   // { label: "Á Propos",       href: "/about" },
 ] as const;
