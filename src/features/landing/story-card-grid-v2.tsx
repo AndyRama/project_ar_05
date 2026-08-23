@@ -130,7 +130,7 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
         )}
 
         {/* Stats + étoiles */}
-        <div className="mb-10 grid grid-cols-3 gap-4 rounded-md border border-border bg-card/50 px-6 py-8 text-center backdrop-blur-sm">
+        {/* <div className="mb-10 grid grid-cols-3 gap-4 rounded-md border border-border bg-card/50 px-6 py-8 text-center backdrop-blur-sm">
           <div>
             <p className="text-2xl font-bold text-orange-500">+350</p>
             <p className="mt-1 text-xs text-muted-foreground">Transformations réussies</p>
@@ -146,7 +146,7 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
             <p className="text-2xl font-bold text-orange-500">10 ans</p>
             <p className="mt-1 text-xs text-muted-foreground">D&apos;expérience</p>
           </div>
-        </div>
+        </div> */}
 
         {/* Filtres */}
         <div className="mb-10 flex flex-wrap justify-center gap-2">
