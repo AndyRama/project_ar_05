@@ -20,7 +20,7 @@ export const SubHero = ({ title, eyebrow = "", imageUrl = '/images/salle-de-spor
 
       <Typography
         as="h1"
-        className="mx-auto max-w-4xl bg-gradient-to-r from-orange-500 via-red-400 to-yellow-400 bg-clip-text text-5xl font-extrabold text-transparent md:text-6xl"
+        className="mx-auto max-w-4xl bg-gradient-to-r from-orange-500 via-red-400 to-yellow-400 bg-clip-text text-3xl font-extrabold text-transparent md:text-6xl"
       >
         {title}
       </Typography>

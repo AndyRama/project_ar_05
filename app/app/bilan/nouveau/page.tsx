@@ -56,7 +56,7 @@ export default async function NewBilanPage() {
                   <p className="text-sm text-muted-foreground">
                     On part des valeurs de ton dernier bilan (
                     {new Date(lastProfile.createdAt).toLocaleDateString("fr-FR")}) — tu
-                    pourras ajuster chaque section une par une une fois sur la page du
+                    pourras ajuster chaque section une par une, une fois sur la page du
                     bilan en le modifiant.
                   </p>
                   <form action={createDraftBilanAction} className="mt-4">

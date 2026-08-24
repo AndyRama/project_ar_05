@@ -9,7 +9,7 @@ import {
 import { getRequiredUser} from "@/lib/auth/auth-user";
 import { FAKE_PROFILE } from "@/features/admin/demo-fiche/fake-data";
 import { BodyDiagramCard } from "@/features/admin/demo-fiche/body-diagram-card";
-import { PhotoCard } from "@/features/admin/demo-fiche/photos-suivi-card";
+// import { PhotoCard } from "@/features/admin/demo-fiche/photos-suivi-card";
 import { LifestyleCard } from "@/features/admin/demo-fiche/lifestyle-card";
 import { TrainingCard } from "@/features/admin/demo-fiche/training-card";
 import { MonthlyReviewCard } from "@/features/admin/demo-fiche/monthly-review-card";
@@ -32,7 +32,7 @@ export default async function DemoFichePage() {
       </LayoutHeader>
 
        <LayoutActions>
-          <Link href="/bilan">
+          <Link href="app/bilan">
             <Button className="gap-2 bg-orange-500 hover:bg-orange-400">
               <Plus className="size-4" />
                 Retour au bilan
@@ -82,11 +82,11 @@ export default async function DemoFichePage() {
         <MonthlyHistoryTable />
 
         {/* Photos de suivi — 3 colonnes */}
-        <div className="grid gap-6 lg:grid-cols-3">
+        {/* <div className="grid gap-6 lg:grid-cols-3">
           <PhotoCard type="face" />
           <PhotoCard type="profil" />
           <PhotoCard type="dos" />
-        </div>
+        </div> */}
       </LayoutContent>
     </Layout>
   );

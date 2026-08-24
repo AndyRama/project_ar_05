@@ -115,7 +115,7 @@ export default async function NewBilanPage() {
           </Card>
         </div>
 
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-7xl">
           <MonthlyAuditForm defaultValues={defaultValues} />
         </div>
       </LayoutContent>

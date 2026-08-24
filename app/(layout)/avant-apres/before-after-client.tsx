@@ -28,7 +28,7 @@ export default function BeforeAfterClient() {
             href="/#begin"
             className="rounded-[10px] bg-white px-12 py-4 text-xl font-bold text-orange-700 transition-all hover:scale-105 hover:bg-gray-100"
           >
-            Commencer ma transformation maintenant
+            Commencer
           </Link>
         </div>
       </section>

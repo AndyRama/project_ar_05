@@ -99,7 +99,7 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
   const visible = showAll ? filtered : filtered.slice(0, INITIAL_COUNT);
 
   return (
-    <section className="relative isolate overflow-hidden py-24 sm:py-32">
+    <section className="relative isolate overflow-hidden py-0 sm:py-12">
       <GradientBackground />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -116,7 +116,7 @@ export const StoryCardGridV2: React.FC<StoryCardGridV2Props> = ({
               </div>
             )}
             {(title ?? highlight) && (
-              <h2 className="text-4xl font-bold tracking-tight text-balance text-foreground sm:text-5xl">
+              <h2 className="text-4xl font-bold tracking-tight text-balance text-foreground sm:text-3xl">
                 {title}{title && highlight ? " " : ""}
                 {highlight && <span className="text-orange-500">{highlight}</span>}
               </h2>

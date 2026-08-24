@@ -26,9 +26,9 @@ const OFFERS: Offer[] = [
   {
     id: "starter",
     title: "STARTER - 3 MOIS",
-    price: "160€",
+    price: "200€",
     priceUnit: "/ Mois",
-    priceDetail: "(3 × 160€ = 480€)",
+    priceDetail: "(3 × 200€ = 600€)",
     features: [
       "Pack adapté aux débutants comme confirmés.",
       "Programme personnalisé (perte de poids, musculation ou préparation physique).",
@@ -65,9 +65,9 @@ const OFFERS: Offer[] = [
   {
     id: "competition-vip",
     title: "COMPETITION VIP - 12 MOIS",
-    price: "150€",
+    price: "170€",
     priceUnit: "/ Mois",
-    priceDetail: "(12 × 150€ = 1 800€)",
+    priceDetail: "(12 × 170€ = 2 040€)",
     features: [
       "Pack le plus complet pour une transformation durable.",
       "Programme personnalisé évolutif sur 12 mois.",
@@ -80,7 +80,7 @@ const OFFERS: Offer[] = [
     ],
     cta: "Je m'engage sur 12 mois",
     href: "https://buy.stripe.com/6oU00l1MQdib0zMbrF9AA08",
-    footerNote: "Meilleur tarif - 150€/mois",
+    footerNote: "Meilleur tarif - 170€/mois",
   },
 ];
 
