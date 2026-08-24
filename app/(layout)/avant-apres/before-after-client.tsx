@@ -14,8 +14,6 @@ export default function BeforeAfterClient() {
 
       <StoryCardGridV2 />
       
-      <TransformationCard />
-
       <section className="bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-16">
         <div className="mx-auto max-w-5xl text-center">
           <Typography variant="h2" className="mb-6 text-white">
@@ -32,6 +30,8 @@ export default function BeforeAfterClient() {
           </Link>
         </div>
       </section>
+
+      <TransformationCard />
 
       <SectionDivider />
 
