@@ -39,7 +39,6 @@ export const auth = betterAuth({
   baseURL: getServerUrl(),
     trustedOrigins: [
     "https://www.unlcoaching.com",
-     "https://unlcoaching.com",
   ],
   databaseHooks: {
     user: {
