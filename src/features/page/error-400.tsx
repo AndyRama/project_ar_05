@@ -11,7 +11,6 @@ import Link from "next/link";
 import type { PropsWithChildren } from "react";
 import { Typography } from "../../components/nowts/typography";
 import { ContactSupportDialog } from "../contact/support/contact-support-dialog";
-import Link from "next/link";
 import { Home } from "lucide-react";
 
 type Page400Props = PropsWithChildren<{
