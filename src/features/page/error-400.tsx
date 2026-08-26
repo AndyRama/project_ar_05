@@ -11,6 +11,8 @@ import Link from "next/link";
 import type { PropsWithChildren } from "react";
 import { Typography } from "../../components/nowts/typography";
 import { ContactSupportDialog } from "../contact/support/contact-support-dialog";
+import Link from "next/link";
+import { Home } from "lucide-react";
 
 type Page400Props = PropsWithChildren<{
   title?: string;
@@ -18,7 +20,14 @@ type Page400Props = PropsWithChildren<{
 
 export function Error400(props: Page400Props) {
   return (
-    <Card className="w-full border-orange-500/30">
+    <Card className="border-orange-500/30 relative mx-auto h-auto w-full max-w-md lg:max-w-lg lg:p-6">
+      <Link
+        href="/"
+        aria-label="Retour à l'accueil"
+        className="absolute right-4 top-4 flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+      >
+        <Home className="size-5" />
+      </Link>
       <CardHeader className="flex flex-col items-start gap-3">
         <LogoSvg size={32} />
         <Typography variant="code" className="text-orange-500">400</Typography>

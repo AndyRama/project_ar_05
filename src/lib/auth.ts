@@ -87,7 +87,7 @@ export const auth = betterAuth({
 
           [Cliquez ici pour réinitialiser votre mot de passe](${url})
 
-          Si vous n'êtes pas à l'origine de cette demande, ignorez cet email.
+          Si vous n'êtes pas à l'origine de cette demande, ignorez cet email.s
           `,
         }),
       });

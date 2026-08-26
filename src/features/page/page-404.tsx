@@ -7,7 +7,7 @@ import { buttonVariants } from "../../components/ui/button";
 export function Page404() {
   return (
     <main className="flex h-full flex-col items-center justify-center gap-8">
-      <LogoSvg size={32} />
+      <LogoSvg size={12} />
       <div className="space-y-3 text-center">
         <Typography variant="code" className="text-orange-500">404</Typography>
         <Typography variant="h1">Page introuvable</Typography>

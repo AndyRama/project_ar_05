@@ -12,7 +12,7 @@ type Page400Props = PropsWithChildren<{
 export function Page400(props: Page400Props) {
   return (
     <main className="flex h-full flex-col items-center justify-center gap-8">
-      <LogoSvg size={32} />
+      <LogoSvg size={12} />
       <div className="max-w-lg space-y-3 text-center">
         <Typography variant="code" className="text-orange-500">400</Typography>
         <Typography variant="h1">{props.title ?? "Requête invalide"}</Typography>
