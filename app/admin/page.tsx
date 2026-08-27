@@ -22,6 +22,9 @@ import Link from "next/link";
 import { Eye, Users, Calendar, TrendingUp, Activity, ExternalLink, File } from "lucide-react";
 import type { Prisma } from "@/generated/prisma";
 import { StorageUsageCard } from "@/features/admin/meal-plans/storage-usage-card";
+import { LargestFilesCard } from "@/features/admin/meal-plans/largest-files-card";
+import { LargestFilesVisibility } from "@/features/admin/meal-plans/largest-files-visibility";
+import { StorageVisibilityProvider } from "@/features/admin/meal-plans/storage-visibility-context";
 import { MailUsageCard } from "@/features/email/mail-usage-card";
 
 // Type pour un client avec tous ses bilans
@@ -113,10 +116,18 @@ export default async function AdminPage() {
 
       <LayoutContent>
         {/* Gestion des services */}
-        <div className="mb-6 grid grid-cols-1 gap-4 xl:grid-cols-2">
-          <StorageUsageCard />
-          <MailUsageCard />
-        </div>
+        <StorageVisibilityProvider>
+          <div className="mb-6 grid grid-cols-1 gap-4 xl:grid-cols-2">
+            <StorageUsageCard />
+            <MailUsageCard />
+          </div>
+
+          <LargestFilesVisibility>
+            <div className="mb-6 grid grid-cols-1 gap-4">
+              <LargestFilesCard />
+            </div>
+          </LargestFilesVisibility>
+        </StorageVisibilityProvider>
 
         {/* Statistiques */}
         {usersWithProfiles.length > 0 && (
