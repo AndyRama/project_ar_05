@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { LogoSvg } from "@/components/svg/logo-subscribe";
+// import { LogoSvg } from "@/components/svg/logo-subscribe";
 import Link from "next/link";
 import type { PropsWithChildren } from "react";
 import { Typography } from "../../components/nowts/typography";
@@ -28,7 +28,7 @@ export function Error400(props: Page400Props) {
         <Home className="size-5" />
       </Link>
       <CardHeader className="flex flex-col items-start gap-3">
-        <LogoSvg size={32} />
+        {/* <LogoSvg size={32} /> */}
         <Typography variant="code" className="text-orange-500">400</Typography>
         <CardTitle>{props.title ?? "Requête invalide"}</CardTitle>
         <CardDescription>

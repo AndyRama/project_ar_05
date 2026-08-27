@@ -13,6 +13,23 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+const MEASUREMENT_ZONES = [
+  { n: 1, label: "Tour d'épaules" },
+  { n: 2, label: "Tour de poitrine" },
+  { n: 3, label: "Tour de taille" },
+  { n: 4, label: "Tour de dos" },
+  { n: 6, label: "Tour de hanches" },
+  { n: 9, label: "Tour de fessiers" },
+  { n: 7, label: "Bras gauche (flex)" },
+  { n: 7, label: "Bras droit (flex)" },
+  { n: null, label: "Avant-bras gauche" },
+  { n: null, label: "Avant-bras droit" },
+  { n: 8, label: "Cuisse gauche" },
+  { n: 8, label: "Cuisse droite" },
+  { n: 11, label: "Mollet gauche" },
+  { n: 11, label: "Mollet droit" },
+];
+
 export default async function NewBilanPage() {
   const user = await getRequiredUser();
 
@@ -114,6 +131,35 @@ export default async function NewBilanPage() {
             </CardContent>
           </Card>
         </div>
+
+        {/* Diagramme des zones de mesure (statique, sans données) */}
+        <Card className="border-orange-500/30">
+          <CardHeader className="border-b border-orange-500/20 bg-gradient-to-r from-orange-500/10 to-transparent">
+            <CardTitle className="px-2 text-orange-500">Guide des mensurations</CardTitle>
+          </CardHeader>
+          <CardContent className="grid gap-6 pt-6 lg:grid-cols-2">
+            <div className="flex items-start justify-center">
+              <img
+                src="/images/body-diagram.jpg"
+                alt="Diagramme des points de mesure"
+                className="max-w-xs rounded-md border"
+              />
+            </div>
+            <div className="space-y-1">
+              <div className="border-b pb-2 text-xs font-semibold text-muted-foreground">Zone</div>
+              {MEASUREMENT_ZONES.map((z, i) => (
+                <div key={i} className="flex items-center gap-2 border-b border-border/50 py-1.5 text-sm">
+                  {z.n && (
+                    <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">
+                      {z.n}
+                    </span>
+                  )}
+                  <span>{z.label}</span>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
 
         <div className="mx-auto max-w-7xl">
           <MonthlyAuditForm defaultValues={defaultValues} />
