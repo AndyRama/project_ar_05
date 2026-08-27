@@ -11,6 +11,9 @@ import { ArrowLeft } from "lucide-react";
 import { MealPlanUpload } from "@/features/admin/meal-plans/meal-plan-upload";
 import { MealPlanList } from "@/features/admin/meal-plans/meal-plan-list";
 import { StorageUsageCard } from "@/features/admin/meal-plans/storage-usage-card";
+import { LargestFilesCard } from "@/features/admin/meal-plans/largest-files-card";
+import { LargestFilesVisibility } from "@/features/admin/meal-plans/largest-files-visibility";
+import { StorageVisibilityProvider } from "@/features/admin/meal-plans/storage-visibility-context";
 import type { PageParams } from "@/types/next";
 
 type Props = PageParams<{ userId: string }>;
@@ -44,7 +47,12 @@ export default async function AdminClientMealPlanPage({ params }: Props) {
       </LayoutHeader>
 
       <LayoutContent className="space-y-6">
-        <StorageUsageCard />
+        <StorageVisibilityProvider>
+          <StorageUsageCard />
+          <LargestFilesVisibility>
+            <LargestFilesCard />
+          </LargestFilesVisibility>
+        </StorageVisibilityProvider>
 
         <Card className="border-orange-500/30">
           <CardHeader>

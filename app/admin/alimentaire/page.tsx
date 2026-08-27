@@ -13,6 +13,9 @@ import { getRequiredAdmin } from "@/lib/auth/auth-user";
 import Link from "next/link";
 import { FileText, Eye, NotebookText  } from "lucide-react";
 import { StorageUsageCard } from "@/features/admin/meal-plans/storage-usage-card";
+import { LargestFilesCard } from "@/features/admin/meal-plans/largest-files-card";
+import { LargestFilesVisibility } from "@/features/admin/meal-plans/largest-files-visibility";
+import { StorageVisibilityProvider } from "@/features/admin/meal-plans/storage-visibility-context";
 
 export default async function AdminMealPlansPage() {
   await getRequiredAdmin();
@@ -32,7 +35,13 @@ export default async function AdminMealPlansPage() {
         <LayoutTitle>Plans alimentaires | Gestion des PDF</LayoutTitle>
       </LayoutHeader>
       <LayoutContent className="space-y-6">
-        <StorageUsageCard />
+        <StorageVisibilityProvider>
+          <StorageUsageCard />
+          <LargestFilesVisibility>
+            <LargestFilesCard />
+          </LargestFilesVisibility>
+        </StorageVisibilityProvider>
+
         <div className="overflow-x-auto rounded-md border">
           <Table>
             <TableHeader>
@@ -96,6 +105,6 @@ export default async function AdminMealPlansPage() {
           </Table>
         </div>
       </LayoutContent>
-    </Layout>
+    </Layout>    
   );
 }
