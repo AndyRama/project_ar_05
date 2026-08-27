@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { StorageUsageCard } from "@/features/admin/meal-plans/storage-usage-card";
 import { LargestFilesCard } from "@/features/admin/meal-plans/largest-files-card";
+import { LargestFilesVisibility } from "@/features/admin/meal-plans/largest-files-visibility";
+import { StorageVisibilityProvider } from "@/features/admin/meal-plans/storage-visibility-context";
 import { MailUsageCard } from "@/features/email/mail-usage-card";
 
 const SERVICES = [
@@ -27,15 +29,18 @@ export default async function ServicesPage() {
         <LayoutTitle>Gestion des services</LayoutTitle>
       </LayoutHeader>
       <LayoutContent>
-      {/* Gestion des services */}
-        <div className="mb-6 grid grid-cols-1 gap-4 xl:grid-cols-2">
-          <StorageUsageCard />
-          <MailUsageCard />
-        </div>
+        <StorageVisibilityProvider>
+          <div className="mb-6 grid grid-cols-1 gap-4 xl:grid-cols-2">
+            <StorageUsageCard />
+            <MailUsageCard />
+          </div>
 
-        <div className="mb-6 grid grid-cols-1 gap-4 xl:grid-cols-2">
-          <LargestFilesCard />
-        </div>
+          <LargestFilesVisibility>
+            <div className="mb-6 grid grid-cols-1 gap-4">
+              <LargestFilesCard />
+            </div>
+          </LargestFilesVisibility>
+        </StorageVisibilityProvider>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
           {SERVICES.map((service) => (

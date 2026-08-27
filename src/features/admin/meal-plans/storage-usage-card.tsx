@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getStorageUsage } from "@/lib/files/storage-usage";
 import { cn } from "@/lib/utils";
+import { ToggleLargestFilesButton } from "./toggle-largest-files-button";
 
 const formatGb = (bytes: number) => (bytes / (1024 * 1024 * 1024)).toFixed(2);
 
@@ -11,8 +12,9 @@ export const StorageUsageCard = async () => {
 
   return (
     <Card className="border-orange-500/30">
-      <CardHeader>
+      <CardHeader className="flex flex-row items-center justify-between space-y-0">
         <CardTitle className="text-sm text-orange-500">Stockage UploadThing</CardTitle>
+        <ToggleLargestFilesButton />
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="flex items-baseline justify-between text-sm">
