@@ -1,5 +1,6 @@
 import type { User } from "better-auth";
 import { env } from "../env";
+import { logger } from "../logger";
 import { resend } from "../mail/resend";
 import { prisma } from "../prisma";
 
@@ -12,23 +13,23 @@ export const setupResendCustomer = async (user: User) => {
     return;
   }
 
-  const contact = await resend.contacts.create({
-    audienceId: env.RESEND_AUDIENCE_ID,
-    email: user.email,
-    firstName: user.name || "",
-    unsubscribed: false,
-  });
+  try {
+    const contact = await resend.contacts.create({
+      audienceId: env.RESEND_AUDIENCE_ID,
+      email: user.email,
+      firstName: user.name || "",
+      unsubscribed: false,
+    });
 
-  if (!contact.data) return;
+    if (!contact.data) return;
 
-  await prisma.user.update({
-    where: {
-      id: user.id,
-    },
-    data: {
-      resendContactId: contact.data.id,
-    },
-  });
+    await prisma.user.update({
+      where: { id: user.id },
+      data: { resendContactId: contact.data.id },
+    });
 
-  return contact.data.id;
+    return contact.data.id;
+  } catch (err) {
+    logger.error("Échec de la création du contact Resend", { err });
+  }
 };
