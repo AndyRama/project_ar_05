@@ -8,6 +8,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/ca
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { StorageUsageCard } from "@/features/admin/meal-plans/storage-usage-card";
+import { LargestFilesCard } from "@/features/admin/meal-plans/largest-files-card";
 import { MailUsageCard } from "@/features/email/mail-usage-card";
 
 const SERVICES = [
@@ -30,6 +31,10 @@ export default async function ServicesPage() {
         <div className="mb-6 grid grid-cols-1 gap-4 xl:grid-cols-2">
           <StorageUsageCard />
           <MailUsageCard />
+        </div>
+
+        <div className="mb-6 grid grid-cols-1 gap-4 xl:grid-cols-2">
+          <LargestFilesCard />
         </div>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
