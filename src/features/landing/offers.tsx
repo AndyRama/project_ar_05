@@ -11,14 +11,14 @@ type Offer = {
   title: string;
   price: string;
   priceUnit: string;
-  priceDetail?: string;       // ex: "(3 × 160€ = 480€)"
+  priceDetail?: string;       
   description?: string;
   features: string[];
   strongFeatures?: string[];
   roi?: { value: string; label: string };
   cta: string;
   href: string;
-  footerNote?: string;        // ex: "Engagement 3 mois"
+  footerNote?: string;        
   featured?: boolean;
 };
 
@@ -38,7 +38,7 @@ const OFFERS: Offer[] = [
       "Communication WhatsApp & Email avec visio ou call chaque mois.",
     ],
     cta: "Je démarre le programme",
-    href: "https://buy.stripe.com/14AeVfgHKce796i8ft9AA06",
+    href: "https://buy.stripe.com/8x200ldvy7XR82e2V99AA09",
     footerNote: "Engagement 3 mois",
   },
   {
@@ -79,7 +79,7 @@ const OFFERS: Offer[] = [
       "Meilleur rapport qualité/prix sur l'année.",
     ],
     cta: "Je m'engage sur 12 mois",
-    href: "https://buy.stripe.com/6oU00l1MQdib0zMbrF9AA08",
+    href: "https://buy.stripe.com/9B6eVfajmce75U6cvJ9AA0a",
     footerNote: "Meilleur tarif - 170€/mois",
   },
 ];
